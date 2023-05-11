@@ -1,0 +1,191 @@
+.c-grid.fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.c-grid {
+    position: relative;
+    box-sizing: border-box;
+}
+
+article, aside, body, div, footer, header, section {
+    user-select: text;
+}
+
+.c-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    color: #495057;
+    font-family: Pretendard,Apple SD Gothic Neo,Helvetica Neue,Helvetica,Arial,Trebuchet MS,sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    background-color: #fff;
+}
+
+#login {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+}
+
+.mb-85 {
+    margin-bottom: 85px!important;
+}
+
+
+:root {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+}
+
+#login .login-view-wrapper {
+    width: 343px;
+    margin: auto;
+}
+
+.c-box {
+    display: block;
+}
+
+.f-semi-bold {
+    font-weight: 600!important;
+}
+
+div, h1, h2, h3, h4, h5, h6 p, span {
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+#login .register-buttons-container {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: start;
+    margin-bottom: 24px;
+}
+
+.register-button.kakao {
+    background: #fee500;
+    color: #181600;
+}
+
+.register-button.full {
+    border-radius: 4px;
+    height: 48px;
+    width: 100%;
+    margin: 0 0 12px;
+    padding-left: 16px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.register-button.full .register-button-icon {
+    margin-right: 2px;
+}
+
+.register-button-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.register-button-icon img {
+    display: block;
+    width: 100%!important;
+    height: 200%!important;
+}
+
+img {
+    border-style: none;
+    max-width: 100%;
+}
+
+.mb-40 {
+    margin-bottom: 40px!important;
+}
+
+.register-button.kakao:hover {
+    background: #f2ca00;
+}
+
+div {
+    display: block;
+}
+
+.ml-6 {
+    margin-left: 6px!important;
+}
+
+.c-body1 {
+    font-size: 14px;
+    line-height: 2px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    margin-left: 26px;
+}
+
+.f-regular {
+    font-weight: 400!important;
+}
+
+.register-button.email {
+    background: #eaecee;
+    color: #949ba0;
+}
+
+.register-button.naver {
+    background: #1ec800;
+}
+
+.wr {
+    color: #fff;
+}
+
+.c-caption1 {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+}
+
+.mb-8 {
+    margin-bottom: 8px!important;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+a {
+    background-color: transparent;
+    color: #495057;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.c-caption1 {
+    font-size: 10.5px;
+    line-height: 15px;
+    font-weight: 400;
+}
