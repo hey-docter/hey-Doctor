@@ -47,3 +47,50 @@ article, aside, body, div, footer, header, section {
     box-sizing: border-box;
     outline: none;
 }
+
+input, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+button, input {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    font-family: Pretendard,Apple SD Gothic Neo,Helvetica Neue,Helvetica,Arial,Trebuchet MS,sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+img {
+    border-style: none;
+    max-width: 100%;
+}
+
+.kakao {
+    background: #fee500;
+}
+.social-icon-wrapper {
+    align-items: center;
+    background-color: #1e90ff;
+    border-radius: 50%;
+    display: flex!important;
+    justify-content: center;
+}
+
+.c-pointer {
+    cursor: pointer!important;
+}
+
+a {
+    -webkit-text-decoration-skip: objects;
+    background-color: transparent;
+}
+a, a:active, a:focus, a:hover {
+    color: inherit;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
