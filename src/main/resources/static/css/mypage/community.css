@@ -1,0 +1,215 @@
+@charset "UTF-8";
+
+
+.my-page-article {
+    padding: 12px 24px!important;
+}
+
+.new-col-lg-9 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.my-page-nav-section-title {
+    align-items: center;
+    display: flex!important;
+    height: 29px;
+    justify-content: space-between;
+}
+
+.c-headline5 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+c-new-grid.containe {
+    max-width: 1140px;
+    margin: 8px 0 24px;
+}
+
+.c-new-grid {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.c-new-grid.container {
+    max-width: 1140px;
+}
+
+.my-page-nav.c-tabs {
+    -webkit-box: 1;
+    -moz-box: 1;
+    flex: 1!important;
+    flex: 1 0 auto;
+}
+
+.c-tabs--menu-container:not(.c-tabs--vertical) {
+    border-bottom: 1px solid #eaecee;
+}
+
+.my-page-nav {
+    border-bottom: 0!important;
+    margin-left: -8px;
+}
+
+.c-tabs--menu-container {
+    background-color: #fff;
+    width: 100%;
+}
+
+.c-tabs--horizontal .c-tabs--menu-wrapper {
+    width: 100%;
+}
+
+.c-tabs--menu-wrapper {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-tabs--horizontal .c-tabs--menu-button:not(:last-child) {
+    margin-right: 12px;
+}
+
+.c-tabs--menu-button{
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    position: relative;
+}
+
+
+
+.my-page-nav .swiper-wrapper .c-tabs--menu-button .c-button,
+.my-page-nav .c-tabs--menu-wrapper .c-tabs--menu-button .c-button {
+    height: 30px;
+    margin: 8px 0 9px;
+    min-width: 40px;
+}
+
+.active .c-button {
+    color: #040505;
+    font-weight: 500;
+}
+.c-tabs--menu-button .c-button {
+    background: none!important;
+    border: 0;
+    color: #adb3b8;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    min-width: auto;
+    outline: 0;
+    padding: 4px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+.c-button.medium {
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    font-weight: 600;
+    height: 36px;
+    line-height: 20px;
+    min-width: 49px;
+    padding: 0 12px;
+}
+
+.c-button {
+    height: 30px!important;
+}
+
+.primary {
+    background-color: #2a7de1;
+}
+
+.c-button {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    align-items: center;
+    background-color: #2a7de1;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.my-page-nav .swiper-wrapper .c-tabs--menu-button.active:after, 
+.my-page-nav .c-tabs--menu-wrapper .c-tabs--menu-button.active:after {
+    background: #595f63!important;
+}
+
+.active:after {
+    background-color: #595f63;
+    bottom: -1px;
+    content: "";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.my-page-nav-container {
+    margin: 8px 0 24px;
+}
+
+.my-page-community-list {
+    display: flex!important;
+    flex-direction: column;
+}
+
+.c-list {
+    background: #fff;
+}
+
+.my-page-community-card {
+    width: 100%;
+}
+.c-list-item {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    border-radius: 6px;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    justify-content: space-between;
+    padding: 8px 4px;
+}
+
+.c-body2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.flex.justify-content-between {
+    justify-content: space-between;
+}
