@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 페이지</title>
+    <link rel="stylesheet" href="../../static/css/adminHsw/admin.css">
+</head>
+<body>
+    <div id="wrap">
+        <header class="nav-bar">
+            <div class="logo"></div>
+            <h3 style="text-align: center">관리자님, 환영합니다.</h3>
+            <div class="nav-container">
+                <section class="nav-box">
+                    <div class="flex-line">
+                        <div class="nav-title">커뮤니티 관리</div>
+                        <div class="arrow"></div>
+                    </div>
+                    <ul class="board-list list">
+                        <li>글 목록</li>
+                    </ul>
+                </section>
+                <section class="nav-box">
+                    <div class="flex-line">
+                        <div class="nav-title">문의 관리</div>
+                        <div class="arrow"></div>
+                    </div>
+                    <ul class="inquiries-list list">
+                        <li>전체 문의 목록</li>
+                    </ul>
+                </section>
+            </div>
+        </header>
+        <main>
+            <div class="main-title-box">
+                <h3>전체 문의목록 페이지</h3>
+            </div>
+            <form class="main-container">
+                <section class="top-line">
+                    <button type="button" class="delete-btn">삭제</button>
+                </section>
+                <table border="1" id="content-wrap">
+                    <thead>
+                        <th><input type="checkbox" class="check-top"></th>
+                        <th>IDX</th>
+                        <th>제목</th>
+                        <th>작성일</th>
+                        <th>작성자</th>
+                        <th>답변여부</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
