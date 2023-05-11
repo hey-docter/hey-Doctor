@@ -73,9 +73,9 @@ img {
 .kakao {
     background: #fee500;
 }
+
 .social-icon-wrapper {
     align-items: center;
-    background-color: #1e90ff;
     border-radius: 50%;
     display: flex!important;
     justify-content: center;
@@ -89,8 +89,35 @@ a {
     -webkit-text-decoration-skip: objects;
     background-color: transparent;
 }
+
 a, a:active, a:focus, a:hover {
     color: inherit;
     -webkit-text-decoration: none;
     text-decoration: none;
+}
+
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: button;
+    appearance: button;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: Pretendard,Apple SD Gothic Neo,Helvetica Neue,Helvetica,Arial,Trebuchet MS,sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.c-button--icon, .c-button--loading {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
 }
