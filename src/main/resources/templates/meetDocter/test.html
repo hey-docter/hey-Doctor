@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>입력 필드 유효성 검사</title>
+</head>
+<body>
+  <form>
+    <div>
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name">
+        <span class="error-message"></span>
+    </div>
+    <div>
+        <label for="phone">전화번호</label>
+        <input type="text" id="phone" name="phone">
+        <span class="error-message"></span>
+    </div>
+    <div>
+        <label for="email">이메일</label>
+        <input type="text" id="email" name="email">
+        <span class="error-message"></span>
+    </div>
+    <div>
+        <label for="address">주소</label>
+        <input type="text" id="address" name="address">
+        <span class="error-message"></span>
+    </div>
+    <div>
+        <label for="detail-address">상세주소</label>
+        <input type="text" id="detail-address" name="detail-address">
+        <span class="error-message"></span>
+    </div>
+    <button type="submit">제출</button>
+</form>
+
+    
+</body>
+<script>
+
+const form = document.querySelector('form');
+const inputs = form.querySelectorAll('input');
+const errorMessages = form.querySelectorAll('.error-message');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    let isValid = true;
+    inputs.forEach((input, index) => {
+        if (input.value.trim() === '') {
+            errorMessages[index].textContent = '값을 입력하세요.';
+            input.style.borderColor = 'red';
+            errorMessages[index].style.color = 'red';
+            isValid = false;
+        } else {
+            errorMessages[index].textContent = '';
+            input.style.borderColor = '';
+            errorMessages[index].style.color = '';
+        }
+    });
+    
+    if (isValid) {
+        form.submit();
+    }
+});
+
+
+</script>
+</html>
