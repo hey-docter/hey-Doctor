@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<style>
+
+
+.header-wrapper{
+    background-color: #fff;
+}
+
+/*게시판 헤더 부분*/
+@media only screen and (min-width: 768px){
+    .c-sub-header:not(.transparent) {
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .02);
+    }}
+
+    @media only screen and (min-width: 768px){
+        .c-sub-header.appear {
+            top: 0px;
+        }
+    }
+.c-sub-header {
+    background-color: #fff;
+    left: 0;
+    position: fixed;
+    top: 24px;
+    -webkit-transition: top .1s linear, opacity .1s ease-in;
+    transition: top .1s linear, opacity .1s ease-in;
+    width: 100vw;
+    z-index: 80;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+article, aside, footer, header, nav, section {
+    display: block;
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Helvetica Neue", Helvetica, Arial, "Trebuchet MS", sans-serif;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+    outline: none;
+}
+
+article, aside, body, div, footer, header, section {
+    user-select: text;
+}
+body {
+    line-height: 1;
+}
+:root {
+    --swiper-navigation-size: 44px;
+    --swiper-theme-color: #007aff;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.15;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+
+@media only screen and (min-width: 768px){
+html ::-webkit-scrollbar {
+    border: 3px solid #fff;
+    height: 8px;
+    width: 8px;
+}}
+
+@media only screen and (min-width: 768px){
+html ::-webkit-scrollbar-thumb {
+    background: #eaecee;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.1);
+    height: 50px;
+    width: 50px;
+}}
+
+@media only screen and (min-width: 768px){
+html ::-webkit-scrollbar-track {
+    background: #f3f4f5;
+    /* border-radius: 10px; */
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.2);
+}}
+
+body ::selection {
+    background-color: #e6e6e6;
+    color: inherit;
+    cursor: text;
+}
+@media only screen and (min-width: 768px){
+    .c-new-grid.container{
+        max-width: 1140px;
+    }
+}
+.c-new-grid.container{
+    max-width: 100vw;
+}
+
+.c-new-grid {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 768px){
+.c-new-row {
+    margin-left: -12px;
+    margin-right: -12px;
+}
+}
+
+@media only screen and (min-width: 768px){
+.c-new-col {
+    padding-left: 12px;
+    padding-right: 12px;
+}}
+
+.c-new-col {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: relative;
+    width: 100%;
+}
+
+.with-header.c-tabs--menu-container:not(.c-tabs--vertical) {
+    border-bottom-color: #f3f4f5;
+}
+
+@media only screen and (min-width: 768px){
+.c-sub-header .c-tabs--menu-container {
+    border-bottom: 1px solid transparent;
+}}
+
+.c-sub-header .c-tabs--menu-container {
+    border-bottom: 1px solid #f3f4f5;
+}
+
+.c-tabs--menu-container:not(.c-tabs--vertical) {
+    border-bottom: 1px solid #eaecee;
+}
+
+.c-sub-header-tabs {
+    overflow: visible;
+}
+.c-tabs--menu-container{
+    background-color: #fff;
+    width: 100%;
+}
+.c-tabs--horizontal .c-tabs--menu-wrapper{
+    width: 100%;
+}
+
+.c-tabs--menu-wrapper{
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-tabs--horizontal .c-tabs--menu-button:not(:last-child) {
+    margin-right: 12px;
+}
+
+.c-tabs--menu-button {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex!important;
+    position: relative;
+}
+
+ .c-tabs--menu-button>a {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+a {
+    -webkit-text-decoration-skip: objects;
+    background-color: transparent;
+}
+
+.with-header .c-tabs--menu-button .c-button {
+    height: 43px!important;
+}
+
+.c-tabs--menu-button .c-button {
+    background: none!important;
+    border: 0;
+    color: #adb3b8;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    min-width: auto;
+    outline: 0;
+    padding: 4px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.c-button.medium {
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    font-weight: 600;
+    height: 36px;
+    line-height: 20px;
+    min-width: 49px;
+    padding: 0 12px;
+}
+
+
+.c-button {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    align-items: center;
+    background-color: #2a7de1;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: button;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: Pretendard,Apple SD Gothic Neo,Helvetica Neue,Helvetica,Arial,Trebuchet MS,sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+.c-button--icon .c-button--loading{
+
+    display: flex!important;
+}
+
+ .c-tabs--menu-button .c-button.active {
+    color: #2a7de1!important;
+    font-size: 14px;
+    font-weight: 500!important;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.primary {
+    background-color: #2a7de1;
+}
+
+.c-tabs--menu-button.active:after {
+    background-color: #2a7de1;
+}
+
+.active:after {
+    background-color: #595f63;
+    bottom: -1px;
+    content: "";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+/* 게시판 헤더 끝 */
+
+@media only screen and (min-width: 768px){
+.fake-header[data-v-28ae1179] {
+    height: 113px;
+}
+}
+
+
+
+.c-new-grid.fluid{
+    padding: 0;
+}
+
+@media only screen and (min-width: 768px){
+.main-grid-component {
+    padding-top: 70px!important;
+}
+}
+
+.main-grid-component {
+    height: 100%;
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+    padding-top: 48px!important;
+}
+
+.c-new-grid{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.c-new-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.c-new-col.no-gutters {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media only screen and (min-width: 768px){
+.new-col-lg-12{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}}
+
+@media only screen and (min-width: 768px){
+.c-new-col[data-v-59015b26] {
+    padding-left: 12px;
+    padding-right: 12px;
+}}
+@media only screen and (min-width: 768px){
+.c-new-row {
+    margin-left: -12px;
+    margin-right: -12px;
+}}
+
+.c-new-col.no-gutters {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media only screen and (min-width: 768px){
+.c-new-col{
+    padding-left: 12px;
+    padding-right: 12px;
+}}
+
+a {
+    -webkit-text-decoration-skip: objects;
+    background-color: transparent;
+}
+
+a, a:active, a:focus, a:hover {
+    color: inherit;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    /* text-decoration: underline; */
+}
+
+@media only screen and (min-width: 768px){
+.community-timeline-card {
+    border: 1px solid #eaecee;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}}
+
+.community-timeline-card {
+    background: #fff;
+    cursor: pointer;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.c-box {
+    display: block;
+}
+
+.p-relative {
+    position: relative!important;
+}
+
+
+
+@media only screen and (min-width: 768px){
+.community-timeline-card .main-content-container {
+    display: flex!important;
+    flex-direction: row;
+    justify-content: space-between;
+}}
+
+.community-timeline-card .main-content-container .main-content-wrapper {
+    max-width: 100%;
+}
+
+.community-timeline-card .timeline-content .community-timeline-card .timeline-title {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+}
+
+.c-headline7 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+div h1 h2 h3 h4 h5 h6 p span {
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+
+.mb-12 {
+    margin-bottom: 12px!important;
+}
+
+@media only screen and (min-width: 768px){
+.community-timeline-card .timeline-content {
+    min-height: 40px;
+}}
+
+.community-timeline-card .timeline-content{
+    margin-bottom: 8px;
+    position: relative;
+}
+
+
+.community-timeline-card, .timeline-content, .community-timeline-card, .timeline-title {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+}
+
+.c-body2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.community-timeline-card, .timeline-content, .more-text {
+    color: #adb3b8;
+}
+
+.flex, .justify-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.flex, .flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.flex, .align-items-center {
+    align-items: center;
+}
+
+.flex, .flex-row {
+    flex-direction: row;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.mt-24 {
+    margin-top: 24px!important;
+}
+
+.c-rating-group{
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.c-icon-rating {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-icon-rating, .c-text-rating {
+    margin-right: 12px;
+}
+
+.c-icon {
+    background: transparent!important;
+    cursor: auto;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.mr-4 {
+    margin-right: 4px!important;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+
+mb-20 {
+    margin-bottom: 20px!important;
+}
+
+
+.case-list-to-pt-landing-banner {
+    position: relative;
+}
+
+.c-pointer {
+    cursor: pointer!important;
+}
+
+.case-list-to-pt-landing-banner .main-copy {
+    left: 24px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.c-headline7 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.case-list-to-pt-landing-banner img{
+    position: relative;
+}
+
+img {
+    border-style: none;
+    max-width: 100%;
+}
+
+.infinite-loading-container {
+    clear: both;
+    text-align: center;
+}
+
+.infinite-loading-container {
+    background: #fff;
+}
+
+@media only screen and (min-width: 768px){
+.c-box {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}}
+
+.c-box {
+    align-items: flex-start;
+    display: flex!important;
+    flex-direction: column;
+}
+
+.c-body1{
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: 25px;
+}
+
+.f-semi-bold {
+    font-weight: 600!important;
+}
+
+div {
+    display: block;
+}
+.primary.outline {
+    background-color: transparent;
+    border: 1px solid #2a7de1;
+   
+}
+
+.c-button--icon, .c-button--loading{
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.btn-try-infinite {
+    margin-top: 5px;
+    padding: 5px 10px;
+    color: #999;
+    font-size: 14px;
+    line-height: 1;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px){
+.new-col-lg-3{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}}
+
+.case-list-side-box{
+    margin-left: 16px;
+    position: fixed;
+    width: 243px;
+}
+
+.case-list-side-box .user-profile-section{
+    margin-bottom: 16px;
+}
+
+.user-profile-section {
+    align-items: center;
+    display: flex!important;
+    flex-direction: row;
+    position: relative;
+}
+
+.mr-10 {
+    margin-right: 10px!important;
+}
+
+.image-upload-wrapper label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+.image-upload-wrapper label .c-avatar--container {
+    display: block;
+}
+
+.large {
+    height: 68px;
+    line-height: 68px;
+    width: 68px;
+}
+
+.c-avatar--container{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.c-avatar.image{
+    background-size: 100% 100%;
+}
+
+.c-avatar {
+    border-radius: 100%;
+    display: block;
+}
+
+.c-avatar--item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.image-upload-wrapper input[type=file]{
+    clip: rect(0,0,0,0);
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+input, textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+}
+
+input[type="file" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    align-items: baseline;
+    color: inherit;
+    text-overflow: ellipsis;
+    white-space: pre;
+    text-align: start !important;
+    padding: initial;
+    border: initial;
+    overflow: hidden !important;
+}
+
+
+input {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+    margin: 0em;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+
+.user-profile-section .user-information-wrapper div{
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.f-regular {
+    font-weight: 400!important;
+}
+
+.mb-4 {
+    margin-bottom: 4px!important;
+}
+
+.c-caption1{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.membership-status-text-container {
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    display: flex!important;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.membership-status-text-container .c-icon {
+    cursor: pointer;
+    transition: .3s cubic-bezier(.25,.8,.5,1),visibility 0s;
+}
+
+.c-icon {
+    background: transparent!important;
+    cursor: auto;
+}
+
+.slide-fade.hide{
+    max-height: 0;
+    opacity: 0;
+}
+
+.slide-fade {
+    max-height: 135px;
+    overflow: hidden;
+    transition: all .2s linear;
+}
+
+.c-divider.dash{
+    border-style: dashed;
+}
+.c-divider.horizontal{
+    border-top: 1px;
+    height: 0;
+    width: inherit;
+}
+.c-divider {
+    border: 0;
+    margin: 0;
+}
+hr {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+.membership-status-item-container {
+    border-radius: 0 0 4px 4px;
+    display: flex!important;
+    flex-direction: row;
+}
+
+.membership-status-item-container .membership-status-wrapper{
+    width: 100%;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.membership-status-item-container .membership-status-wrapper li{
+    display: flex!important;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.f-regular {
+    font-weight: 400!important;
+}
+
+@media only screen and (min-width: 768px){
+.c-application.c-narrow-button.small.EID-CM054-original{
+    display: none!important;
+}}
+
+
+.c-narrow-button.small {
+    font-size: 12px;
+    font-weight: 400;
+    height: 18px;
+    line-height: 15px;
+    padding: 2px;
+}
+
+.c-narrow-button {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    justify-content: center;
+}
+
+[type=reset], [type=submit], button, html [type=button] {
+    -webkit-appearance: button;
+}
+
+.mt-16 {
+    margin-top: 16px!important;
+}
+
+.c-narrow-button--icon{
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-button.full{
+    width: 100%;
+}
+.c-button--icon, .c-button--loading {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+.action-button-container {
+    display: flex!important;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.action-button{
+    align-items: center;
+    border-radius: 8px!important;
+    display: flex!important;
+    justify-content: center;
+}
+
+.c-box--has-border{
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+.pt-seoul-woman-up-banner{
+    cursor: pointer;
+    display: flex!important;
+}
+
+@media only screen and (min-width: 768px){
+.EID-CM054-original{
+    display: none!important;
+}}
+
+.fab-with-sub-item-container .fab-with-overlay {
+    transition: all .3s ease;
+}
+
+@media only screen and (min-width: 768px) and (min-width: 1140px){
+.floating-button{
+    left: calc(50% + 496px);
+}}
+.floating-button {
+    align-items: center;
+    background-color: #2a7de1;
+    border-radius: 48px;
+    bottom: 72px;
+    box-shadow: 0 3px 7px 0 rgba(0,0,0,.06);
+    cursor: pointer;
+    display: flex!important;
+    height: 58px;
+    justify-content: center;
+    position: fixed;
+    right: 20px;
+    width: 58px;
+    z-index: 9;
+}
+
+.floating-button .c-icon {
+    cursor: pointer;
+}
+
+
+</style>
+
+
+</head>
+<link rel="stylesheet" href="../../static/css/question-board-Seo/question-board-view.css"/>
+<body>
+    
+<div id="__nuxt">
+    <div id="__layout">
+        <div>
+            <div>
+                <div data-fetch-key="data-v-0a363c3c:0" class="header-layout">
+                    <div class="header-wrapper">
+                        <nav id="subHeader" class="c-sub-header appear">
+                            <div class="c-application c-new-grid container" style="background-color:inherit;">
+                                <div class="c-application c-new-row">
+                                    <div class="c-application c-new-col">
+                                        <div
+                                            class="c-application c-tabs c-tabs--menu-container c-sub-header-tabs c-tabs--horizontal with-header">
+                                            <div class="c-tabs--menu-wrapper">
+                                                <div class="c-tabs--menu-button"><a href="/job-questions"
+                                                        class="nuxt-link-active" data-cy="타임라인"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div> 전체
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button active"><a
+                                                        href="/job-questions?ca2tegory=%EC%8B%A4%EB%AC%B4%EC%8A%A4%ED%82%AC"
+                                                        class="nuxt-link-exact-active nuxt-link-active" data-cy="실무고민"
+                                                        aria-current="page"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill active">
+                                                            <div class="c-button--icon"></div>비뇨기과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a
+                                                        href="/job-questions?category=%EC%9D%B4%EC%A7%81%20%EA%B3%A0%EB%AF%BC"
+                                                        class="nuxt-link-active" data-cy="이직고민"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>산부인과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a
+                                                        href="/job-questions?category=%EB%9E%9C%EC%84%A0%20%EC%82%AC%EC%88%98"
+                                                        class="nuxt-link-active" data-cy="직장인고민"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>소아청소년과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a
+                                                        href="/job-questions?category=%EC%B7%A8%EC%97%85%20%EA%B3%A0%EB%AF%BC"
+                                                        class="nuxt-link-active" data-cy="취업고민"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div> 안과<div
+                                                                class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a
+                                                        href="/job-questions?category=%EB%8C%80%ED%95%99%EC%83%9D%20%EA%B3%A0%EB%AF%BC"
+                                                        class="nuxt-link-active" data-cy="대학생고민"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>이비인후과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a href="/answer" class=""
+                                                        data-cy="답변하기"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>정신건강의학과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a href="/answer" class=""
+                                                        data-cy="답변하기"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>정형외과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a href="/answer" class=""
+                                                        data-cy="답변하기"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>피부과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a href="/answer" class=""
+                                                        data-cy="답변하기"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>치과
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+                                                <div class="c-tabs--menu-button"><a href="/answer" class=""
+                                                        data-cy="답변하기"><button
+                                                            class="c-application c-button c-sub-header-menu medium primary fill">
+                                                            <div class="c-button--icon"></div>기타
+                                                            <div class="c-button--icon"></div>
+                                                        </button></a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                        <div class="fake-header"></div>
+                    </div>
+
+
+                    <div class="noti-drawer">
+                        <div class="c-application c-drawer noti-side-drawer" mask-closable=""></div>
+                    </div>   
+                </div>
+            </div>
+
+
+
+            <div id="main-grid" class="c-application c-new-grid main-grid-component fluid"
+                style="min-height: calc(100vh - 324px);">
+                <div class="c-application c-new-row">
+                    <div class="c-application c-new-col new-col-sm-12 new-col-lg-12 no-gutters">
+                        
+                        <div class="c-application c-new-grid community-list-nuxt-container container" 
+                            style="background-color: inherit; margin-top: 36px;">
+                            <div class="c-application c-new-row">
+                                <div d class="c-application c-new-col new-col-sm-12 new-col-lg-9">
+                                    <div class="c-application c-new-col no-gutters">
+                                        <div>
+                                            <div top-load-method="function () { [native code] }">
+                                                <div class="case-list-card-section">  
+                                                    
+                                                    <div class="mb-20">
+                                                        <div class="case-list-to-pt-landing-banner c-pointer">
+                                                            <div class="c-application c-typography main-copy c-headline7"
+                                                                style="color: rgb(255, 255, 255); font-weight: 500;">잘하는
+                                                                현직자가 일하는 방식, 라이브로 배워 내 실무에 적용해요!</div> <img
+                                                                src="https://cdn.comento.kr/images/banner/banner-bg-caseList-to-ptLanding.jpg"
+                                                                alt="실무 과제를 풀고, 라이브로 피드백 받으며, 내 실무의 성과를 만들어 보세요!"
+                                                                class="case-list-pt-banner">
+                                                        </div>
+                                                    </div> 
+
+                                                    <a
+                                                        href="/job-questions/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90/%EC%84%A4%EB%B9%84%EA%B8%B0%EC%88%A0/%EB%B0%98%EB%8F%84%EC%B2%B4_%EC%84%A4%EB%B9%84%EA%B8%B0%EC%88%A0%EA%B3%BC_%EB%B0%98%EB%8F%84%EC%B2%B4_%EC%9E%A5%EB%B9%84_%EC%A0%9C%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%85%9C_%EA%B0%9C%EB%B0%9C%EA%B3%BC%EC%9D%98_%EA%B4%80%EB%A0%A8%EC%84%B1%EC%97%90_%EB%8C%80%ED%95%B4_%EC%A7%88%EB%AC%B8%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4-451925"
+                                                        class="">
+                                                        <article class="community-timeline-card">
+                                                            <div class="c-application c-box p-relative"
+                                                                style="padding: 20px;">
+                                                                <div class="main-content-container">
+                                                                    <div class="main-content-wrapper">
+                                                                        <div class="c-application c-typography timeline-title mb-12 c-headline7"
+                                                                            style="color: rgb(4, 5, 5); font-weight: 500;">
+                                                                            반도체 설비기술과 반도체 장비 제어시스템 개발과의 관련성에 대해 질문드립니다.
+                                                                        </div>
+                                                                        <div class="c-application c-typography timeline-content c-body2"
+                                                                            style="color: rgb(89, 95, 99); font-weight: 400;">
+                                                                            안녕하세요. 현재 설비기술 직무 취업준비를 하면서 직무관련 경험을 쌓고자
+                                                                            대외활동을 알아보고 있습니다.반도체 장비 제어시스템 개발 교육에서 아래와 같은
+                                                                            프로그래밍 교육을 진행하고 있습니다.-반도체 장비 System
+                                                                            Programming-반도체 장비...<span
+                                                                                class="more-text">더보기</span></div>
+                                                                    </div> 
+                                                                </div>
+                                                                <div
+                                                                    class="timeline-bottom-content-wrapper flex flex-row align-items-center justify-between mt-24">
+                                                                    <div class="c-application c-rating-group">
+                                                                        <div class="c-application c-icon-rating"><svg
+                                                                                width="16" height="16"
+                                                                                viewBox="0 0 16 16" fill="black"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                class="mr-4 c-application c-icon"
+                                                                                style="fill: rgb(148, 155, 160);">
+                                                                                <path fill-rule="evenodd"
+                                                                                    clip-rule="evenodd"
+                                                                                    d="M13.8766 8C11.3452 12.6334 4.65478 12.6334 2.12331 8C4.65478 3.36658 11.3452 3.36658 13.8766 8ZM14.8923 7.78461C12.0525 2.10504 3.94746 2.10504 1.10767 7.78461C1.03988 7.9202 1.03988 8.07979 1.10767 8.21538C3.94746 13.895 12.0525 13.895 14.8923 8.21538C14.9601 8.07979 14.9601 7.9202 14.8923 7.78461Z">
+                                                                                </path>
+                                                                                <path fill-rule="evenodd"
+                                                                                    clip-rule="evenodd"
+                                                                                    d="M8 9.5C8.82843 9.5 9.5 8.82843 9.5 8C9.5 7.17157 8.82843 6.5 8 6.5C7.17157 6.5 6.5 7.17157 6.5 8C6.5 8.82843 7.17157 9.5 8 9.5ZM8 10.5C9.38071 10.5 10.5 9.38071 10.5 8C10.5 6.61929 9.38071 5.5 8 5.5C6.61929 5.5 5.5 6.61929 5.5 8C5.5 9.38071 6.61929 10.5 8 10.5Z">
+                                                                                </path>
+                                                                            </svg>
+                                                                            <div class="c-application c-typography c-body2"
+                                                                                style="color: rgb(148, 155, 160);"> 0
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="c-application c-icon-rating"><svg
+                                                                                width="16" height="16"
+                                                                                viewBox="0 0 16 16" fill="black"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                class="mr-4 c-application c-icon"
+                                                                                style="fill: rgb(148, 155, 160);">
+                                                                                <path fill-rule="evenodd"
+                                                                                    clip-rule="evenodd"
+                                                                                    d="M3.69638 13.5299C4.05199 13.1404 4.04399 12.5417 3.67811 12.1619C2.63802 11.0821 2 9.6166 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14H3.26717L3.69638 13.5299ZM1 8C1 9.88557 1.74553 11.597 2.95789 12.8556L1.76434 14.1629C1.47131 14.4838 1.699 15 2.13358 15H8C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8Z">
+                                                                                </path>
+                                                                                <path
+                                                                                    d="M6 8C6 8.41421 5.66421 8.75 5.25 8.75C4.83579 8.75 4.5 8.41421 4.5 8C4.5 7.58579 4.83579 7.25 5.25 7.25C5.66421 7.25 6 7.58579 6 8Z">
+                                                                                </path>
+                                                                                <path
+                                                                                    d="M8.75 8C8.75 8.41421 8.41421 8.75 8 8.75C7.58579 8.75 7.25 8.41421 7.25 8C7.25 7.58579 7.58579 7.25 8 7.25C8.41421 7.25 8.75 7.58579 8.75 8Z">
+                                                                                </path>
+                                                                                <path
+                                                                                    d="M11.5 8C11.5 8.41421 11.1642 8.75 10.75 8.75C10.3358 8.75 10 8.41421 10 8C10 7.58579 10.3358 7.25 10.75 7.25C11.1642 7.25 11.5 7.58579 11.5 8Z">
+                                                                                </path>
+                                                                            </svg>
+                                                                            <div class="c-application c-typography c-body2"
+                                                                                style="color: rgb(148, 155, 160);"> 5
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                            class="c-application c-icon-rating community-timeline-card-bookmark">
+                                                                            <svg width="16" height="16"
+                                                                                viewBox="0 0 16 16" fill="black"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                class="mr-4 c-application c-icon"
+                                                                                style="fill: rgb(148, 155, 160);">
+                                                                                <path fill-rule="evenodd"
+                                                                                    clip-rule="evenodd"
+                                                                                    d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">
+                                                                                </path>
+                                                                            </svg>
+                                                                            <div class="c-application c-typography c-body2"
+                                                                                style="color: rgb(148, 155, 160);"> 0
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> 
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                    </a> 
+                                                    <!-- 게시글 끝 -->
+                                            </div>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+</div>
+
+</body>
+</html>
