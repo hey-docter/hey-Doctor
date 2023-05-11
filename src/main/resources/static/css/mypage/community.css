@@ -213,3 +213,78 @@ c-new-grid.containe {
 .flex.justify-content-between {
     justify-content: space-between;
 }
+
+.c-caption1 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.f-semi-bold {
+    font-weight: 600!important;
+}
+.f-semi-bold {
+    font-weight: 600;
+}
+
+.c-body1 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: 25px;
+}
+
+.flex.flex-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.text-right {
+    text-align: right;
+}
+
+c-list hr:last-child {
+    display: none;
+}
+
+.c-divider.line {
+    border-style: solid;
+}
+
+.c-divider.horizontal {
+    border-top: 1px;
+    height: 0;
+    width: inherit;
+}
+
+.c-divider {
+    border: 0;
+    margin: 0;
+}
+
+.my-8 {
+    margin-bottom: 8px!important;
+    margin-top: 8px!important;
+}
+
+.flex.justify-center {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.mt-32 {
+    margin-top: 32px!important;
+}
