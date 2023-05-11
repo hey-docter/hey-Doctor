@@ -1,0 +1,178 @@
+.c-grid.fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.c-grid {
+    position: relative;
+    box-sizing: border-box;
+}
+
+article, aside, body, div, footer, header, section {
+    user-select: text;
+}
+
+.c-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    color: #495057;
+    font-family: Pretendard,Apple SD Gothic Neo,Helvetica Neue,Helvetica,Arial,Trebuchet MS,sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    background-color: #fff;
+}
+
+#login {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+}
+
+.mb-85 {
+    margin-bottom: 85px!important;
+}
+
+:root {
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+}
+
+#login .login-view-wrapper {
+    width: 343px;
+    margin: auto;
+}
+
+.c-box {
+    display: block;
+}
+
+.f-semi-bold {
+    font-weight: 600!important;
+}
+
+.mb-40 {
+    margin-bottom: 40px!important;
+}
+
+.clearfix:after, .clearfix:before, .container:after, .container:before, .row:after, .row:before{
+    content: " ";
+    display: table;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.clearfix:after, .container:after, .row:after {
+    clear: both;
+}
+
+.register-button.email {
+    background: #eaecee;
+    color: #949ba0;
+}
+
+.register-button.full {
+    border-radius: 4px;
+    height: 48px;
+    width: 100%;
+    margin: 0 0 12px;
+    padding-left: 16px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+.register-button {
+    display: flex;
+    align-items: center;
+}
+
+.mb-12 {
+    margin-bottom: 12px!important;
+}
+
+.register-button.full .register-button-icon {
+    margin-right: 2px;
+}
+
+.register-button-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.ml-6 {
+    margin-left: 6px!important;
+}
+
+.c-body1 {
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: .02em;
+}
+
+.f-regular {
+    font-weight: 400!important;
+}
+
+div, h1, h2, h3, h4, h5, h6 p, span {
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+
+.another-login-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 4px;
+    height: 48px;
+    padding-left: 16px;
+    background-color: #fcfcfc;
+}
+
+.c-pointer {
+    cursor: pointer!important;
+}
+
+.c-icon {
+    cursor: auto;
+    background: transparent!important;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+
+.clearfix:after, .container:after, .row:after {
+    clear: both;
+}
+
