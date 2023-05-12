@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+/*주시*/
+div, h1, h2, h3, h4, h5, h6, p, span {
+    word-wrap: break-word;
+    word-break: keep-all;
+}
+
+#main-grid {
+    padding-top: 0!important;
+}
+.c-new-grid.fluid {
+    padding: 0;
+}
+
+.main-grid-component {
+    height: 100%;
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+    padding-top: 70px!important;
+}
+.c-new-grid {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.c-new-row {
+    margin-left: -12px;
+    margin-right: -12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    
+    margin-right: -8px;
+}
+
+.my-page-container {
+    margin-bottom: 160px;
+    margin-top: 72px;
+}
+
+.new-col-lg-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.c-new-col {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: relative;
+    width: 100%;
+}
+
+.c-new-grid.container {
+    max-width: 1140px;
+}
+.c-new-grid {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.c-new-col.no-gutters {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.new-col-lg-3 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.my-page-aside-menu {
+    padding: 12px;
+    position: relative;
+    width: 259px;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.mb-32 {
+    margin-bottom: 32px!important;
+}
+
+.image-upload-wrapper label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+}
+
+.image-upload-wrapper label .c-avatar--container {
+    display: block;
+}
+
+.large {
+    height: 68px;
+    line-height: 68px;
+    width: 68px;
+}
+.c-avatar--container {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.c-avatar.image {
+    background-size: 100% 100%;
+    width: 68px;
+}
+
+.c-avatar {
+    border-radius: 100%;
+    display: block;
+}
+
+.c-avatar--item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.image-upload-wrapper input[type=file] {
+    clip: rect(0,0,0,0);
+    border: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.ml-4 {
+    margin-left: 4px!important;
+}
+.ml-4, .mx-4 {
+    margin-left: 4px!important;
+}
+
+.c-headline7 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+}
+
+.mb-2 {
+    margin-bottom: 2px!important;
+}
+
+.c-caption1 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.text-truncate {
+    word-wrap: normal!important;
+    overflow: hidden!important;
+    text-overflow: ellipsis!important;
+    white-space: nowrap!important;
+}
+
+.ml-6 {
+    margin-left: 6px!important;
+}
+.mt-2 {
+    margin-top: 2px!important;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.c-list-item.large {
+    border-radius: 8px;
+    padding: 12px 4px;
+    width: 100%;
+    height: 100%;
+}
+
+.c-list-item {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    border-radius: 6px;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    justify-content: space-between;
+    padding: 8px 4px;
+}
+
+.f-regular {
+    font-weight: 400!important;
+}
+
+.p-relative {
+    position: relative!important;
+}
+
+.c-body1 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: 25px;
+}

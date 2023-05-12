@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="../../static/css/question-board/question-board-view.css" />
+<link rel="import" href="../../templates/main-page/header.html">
+<link rel="stylesheet" href="../../static/css/main-page/main-page.css">
+<body>
+
+    <div id="__nuxt"><!---->
+        <div id="__layout">
+            <div>
+                <div>
+                    <div data-fetch-key="data-v-0a363c3c:0" class="header-layout">
+                        <div class="header-wrapper">
+                            <div id="header-layout">
+                                <!--헤더 시작-->
+                                    <header class="header">
+                                        <div class="c-application c-new-grid container" style="background-color:inherit">
+                                            <div class="c-appilication c-new-row">
+                                                <div class="c-application c-new-col new-col-lg-12">
+                                                    <nav class="header-nav">
+                                                        <!-- 헤더 왼쪽부분 (로고/탑메뉴) -->
+                                                        <div class="c-header">
+                                                            <div class="c-application c-logo">
+                                                                <a href="">
+                                                                    <svg width="101px" height="16px" viewBox="0 0 105 18" fill="#2A7DE1"
+                                                                         xmlns="http://www.w3.org/2000/svg" style="fill:#2A7DE1;" class="">
+                                                                        <path
+                                                                                d="M88.3349 12.6399L88.9453 14.705C88.9784 14.8222 88.9686 14.9473 88.9178 15.058C88.867 15.1686 88.7783 15.2575 88.6678 15.3087C87.7598 15.768 86.7555 16.005 85.7378 15.9999C82.7096 15.9999 80.8914 14.3637 80.8914 11.1871V6.55357H79.197C79.0621 6.553 78.9329 6.49904 78.8377 6.40348C78.7425 6.30793 78.6891 6.17856 78.6891 6.0437V4.00425C78.6891 3.86939 78.7425 3.74003 78.8377 3.64447C78.9329 3.54892 79.0621 3.49495 79.197 3.49439H80.8914V0.507735C80.8914 0.440879 80.9046 0.374681 80.9303 0.312941C80.9559 0.2512 80.9935 0.195133 81.0409 0.147958C81.0883 0.100783 81.1445 0.0634282 81.2064 0.0380381C81.2683 0.0126481 81.3346 -0.000276425 81.4015 4.48253e-06H84.2589C84.3258 -0.000276425 84.3921 0.0126481 84.4539 0.0380381C84.5158 0.0634282 84.572 0.100783 84.6194 0.147958C84.6668 0.195133 84.7044 0.2512 84.7301 0.312941C84.7558 0.374681 84.769 0.440879 84.769 0.507735V3.49439H87.97C88.1053 3.49439 88.235 3.5481 88.3307 3.64372C88.4263 3.73934 88.48 3.86903 88.48 4.00425V6.0437C88.48 6.17893 88.4263 6.30862 88.3307 6.40423C88.235 6.49985 88.1053 6.55357 87.97 6.55357H84.769V10.801C84.769 12.0533 85.375 12.5589 86.393 12.5589C86.831 12.5469 87.2639 12.4611 87.6734 12.305C87.7387 12.2812 87.8082 12.2711 87.8776 12.2752C87.947 12.2793 88.0148 12.2977 88.0768 12.3291C88.1388 12.3605 88.1937 12.4043 88.2381 12.4577C88.2825 12.5112 88.3155 12.5732 88.3349 12.6399Z">
+                                                                        </path>
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                              d="M22.0433 3.25332C20.7842 3.25332 19.5535 3.62655 18.5066 4.3258C17.4598 5.02505 16.6438 6.01893 16.162 7.18174C15.6802 8.34455 15.5541 9.62408 15.7998 10.8585C16.0454 12.093 16.6517 13.2269 17.5419 14.1168C18.4322 15.0068 19.5665 15.6129 20.8013 15.8584C22.0362 16.104 23.3162 15.978 24.4794 15.4963C25.6426 15.0147 26.6368 14.199 27.3363 13.1525C28.0357 12.106 28.4091 10.8756 28.4091 9.61702C28.4085 7.92944 27.7377 6.31113 26.544 5.11783C25.3503 3.92453 23.7314 3.25389 22.0433 3.25332ZM22.0433 12.7594C21.4216 12.7594 20.8138 12.5751 20.2969 12.2298C19.7799 11.8845 19.377 11.3938 19.1391 10.8196C18.9012 10.2454 18.8389 9.61354 18.9602 9.00397C19.0815 8.39441 19.3809 7.83449 19.8205 7.39502C20.2601 6.95555 20.8203 6.65627 21.43 6.53502C22.0398 6.41377 22.6718 6.476 23.2462 6.71384C23.8206 6.95168 24.3115 7.35444 24.6569 7.87121C25.0023 8.38797 25.1867 8.99552 25.1867 9.61702C25.187 10.0298 25.1059 10.4385 24.948 10.8199C24.7901 11.2013 24.5586 11.5478 24.2666 11.8396C23.9747 12.1315 23.628 12.363 23.2465 12.5208C22.865 12.6786 22.4562 12.7597 22.0433 12.7594Z">
+                                                                        </path>
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                              d="M93.0975 4.32793C94.1444 3.62868 95.3751 3.25546 96.6342 3.25546C98.3223 3.25602 99.9412 3.92666 101.135 5.11997C102.329 6.31327 102.999 7.93157 103 9.61916C103 10.8778 102.627 12.1081 101.927 13.1546C101.228 14.2011 100.233 15.0168 99.0703 15.4984C97.9071 15.9801 96.6271 16.1061 95.3923 15.8606C94.1574 15.615 93.0231 15.009 92.1329 14.119C91.2426 13.229 90.6363 12.0951 90.3907 10.8607C90.145 9.62622 90.2711 8.34669 90.7529 7.18387C91.2347 6.02106 92.0507 5.02719 93.0975 4.32793ZM94.8807 12.2426C95.3997 12.5893 96.0099 12.7743 96.6342 12.7743C97.4713 12.7743 98.2741 12.4419 98.866 11.8502C99.4579 11.2585 99.7904 10.456 99.7904 9.61916C99.7904 8.99512 99.6053 8.3851 99.2585 7.86623C98.9117 7.34736 98.4187 6.94295 97.842 6.70415C97.2653 6.46534 96.6307 6.40285 96.0184 6.5246C95.4062 6.64634 94.8438 6.94684 94.4024 7.3881C93.961 7.82937 93.6604 8.39156 93.5386 9.00361C93.4168 9.61566 93.4793 10.2501 93.7182 10.8266C93.9571 11.4031 94.3616 11.8959 94.8807 12.2426Z">
+                                                                        </path>
+                                                                        <path
+                                                                                d="M49.8625 8.2581V15.2831C49.8625 15.3501 49.8494 15.4164 49.8237 15.4782C49.7981 15.5401 49.7605 15.5963 49.7132 15.6437C49.6658 15.691 49.6096 15.7286 49.5477 15.7542C49.4858 15.7798 49.4195 15.793 49.3525 15.793H46.5783C46.5114 15.793 46.4452 15.7798 46.3834 15.7541C46.3217 15.7285 46.2656 15.6909 46.2184 15.6435C46.1712 15.5962 46.1338 15.5399 46.1084 15.4781C46.083 15.4162 46.0701 15.35 46.0704 15.2831V9.06449C46.0704 7.71197 45.1848 6.85864 44.0623 6.85864C42.6495 6.85864 41.7148 7.7653 41.7148 9.05382V15.2831C41.7148 15.4184 41.6611 15.548 41.5654 15.6437C41.4698 15.7393 41.34 15.793 41.2048 15.793H38.3964C38.3295 15.793 38.2633 15.7798 38.2015 15.7541C38.1398 15.7285 38.0837 15.6909 38.0365 15.6435C37.9893 15.5962 37.9519 15.5399 37.9265 15.4781C37.9011 15.4162 37.8882 15.35 37.8885 15.2831V9.06449C37.8885 7.71197 37.0028 6.85864 35.8547 6.85864C34.4676 6.85864 33.5585 7.7909 33.5585 9.05382V15.2831C33.5585 15.4184 33.5048 15.548 33.4091 15.6437C33.3135 15.7393 33.1837 15.793 33.0485 15.793H30.2401C30.1732 15.793 30.107 15.7798 30.0452 15.7541C29.9835 15.7285 29.9274 15.6909 29.8802 15.6435C29.833 15.5962 29.7956 15.5399 29.7702 15.4781C29.7448 15.4162 29.7319 15.35 29.7322 15.2831V4.30932C29.7319 4.24246 29.7448 4.17621 29.7702 4.11436C29.7956 4.05251 29.833 3.99629 29.8802 3.94892C29.9274 3.90154 29.9835 3.86395 30.0452 3.83831C30.107 3.81266 30.1732 3.79945 30.2401 3.79945H33.0485C33.1837 3.79945 33.3135 3.85317 33.4091 3.94879C33.5048 4.04441 33.5585 4.17409 33.5585 4.30932V4.88958C34.3716 3.98932 35.5453 3.44532 37.0989 3.44532C38.7741 3.44532 40.2061 4.15572 41.0213 5.45704C41.9773 4.22612 43.4135 3.44532 45.2786 3.44532C47.8288 3.45599 49.8625 5.37598 49.8625 8.2581Z">
+                                                                        </path>
+                                                                        <path
+                                                                                d="M77.3916 8.4181V15.2831C77.3916 15.4184 77.3379 15.548 77.2422 15.6437C77.1466 15.7393 77.0168 15.793 76.8816 15.793H74.1073C73.9724 15.793 73.843 15.7396 73.7474 15.6444C73.6518 15.5493 73.5978 15.4201 73.5973 15.2853V9.21596C73.5973 8.46076 73.1171 6.92477 71.3309 6.92477C71.0326 6.92449 70.7371 6.98299 70.4613 7.09694C70.1856 7.21088 69.9351 7.37804 69.724 7.58884C69.5129 7.79964 69.3455 8.04997 69.2312 8.3255C69.117 8.60103 69.0582 8.89636 69.0582 9.19462V15.2746C69.0582 15.4098 69.0044 15.5395 68.9088 15.6351C68.8131 15.7307 68.6834 15.7845 68.5482 15.7845H65.7419C65.607 15.7839 65.4778 15.7299 65.3826 15.6344C65.2874 15.5388 65.234 15.4094 65.234 15.2746V4.30932C65.234 4.17446 65.2874 4.0451 65.3826 3.94954C65.4778 3.85398 65.607 3.80002 65.7419 3.79945H68.5482C68.6834 3.79945 68.8131 3.85317 68.9088 3.94879C69.0044 4.04441 69.0582 4.17409 69.0582 4.30932V4.94931C69.5351 4.46005 70.1082 4.07479 70.7414 3.81779C71.3746 3.56078 72.0541 3.4376 72.7373 3.45599C75.5307 3.45599 77.3916 5.42291 77.3916 8.4181Z">
+                                                                        </path>
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                              d="M63.3966 10.6304C63.5241 10.6278 63.6462 10.5787 63.7398 10.4922C63.8334 10.4057 63.892 10.2878 63.9045 10.161C63.9194 9.98182 63.928 9.80262 63.928 9.61915C63.9338 8.04524 63.356 6.525 62.3061 5.35208C61.2562 4.17916 59.8088 3.43679 58.2434 3.26836C56.678 3.09994 55.1057 3.51741 53.8302 4.44014C52.5547 5.36287 51.6665 6.72538 51.3372 8.2645C51.2945 8.45528 51.2624 8.64828 51.2411 8.84263C51.2086 9.1002 51.1923 9.35954 51.1921 9.61915C51.1896 11.0179 51.6483 12.3785 52.4971 13.4905C53.346 14.6025 54.5376 15.404 55.8879 15.7709C57.2381 16.1379 58.6717 16.0499 59.9668 15.5206C61.262 14.9912 62.3467 14.0501 63.053 12.8426C63.0912 12.7754 63.1136 12.7003 63.1185 12.6231C63.1234 12.5459 63.1106 12.4687 63.0812 12.3972C63.0518 12.3256 63.0065 12.2617 62.9488 12.2103C62.891 12.1588 62.8223 12.1212 62.7479 12.1002L60.5519 11.4794C60.458 11.4523 60.3582 11.453 60.2647 11.4814C60.1711 11.5098 60.0878 11.5647 60.0248 11.6394C59.6643 12.0796 59.1924 12.4151 58.6582 12.611C58.1239 12.807 57.5469 12.8562 56.9872 12.7536C56.4274 12.6511 55.9054 12.4004 55.4755 12.0277C55.0455 11.655 54.7234 11.174 54.5425 10.6346L63.3966 10.6304ZM57.5621 6.44264C58.1658 6.4429 58.757 6.61471 59.2667 6.93804C59.7764 7.26136 60.1837 7.72287 60.441 8.26876H54.6791C54.9365 7.72206 55.3444 7.25996 55.855 6.93656C56.3656 6.61316 56.9577 6.44184 57.5621 6.44264Z">
+                                                                        </path>
+                                                                        <path
+                                                                                d="M14.0001 11.1231L11.5865 10.4832C11.4691 10.4514 11.3442 10.4622 11.234 10.5138C11.1238 10.5653 11.0355 10.6542 10.9847 10.7647C10.7192 11.3659 10.2549 11.8575 9.6699 12.1572C9.08486 12.4569 8.41454 12.5464 7.77132 12.4108C7.1281 12.2751 6.55109 11.9225 6.137 11.4122C5.72291 10.9018 5.49692 10.2646 5.49692 9.60742C5.49692 8.95026 5.72291 8.31308 6.137 7.80269C6.55109 7.2923 7.1281 6.93972 7.77132 6.80407C8.41454 6.66842 9.08486 6.75794 9.6699 7.05763C10.2549 7.35731 10.7192 7.84894 10.9847 8.4501C11.0333 8.56295 11.1207 8.65469 11.2311 8.70869C11.3415 8.7627 11.4675 8.7754 11.5865 8.74449L14.0001 8.1045C14.0686 8.08628 14.1325 8.054 14.1878 8.00971C14.2431 7.96543 14.2885 7.91011 14.3213 7.84729C14.354 7.78447 14.3733 7.71552 14.3779 7.64484C14.3825 7.57415 14.3723 7.50329 14.3479 7.43677C13.8362 6.03078 12.8452 4.85001 11.5491 4.10184C10.253 3.35367 8.73463 3.08594 7.26069 3.34569C5.78674 3.60543 4.45148 4.37603 3.48941 5.52214C2.52734 6.66825 2 8.11658 2 9.61276C2 11.1089 2.52734 12.5573 3.48941 13.7034C4.45148 14.8495 5.78674 15.6201 7.26069 15.8798C8.73463 16.1396 10.253 15.8718 11.5491 15.1237C12.8452 14.3755 13.8362 13.1947 14.3479 11.7887C14.3722 11.7224 14.3824 11.6516 14.3778 11.5811C14.3732 11.5106 14.3539 11.4418 14.3212 11.3791C14.2884 11.3164 14.2429 11.2613 14.1877 11.2172C14.1324 11.1732 14.0685 11.1411 14.0001 11.1231Z">
+                                                                        </path>
+                                                                    </svg>
+                                                                </a>
+                                                            </div>
+                                                            <ul class="ml-26 flex">
+                                                                <li class="c-header-menu active"><a href="/job-questions" class="nuxt-link-active">커뮤니티</a></li>
+                                                                                                                
+                                                                <li class="c-header-menu"><a href="/class"
+                                                                                             class="">직무부트캠프</a></li>
+                                                                <li class="c-header-menu"><a href="/career/externship" class="">채용</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- 헤더 오른쪽 부분 -->
+                                                        <aside class="ml-auto flex align-center">
+                                                            <!-- 드롭다운 메뉴 포함 검색창 -->
+                                                            <div id="c-dropdown-3528"
+                                                                 class="c-application c-dropdown search-dropdown dropdown-disappear">
+                                                                <!---->
+                                                                <div class="c-dropdown--item-group" style="max-width:300px;">
+                                                                    <!-- 검색창 -->
+                                                                    <div id="search-bar">
+                                                                        <!-- full active when something is typed into the 'search' -->
+                                                                        <div class="c-application search_input_container search full">
+                                                                            <label for="c-search-input-3529">
+                                                                                <input aria-hidden="true" style="display:none;">
+                                                                                <input id="c-search-input-2" autocomplete="off" type="text"
+                                                                                       placeholder="진료 과 등을 입력해주세요" data-cy="searchInput" value=""
+                                                                                       class="search_input full">
+                                                                            </label>
+                                                                            <div class="search_input_icon_wrapper">
+                                                                                <!---->
+                                                                            </div>
+                                                                            <div class="search_input_icon_wrapper left"><svg width="24"
+                                                                                                                             height="24" viewBox="0 0 24 24" fill="black"
+                                                                                                                             xmlns="http://www.w3.org/2000/svg" role="button"
+                                                                                                                             tabindex="1" size="medium"
+                                                                                                                             class="icon_search c-application c-icon"
+                                                                                                                             style="fill:#949BA0;" data-v-a5d811f0="">
+                                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                      d="M11 16C14.3137 16 17 13.3137 17 10C17 6.68629 14.3137 4 11 4C7.68629 4 5 6.68629 5 10C5 13.3137 7.68629 16 11 16ZM11 18C15.4183 18 19 14.4183 19 10C19 5.58172 15.4183 2 11 2C6.58172 2 3 5.58172 3 10C3 14.4183 6.58172 18 11 18Z"
+                                                                                      data-v-bd9f2bcc=""></path>
+                                                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                      d="M15.2929 15.2929C15.6834 14.9024 16.3166 14.9024 16.7071 15.2929L20.7071 19.2929C21.0976 19.6834 21.0976 20.3166 20.7071 20.7071C20.3166 21.0976 19.6834 21.0976 19.2929 20.7071L15.2929 16.7071C14.9024 16.3166 14.9024 15.6834 15.2929 15.2929Z"
+                                                                                      data-v-bd9f2bcc=""></path>
+                                                                            </svg>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- 드롭다운 실검 -->
+                                                                    <div class="c-dropdown--list-wrapper" style="max-height:255px;">
+                                                                        <div class="dropdown-container mb-8" style="display:none;">
+                                                                            <!---->
+                                                                            <div class="dropdown-popular">
+                                                                                <div class="c-application c-typography mb-12 c-caption1"
+                                                                                     style="color:#ADB3B8;font-weight:400;" data-v-3c6eed46="">
+                                                                                    인기 검색어 </div>
+                                                                                <div class="dropdown-popular-list px-4">
+                                                                                    <div class="c-application c-chip-group large">
+                                                                                            <span
+                                                                                                    class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                현대자동차
+                                                                                                <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                한화시스템
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                온세미
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                공정기술
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                반도체
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                프로그래밍
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                마케터를_위한
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                Amplitude
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                회로설계
+                                                                                        <!---->
+                                                                                            </span><span
+                                                                                            class="c-application c-chip dropdown-popular-chips clickable-fill clickable info large">
+                                                                                                반도체
+                                                                                        <!---->
+                                                                                            </span>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <di class="c-application c-list search-autocomplete mt-8"
+                                                                            style="display:none;">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- 가입/로그인 제휴관리자 -->
+                                                            <div class="flex align-center">
+                                                                <ul class="flex ml-16 header-info-section-list">
+                                                                    <li class="top-bar-action-button">
+                                                                        <div class="c-application c-badge--container absolute"><button
+                                                                                type="button" aria-label="북마크"
+                                                                                class="c-application c-icon-button medium"><svg width="24"
+                                                                                                                                height="24" viewBox="0 0 24 24" fill="black"
+                                                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                                                class="c-application c-icon"
+                                                                                                                                style="fill: rgb(173, 179, 184);">
+                                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                  d="M18 5H6V18.1643L10.3939 15.3791C11.3744 14.7575 12.6256 14.7575 13.6061 15.3791L18 18.1643V5ZM6 3C4.89543 3 4 3.89543 4 5V19.9821C4 20.7704 4.86958 21.2488 5.53538 20.8267L11.4646 17.0683C11.7915 16.8611 12.2085 16.8611 12.5354 17.0683L18.4646 20.8267C19.1304 21.2488 20 20.7704 20 19.9821V5C20 3.89543 19.1046 3 18 3H6Z">
+                                                                            </path>
+                                                                        </svg></button>
+                                                                            <!---->
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="top-bar-action-button">
+                                                                        <div class="c-application c-badge--container absolute"><button
+                                                                                type="button" aria-label="알림 보기"
+                                                                                class="c-application c-icon-button medium"><svg width="24"
+                                                                                                                                height="24" viewBox="0 0 24 24" fill="black"
+                                                                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                                                                class="c-application c-icon"
+                                                                                                                                style="fill: rgb(173, 179, 184);">
+                                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                  d="M6.88889 13.9814L6.41315 16.5H17.5869L17.1111 13.9814V9.61111C17.1111 6.78832 14.8228 4.5 12 4.5C9.17722 4.5 6.88889 6.78832 6.88889 9.61111V13.9814ZM4.88889 13.7941L4.22395 17.3144C4.10764 17.9302 4.57989 18.5 5.20658 18.5H18.7934C19.4201 18.5 19.8924 17.9302 19.7761 17.3144L19.1111 13.7941V9.61111C19.1111 5.68375 15.9274 2.5 12 2.5C8.07265 2.5 4.88889 5.68375 4.88889 9.61111V13.7941Z">
+                                                                            </path>
+                                                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                                                  d="M11 18.5C11 19.0523 11.4477 19.5 12 19.5C12.5523 19.5 13 19.0523 13 18.5H15C15 20.1569 13.6569 21.5 12 21.5C10.3431 21.5 9 20.1569 9 18.5H11Z">
+                                                                            </path>
+                                                                        </svg></button>
+                                                                            <!---->
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="header-info-section-item ml-4">
+                                                                        <div class="v-popover c-application">
+                                                                            <div aria-describedby="popover_o9n1mre6go" class="trigger"
+                                                                                 style="display: inline-block;"><a href="/mypage/classroom"
+                                                                                                                   class="user-avatar c-pointer">
+                                                                                <div class="c-application c-avatar--container xsmall"><i
+                                                                                        class="c-avatar image xsmall"
+                                                                                        style="background-image: url(&quot;https://cdn.comento.kr/images/user/profile/pf_s6EfgNHr0o.png&quot;);"></i>
+                                                                                    <div class="c-avatar--item">
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                        <!---->
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a></div>
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                </div>
+                                                </aside>
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <nav id="subHeader" class="c-sub-header appear"></nav>
+                                </div>
+                            </div>
+                            <!-- 헤더 끝 -->
+
+                            <nav id="subHeader" class="c-sub-header appear">
+                                <div class="c-application c-new-grid container" style="background-color:inherit;">
+                                    <div class="c-application c-new-row">
+                                        <div class="c-application c-new-col">
+                                            <div
+                                                class="c-application c-tabs c-tabs--menu-container c-sub-header-tabs c-tabs--horizontal with-header">
+                                                <div class="c-tabs--menu-wrapper">
+                                                    <div class="c-tabs--menu-button"><!----><a href="/job-questions"
+                                                            class="nuxt-link-active" data-cy="타임라인"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div> 전체
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button active"><!----><a
+                                                            href="/job-questions?ca2tegory=%EC%8B%A4%EB%AC%B4%EC%8A%A4%ED%82%AC"
+                                                            class="nuxt-link-exact-active nuxt-link-active"
+                                                            data-cy="실무고민" aria-current="page"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill active"><!---->
+                                                                <div class="c-button--icon"></div>비뇨기과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a
+                                                            href="/job-questions?category=%EC%9D%B4%EC%A7%81%20%EA%B3%A0%EB%AF%BC"
+                                                            class="nuxt-link-active" data-cy="이직고민"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>산부인과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a
+                                                            href="/job-questions?category=%EB%9E%9C%EC%84%A0%20%EC%82%AC%EC%88%98"
+                                                            class="nuxt-link-active" data-cy="직장인고민"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>소아청소년과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a
+                                                            href="/job-questions?category=%EC%B7%A8%EC%97%85%20%EA%B3%A0%EB%AF%BC"
+                                                            class="nuxt-link-active" data-cy="취업고민"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div> 안과<div
+                                                                    class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a
+                                                            href="/job-questions?category=%EB%8C%80%ED%95%99%EC%83%9D%20%EA%B3%A0%EB%AF%BC"
+                                                            class="nuxt-link-active" data-cy="대학생고민"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>이비인후과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a href="/answer" class=""
+                                                            data-cy="답변하기"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>정신건강의학과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a href="/answer" class=""
+                                                            data-cy="답변하기"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>정형외과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a href="/answer" class=""
+                                                            data-cy="답변하기"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>피부과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a href="/answer" class=""
+                                                            data-cy="답변하기"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>치과
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+                                                    <div class="c-tabs--menu-button"><!----><a href="/answer" class=""
+                                                            data-cy="답변하기"><button
+                                                                class="c-application c-button c-sub-header-menu medium primary fill"><!---->
+                                                                <div class="c-button--icon"></div>기타
+                                                                <div class="c-button--icon"></div>
+                                                            </button></a></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="fake-header"></div>
+                        </div>
+
+
+                        <div class="noti-drawer">
+                            <div class="c-application c-drawer noti-side-drawer" mask-closable=""><!----><!----></div>
+                        </div> <!----> <!----> <!---->
+                    </div>
+                </div>
+
+
+
+                <div id="main-grid" class="c-application c-new-grid main-grid-component fluid"
+                    style="min-height: calc(100vh - 324px);">
+                    <div class="c-application c-new-row">
+                        <div class="c-application c-new-col new-col-sm-12 new-col-lg-12 no-gutters">
+                            <!---->
+                            <div class="c-application c-new-grid community-list-nuxt-container container"
+                                style="background-color: inherit; margin-top: 80px;">
+                                <div class="c-application c-new-row">
+                                    <div d class="c-application c-new-col new-col-sm-12 new-col-lg-9">
+                                        <div class="c-application c-new-col no-gutters">
+                                            <div>
+                                                <div top-load-method="function () { [native code] }"><!---->
+                                                    <div class="case-list-card-section"><!----> <!----> <a
+                                                            href="/job-questions/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90/%EC%84%A4%EB%B9%84%EA%B8%B0%EC%88%A0/%EB%B0%98%EB%8F%84%EC%B2%B4_%EC%84%A4%EB%B9%84%EA%B8%B0%EC%88%A0%EA%B3%BC_%EB%B0%98%EB%8F%84%EC%B2%B4_%EC%9E%A5%EB%B9%84_%EC%A0%9C%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%85%9C_%EA%B0%9C%EB%B0%9C%EA%B3%BC%EC%9D%98_%EA%B4%80%EB%A0%A8%EC%84%B1%EC%97%90_%EB%8C%80%ED%95%B4_%EC%A7%88%EB%AC%B8%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4-451925"
+                                                            class="">
+                                                            <article class="community-timeline-card"><!---->
+                                                                <div class="c-application c-box p-relative"
+                                                                    style="padding: 20px;">
+                                                                    <div class="main-content-container">
+                                                                        <div class="main-content-wrapper">
+                                                                            <div class="c-application c-typography timeline-title mb-12 c-headline7"
+                                                                                style="color: rgb(4, 5, 5); font-weight: 500;">
+                                                                                반도체 설비기술과 반도체 장비 제어시스템 개발과의 관련성에 대해
+                                                                                질문드립니다.
+                                                                            </div>
+                                                                            <div class="c-application c-typography timeline-content c-body2"
+                                                                                style="color: rgb(89, 95, 99); font-weight: 400;">
+                                                                                안녕하세요. 현재 설비기술 직무 취업준비를 하면서 직무관련 경험을 쌓고자
+                                                                                대외활동을 알아보고 있습니다.반도체 장비 제어시스템 개발 교육에서 아래와
+                                                                                같은
+                                                                                프로그래밍 교육을 진행하고 있습니다.-반도체 장비 System
+                                                                                Programming-반도체 장비...<span
+                                                                                    class="more-text">더보기</span></div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                    <div
+                                                                        class="timeline-bottom-content-wrapper flex flex-row align-items-center justify-between mt-24">
+                                                                        <div class="c-application c-rating-group">
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M13.8766 8C11.3452 12.6334 4.65478 12.6334 2.12331 8C4.65478 3.36658 11.3452 3.36658 13.8766 8ZM14.8923 7.78461C12.0525 2.10504 3.94746 2.10504 1.10767 7.78461C1.03988 7.9202 1.03988 8.07979 1.10767 8.21538C3.94746 13.895 12.0525 13.895 14.8923 8.21538C14.9601 8.07979 14.9601 7.9202 14.8923 7.78461Z">
+                                                                                    </path>
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M8 9.5C8.82843 9.5 9.5 8.82843 9.5 8C9.5 7.17157 8.82843 6.5 8 6.5C7.17157 6.5 6.5 7.17157 6.5 8C6.5 8.82843 7.17157 9.5 8 9.5ZM8 10.5C9.38071 10.5 10.5 9.38071 10.5 8C10.5 6.61929 9.38071 5.5 8 5.5C6.61929 5.5 5.5 6.61929 5.5 8C5.5 9.38071 6.61929 10.5 8 10.5Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M3.69638 13.5299C4.05199 13.1404 4.04399 12.5417 3.67811 12.1619C2.63802 11.0821 2 9.6166 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14H3.26717L3.69638 13.5299ZM1 8C1 9.88557 1.74553 11.597 2.95789 12.8556L1.76434 14.1629C1.47131 14.4838 1.699 15 2.13358 15H8C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M6 8C6 8.41421 5.66421 8.75 5.25 8.75C4.83579 8.75 4.5 8.41421 4.5 8C4.5 7.58579 4.83579 7.25 5.25 7.25C5.66421 7.25 6 7.58579 6 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8.75 8C8.75 8.41421 8.41421 8.75 8 8.75C7.58579 8.75 7.25 8.41421 7.25 8C7.25 7.58579 7.58579 7.25 8 7.25C8.41421 7.25 8.75 7.58579 8.75 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M11.5 8C11.5 8.41421 11.1642 8.75 10.75 8.75C10.3358 8.75 10 8.41421 10 8C10 7.58579 10.3358 7.25 10.75 7.25C11.1642 7.25 11.5 7.58579 11.5 8Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    5
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="c-application c-icon-rating community-timeline-card-bookmark">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                </div>
+                                                            </article>
+                                                        </a> <!---->
+                                                        <div class="mb-20">
+                                                            <div class="case-list-to-pt-landing-banner c-pointer">
+                                                                <div class="c-application c-typography main-copy c-headline7"
+                                                                    style="color: rgb(255, 255, 255); font-weight: 500;">
+                                                                    hey Docter 서비스 이렇게 이용해요!</div> <img
+                                                                    src="https://cdn.comento.kr/images/banner/banner-bg-caseList-to-ptLanding.jpg"
+                                                                    alt="실무 과제를 풀고, 라이브로 피드백 받으며, 내 실무의 성과를 만들어 보세요!"
+                                                                    class="case-list-pt-banner">
+                                                            </div>
+                                                        </div> <a
+                                                            href="/job-questions/%EA%B8%B0%EC%95%84/%ED%8C%90%EA%B8%88%C2%B7%EB%8F%84%EC%9E%A5%C2%B7%EB%8F%84%EC%83%89/%EA%B8%B0%EC%95%84_%EC%99%84%EC%84%B1%EC%B0%A8_%EC%A0%9C%EC%9E%91%EC%8B%9C-451690"
+                                                            class="">
+                                                            <article class="community-timeline-card"><!---->
+                                                                <div class="c-application c-box p-relative"
+                                                                    style="padding: 20px;">
+                                                                    <div class="main-content-container">
+                                                                        <div class="main-content-wrapper">
+                                                                            <div class="c-application c-typography timeline-title mb-12 c-headline7"
+                                                                                style="color: rgb(4, 5, 5); font-weight: 500;">
+                                                                                기아 완성차 제작시</div>
+                                                                            <div class="c-application c-typography timeline-content c-body2"
+                                                                                style="color: rgb(89, 95, 99); font-weight: 400;">
+                                                                                환경고려해서 요즘은 수성도료를 쓰는걸로 알고있는데 기아에서 제작하는
+                                                                                자동차는
+                                                                                외부페인트를 수성도료로 쓰는게있나요? 유성도료를 쓴다면 그 이유를
+                                                                                알수있나요?
+                                                                                되도록이면 관련 현직자 분님께서 알려주셨으면 좋겠습니다</div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                    <div
+                                                                        class="timeline-bottom-content-wrapper flex flex-row align-items-center justify-between mt-24">
+                                                                        <div class="c-application c-rating-group">
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M13.8766 8C11.3452 12.6334 4.65478 12.6334 2.12331 8C4.65478 3.36658 11.3452 3.36658 13.8766 8ZM14.8923 7.78461C12.0525 2.10504 3.94746 2.10504 1.10767 7.78461C1.03988 7.9202 1.03988 8.07979 1.10767 8.21538C3.94746 13.895 12.0525 13.895 14.8923 8.21538C14.9601 8.07979 14.9601 7.9202 14.8923 7.78461Z">
+                                                                                    </path>
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M8 9.5C8.82843 9.5 9.5 8.82843 9.5 8C9.5 7.17157 8.82843 6.5 8 6.5C7.17157 6.5 6.5 7.17157 6.5 8C6.5 8.82843 7.17157 9.5 8 9.5ZM8 10.5C9.38071 10.5 10.5 9.38071 10.5 8C10.5 6.61929 9.38071 5.5 8 5.5C6.61929 5.5 5.5 6.61929 5.5 8C5.5 9.38071 6.61929 10.5 8 10.5Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M3.69638 13.5299C4.05199 13.1404 4.04399 12.5417 3.67811 12.1619C2.63802 11.0821 2 9.6166 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14H3.26717L3.69638 13.5299ZM1 8C1 9.88557 1.74553 11.597 2.95789 12.8556L1.76434 14.1629C1.47131 14.4838 1.699 15 2.13358 15H8C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M6 8C6 8.41421 5.66421 8.75 5.25 8.75C4.83579 8.75 4.5 8.41421 4.5 8C4.5 7.58579 4.83579 7.25 5.25 7.25C5.66421 7.25 6 7.58579 6 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8.75 8C8.75 8.41421 8.41421 8.75 8 8.75C7.58579 8.75 7.25 8.41421 7.25 8C7.25 7.58579 7.58579 7.25 8 7.25C8.41421 7.25 8.75 7.58579 8.75 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M11.5 8C11.5 8.41421 11.1642 8.75 10.75 8.75C10.3358 8.75 10 8.41421 10 8C10 7.58579 10.3358 7.25 10.75 7.25C11.1642 7.25 11.5 7.58579 11.5 8Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    1
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="c-application c-icon-rating community-timeline-card-bookmark">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                </div>
+                                                            </article>
+
+                                                            <a
+                                                            href="/job-questions/%EA%B8%B0%EC%95%84/%ED%8C%90%EA%B8%88%C2%B7%EB%8F%84%EC%9E%A5%C2%B7%EB%8F%84%EC%83%89/%EA%B8%B0%EC%95%84_%EC%99%84%EC%84%B1%EC%B0%A8_%EC%A0%9C%EC%9E%91%EC%8B%9C-451690"
+                                                            class="">
+                                                            <article class="community-timeline-card"><!---->
+                                                                <div class="c-application c-box p-relative"
+                                                                    style="padding: 20px;">
+                                                                    <div class="main-content-container">
+                                                                        <div class="main-content-wrapper">
+                                                                            <div class="c-application c-typography timeline-title mb-12 c-headline7"
+                                                                                style="color: rgb(4, 5, 5); font-weight: 500;">
+                                                                                기아 완성차 제작시</div>
+                                                                            <div class="c-application c-typography timeline-content c-body2"
+                                                                                style="color: rgb(89, 95, 99); font-weight: 400;">
+                                                                                환경고려해서 요즘은 수성도료를 쓰는걸로 알고있는데 기아에서 제작하는
+                                                                                자동차는
+                                                                                외부페인트를 수성도료로 쓰는게있나요? 유성도료를 쓴다면 그 이유를
+                                                                                알수있나요?
+                                                                                되도록이면 관련 현직자 분님께서 알려주셨으면 좋겠습니다</div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                    <div
+                                                                        class="timeline-bottom-content-wrapper flex flex-row align-items-center justify-between mt-24">
+                                                                        <div class="c-application c-rating-group">
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M13.8766 8C11.3452 12.6334 4.65478 12.6334 2.12331 8C4.65478 3.36658 11.3452 3.36658 13.8766 8ZM14.8923 7.78461C12.0525 2.10504 3.94746 2.10504 1.10767 7.78461C1.03988 7.9202 1.03988 8.07979 1.10767 8.21538C3.94746 13.895 12.0525 13.895 14.8923 8.21538C14.9601 8.07979 14.9601 7.9202 14.8923 7.78461Z">
+                                                                                    </path>
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M8 9.5C8.82843 9.5 9.5 8.82843 9.5 8C9.5 7.17157 8.82843 6.5 8 6.5C7.17157 6.5 6.5 7.17157 6.5 8C6.5 8.82843 7.17157 9.5 8 9.5ZM8 10.5C9.38071 10.5 10.5 9.38071 10.5 8C10.5 6.61929 9.38071 5.5 8 5.5C6.61929 5.5 5.5 6.61929 5.5 8C5.5 9.38071 6.61929 10.5 8 10.5Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M3.69638 13.5299C4.05199 13.1404 4.04399 12.5417 3.67811 12.1619C2.63802 11.0821 2 9.6166 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14H3.26717L3.69638 13.5299ZM1 8C1 9.88557 1.74553 11.597 2.95789 12.8556L1.76434 14.1629C1.47131 14.4838 1.699 15 2.13358 15H8C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M6 8C6 8.41421 5.66421 8.75 5.25 8.75C4.83579 8.75 4.5 8.41421 4.5 8C4.5 7.58579 4.83579 7.25 5.25 7.25C5.66421 7.25 6 7.58579 6 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8.75 8C8.75 8.41421 8.41421 8.75 8 8.75C7.58579 8.75 7.25 8.41421 7.25 8C7.25 7.58579 7.58579 7.25 8 7.25C8.41421 7.25 8.75 7.58579 8.75 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M11.5 8C11.5 8.41421 11.1642 8.75 10.75 8.75C10.3358 8.75 10 8.41421 10 8C10 7.58579 10.3358 7.25 10.75 7.25C11.1642 7.25 11.5 7.58579 11.5 8Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    1
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="c-application c-icon-rating community-timeline-card-bookmark">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                </div>
+                                                            </article>
+
+
+                                                            <a
+                                                            href="/job-questions/%EA%B8%B0%EC%95%84/%ED%8C%90%EA%B8%88%C2%B7%EB%8F%84%EC%9E%A5%C2%B7%EB%8F%84%EC%83%89/%EA%B8%B0%EC%95%84_%EC%99%84%EC%84%B1%EC%B0%A8_%EC%A0%9C%EC%9E%91%EC%8B%9C-451690"
+                                                            class="">
+                                                            <article class="community-timeline-card"><!---->
+                                                                <div class="c-application c-box p-relative"
+                                                                    style="padding: 20px;">
+                                                                    <div class="main-content-container">
+                                                                        <div class="main-content-wrapper">
+                                                                            <div class="c-application c-typography timeline-title mb-12 c-headline7"
+                                                                                style="color: rgb(4, 5, 5); font-weight: 500;">
+                                                                                기아 완성차 제작시</div>
+                                                                            <div class="c-application c-typography timeline-content c-body2"
+                                                                                style="color: rgb(89, 95, 99); font-weight: 400;">
+                                                                                환경고려해서 요즘은 수성도료를 쓰는걸로 알고있는데 기아에서 제작하는
+                                                                                자동차는
+                                                                                외부페인트를 수성도료로 쓰는게있나요? 유성도료를 쓴다면 그 이유를
+                                                                                알수있나요?
+                                                                                되도록이면 관련 현직자 분님께서 알려주셨으면 좋겠습니다</div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                    <div
+                                                                        class="timeline-bottom-content-wrapper flex flex-row align-items-center justify-between mt-24">
+                                                                        <div class="c-application c-rating-group">
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M13.8766 8C11.3452 12.6334 4.65478 12.6334 2.12331 8C4.65478 3.36658 11.3452 3.36658 13.8766 8ZM14.8923 7.78461C12.0525 2.10504 3.94746 2.10504 1.10767 7.78461C1.03988 7.9202 1.03988 8.07979 1.10767 8.21538C3.94746 13.895 12.0525 13.895 14.8923 8.21538C14.9601 8.07979 14.9601 7.9202 14.8923 7.78461Z">
+                                                                                    </path>
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M8 9.5C8.82843 9.5 9.5 8.82843 9.5 8C9.5 7.17157 8.82843 6.5 8 6.5C7.17157 6.5 6.5 7.17157 6.5 8C6.5 8.82843 7.17157 9.5 8 9.5ZM8 10.5C9.38071 10.5 10.5 9.38071 10.5 8C10.5 6.61929 9.38071 5.5 8 5.5C6.61929 5.5 5.5 6.61929 5.5 8C5.5 9.38071 6.61929 10.5 8 10.5Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="c-application c-icon-rating">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M3.69638 13.5299C4.05199 13.1404 4.04399 12.5417 3.67811 12.1619C2.63802 11.0821 2 9.6166 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14H3.26717L3.69638 13.5299ZM1 8C1 9.88557 1.74553 11.597 2.95789 12.8556L1.76434 14.1629C1.47131 14.4838 1.699 15 2.13358 15H8C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M6 8C6 8.41421 5.66421 8.75 5.25 8.75C4.83579 8.75 4.5 8.41421 4.5 8C4.5 7.58579 4.83579 7.25 5.25 7.25C5.66421 7.25 6 7.58579 6 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M8.75 8C8.75 8.41421 8.41421 8.75 8 8.75C7.58579 8.75 7.25 8.41421 7.25 8C7.25 7.58579 7.58579 7.25 8 7.25C8.41421 7.25 8.75 7.58579 8.75 8Z">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M11.5 8C11.5 8.41421 11.1642 8.75 10.75 8.75C10.3358 8.75 10 8.41421 10 8C10 7.58579 10.3358 7.25 10.75 7.25C11.1642 7.25 11.5 7.58579 11.5 8Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    1
+                                                                                </div>
+                                                                            </div>
+                                                                            <div
+                                                                                class="c-application c-icon-rating community-timeline-card-bookmark">
+                                                                                <svg width="16" height="16"
+                                                                                    viewBox="0 0 16 16" fill="black"
+                                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="mr-4 c-application c-icon"
+                                                                                    style="fill: rgb(148, 155, 160);">
+                                                                                    <path fill-rule="evenodd"
+                                                                                        clip-rule="evenodd"
+                                                                                        d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <div class="c-application c-typography c-body2"
+                                                                                    style="color: rgb(148, 155, 160);">
+                                                                                    0
+                                                                                </div>
+                                                                            </div>
+                                                                        </div> <!---->
+                                                                    </div>
+                                                                </div>
+                                                            </article>
+
+
+                                                            
+                                                            <a href="/job-questions/%ED%8F%AC%EC%8A%A4%EC%BD%94/%EC%B6%95%EB%A1%9C/%ED%8F%AC%EC%8A%A4%EC%BD%94_%ED%93%A8%EC%B2%98%EC%97%A0%EA%B5%AC_%EC%BC%80%EB%AF%B8%EC%B9%BC_%EC%B6%95%EB%A1%9C_%EC%97%85%EB%AC%B4%EC%97%90_%EB%8C%80%ED%95%B4_%EA%B6%81%EA%B8%88%ED%95%9C%EA%B2%8C_%EC%9E%88%EC%8A%B5%EB%8B%88%EB%8B%A4-448078"
+                                                                class="">
+                                                                <article class="community-timeline-card"><!---->
+                                                                    <div class="c-application c-box p-relative"
+                                                                        style="padding: 20px;">
+                                                                        <div class="main-content-container">
+                                                                            <div class="main-content-wrapper">
+                                                                                <div class="c-application c-typography timeline-title mb-12 c-headline7"
+                                                                                    style="color: rgb(4, 5, 5); font-weight: 500;">
+                                                                                    포스코 퓨처엠(구 케미칼) 축로 업무에 대해 궁금한게 있습니다.
+                                                                                </div>
+                                                                                <div class="c-application c-typography timeline-content c-body2"
+                                                                                    style="color: rgb(89, 95, 99); font-weight: 400;">
+                                                                                    현재 면접을 준비하고 있는 데 , 내화물 적재 방법에 대한 답변을
+                                                                                    만들려고 하는
+                                                                                    데 아무리 찾아도 나오질 않아서요 혹시 내화물 적재 방법에 대해
+                                                                                    설명해주실 분
+                                                                                    계실까요?</div>
+                                                                            </div> <!---->
+                                                                        </div>
+                                                                        <div
+                                                                            class="timeline-bottom-content-wrapper flex flex-row align-items-center justify-between mt-24">
+                                                                            <div class="c-application c-rating-group">
+                                                                                <div
+                                                                                    class="c-application c-icon-rating">
+                                                                                    <svg width="16" height="16"
+                                                                                        viewBox="0 0 16 16" fill="black"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        class="mr-4 c-application c-icon"
+                                                                                        style="fill: rgb(148, 155, 160);">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M13.8766 8C11.3452 12.6334 4.65478 12.6334 2.12331 8C4.65478 3.36658 11.3452 3.36658 13.8766 8ZM14.8923 7.78461C12.0525 2.10504 3.94746 2.10504 1.10767 7.78461C1.03988 7.9202 1.03988 8.07979 1.10767 8.21538C3.94746 13.895 12.0525 13.895 14.8923 8.21538C14.9601 8.07979 14.9601 7.9202 14.8923 7.78461Z">
+                                                                                        </path>
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M8 9.5C8.82843 9.5 9.5 8.82843 9.5 8C9.5 7.17157 8.82843 6.5 8 6.5C7.17157 6.5 6.5 7.17157 6.5 8C6.5 8.82843 7.17157 9.5 8 9.5ZM8 10.5C9.38071 10.5 10.5 9.38071 10.5 8C10.5 6.61929 9.38071 5.5 8 5.5C6.61929 5.5 5.5 6.61929 5.5 8C5.5 9.38071 6.61929 10.5 8 10.5Z">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                    <div class="c-application c-typography c-body2"
+                                                                                        style="color: rgb(148, 155, 160);">
+                                                                                        0
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="c-application c-icon-rating">
+                                                                                    <svg width="16" height="16"
+                                                                                        viewBox="0 0 16 16" fill="black"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        class="mr-4 c-application c-icon"
+                                                                                        style="fill: rgb(148, 155, 160);">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M3.69638 13.5299C4.05199 13.1404 4.04399 12.5417 3.67811 12.1619C2.63802 11.0821 2 9.6166 2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14H3.26717L3.69638 13.5299ZM1 8C1 9.88557 1.74553 11.597 2.95789 12.8556L1.76434 14.1629C1.47131 14.4838 1.699 15 2.13358 15H8C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8Z">
+                                                                                        </path>
+                                                                                        <path
+                                                                                            d="M6 8C6 8.41421 5.66421 8.75 5.25 8.75C4.83579 8.75 4.5 8.41421 4.5 8C4.5 7.58579 4.83579 7.25 5.25 7.25C5.66421 7.25 6 7.58579 6 8Z">
+                                                                                        </path>
+                                                                                        <path
+                                                                                            d="M8.75 8C8.75 8.41421 8.41421 8.75 8 8.75C7.58579 8.75 7.25 8.41421 7.25 8C7.25 7.58579 7.58579 7.25 8 7.25C8.41421 7.25 8.75 7.58579 8.75 8Z">
+                                                                                        </path>
+                                                                                        <path
+                                                                                            d="M11.5 8C11.5 8.41421 11.1642 8.75 10.75 8.75C10.3358 8.75 10 8.41421 10 8C10 7.58579 10.3358 7.25 10.75 7.25C11.1642 7.25 11.5 7.58579 11.5 8Z">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                    <div class="c-application c-typography c-body2"
+                                                                                        style="color: rgb(148, 155, 160);">
+                                                                                        4
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="c-application c-icon-rating community-timeline-card-bookmark">
+                                                                                    <svg width="16" height="16"
+                                                                                        viewBox="0 0 16 16" fill="black"
+                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                        class="mr-4 c-application c-icon"
+                                                                                        style="fill: rgb(148, 155, 160);">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            clip-rule="evenodd"
+                                                                                            d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                    <div class="c-application c-typography c-body2"
+                                                                                        style="color: rgb(148, 155, 160);">
+                                                                                        0
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div> <!---->
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+
+                                                                
+
+
+                                                    </div>
+                                                    </article>
+                                                    </a> <!---->
+                                                    <!-- 게시글 끝 -->
+
+                                                    <div class="infinite-loading-container">
+                                                        <div class="infinite-status-prompt" style="display: none;">
+                                                            <span>
+                                                                <div>
+                                                                    <div
+                                                                        style="width: 50px; height: 50px; overflow: hidden; margin: 0px auto;">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                            viewBox="0 0 100 100" width="100"
+                                                                            height="100"
+                                                                            preserveAspectRatio="xMidYMid meet"
+                                                                            style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                                                                            <defs>
+                                                                                <clipPath id="__lottie_element_274">
+                                                                                    <rect width="100" height="100" x="0"
+                                                                                        y="0"></rect>
+                                                                                </clipPath>
+                                                                            </defs>
+                                                                            <g clip-path="url(#__lottie_element_274)">
+                                                                                <g transform="matrix(0.4048864245414734,0,0,0.4048864245414734,29.755678176879883,29.755678176879883)"
+                                                                                    opacity="0.5"
+                                                                                    style="display: block;">
+                                                                                    <g opacity="1"
+                                                                                        transform="matrix(1,0,0,1,50,50)">
+                                                                                        <path fill="rgb(42,125,225)"
+                                                                                            fill-opacity="1"
+                                                                                            d=" M40,0 C40,22.090999603271484 22.090999603271484,40 0,40 C-22.090999603271484,40 -40,22.090999603271484 -40,0 C-40,-22.090999603271484 -22.090999603271484,-40 0,-40 C22.090999603271484,-40 40,-22.090999603271484 40,0z">
+                                                                                        </path>
+                                                                                    </g>
+                                                                                </g>
+                                                                                <g transform="matrix(0.5951135754585266,0,0,0.5951135754585266,20.244321823120117,20.244321823120117)"
+                                                                                    opacity="0.5"
+                                                                                    style="display: block;">
+                                                                                    <g opacity="1"
+                                                                                        transform="matrix(1,0,0,1,50,50)">
+                                                                                        <path fill="rgb(42,125,225)"
+                                                                                            fill-opacity="1"
+                                                                                            d=" M40,0 C40,22.090999603271484 22.090999603271484,40 0,40 C-22.090999603271484,40 -40,22.090999603271484 -40,0 C-40,-22.090999603271484 -22.090999603271484,-40 0,-40 C22.090999603271484,-40 40,-22.090999603271484 40,0z">
+                                                                                        </path>
+                                                                                    </g>
+                                                                                </g>
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                </div>
+                                                            </span></div>
+                                                        <div class="infinite-status-prompt" style="display: none;">
+                                                            <span>
+                                                                <div class="c-application c-box"
+                                                                    style="background-color: rgb(252, 252, 252); padding: 24px;">
+                                                                    <div>
+                                                                        <div class="c-application c-typography c-body1 f-semi-bold"
+                                                                            style="color: rgb(32, 35, 37); text-align: left;">
+                                                                            아직 작성된 콘텐츠가 없습니다.
+                                                                        </div>
+                                                                        <div class="c-application c-typography c-body2"
+                                                                            style="color: rgb(118, 125, 130); text-align: left;">
+                                                                            질문이 있나요?<!---->
+                                                                            지금 현직자에게 직접 물어보세요.
+                                                                        </div>
+                                                                    </div> <button
+                                                                        class="c-application c-button medium primary outline"><!---->
+                                                                        <div class="c-button--icon">
+                                                                        </div>
+                                                                        현직자에게 질문하기
+                                                                        <div class="c-button--icon">
+                                                                        </div>
+                                                                    </button>
+                                                                </div>
+                                                            </span></div>
+                                                        <div class="infinite-status-prompt" style="display: none;">
+                                                        
+                                                        </div>
+                                                        <div class="infinite-status-prompt"
+                                                            style="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px; display: none;">
+                                                            "Opps, something went wrong : "        
+                                                            <br> <button class="    btn-try-infinite">Retry</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- 오른쪽 개인정보 -->
+                                    <div d class="c-application c-new-col new-col-lg-3 new-offset-lg-0">
+                                        <aside class="case-list-side-box">
+                                            <div class="p-relative">
+                                                <div>
+                                                    <section class="user-profile-section">
+                                                        <div class="mr-10">
+                                                            <div class="image-upload-wrapper"><label
+                                                                    for="imageUploadWrapper">
+                                                                    <div
+                                                                        class="c-application c-avatar--container large">
+                                                                        <i class="c-avatar image large"
+                                                                            style="background-image: url(&quot;https://cdn.comento.kr/images/illust/illust-photo-upload.svg&quot;); background-size: 150%; background-position: center center;"></i>
+                                                                        <div class="c-avatar--item">
+                                                                            <!----><!----><!---->
+                                                                        </div>
+                                                                    </div>
+                                                                </label> <input id="imageUploadWrapper" type="file"
+                                                                    name="imageUploadWrapper"
+                                                                    accept="image/jpg,image/png,image/jpeg,image/gif">
+                                                            </div>
+                                                        </div>
+                                                        <div class="user-information-wrapper">
+                                                            <div class="c-application c-typography mb-4 c-body1 f-regular"
+                                                                style="color: rgb(32, 35, 37);">
+                                                                kimjin9822
+                                                            </div>
+                                                            <div class="c-application c-typography c-caption1"
+                                                                style="color: rgb(118, 125, 130);">
+                                                                스탠포드대학교<!--마이페이지 내용중 들어올만한거-->
+                                                            </div>
+                                                            <div class="c-application c-typography c-caption1"
+                                                                style="color: rgb(118, 125, 130);">융합컴퓨터공학</div>
+                                                        </div>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <section><!---->
+                                                <div class="c-application c-box membership-status-text-container"
+                                                    style="background-color: rgb(252, 252, 252); padding: 8px 12px;">
+                                                    <div class="c-application c-typography c-body2"
+                                                        style="color: rgb(60, 65, 68);">
+                                                        이용중인 서비스
+                                                    </div> <svg width="16" height="16" viewBox="0 0 16 16" fill="black"
+                                                        xmlns="http://www.w3.org/2000/svg" class="c-application c-icon"
+                                                        style="fill: rgb(207, 212, 215); transform: rotate(180deg);">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M7.64645 4.64645C7.84171 4.45118 8.15829 4.45118 8.35355 4.64645L12.8536 9.14645C13.0488 9.34171 13.0488 9.65829 12.8536 9.85355C12.6583 10.0488 12.3417 10.0488 12.1464 9.85355L8 5.70711L3.85355 9.85355C3.65829 10.0488 3.34171 10.0488 3.14645 9.85355C2.95118 9.65829 2.95118 9.34171 3.14645 9.14645L7.64645 4.64645Z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="slide-fade hide">
+                                                    <hr data-v-731f4618=""
+                                                        class="c-application c-divider dash horizontal #EAECEE"
+                                                        style="border-color: rgb(234, 236, 238);">
+                                                    <div class="c-application c-box membership-status-item-container"
+                                                        style="background-color: rgb(252, 252, 252); padding: 12px;">
+                                                        <ul class="membership-status-wrapper"><!---->
+                                                            <li>
+                                                                <div class="c-application c-typography c-caption1"
+                                                                    style="color: rgb(118, 125, 130);">
+                                                                    구독여부 </div>
+                                                                <div class="c-application c-typography c-caption1 f-regular"
+                                                                    style="color: rgb(118, 125, 130);">
+                                                                    구독중 or 구독하기</div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="c-application c-typography c-caption1"
+                                                                    style="color: rgb(118, 125, 130);">
+                                                                    <span>방문 진료 횟수</span> <span
+                                                                        class="c-application c-typography c-caption2"
+                                                                        style="color: rgb(173, 179, 184);"></span>
+                                                                    <span>  </span>
+                                                                
+                                                                </div>
+                                                                <div class="c-application c-typography c-caption1 f-regular"
+                                                                    style="color: rgb(118, 125, 130);">
+                                                                    5회
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="c-application c-typography c-caption1"
+                                                                    style="color: rgb(118, 125, 130);">
+                                                                    질문횟수 </div>
+                                                                <div class="c-application c-typography c-caption1 f-regular"
+                                                                    style="color: rgb(118, 125, 130);">
+                                                                    
+                                                                </div>
+                                                            </li> <!---->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </section> <!----> <button type="button"
+                                                class="c-application c-narrow-button mt-16 EID-CM054-original small"
+                                                style="color: rgb(173, 179, 184);">
+                                                <div class="c-narrow-button--icon"></div>
+                                                코멘토 커뮤니티가 처음이라면?
+                                                <div class="c-narrow-button--icon"></div>
+                                            </button>
+                                            <div class="EID-CM054-A"><button
+                                                    class="c-application c-button mb-16 mt-16 medium primary full fill"><!---->
+                                                    <div class="c-button--icon"></div>질문하기<div class="c-button--icon">
+                                                    </div>
+                                                </button>
+                                                <div class="action-button-container">
+                                                    <a href="https://comento.kr/request/essay" target="_self"
+                                                        style="flex: 1 1 118px;">
+                                                        <div class="c-application c-box action-button c-box--has-border"
+                                                            style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
+                                                            <div class="c-application c-typography c-caption1"
+                                                                style="color: rgb(89, 95, 99);">
+                                                                자기소개서 첨삭
+                                                            </div>
+                                                        </div>
+                                                    </a><a href="https://comento.kr/request/interview" target="_self"
+                                                        style="flex: 1 1 118px;">
+                                                        <div class="c-application c-box action-button c-box--has-border"
+                                                            style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
+                                                            <div class="c-application c-typography c-caption1"
+                                                                style="color: rgb(89, 95, 99);">
+                                                                면접 준비
+                                                            </div>
+                                                        </div>
+                                                    </a><a href="https://comento.kr/analytics" target="_self"
+                                                        style="flex: 1 1 118px;">
+                                                        <div class="c-application c-box action-button c-box--has-border"
+                                                            style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
+                                                            <div class="c-application c-typography c-caption1"
+                                                                style="color: rgb(89, 95, 99);">
+                                                                AI 자소서 분석기
+                                                            </div>
+                                                        </div>
+                                                    </a><a href="https://comento.kr/essay/tutorial" target="_self"
+                                                        style="flex: 1 1 118px;">
+                                                        <div class="c-application c-box action-button c-box--has-border"
+                                                            style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
+                                                            <div class="c-application c-typography c-caption1"
+                                                                style="color: rgb(89, 95, 99);">
+                                                                자소서 튜토리얼
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div> <!---->
+                                            <div class="pt-seoul-woman-up-banner mt-24"><img
+                                                    src="https://cdn.comento.kr/images/banner/banner-ybm.png"
+                                                    alt="TOEIC, TOEIC S&amp;W 성적 보유자 YBM 그랜드슬래머 인증서 무료 발금"></div>
+                                            <!---->
+                                        </aside>
+                                    </div>
+                                </div>
+                                    
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="fab-with-sub-item-container EID-CM054-original" d><!---->
+                            <div class="floating-button fab-with-overlay"><svg width="36" height="36"
+                                    viewBox="0 0 36 36" fill="black" xmlns="http://www.w3.org/2000/svg"
+                                    class="c-application c-icon" style="fill: rgb(255, 255, 255);">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M19.25 6C19.25 5.30964 18.6904 4.75 18 4.75C17.3096 4.75 16.75 5.30964 16.75 6V16.75H6C5.30964 16.75 4.75 17.3096 4.75 18C4.75 18.6904 5.30964 19.25 6 19.25H16.75V30C16.75 30.6904 17.3096 31.25 18 31.25C18.6904 31.25 19.25 30.6904 19.25 30V19.25H30C30.6904 19.25 31.25 18.6904 31.25 18C31.25 17.3096 30.6904 16.75 30 16.75H19.25V6Z">
+                                    </path>
+                                </svg></div>
+                        </div> <!----> <!---->
+                    </div>
+                </div>
+            </div> <!----> <!---->
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
