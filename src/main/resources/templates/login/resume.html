@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/resume.css">
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
+    <title>이력서 | 코멘토</title>
+</head>
+<body>
+    <div id="app">
+        <div class="c-application c-grid main-grid-component fluid" style="min-height: 100vh;">
+            <div class="c-application c-row">
+                <div class="c-application c-new-col" style="min-height: 540px;">
+                    <div class="c-application c-new-grid container mt-60" style="background-color: inherit;">
+                        <div class="c-application c-new-row">
+                            <div class="c-application c-new-col">
+                                <span class="warning-message">* 크롬(chrome) 브라우저에 최적화되어 있습니다.</span>
+                                <div>
+                                    <div class="resume-exit resume-write">
+                                        <img src="https://comento.kr/images/exit.svg">
+                                        <p>목록으로</p>
+                                    </div>
+                                    <!-- 일단 모달창인데 토론하고 넣을지 말지 고민하겠습니다.-->
+                                    <div class="modal-mask" style="display: none;"></div> 
+                                </div>
+                                <div class="only-mobile">
+                                    <div class="text-right mb-5">
+                                        <div class="btn btn-outline">우수이력서 샘플 보기</div>
+                                    </div>
+                                </div>
+                                <div class="wrapper2">
+                                    <div class="resume-box write clearfix">
+                                        <div class="btn-resume-sample">
+                                            우수이력서
+                                            <br>
+                                            샘플 보기
+                                        </div>
+                                        <div class="info-section">
+                                            <div class="mb-20">
+                                                <div class="resume-input-group">
+                                                    <input type="text" placeholder="이름" class="resume-input h1">
+                                                </div>
+                                                <div class="private-info">
+                                                    <div class="resume-input-group">
+                                                        <input type="text" placeholder="이메일">
+                                                        <br>
+                                                        <input type="text" placeholder="전화번호 (ex.010-1234-5678)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="synthesis-box">
+                                                <div class="resume-input-group">
+                                                    <textarea placeholder="이력서를 돋보이게 만들 간단한 자기소개를 입력해보세요. (3~5줄 권장)" style="height: 48px; overflow-y: hidden; resize: none;"></textarea>
+                                                </div>
+                                                <div class="text-error mt-20" style="display: none;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-section clearfix">
+                                            <div class="sub-heading">
+                                                경력사항
+                                                <div class="add">+ 추가</div>
+                                            </div>
+                                            <div>
+                                                <div class="sortable-item" draggable="false">
+                                                    <div class="date write">
+                                                        <div class="resume-input-group inline">
+                                                            <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                            <input type="text" placeholder="MM" minlength="2" maxlength="2" class="month">
+                                                            <span>
+                                                                <span class="mr-5">~</span>
+                                                                <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                                <input type="text" placeholder="MM" minlength="" maxlength="" class="month">
+                                                            </span>
+                                                        </div>
+                                                        <div class="resume-input-group checkbox">
+                                                            <input id="working0" class="wk" type="checkbox" name="working0">
+                                                            <label for="working0">현재 재직중</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail write mb-20">
+                                                        <div class="sortable-btn-item mobile only-pc">
+                                                            <div class="sortable-btn-delete"></div>
+                                                            <div class="sortable-btn-move"></div>
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="기업명/단체명" class="item-title company">
+                                                            <input type="text" placeholder="부서명" class="item-sub-title department mb-0">
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="직책명" class="item-sub-title">
+                                                            <ul class="experience">
+                                                                <li>
+                                                                    <textarea type="text" placeholder="업무내용1" class="item-content" style="height: 48px; overflow-y: hidden; resize: none;"></textarea>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="text-primary pointer">
+                                                                + 업무내용 추가
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-section clearfix">
+                                            <div class="sub-heading">
+                                                교과 외 활동
+                                                <div class="add">+ 추가</div>
+                                            </div>
+                                            <div>
+                                                <div class="sortable-item" draggable="false">
+                                                    <div class="date write">
+                                                        <div class="resume-input-group inline">
+                                                            <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                            <input type="text" placeholder="MM" minlength="2" maxlength="2" class="month">
+                                                            <span>
+                                                                <span class="mr-5">~</span>
+                                                                <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                                <input type="text" placeholder="MM" minlength="" maxlength="" class="month">
+                                                            </span>
+                                                        </div>
+                                                        <div class="resume-input-group checkbox">
+                                                            <input id="working0" class="wk" type="checkbox" name="working0">
+                                                            <label for="working0">현재 활동중</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail write mb-20">
+                                                        <div class="sortable-btn-item mobile only-pc">
+                                                            <div class="sortable-btn-delete"></div>
+                                                            <div class="sortable-btn-move"></div>
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="활동명" class="item-title company">
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="직책명" class="item-sub-title">
+                                                            <ul class="experience">
+                                                                <li>
+                                                                    <textarea type="text" placeholder="에피소드1" class="item-content" style="height: 48px; overflow-y: hidden; resize: none;"></textarea>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="text-primary pointer">
+                                                                + 에피소드 추가
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-section clearfix">
+                                            <div class="sub-heading">
+                                                수상내역
+                                                <div class="add">+ 추가</div>
+                                            </div>
+                                            <div>
+                                                <div class="sortable-item" draggable="false">
+                                                    <div class="date write">
+                                                        <div class="resume-input-group inline">
+                                                            <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                            <input type="text" placeholder="MM" minlength="2" maxlength="2" class="month">
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail write mb-20">
+                                                        <div class="sortable-btn-item mobile only-pc">
+                                                            <div class="sortable-btn-delete"></div>
+                                                            <div class="sortable-btn-move"></div>
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="행사명" class="item-title company">
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="수상결과" class="item-sub-title">
+                                                            <ul class="experience">
+                                                                <li>
+                                                                    <textarea type="text" placeholder="에피소드1" class="item-content" style="height: 48px; overflow-y: hidden; resize: none;"></textarea>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="text-primary pointer">
+                                                                + 에피소드 추가
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-section clearfix">
+                                            <div class="sub-heading">
+                                                학력사항
+                                                <div class="add">+ 추가</div>
+                                            </div>
+                                            <div>
+                                                <div class="sortable-item" draggable="false">
+                                                    <div class="date write">
+                                                        <div class="resume-input-group inline">
+                                                            <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                            <input type="text" placeholder="MM" minlength="2" maxlength="2" class="month">
+                                                            <span>
+                                                                <span class="mr-5">~</span>
+                                                                <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                                <input type="text" placeholder="MM" minlength="" maxlength="" class="month">
+                                                            </span>
+                                                        </div>
+                                                        <div class="resume-input-group checkbox">
+                                                            <input id="working0" class="wk" type="checkbox" name="working0">
+                                                            <label for="working0">현재 재학중</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail write mb-20">
+                                                        <div class="sortable-btn-item mobile only-pc">
+                                                            <div class="sortable-btn-delete"></div>
+                                                            <div class="sortable-btn-move"></div>
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <div dir="auto" class="dropdown v-select pointer single unsearchable">
+                                                                <div class="dropdown-toggle">
+                                                                    <div class="vs__selected-options">
+                                                                        <span class="selected-tag">
+                                                                            학위구분
+                                                                           </span>
+                                                                        <input type="text" autocomplete="off" readonly="readonly" role="combobox" aria-label="Search for option" class="form-control">
+                                                                    </div>
+                                                                    <div class="vs__actions">
+                                                                        <button type="button" title="Clear selection" class="clear">
+                                                                            <span aria-hidden="true">x</span>
+                                                                        </button>
+                                                                        <i role="presentation" class="open-indicator"></i>
+                                                                        <div class="spinner" style="display: none;">Loading...</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-section clearfix">
+                                            <div class="sub-heading">
+                                                어학
+                                                <div class="add">+ 추가</div>
+                                            </div>
+                                            <div>
+                                                <div class="sortable-item" draggable="false">
+                                                    <div class="date write">
+                                                        <div class="resume-input-group inline">
+                                                            <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                            <input type="text" placeholder="MM" minlength="2" maxlength="2" class="month">
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail write mb-20">
+                                                        <div class="sortable-btn-item mobile only-pc">
+                                                            <div class="sortable-btn-delete"></div>
+                                                            <div class="sortable-btn-move"></div>
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="시험명 혹은 활용 가능한 외국어명" class="item-title company">
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="공인점수/수준" class="item-sub-title mb-0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-section clearfix">
+                                            <div class="sub-heading">
+                                                자격증
+                                                <div class="add">+ 추가</div>
+                                            </div>
+                                            <div>
+                                                <div class="sortable-item" draggable="false">
+                                                    <div class="date write">
+                                                        <div class="resume-input-group inline">
+                                                            <input type="text" placeholder="YYYY" minlength="4" maxlength="4" class="year">.
+                                                            <input type="text" placeholder="MM" minlength="2" maxlength="2" class="month">
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail write mb-20">
+                                                        <div class="sortable-btn-item mobile only-pc">
+                                                            <div class="sortable-btn-delete"></div>
+                                                            <div class="sortable-btn-move"></div>
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="자격증 혹은 면허증명" class="item-title company">
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="발행처/발행기관" class="item-sub-title mb-0">
+                                                            <input type="text" placeholder="합격 구분" class="item-sub-title mb-0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <div class="resume-section clearfix">
+                                            <div class="sub-heading">
+                                                활용가능 Skills / Tools
+                                                <div class="add">+ 추가</div>
+                                            </div>
+                                            <div>
+                                                <div class="sortable-item" draggable="false">
+                                                    <div class="date write">
+                                                        <div class="resume-input-group inline">
+                                                        </div>
+                                                    </div>
+                                                    <div class="detail write mb-20">
+                                                        <div class="sortable-btn-item mobile only-pc">
+                                                            <div class="sortable-btn-delete"></div>
+                                                            <div class="sortable-btn-move"></div>
+                                                        </div>
+                                                        <div class="resume-input-group">
+                                                            <input type="text" placeholder="활용 가능한 Skill 혹은 Tool명" class="item-sub-title row item-ect">
+                                                            <input type="text" placeholder="활용 가능한 수준을 상세히 작성하세요" class="item-sub-title row item-ect">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="resume-btn-wrapper">
+                                    <button class="btn btn-resume">작성완료</button>
+                                </div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
