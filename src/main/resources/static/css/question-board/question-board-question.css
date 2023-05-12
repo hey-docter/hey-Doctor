@@ -182,10 +182,6 @@ html ::-webkit-scrollbar {
     width: 1170px;
 }}
 
-.clearfix:before, .clearfix:after, .container:before, .container:after, .row:before, .row:after {
-    content: " ";
-    display: table;
-}
 
 
 .clearfix:after, .container:after, .row:after {
@@ -580,4 +576,8 @@ div[data-v-45a3e27e], h1[data-v-45a3e27e], h2[data-v-45a3e27e], h3[data-v-45a3e2
 
 .c-text-field--input-wrapper[data-v-7c836184] {
     position: relative;
+}
+
+.mb-15 {
+    margin-bottom: 15px!important;
 }

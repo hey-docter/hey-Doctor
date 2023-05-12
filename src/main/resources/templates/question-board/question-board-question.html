@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:include="../main-page/header.html"></th:block>
+    
 </head>
-<link rel="stylesheet" href="../../static/css/question-board-Seo/question-board-question.css" />
+<link rel="stylesheet" href="../../static/css/question-board/question-board-question.css" />
+<link rel="stylesheet" href="../../static/css/main-page/main-page.css">
 <body>
+    <header th:include="../main-page/header.html"></header>
     <div data-v-47aa3e0a="" class="c-application c-grid main-grid-component fluid"
         style="min-height: 100vh; background-color: rgb(252, 252, 252);">
         <div data-v-5aa8e08e="" class="c-application c-row" data-v-47aa3e0a="">
@@ -21,7 +25,7 @@
                                 <div data-v-41258f40="" data-v-59015b26="" class="request-container px-24 py-18">
                                     <h2 data-v-41258f40="" data-v-59015b26="" class="request-container-title"> 질문하기 <p
                                             data-v-41258f40="" data-v-59015b26="" class="request-container-title-sub">
-                                            <strong data-v-41258f40="" data-v-59015b26="">현직자</strong>에게 <strong
+                                            <strong data-v-41258f40="" data-v-59015b26="">현직의사</strong>에게 <strong
                                                 data-v-41258f40="" data-v-59015b26="">정확한 정보</strong>를 물어보세요. </p>
                                     </h2>
                                     <div data-v-41258f40="" data-v-59015b26="" class="request-box">
