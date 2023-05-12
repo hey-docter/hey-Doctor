@@ -2,243 +2,253 @@
 <html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>출장 의사 목록</title>
+    <title>출장 의사 예약</title>
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
 
-<style>
-    .c-grid.fluid {
-        width: 100%;
-        padding: 0;
-    }
+    <style>
+        .c-grid.fluid {
+            width: 100%;
+            padding: 0;
+        }
 
-     .c-grid {
-         position: relative;
-         width: 100%;
-         padding-right: 16px;
-         padding-left: 16px;
-         margin-right: auto;
-         margin-left: auto;
-         -webkit-box-sizing: border-box;
-         box-sizing: border-box;
-     }
+        .c-grid {
+            position: relative;
+            width: 100%;
+            padding-right: 16px;
+            padding-left: 16px;
+            margin-right: auto;
+            margin-left: auto;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
 
-    @media only screen and (min-width: 768px){
-        .c-grid > .c-row {
-        margin-right: -24px;
-        margin-left: -24px;
-    }}
+        @media only screen and (min-width: 768px) {
+            .c-grid > .c-row {
+                margin-right: -24px;
+                margin-left: -24px;
+            }
+        }
 
-    @media only screen and (min-width: 768px) and (min-width: 768px){
-    .c-grid.container {
-        max-width: 1000px;
-    }}
+        @media only screen and (min-width: 768px) and (min-width: 768px) {
+            .c-grid.container {
+                max-width: 1000px;
+            }
+        }
 
-    .mt-32 {
-        margin-top: 32px;
-    }
+        .mt-32 {
+            margin-top: 32px;
+        }
 
-    .container {
-        position: relative;
-        margin-right: auto;
-        margin-left: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+        .container {
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
-    .c-row.no-gutters {
-        margin-right: 0;
-        margin-left: 0;
-    }
+        .c-row.no-gutters {
+            margin-right: 0;
+            margin-left: 0;
+        }
 
-    @media only screen and (min-width: 768px){
-    .offset-lg-2 {
-        margin-left: 14.666667%;
-        margin-right: 11%;
-    }}
+        @media only screen and (min-width: 768px) {
+            .offset-lg-2 {
+                margin-left: 14.666667%;
+                margin-right: 11%;
+            }
+        }
 
-    @media only screen and (min-width: 768px){
-    .c-telling-avatar-quote .hey-wrapper, .c-telling-avatar-quote .telling-wrapper {
-        margin-top: 0;
-    }}
+        @media only screen and (min-width: 768px) {
+            .c-telling-avatar-quote .hey-wrapper, .c-telling-avatar-quote .telling-wrapper {
+                margin-top: 0;
+            }
+        }
 
-    .c-telling-avatar-quote, .c-text-field--append {
-    display: -webkit-box!important;
-}
+        .c-telling-avatar-quote, .text-field--append {
+            display: -webkit-box !important;
+        }
 
-    @media only screen and (min-width: 768px){
-    .c-telling-avatar-quote .telling-wrapper {
-        background: #ffffff;
-        border-radius: 20px;
-        box-shadow: 0 5px 10px 1px rgba(0,0,0,.03);
-        padding: 20px 32px;
-        margin: 60px 30px 40px 0;
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-    }}
+        @media only screen and (min-width: 768px) {
+            .c-telling-avatar-quote .telling-wrapper {
+                background: #ffffff;
+                border-radius: 20px;
+                box-shadow: 0 5px 10px 1px rgba(0, 0, 0, .03);
+                padding: 20px 32px;
+                margin: 60px 30px 40px 0;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+            }
+        }
 
-    .c-telling-avatar-quote .telling-title {
-        margin-bottom: 4px;
-    }
+        .c-telling-avatar-quote .telling-title {
+            margin-bottom: 4px;
+        }
 
-    .c-headline7 {
-        font-size: 18px;
-        line-height: 25px;
-        font-weight: 400;
-    }
+        .headline {
+            font-size: 18px;
+            line-height: 25px;
+            font-weight: 400;
+        }
 
-    .c-body1 {
-        font-size: 16px;
-        line-height: 25px;
-        font-weight: 400;
-        letter-spacing: .02em;
-    }
+        .c-body1 {
+            font-size: 16px;
+            line-height: 25px;
+            font-weight: 400;
+            letter-spacing: .02em;
+        }
 
-    .c-telling-avatar-quote .hey-wrapper .c-avatar--container {
-        margin-bottom: 8px;
-    }
+        .c-telling-avatar-quote .hey-wrapper .c-avatar--container {
+            margin-bottom: 8px;
+        }
 
-    .c-avatar.image {
-    background-size: 100% 100%;
-    z-index: 1;
-    position: relative;
-}
-
-
-    .large {
-        width: 68px;
-        height: 68px;
-        line-height: 68px;
-    }
-
-@media only screen and (min-width: 768px){
-.c-telling-avatar-quote .hey-wrapper {
-    position: relative;
-    top: auto;
-    right: auto;
-    margin-top: 65px;
-    margin-bottom: 40px;
-    display: flex!important;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: vertical;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 0 8px;
-}}
-
-.c-caption1 {
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: 400;
-}
-
-@media only screen and (min-width: 768px){
-.hey-check-wrapper {
-    padding: 40px;
-    background: #fff;
-    margin-bottom: 200px;
-}}
-
-.f-medium {
-    font-weight: 500!important;
-}
-
-.hey-check-form-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.hey-check-form-item label {
-    -ms-flex-preferred-size: 50px;
-    flex-basis: 50px;
-    margin-right: 12px;
-}
-
-.hey-check-form-item div {
-    flex: 1;
-}
-
-.c-body2 {
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
-}
-
-.c-text-field--input.c-text-field--outline {
-    padding: 0 16px;
-    border: 1px solid #e1e4e6;
-    border-radius: 4px;
-}
-
-.c-text-field--input {
-    display: block;
-    width: 100%;
-    height: 40px;
-    border: 0;
-    font-size: 16px;
-    line-height: 25px;
-    font-weight: 400;
-    letter-spacing: .02em;
-    transition: all .2s ease;
-}
-
-@media only screen and (min-width: 768px){
-.select-pg-cta-button-wrapper {
-    padding: 0 0 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 738px;
-}}
+        .c-avatar.image {
+            background-size: 100% 100%;
+            z-index: 1;
+            position: relative;
+        }
 
 
-.select-pg-cta-button-wrapper {
-    position: fixed;
-    bottom: 0;
-}
+        .large {
+            width: 68px;
+            height: 68px;
+            line-height: 68px;
+        }
 
-.c-button.full {
-    width: 100%;
-}
+        @media only screen and (min-width: 768px) {
+            .c-telling-avatar-quote .hey-wrapper {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-top: 65px;
+                margin-bottom: 40px;
+                display: flex !important;
+                -webkit-box-direction: normal;
+                -webkit-box-orient: vertical;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+                padding: 0 8px;
+            }
+        }
 
-.c-button.large {
-    height: 48px;
-    padding: 0 14px;
-    min-width: 56px;
-    border: 0px;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 25px;
-    letter-spacing: .02em;
-    font-weight: 600;
-}
+        .c-caption1 {
+            font-size: 12px;
+            line-height: 15px;
+            font-weight: 400;
+        }
 
-.c-button {
-    color: #fff;
-    background-color: #2a7de1;
-}
+        @media only screen and (min-width: 768px) {
+            .hey-check-wrapper {
+                padding: 40px;
+                background: #fff;
+                margin-bottom: 200px;
+            }
+        }
 
-@media only screen and (min-width: 768px){
-.c-telling-avatar-quote .telling-wrapper:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    top: calc(50% - 22px);
-    right: -10px;
-    transform: rotate(45deg);
-}}
-  
-  
-</style>
+        .f-medium {
+            font-weight: 500 !important;
+        }
+
+        .check-form-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .check-form-item label {
+            -ms-flex-preferred-size: 50px;
+            flex-basis: 50px;
+            margin-right: 12px;
+        }
+
+        .check-form-item div {
+            flex: 1;
+        }
+
+        .c-body2 {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+        }
+
+        .text-field--input.text-field--outline {
+            padding: 0 16px;
+            border: 1px solid #e1e4e6;
+            border-radius: 4px;
+        }
+
+        .text-field--input {
+            display: block;
+            width: 100%;
+            height: 40px;
+            border: 0;
+            font-size: 16px;
+            line-height: 25px;
+            font-weight: 400;
+            letter-spacing: .02em;
+            transition: all .2s ease;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .select-pg-cta-button-wrapper {
+                padding: 0 0 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 738px;
+            }
+        }
+
+
+        .select-pg-cta-button-wrapper {
+            position: fixed;
+            bottom: 0;
+        }
+
+        .c-button.full {
+            width: 100%;
+        }
+
+        .c-button.large {
+            height: 48px;
+            padding: 0 14px;
+            min-width: 56px;
+            border: 0px;
+            border-radius: 8px;
+            font-size: 16px;
+            line-height: 25px;
+            letter-spacing: .02em;
+            font-weight: 600;
+        }
+
+        .c-button {
+            color: #fff;
+            background-color: #2a7de1;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .c-telling-avatar-quote .telling-wrapper:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background: #fff;
+                top: calc(50% - 22px);
+                right: -10px;
+                transform: rotate(45deg);
+            }
+        }
+
+
+    </style>
 
 </head>
 <body>
-<div class="hey-application c-grid main-grid-component fluid"
+<div class="c-grid main-grid-component fluid"
      style="min-height: 100vh; background-color: rgb(252, 252, 252);">
     <div class="c-row">
         <div class="c-grid container mt-32" style="background-color: inherit;">
@@ -246,26 +256,29 @@
                 <div class=" c-style-col col-12 col-lg-8 offset-lg-2 no-gutters">
                     <div class=" c-telling-avatar-quote">
                         <div class="telling-wrapper">
-                            <div class="c-typography telling-title c-headline7 f-semi-bold"
+                            <div class="typography telling-title headline f-semi-bold"
                                  style="color: rgb(4, 5, 5);">
-                                <div class=" c-typography" style="color: inherit;">
-                                    <div class=" c-typography c-headline7" style="color: rgb(32, 35, 37); font-weight: 700;">
+                                <div class=" typography" style="color: inherit;">
+                                    <div class=" typography headline"
+                                         style="color: rgb(32, 35, 37); font-weight: 700;">
                                         userName 님, 예약을 해주셔서 감사드려요!
                                     </div>
                                 </div>
                             </div>
-                                <div class=" c-typography c-body1" style="color: rgb(89, 95, 99);">
-                                    병원에 힘든 몸 이끌고 가지 마세요.<br>
-                                    이제는 의사들이 직접 방문을 해줍니다.
-                                </div>
-                            
+                            <div class=" typography c-body1" style="color: rgb(89, 95, 99);">
+                                병원에 힘든 몸 이끌고 가지 마세요.<br>
+                                이제는 의사들이 직접 방문을 해줍니다.<br>
+                                밑의 인적사항을 작성해주시고 예약을 눌러주세요.
+                            </div>
+
                         </div>
                         <div class="hey-wrapper">
                             <div class=" c-avatar--container large">
-                                <i class="c-avatar image large" style="background-image: url(../../static/image/Group2.png);"></i>
+                                <i class="c-avatar image large"
+                                   style="background-image: url(../../static/image/Group2.png);"></i>
                                 <div class="c-hey"></div>
                             </div>
-                            <div class=" c-typography hey-name-wrapper c-caption1"
+                            <div class=" typography hey-name-wrapper c-caption1"
                                  style="color: rgb(148, 155, 160); display: flex;">
                                 <div style="margin-right: 3px;">헤이닥터</div>
                                 <svg width="12" height="12" viewBox="0 0 12 12"
@@ -281,111 +294,109 @@
                         <span>
                             <form>
                                 <div class="hey-check-item-wrapper">
-                                    <div class=" c-typography mb-20 c-headline7 f-medium"
+                                    <div class=" typography mb-20 headline f-medium"
                                          style="color: rgb(4, 5, 5);">
                                         예약자 정보
                                     </div>
                                     <span>
-                                        <div class="hey-check-form-item mb-12">
+                                        <div class="check-form-item mb-12">
                                             <label>
-                                                <div class=" c-typography c-body2"
+                                                <div class=" typography c-body2"
                                                      style="color: rgb(148, 155, 160);">
                                                     이름
                                                 </div>
                                             </label>
-                                            <div class=" c-text-field">
-                                                <div class="c-text-field--input-wrapper">
-                                                    <input id="text-field-4" placeholder="예약자의 이름을 입력해주세요."
-                                                           name="text-field-4" text-align="left" autocomplete="off"
-                                                           type="text" class="c-text-field--input c-text-field--outline"
+                                            <div class=" text-field">
+                                                <div class="text-field--input-wrapper">
+                                                    <input id="name" placeholder="예약자의 이름을 입력해주세요."
+                                                           name="name" autocomplete="off"
+                                                           type="text" class="text-field--input text-field--outline"
                                                            style="text-align: left;">
                                                 </div>
                                             </div>
                                         </div>
                                     </span>
                                     <span>
-                                        <div class="hey-check-form-item mb-12">
+                                        <div class="check-form-item mb-12">
                                             <label>
-                                                <div class=" c-typography c-body2"
+                                                <div class=" typography c-body2"
                                                      style="color: rgb(148, 155, 160);">
                                                     전화번호
                                                 </div>
                                             </label>
-                                            <div class=" c-text-field">
-                                                <div class="c-text-field--input-wrapper">
-                                                    <input id="text-field-5" placeholder="010-1234-5678"
-                                                           name="text-field-5" text-align="left"
+                                            <div class=" text-field">
+                                                <div class="text-field--input-wrapper">
+                                                    <input id="phone" placeholder="010-1234-5678"
+                                                           name="phone"
                                                            autocomplete="off" type="text"
-                                                           class="c-text-field--input c-text-field--outline"
+                                                           class="text-field--input text-field--outline"
                                                            style="text-align: left;">
                                                 </div>
                                             </div>
                                         </div>
                                     </span>
                                     <span>
-                                        <div class="hey-check-form-item">
+                                        <div class="check-form-item">
                                             <label>
-                                                <div class=" c-typography c-body2" style="color: rgb(148, 155, 160);">
+                                                <div class=" typography c-body2" style="color: rgb(148, 155, 160);">
                                                     이메일
                                                 </div>
                                             </label>
-                                            <div class=" c-text-field">
-                                                <div class="c-text-field--input-wrapper">
+                                            <div class=" text-field">
+                                                <div class="text-field--input-wrapper">
                                                     <input
-                                                        id="text-field-6"
-                                                        placeholder="example@email.com"
-                                                        name="text-field-6"
-                                                        text-align="left"
-                                                        autocomplete="off" type="text"
-                                                        class="c-text-field--input c-text-field--outline"
-                                                        style="text-align: left;">
+                                                            id="email"
+                                                            placeholder="example@email.com"
+                                                            name="email"
+                                                            autocomplete="off" type="text"
+                                                            class="text-field--input text-field--outline"
+                                                            style="text-align: left;">
                                                 </div>
                                             </div>
                                         </div>
                                     </span>
                                     <span>
-                                        <div class="hey-check-form-item">
+                                        <div class="check-form-item">
                                             <label>
-                                                <div class=" c-typography c-body2" style="color: rgb(148, 155, 160);">
+                                                <div class=" typography c-body2" style="color: rgb(148, 155, 160);">
                                                     주소
                                                 </div>
                                             </label>
-                                            <div class=" c-text-field">
-                                                <div class="c-text-field--input-wrapper">
+                                            <div class=" text-field">
+                                                <div class="text-field--input-wrapper">
                                                     <input id="address_kakao"
-                                                            placeholder="주소"
-                                                            name="text-field-6"
-                                                            text-align="left"
-                                                            autocomplete="off" type="text"
-                                                            class="c-text-field--input c-text-field--outline"
-                                                            style="text-align: left;">
+                                                           placeholder="주소"
+                                                           name="address_kakao"
+                                                           autocomplete="off" type="text"
+                                                           class="text-field--input text-field--outline"
+                                                           style="text-align: left;">
                                                 </div>
                                             </div>
                                         </div>
                                     </span>
                                     <span>
-                                        <div class="hey-check-form-item">
+                                        <div class="check-form-item">
                                             <label>
-                                                <div class=" c-typography c-body2" style="color: rgb(148, 155, 160);">
+                                                <div class=" typography c-body2" style="color: rgb(148, 155, 160);">
                                                     상세주소
                                                 </div>
                                             </label>
-                                            <div class="c-text-field">
-                                                <div class="c-text-field--input-wrapper">
-                                                    <input id="text-field-6"
-                                                            placeholder="상세 주소"
-                                                            name="address_detail"
-                                                            text-align="left"
-                                                            autocomplete="off" type="text"
-                                                            class="c-text-field--input c-text-field--outline"
-                                                            style="text-align: left;">
+                                            <div class="text-field">
+                                                <div class="text-field--input-wrapper">
+                                                    <input id="address_detail"
+                                                           placeholder="상세 주소"
+                                                           name="address_detail"
+                                                           autocomplete="off" type="text"
+                                                           class="text-field--input text-field--outline"
+                                                           style="text-align: left;">
                                                 </div>
                                             </div>
                                         </div>
                                     </span>
                                 </div>
                                 <div class="select-pg-cta-button-wrapper">
-                                    <button form="DocterForm" class=" c-button select-pg-cta-button large primary full fill">
+                                    <button
+                                            class=" c-button select-pg-cta-button large primary full fill">
                                         예약하기
                                     </button>
                                 </div>
@@ -399,23 +410,41 @@
 </div>
 </body>
 
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-// 메일 API
-window.onload = function(){
-    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
-        //카카오 지도 발생
-        new daum.Postcode({
-            oncomplete: function(data) { //선택시 입력값 세팅
-                document.getElementById("address_kakao").value = data.address; // 주소 넣기
-                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
-            }
-        }).open();
-    });
-}
+    // 메일 API
+    window.onload = function () {
+        document.getElementById("address_kakao").addEventListener("click", function () { //주소입력칸을 클릭하면
+            //카카오 지도 발생
+            new daum.Postcode({
+                oncomplete: function (data) { //선택시 입력값 세팅
+                    document.getElementById("address_kakao").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+                }
+            }).open();
+        });
+    }
 </script>
 
-<!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('input[type="text"]').blur(function() {
+    var $errorSpan = $(this).parent().find("span");
+    if (!$(this).val()) {
+      $(this).css("border-color", "red");
+      if ($errorSpan.length == 0) {
+        $(this).parent().append("<span style='color:red;'>빈칸을 채워주세요.</span>");
+      }
+    } else {
+      $(this).css("border-color", "#ced4da");
+      $errorSpan.remove();
+    }
+  });
+});
+
+
+</script>
 
 
 </html>
