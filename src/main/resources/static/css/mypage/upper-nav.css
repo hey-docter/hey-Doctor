@@ -96,7 +96,7 @@ c-new-grid.containe {
     min-width: 40px;
 }
 
-.active .c-button {
+div.c-tabs--menu-button.active .c-button {
     color: #040505;
     font-weight: 500;
 }
@@ -127,7 +127,7 @@ c-new-grid.containe {
 }
 
 .c-button {
-    height: 30px!important;
+    height: 30px;
 }
 
 .primary {
@@ -186,19 +186,6 @@ c-new-grid.containe {
 
 .my-page-community-card {
     width: 100%;
-}
-.c-list-item {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    align-items: center;
-    border-radius: 6px;
-    display: -webkit-box!important;
-    display: -ms-flexbox!important;
-    display: flex!important;
-    justify-content: space-between;
-    padding: 8px 4px;
 }
 
 .c-body2 {
