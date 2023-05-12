@@ -48,6 +48,17 @@ article, aside, body, div, footer, header, section {
     outline: none;
 }
 
+#main-grid {
+    padding-top: 0!important;
+}
+
+.main-grid-component {
+    height: 100%;
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+    padding-top: 70px!important;
+}
+
 input, textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -116,6 +127,311 @@ button, input, optgroup, select, textarea {
     margin: 0;
 }
 
+.c-button--icon, .c-button--loading {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-divider.line {
+    border-style: solid;
+}
+.c-divider.horizontal {
+    border-top: 1px;
+    height: 0;
+    width: inherit;
+}
+.c-divider {
+    border: 0;
+    margin: 0;
+}
+.my-32 {
+    margin-bottom: 32px!important;
+    margin-top: 32px!important;
+}
+.my-32 {
+    margin-bottom: 32px!important;
+    margin-top: 32px!important;
+}
+hr {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+.c-narrow-button.small {
+    font-size: 12px;
+    font-weight: 400;
+    height: 18px;
+    line-height: 15px;
+    padding: 2px;
+}
+
+.my-page-setting-profile-grade {
+    align-items: center;
+    cursor: pointer;
+    display: flex!important;
+}
+.c-narrow-button {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    justify-content: center;
+}
+
+.c-narrow-button--icon {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-icon {
+    background: transparent!important;
+    cursor: auto;
+}
+
+.c-body2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.f-semi-bold {
+    font-weight: 600!important;
+}
+
+.flex.justify-content-between {
+    justify-content: space-between;
+}
+
+.flex.flex-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex.justify-content-center {
+    justify-content: center;
+}
+
+.c-avatar--container {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+.c-avatar.image {
+    background-size: 100% 100%;
+}
+
+.c-avatar{
+    border-radius: 100%;
+    display: block;
+}
+.c-new-col {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+    position: relative;
+    width: 100%;
+}
+
+.c-new-grid.container {
+    max-width: 1140px;
+}
+
+.c-new-grid.fluid {
+    padding: 0;
+}
+
+.c-new-grid {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.c-new-row {
+    margin-left: -12px;
+    margin-right: -12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    
+    margin-right: -8px;
+}
+
+
+.c-new-col.no-gutters {
+    padding-left: 0;
+    padding-right: 0;
+}
+.c-avatar--item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.flex.align-items-center {
+    align-items: center;
+}
+.flex.justify-content-between {
+    justify-content: space-between;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.c-list-item.large {
+    border-radius: 8px;
+    padding: 12px 4px;
+    width: 100%;
+    height: 100%;
+}
+.c-caption1 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.c-headline7 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25px;
+}
+.c-list-item {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    border-radius: 6px;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    justify-content: space-between;
+    padding: 8px 4px;
+}
+
+.f-regular {
+    font-weight: 400!important;
+}
+
+.p-relative {
+    position: relative!important;
+}
+
+.c-body1 {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    line-height: 25px;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.c-input-group {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-text-field--input-wrapper {
+    position: relative;
+}
+
+.c-text-field--input.c-text-field--outline {
+    border: 1px solid #e1e4e6;
+    border-radius: 4px;
+    padding: 0 16px;
+}
+.c-text-field--input {
+    border: 0;
+    color: #3c4144;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 40px;
+    letter-spacing: .02em;
+    line-height: 25px;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    width: 100%;
+}
+
+.c-input-group .c-button {
+    height: 40px;
+    margin-left: 4px;
+}
+
+.c-divider.vertical {
+    border-left: 1px;
+    height: inherit;
+    width: 0;
+}
+
+.mr-12 {
+    margin-right: 12px!important;
+}
+
+.mt-16 {
+    margin-top: 16px!important;
+}
+
+.mb-14 {
+    margin-bottom: 14px!important;
+}
+
+.mb-20 {
+    margin-bottom: 20px!important;
+}
+
+.ml-12 {
+    margin-left: 12px!important;
+}
+
+.c-button.large {
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    font-weight: 600;
+    height: 48px;
+    letter-spacing: .02em;
+    line-height: 25px;
+    min-width: 56px;
+    padding: 0 14px;
+}
 .c-button--icon, .c-button--loading {
     display: -webkit-box!important;
     display: -ms-flexbox!important;

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코멘토</title>
+</head>
+<body>
+    <nav th:fragment="upper-nav">
+        <!---->
+        <div class="c-application c-new-col new-col-sm-12 new-col-lg-12 no-gutters">
+            <div class="my-page-nav-section-title">
+                <div class="c-application c-typography c-headline5"
+                    style="color: rgb(60, 65, 68);">
+                    커뮤니티 활동
+                </div>
+            </div>
+            
+            <div class="c-application c-new-grid my-page-nav-container container"
+                style="background-color: rgb(255, 255, 255);">
+                <div class="c-application c-new-row">
+                    <div class="c-application c-new-grid container" style="background-color: inherit;">
+                        <div class="c-application c-new-row">
+                            <div class="c-application c-tabs c-tabs--menu-container my-page-nav c-tabs--horizontal">
+                                <div class="c-tabs--menu-wrapper">
+                                    <div class="c-tabs--menu-button active">
+                                        <a href="/mypage/community"
+                                            aria-current="page"
+                                            class="nuxt-link-exact-active nuxt-link-active">
+                                            <!---->
+                                            <button class="c-application c-button medium primary fill">
+                                                <!---->
+                                                <div class="c-button--icon"></div>
+                                                전체
+                                                <div class="c-button--icon"></div>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div data-v-909544e2="" class="c-tabs--menu-button">
+                                        <a href="/mypage/community?nav=my-post"
+                                            class=""
+                                            data-v-909544e2="">
+                                            <!---->
+                                            <button class="c-application c-button medium primary fill">
+                                                <!---->
+                                                <div class="c-button--icon"></div>
+                                                내 글
+                                                <div class="c-button--icon"></div>
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="c-tabs--menu-button">
+                                        <a href="/mypage/community?nav=my-comment"
+                                            class="">
+                                            <!---->
+                                            <button class="c-application c-button medium primary fill">
+                                                <!---->
+                                                <div data-v-4e8c2e4a="" class="c-button--icon"></div>
+                                                내 댓글
+                                                <div data-v-4e8c2e4a="" class="c-button--icon"></div>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fake-my-page-nav"></div>
+        </div>
+    </nav>
+
+    <nav th:fragment="left-nav">
+        <div class="c-application c-new-col new-col-lg-3 no-gutters">
+            <aside class="my-page-aside-menu">
+                <div class="flex mb-32">
+                    <div class="image-upload-wrapper">
+                        <label for="imageUploadWrapper">
+                            <div class="c-application c-avatar--container large"
+                                style="width: 48px; height: 48px;">
+                                <i class="c-avatar image large"
+                                    style="background-image: url(&quot;https://cdn.comento.kr/images/illust/illust-photo-upload.svg&quot;); width: 48px; height: 48px;"></i>
+                                <div class="c-avatar--item">
+                                    <!---->
+                                    <!---->
+                                    <!---->
+                                </div>
+                            </div>
+                        </label>
+                        <input
+                            id="imageUploadWrapper"
+                            type="file"
+                            name="imageUploadWrapper"
+                            accept="image/jpg,image/png,image/jpeg,image/gif">
+                    </div>
+                    <div class="ml-4 c-pointer" style="overflow: hidden;">
+                        <div class="c-application c-typography mb-2 c-headline7"
+                            style="color: rgb(32, 35, 37); font-weight: 500;">
+                            도이체
+                        </div>
+                        <div class="flex align-items-center c-pointer">
+                            <div class="c-application c-typography text-truncate c-caption1"
+                                style="color: rgb(118, 125, 130); line-height: 16px !important;">
+                                3dollee@naver.com
+                            </div>
+                            <div class="social-icon-wrapper mt-2 ml-6 kakao"
+                                style="height: 14px; min-width: 14px;">
+                                <img
+                                    width="8"
+                                    height="8"
+                                    src="https://cdn.comento.kr/icon/icon-kakao-medium.svg"
+                                    alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+                <div>
+                    <div>
+                        <a href="/mypage/community"
+                            class="w-full nuxt-link-exact-active nuxt-link-active"
+                            aria-current="page">
+                            <div class="mypage-aside-menu-button">
+                                <div>
+                                    <div tabindex="0" class="c-application c-list-item large c-pointer">
+                                        <div class="c-application c-typography p-relative c-body1 f-semi-bold" style="color: rgb(32, 35, 37);"><!---->
+                                            커뮤니티 활동
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <hr class="c-application c-divider my-12 line horizontal #EAECEE"
+                            style="border-color: rgba(234, 236, 238, .2);">
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <a href="/mypage/setting" class="w-full">
+                            <div class="mypage-aside-menu-button">
+                                <div>
+                                    <div tabindex="0" class="c-application c-list-item large c-pointer">
+                                        <div
+                                            class="c-application c-typography p-relative c-body1 f-regular"
+                                            style="color: rgb(32, 35, 37);">
+                                            <!---->
+                                            개인 정보 설정
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!---->
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <a href="/mypage/payment" class="w-full">
+                            <div class="mypage-aside-menu-button">
+                                <div>
+                                    <div tabindex="0" class="c-application c-list-item large c-pointer">
+                                        <div
+                                            class="c-application c-typography p-relative c-body1 f-regular"
+                                            style="color: rgb(32, 35, 37);">
+                                            <!---->
+                                            이력 관리
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!---->
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <a href="/mypage/essay" class="w-full">
+                            <div class="mypage-aside-menu-button">
+                                <div>
+                                    <div tabindex="0" class="c-application c-list-item large c-pointer">
+                                        <div class="c-application c-typography p-relative c-body1 f-regular" style="color: rgb(32, 35, 37);">
+                                            <!---->
+                                            구독 관리
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!---->
+                    </div>
+                </div>
+
+                <div>
+                    <div>
+                        <a href="/mypage/essay" class="w-full">
+                            <div class="mypage-aside-menu-button">
+                                <div>
+                                    <div tabindex="0" class="c-application c-list-item large c-pointer">
+                                        <div class="c-application c-typography p-relative c-body1 f-regular" style="color: rgb(32, 35, 37);">
+                                            <!---->
+                                            문의하기
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <!---->
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </nav>
+</body>
+</html>
