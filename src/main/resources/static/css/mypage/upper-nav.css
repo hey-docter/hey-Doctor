@@ -79,6 +79,10 @@ c-new-grid.containe {
     margin-right: 12px;
 }
 
+.c-application.c-button.medium.primary.fill:not(:active) {
+    font-weight: 400;
+}
+
 .c-tabs--menu-button{
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -110,7 +114,7 @@ div.c-tabs--menu-button.active .c-button {
     line-height: 20px;
     min-width: auto;
     outline: 0;
-    padding: 4px;
+    padding: 4px!important;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
