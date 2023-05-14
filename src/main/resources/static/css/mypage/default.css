@@ -42,6 +42,10 @@ article, aside, body, div, footer, header, section {
     user-select: text;
 }
 
+ol, ul {
+    list-style: none;
+}
+
 *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
