@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>의사 목록 상세보기</title>
+    <!-- 파비콘 -->
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
+    <!-- 폰트 -->   
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="../../static/css/meet-doctor-css/detail.css" />
+</head>
+
+
+<body>
+    <!-- 모달 -->
+<div class="modal">
+    <div class="modal_content"
+         title="클릭하면 창이 닫힙니다.">
+        구독이 되어 있지 않습니다.<br>
+        <a href="main-page.html" style="color: #2A7DE1">구독하러가기</a>
+    </div>
+</div>
+    <div id="main-grid" class=" new-grid main-grid-component fluid" style="min-height: calc(100vh - 324px);">
+            <div class=" new-col detail col lg">
+                <div class=" new-grid fluid" style="background-color: inherit;">
+                    <div class=" c-new-row" >
+                        <div class=" new-col col lg" >
+                            <!-- 배너 -->
+                            <section class="detail-banner">
+                                <div class="detail-banner-background">
+                                    <picture class="min-img" style="display: inline-block; --optimized-image-width: 100%; --optimized-image-aspect-ratio: 960 / 744; --optimized-image-fallback-ratio: 77.5%;">
+                                        <source
+                                            type="image/webp"> <img
+                                            src="../../static/image/Group2.png"
+                                            >
+                                    </picture>
+                                </div>
+                                <!-- 의사 프로필, 이름, 병원 -->
+                                <div class="detail-banner-content">
+                                    <div class=" new-grid p-relative container"
+                                        style="background-color: inherit;">
+                                        <div class=" c-new-row">
+                                            <div class=" new-col col new-col-lg-9"
+                                                id="campBannerText" style="display: flex;">
+                                                <img src="https://www.snuh.org/upload/med/dr/00e5ee46882944db813a2ac3af75f2af.jpg"
+                                                            height="120" style="width: 10%; margin-right: 30px;">
+                                                <h2 class=" typography detail-banner-content-title headline1 mt1"
+                                                    style="color: rgb(255, 255, 255);">
+                                                    userName 의사<br>
+                                                    <p class=" typography  headline" style="color: rgb(243, 244, 245); font-weight: 400;">
+                                                        대학병원
+                                                    </p>
+                                                </h2>
+                                            </div>
+                                            <!-- 예약일자 -->
+                                            <div class=" new-col new-col-lg-3">
+                                                <section
+                                                    class="detail-banner-sidebox-wrapper">
+                                                    <div class="detail-side-box-container" >
+                                                        <aside class="detail-side-box-content" style="overflow: auto;">
+                                                            <div class="detail-side-box-schedule">
+                                                                <div class="detail-side-box-schedule-fixed">
+
+
+                                                                    <!-- 진료 가능일자 변경으로 주석처리됨 -->
+                                                                    <!-- <div class="detail-side-box-schedule-top flex justify-content-between">
+                                                                        <div
+                                                                            class=" typography c-body2"
+                                                                            style="color: rgb(4, 5, 5); text-align: left; font-weight: 600;">
+                                                                            진료 가능 일자
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class=" c-divider my-6 line horizontal #EAECEE" style="border-color: rgb(234, 236, 238);">
+                                                                    <div class="detail-side-box-schedule-list">
+                                                                        <ul style="padding-inline-start: 0px;">
+                                                                          <li class="detail-side-box-schedule-list-item">
+                                                                            <span class="unselected" onclick="handleClick(this)">
+                                                                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);">
+                                                                              </svg>
+                                                                            </span>
+                                                                            <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
+                                                                              6월 18일(일) 16:00
+                                                                            </p>
+                                                                          </li>
+                                                                          <li class="detail-side-box-schedule-list-item">
+                                                                            <span class="unselected" onclick="handleClick(this)">
+                                                                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);">
+                                                                              </svg>
+                                                                            </span>
+                                                                            <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
+                                                                              6월 18일(일) 16:00
+                                                                            </p>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+
+                                                                </div> -->
+
+                                                                    <div class="detail-side-box-schedule-top flex justify-content-between">
+                                                                        <div
+                                                                            class=" typography c-body2"
+                                                                            style="color: rgb(4, 5, 5); text-align: left; font-weight: 600;">
+                                                                            진료 가능 일자
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class=" c-divider my-6 line horizontal #EAECEE" style="border-color: rgb(234, 236, 238);">
+                                                                    <div class="detail-side-box-schedule-list">
+                                                                        <ul style="padding-inline-start: 0px;">
+                                                                          <li class="detail-side-box-schedule-list-item">
+                                                                            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"></path></svg></span>
+                                                                            <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
+                                                                              6월 18일(일) 16:00
+                                                                            </p>
+                                                                          </li>
+                                                                          <li class="detail-side-box-schedule-list-item">
+                                                                            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"></path></svg></span>
+                                                                            <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
+                                                                              6월 18일(일) 16:00
+                                                                            </p>
+                                                                          </li>
+                                                                        </ul>
+                                                                      </div>
+                                                                </div>
+                                                            </div>
+                                                        </aside>
+                                                        <div class="flex align-items-center detail-side-box-button-container" color="primary">
+                                                            <button class=" c-button detail-side-box-bookmark-button xlarge info fill">
+                                                                <svg
+                                                                    width="28" height="28"
+                                                                    viewBox="0 0 28 28" fill="black"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    class="c-pointer  c-icon"
+                                                                    style="fill: rgb(207, 212, 215);">
+                                                                    <path
+                                                                        d="M4 5.44665C4 4.0954 5.11929 3 6.5 3H21.5C22.8807 3 24 4.0954 24 5.44665V23.7747C24 24.739 22.913 25.3242 22.0808 24.8079L14.6692 20.2101C14.2607 19.9567 13.7393 19.9567 13.3308 20.2101L5.91923 24.8079C5.08698 25.3242 4 24.739 4 23.7747V5.44665Z">
+                                                                    </path>
+                                                                </svg>
+                                                            </button>
+                                                            <button class="btn-modal c-button xlarge primary full fill">
+                                                                    예약하기
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 이력 정보 칸 -->
+                <div class="sticky new-grid container c-new-row">
+                    <div class=" new-col detail--nav col new-col-lg-9" >
+                        <nav class=" c-box" style="padding: 0px;">
+                            <div class="wrapper" style="transform: translate3d(0px, 0px, 0px);">
+                            <a href="#one">
+                                <div class="slide slide-active">
+                                    <div class="tabs-menu-button active">
+                                        <button class=" c-button medium primary fill">
+                                            전문분야
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#two">
+                                <div class="slide slide-next">
+                                    <div class="tabs-menu-button">
+                                        <button class=" c-button medium primary fill">
+                                                이력
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#three">
+                                <div  class="slide">
+                                    <div class="tabs-menu-button">
+                                        <button   class=" c-button medium primary fill">
+                                                자격증
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div
+                    class=" new-grid container" style="background-color: inherit;">
+                    <div class=" new-col col new-col-lg-9" >
+                        <section id="one" class="detail-summary">
+                            <div id="campMentoIntro" class="detail-mentor-introduce">
+                                <div
+                                    class=" new-grid detail-mentor-introduce-title fluid"
+                                    style="background-color: rgb(252, 252, 252);">
+                                    <div class=" c-new-row">
+                                        <div
+                                            class=" new-grid container"
+                                            style="background-color: inherit;">
+                                            <div class=" c-new-row">
+                                                <div class=" new-col col new-col-lg-9">
+                                                    <div class="detail-introduce-title">
+                                                        <h3
+                                                            class=" typography c-headline5"
+                                                            style="color: rgb(32, 35, 37); font-weight: 400;">
+                                                            <strong
+                                                                class=" typography d-block  c-headline3"
+                                                                style="color: inherit; font-weight: 600;">
+                                                                전문분야
+                                                            </strong>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class=" new-grid detail-mentor-introduce-content container"
+                                    style="background-color: inherit;">
+                                    <div class=" c-new-row">
+                                        <div class=" new-col col new-col-lg-9" >
+                                            <div class=" c-box">
+                                                <div
+                                                    class=" typography introduce c-body1"
+                                                    style="color: rgb(32, 35, 37); font-weight: 400;">
+                                                    <p><strong>건강증진, 생활습관교정, 일차의료</strong></p>
+                                                    <p><br></p>
+                                                    <p>사람은 먹고 움직이고 감정을 잘 다스려 각 장기의 기능이 원활하게 돌아갈 수 있도록 해주면</p>
+                                                    <p>사는 날까지 건강하게 살 수 있다는 믿음을 가지고 있습니다.</p>
+                                                    <p>따라서 질병은 유전적인 영향과 함께 스스로 몸에 맞게 생활하면 예방할 수 있다고 믿어,</p>
+                                                    <p>환자의 잘못된 생활습관에 대한 진단을 통해 기존 질병에 대한 치료와 함께,</p>
+                                                    <p>건강하게 살 수 있도록 시기에 맞는 적절한 검진과 관리를 해드리는 진료를 합니다.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section id="two">
+                            <div
+                                class=" c-box detail-summary-can"
+                                style="background-color: rgb(252, 252, 252);">
+                                <div
+                                    class=" typography headline"
+                                    style="color: rgb(32, 35, 37); font-weight: 600;">
+                                    경력 및 연수
+                                    <hr
+                                        class=" c-divider detail-summary-can-divider line horizontal #F3F4F5"
+                                        style="border-color: rgb(243, 244, 245);">
+                                </div>
+
+
+                                <div class="tableType01">
+                                    <table>
+
+                                        <colgroup>
+                                            <col style="width: 210px;">
+                                            <col style="width: auto;">
+                                        </colgroup>
+                                        <thead>
+                                            <tr style="text-align: left;">
+                                                <th scope="col">기간</th>
+                                                <th scope="col">경력 및 연수</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody >
+                                            <tr>
+                                                <td>2011. 4. ~ 2016. 2.</td>
+                                                <td class="alignL">서울대학교병원 가정의학과 / 부교수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2005. 3. ~ 2011. 3.</td>
+                                                <td class="alignL">서울대학병원 가정의학과 조교수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2000. 5. ~ 2000. 8.</td>
+                                                <td class="alignL">미국 Brigham &amp; Womens Hospital 비만클리닉  연수</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2000. 3. ~ 2004. 3.</td>
+                                                <td class="alignL">서울대학병원 가정의학과 촉탁의</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1989. 3. ~ 1997. 2.</td>
+                                                <td class="alignL">서울대학교 인턴, 가정의학과 전공의, 전임의 </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            <section id="three">
+                <div   
+                    class=" new-grid detail-mentor-introduce-history fluid"
+                    style="background-color: inherit;">
+                    <div class=" c-new-row">
+                        <div   
+                            class=" new-grid container" 
+                            style="background-color: inherit;">
+                            <div class=" c-new-row">
+                                <div class=" new-col col new-col-lg-9">
+                                    <hr  
+                                        class=" c-divider line horizontal #EAECEE"
+                                        style="border-color: rgb(234, 236, 238); width: 100%;">
+                                </div>
+                                <div class=" new-col col new-col-lg-9" style="margin: 50px 0;">
+                                    <div class="detail-mentor-introduce-history-content">
+                                        <div class=" c-box" style="background-color: rgb(252, 252, 252);">
+                                            <div  
+                                                class=" typography c-body1" 
+                                                style="color: rgb(60, 65, 68); text-align: left; font-weight: 400;">
+                                                <p><strong>자격증</strong></p>
+                                                <ul>
+                                                    <li>국내/해외법인 생산성 관리</li>
+                                                    <li>국내/해외법인 생산설비 기획 및 구축 매니저</li>
+                                                    <li>해외법인 라인 운영 감사</li>
+                                                    <li>해외법인 교육 기획/운영/강의</li>
+                                                    <li>양산공장 생산기술 현장 매니저</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div
+                class=" new-grid fluid" id="campPrice"
+                style="background-color: rgb(252, 252, 252);">
+
+                    <button class="btn-modal c-button xlarge primary full fill">
+                        예약하기 </button>
+
+                </div>
+            </div>
+        </div>
+</body>
+<script src="../../static/js/meet-docter-js/modal.js"></script>
+<script src="../../static/js/meet-docter-js/detail.js"></script>
+</html>

@@ -1,0 +1,697 @@
+.c-grid.fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.c-grid {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+.c-row {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+article, aside, body, div, footer, header, section {
+    user-select: text;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+    outline: none;
+}
+
+div {
+    display: block;
+}
+
+body {
+    color: #495057;
+    font-family: Pretendard,Apple SD Gothic Neo,Helvetica Neue,Helvetica,Arial,Trebuchet MS,sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    background-color: #fff;
+}
+
+:root {
+    --swiper-navigation-size: 44px;
+    --swiper-theme-color: #007aff;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+.c-new-col {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.c-new-grid.container {
+    max-width: 100vw;
+}
+
+.c-new-grid {
+    position: relative;
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+.mt-60 {
+    margin-top: 60px!important;
+}
+
+.clearfix:after, .clearfix:before, .container:after, .container:before, .row:after, .row:before {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after, .container:after, .row:after {
+    clear: both;
+}
+
+.c-new-row {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.c-new-col {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.warning-message {
+    font-size: 14px;
+    color: #adb5bd;
+    position: absolute;
+    top: -20px;
+}
+
+.resume-exit.resume-write {
+    top: -35px;
+    cursor: pointer;
+    -webkit-box-direction: normal;
+}
+
+.resume-exit {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.resume-exit img {
+    width: 20px;
+    height: 20px;
+}
+
+img {
+    border-style: none;
+    max-width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+@media only screen and (min-width: 768px) {
+    .c-new-grid.container {
+        max-width: 1140px;
+    }
+}
+
+.resume-exit p {
+    font-size: 12px;
+    color: #495057;
+}
+
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.7);
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.only-mobile, .only-se {
+    display: none!important;
+}
+
+.mb-5 {
+    margin-bottom: 5px!important;
+}
+
+.text-right {
+    text-align: right!important;
+}
+
+.btn.btn-outline {
+    background-color: #fff;
+    color: #2a7de1;
+    border: 1px solid #2a7de1;
+}
+
+.btn {
+    min-width: 92px;
+    height: 40px;
+    line-height: 38px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    display: -moz-inline-stack;
+    zoom: 1;
+    background-color: #2a7de1;
+    border: 1px solid #2a7de1;
+    border-radius: 3px;
+}
+
+.wrapper2 {
+    overflow: auto; 
+}
+
+.resume-box {
+    margin: 10px 0 30px;
+    padding: 30px;
+    border: 1px solid #e1e4e7;
+    border-top-color: #495057;
+    background-color: #fff;
+    font-family: Noto Sans KR,sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+.resume-box .btn-resume-sample {
+    background: url(https://comento.kr/images/btn-sample.svg) no-repeat;
+    width: 104px;
+    height: 48px;
+    font-size: 13px;
+    line-height: 15px;
+    color: #fff;
+    position: fixed;
+    margin: -20px 0 0 1076px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.mb-20 {
+    margin-bottom: 20px!important;
+}
+
+.h1, h1 {
+    font-size: 34px;
+    font-weight: 600;
+}
+
+input, textarea {
+    appearance: none;
+}
+
+input, textarea {
+    appearance: none;
+}
+
+button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: Pretendard,Apple SD Gothic Neo,Helvetica Neue,Helvetica,Arial,Trebuchet MS,sans-serif;
+    margin: 0;
+}
+
+input {
+    outline: none!important;
+}
+
+input, input:after, input:before, input[type=search], input[type=search]:after, input[type=search]:before, input[type=text], input[type=text]:after, input[type=text]:before {
+    box-sizing: border-box;
+}
+
+.resume-box .info-section .private-info {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.resume-box .resume-input-group input[type=text], .resume-box .resume-input-group textarea {
+    color: #282c30;
+    border: 0!important;
+    border-radius: 0!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    width: 100%;
+    line-height: inherit;
+    background-color: transparent;
+}
+
+.resume-box .info-section .h1 {
+    margin-bottom: 10px;
+}
+
+input[type="text" i] {
+    padding: 1px 2px;
+}
+
+.resume-box .info-section .synthesis-box {
+    margin-bottom: 60px;
+}
+
+.mt-20 {
+    margin-top: 20px!important;
+}
+
+.text-error {
+    color: #e92525!important;
+}
+
+.resume-box .resume-section {
+    margin-bottom: 40px;
+}
+
+.resume-box .resume-section .sub-heading {
+    font-size: 18px;
+    line-height: 1.39;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e4e7;
+    position: relative
+}
+
+.resume-box .resume-section .sub-heading .add {
+    color: #2a7de1;
+    font-size: 16px;
+    line-height: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.resume-box .sortable-item {
+    display: -webkit-flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.resume-box .resume-section .date.write {
+    width: 175px;
+}
+
+.resume-box .resume-section .date {
+    font-size: 16px;
+    float: left;
+    margin-right: 5%;
+    line-height: 24px;
+    color: #495057;
+}
+
+.date, .small {
+    font-weight: 400;
+}
+
+.resume-box .resume-section .date .resume-input-group input[type=text].year {
+    min-width: 40px;
+    width: 40px;
+}
+
+.resume-box .resume-input-group.inline input[type=text] {
+    display: inline-block;
+}
+
+.resume-box .resume-section .date .resume-input-group input[type=text].month {
+    min-width: 27px;
+    width: 27px;
+}
+
+.mr-5 {
+    margin-right: 5px!important;
+}
+
+input[type=checkbox], input[type=radio] {
+    display: none;
+}
+
+[type=checkbox], [type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input {
+    outline: none!important;
+}
+
+.resume-box .resume-section .date .resume-input-group.checkbox input[type=checkbox]+label:before {
+    width: 15px;
+    height: 15px;
+    content: "\2713";
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #e1e4e7;
+    text-align: center;
+    display: -moz-inline-stack;
+    zoom: 1;
+    *display: inline;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.resume-box .resume-section .date .resume-input-group.checkbox input[type=checkbox]+label {
+    font-size: 14px;
+    color: #adb5bd;
+}
+
+
+.wk {
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.resume-box .resume-section .detail.write {
+    width: 79%;
+}
+
+.resume-box .resume-section .detail {
+    float: left;
+}
+
+.resume-box .resume-section .detail .item-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #282c30;
+    line-height: 32px;
+    padding-right: 60px;
+}
+
+input[type="text" i] {
+    padding: 1px 2px;
+}
+
+.resume-box .resume-section .detail .item-sub-title {
+    font-size: 18px;
+    line-height: 28px;
+    margin: 5px 0 10px;
+}
+
+.resume-box .resume-input-group .department {
+    width: 300px!important;
+}
+
+.mb-0 {
+    margin-bottom: 0!important;
+}
+
+.resume-box .resume-input-group .experience {
+    position: relative;
+}
+
+ul {
+    list-style: none;
+}
+
+.resume-box .resume-input-group .experience li:before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    line-height: 23px;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+.resume-box .resume-section .detail .item-content {
+    font-size: 16px;
+    word-wrap: break-word;
+}
+
+.resume-box .resume-input-group .experience li textarea {
+    width: 97%;
+}
+
+.resume-box .resume-input-group textarea {
+    min-height: 30px!important;
+    padding: 0;
+}
+
+.resume-box .resume-input-group .experience li {
+    padding-left: 15px;
+    display: flex;
+    -js-display: flex;
+    -ms-display: flexbox;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.text-primary {
+    color: #2a7de1!important;
+}
+
+.clear {
+    clear: both;
+}
+
+.resume-box .sortable-item:hover .sortable-btn-item.only-pc .sortable-btn-delete {
+    background-image: url(https://comento.kr/images/gray_dark_remove.svg);
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    bottom: 2px;
+}
+
+.resume-box .sortable-item:hover .sortable-btn-item.only-pc .sortable-btn-move {
+    background-image: url(https://comento.kr/images/move.svg);
+    background-repeat: no-repeat;
+    cursor: move;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+
+.resume-box .resume-input-group .v-select {
+    width: 100px;
+}
+
+.v-select, .v-select * {
+    box-sizing: border-box;
+}
+
+.v-select {
+    position: relative;
+    font-family: inherit;
+}
+
+.pointer {
+    cursor: pointer; 
+}
+
+.v-select {
+    background-image: url(https://comento.kr/images/selectbox_arrow.svg)!important;
+    background-repeat: no-repeat!important;
+    background-position: 97% 55%!important;
+    background-size: 13px 8px!important;
+}
+
+.resume-box .sortable-item:hover {
+    background-color: #f4f5f7;
+}
+
+.resume-box .sortable-item:hover .sortable-btn-item.only-pc {
+    position: absolute;
+    margin-top: 5px;
+    right: 55px;
+}
+
+.v-select.unsearchable .dropdown-toggle {
+    cursor: pointer;
+}
+
+.v-select .dropdown-toggle {
+    appearance: none;
+    display: flex;
+    padding: 0 0 4px;
+    background: none;
+    border-radius: 4px;
+    white-space: normal;
+    border: 0!important;
+}
+
+.v-select .vs__selected-options {
+    display: flex;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    padding: 0 2px;
+    position: relative;
+}
+
+.resume-box .resume-input-group .v-select .dropdown-toggle .form-control, .resume-box .resume-input-group .v-select .dropdown-toggle .selected-tag {
+    padding: 0;
+    margin: 4px 0 -15px;
+    font-size: 18px;
+}
+
+.v-select.single .selected-tag {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.v-select .selected-tag {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    line-height: 1.42857143;
+    transition: opacity .25s;
+}
+
+.v-select.unsearchable input[type=search] {
+    opacity: 1;
+}
+
+.v-select .dropdown-toggle .form-control {
+    width: 1px;
+}
+
+.v-select .vs__actions {
+    display: flex;
+    align-items: stretch;
+    padding: 0 6px 0 3px;
+}
+
+.v-select .dropdown-toggle .clear {
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(60,60,60,.5);
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 6px;
+    display: none!important;
+}
+
+.v-select .open-indicator, .v-select .open-indicator:before {
+    transition: all .15s cubic-bezier(1,-.115,.975,.855);
+    transition-timing-function: cubic-bezier(1,-.115,.975,.855);
+}
+
+.v-select .open-indicator {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    pointer-events: all;
+    opacity: 1;
+    width: 12px;
+}
+
+.v-select .spinner, .v-select .spinner:after {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+}
+
+.v-select .spinner {
+    align-self: center;
+    opacity: 0;
+    font-size: 5px;
+    text-indent: -9999em;
+    overflow: hidden;
+    border-top: 0.9em solid hsla(0,0%,39%,.1);
+    border-right: 0.9em solid hsla(0,0%,39%,.1);
+    border-bottom: 0.9em solid hsla(0,0%,39%,.1);
+    border-left: 0.9em solid rgba(60,60,60,.45);
+    transform: translateZ(0);
+    animation: vSelectSpinner 1.1s infinite linear;
+    transition: opacity .1s;
+}
+
+.resume-box .resume-section .detail .item-sub-title {
+    font-size: 16px;
+    line-height: 28px;
+    margin: 5px 0 10px;
+}
+
+.resume-box .resume-section .detail .item-sub-title.row {
+    margin: 0;
+}
+
+.resume-box .resume-section .detail .item-sub-title {
+    line-height: 28px;
+}
+
+.resume-btn-wrapper {
+    padding: 0;
+    border: 0;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.resume-btn-wrapper button {
+    min-width: 132px;
+    height: 60px;
+    line-height: 58px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.btn-resume {
+    width: 200px;
+}

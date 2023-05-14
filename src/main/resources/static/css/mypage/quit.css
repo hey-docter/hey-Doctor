@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.quit-info-group {
+    margin: 24px 0;
+}
+
+.quit-info-group li {
+    margin-bottom: 16px;
+}
