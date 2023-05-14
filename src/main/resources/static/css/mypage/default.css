@@ -42,6 +42,10 @@ article, aside, body, div, footer, header, section {
     user-select: text;
 }
 
+ol, ul {
+    list-style: none;
+}
+
 *, :after, :before {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -94,6 +98,10 @@ img {
 
 .c-pointer {
     cursor: pointer!important;
+}
+
+.c-box {
+    display: block;
 }
 
 a {
@@ -340,6 +348,11 @@ hr {
     padding: 8px 4px;
 }
 
+.c-label {
+    display: inline-block;
+    padding: 0 4px;
+}
+
 .f-regular {
     font-weight: 400!important;
 }
@@ -436,4 +449,203 @@ hr {
     display: -webkit-box!important;
     display: -ms-flexbox!important;
     display: flex!important;
+}
+
+.c-dropdown.full {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    width: 100%;
+}
+
+.c-dropdown {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+}
+
+.c-dropdown--item-group {
+    position: relative;
+}
+
+.c-select--box.c-select--basic {
+    border: 1px solid #e1e4e6;
+    border-radius: 4px;
+    padding: 9px 16px;
+}
+.c-select--box {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    cursor: pointer;
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.c-select--item {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+    width: 100%;
+}
+
+.c-select.medium .c-select--box.c-select--basic input {
+    color: #202325;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.c-select--item input, 
+.c-select--item>div {
+    cursor: pointer;
+    width: 100%;
+}
+.c-select--input {
+    border: none;
+    padding: 0;
+}
+
+.light-primary {
+    background-color: #d4e5f9;
+    color: #2a7de1;
+}
+
+.c-checkbox, .c-text-rating {
+    display: -webkit-box!important;
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+.c-checkbox input[type=checkbox]:disabled+label,
+.c-checkbox input[type=checkbox]:disabled {
+    cursor: not-allowed!important;
+}
+
+.c-checkbox input[type=checkbox] {
+    clip: rect(1px,1px,1px,1px);
+    border: 0;
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+[type=checkbox], [type=radio] {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.c-checkbox input[type=checkbox]:disabled:checked+label:before {
+    background-color: #f3f4f5;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23cfd4d7'%3E%3Cpath d='M13.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L6.5 10.793l6.646-6.647a.5.5 0 0 1 .708 0z'/%3E%3C/svg%3E");
+    border-color: #e1e4e6;
+    content: "";
+}
+
+.c-checkbox input[type=checkbox]:disabled+label:before {
+    background-color: #f3f4f5;
+}
+.c-checkbox input[type=checkbox]+label:before {
+    background-color: #fcfcfc;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 1px solid #e1e4e6;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    margin-right: 8px;
+    margin-top: 2px;
+    width: 20px;
+}
+
+.c-checkbox input[type=checkbox]+label>div {
+    display: inline-block;
+}
+
+.mb-16 {
+    margin-bottom: 16px!important;
+}
+
+.my-12 {
+    margin-bottom: 12px!important;
+    margin-top: 12px!important;
+}
+.mt-60 {
+    margin-top: 60px!important;
+}
+
+.mb-16 {
+    margin-bottom: 16px!important;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.phone-number-group {
+    width: 370px;
+}
+
+.c-input-group>:first-child {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.inputbox-group {
+    margin-bottom: 15px;
+}
+
+.inputbox {
+    display: block;
+}
+
+.c-text-field {
+    position: relative;
+}
+
+.inputbox-group .error-message {
+    margin-left: 16px;
+    margin-top: 4px;
+}
+
+.c-caption1 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+input[type=checkbox]+label {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    cursor: pointer;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.disabled {
+    cursor: not-allowed!important;
+    pointer-events: none;
 }
