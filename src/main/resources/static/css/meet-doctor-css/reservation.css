@@ -1,0 +1,236 @@
+.c-grid.fluid {
+    width: 100%;
+    padding: 0;
+}
+
+.c-grid {
+    position: relative;
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px) {
+    .c-grid > .c-row {
+        margin-right: -24px;
+        margin-left: -24px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (min-width: 768px) {
+    .c-grid.container {
+        max-width: 1000px;
+    }
+}
+
+.mt-32 {
+    margin-top: 32px;
+}
+
+.container {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.c-row.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+@media only screen and (min-width: 768px) {
+    .offset-lg-2 {
+        margin-left: 14.666667%;
+        margin-right: 11%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .c-telling-avatar-quote .hey-wrapper, .c-telling-avatar-quote .telling-wrapper {
+        margin-top: 0;
+    }
+}
+
+.c-telling-avatar-quote, .text-field--append {
+    display: -webkit-box !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .c-telling-avatar-quote .telling-wrapper {
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 5px 10px 1px rgba(0, 0, 0, .03);
+        padding: 20px 32px;
+        margin: 60px 30px 40px 0;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+}
+
+.c-telling-avatar-quote .telling-title {
+    margin-bottom: 4px;
+}
+
+.headline {
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 400;
+}
+
+.c-body1 {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    letter-spacing: .02em;
+}
+
+.c-telling-avatar-quote .hey-wrapper .c-avatar--container {
+    margin-bottom: 8px;
+}
+
+.c-avatar.image {
+    background-size: 100% 100%;
+    z-index: 1;
+    position: relative;
+}
+
+
+.large {
+    width: 68px;
+    height: 68px;
+    line-height: 68px;
+}
+
+@media only screen and (min-width: 768px) {
+    .c-telling-avatar-quote .hey-wrapper {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-top: 65px;
+        margin-bottom: 40px;
+        display: flex !important;
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0 8px;
+    }
+}
+
+.c-caption1 {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 768px) {
+    .hey-check-wrapper {
+        padding: 40px;
+        background: #fff;
+        margin-bottom: 200px;
+    }
+}
+
+.f-medium {
+    font-weight: 500 !important;
+}
+
+.check-form-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.check-form-item label {
+    -ms-flex-preferred-size: 50px;
+    flex-basis: 80px;
+    margin-right: 12px;
+}
+
+.check-form-item div {
+    flex: 1;
+}
+
+.c-body2 {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.text-field--input.text-field--outline {
+    padding: 0 16px;
+    border: 1px solid #e1e4e6;
+    border-radius: 4px;
+}
+
+.text-field--input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    transition: all .2s ease;
+}
+
+@media only screen and (min-width: 768px) {
+    .select-pg-cta-button-wrapper {
+        padding: 0 0 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 738px;
+    }
+}
+
+
+.select-pg-cta-button-wrapper {
+    position: fixed;
+    bottom: 0;
+}
+
+.c-button.full {
+    width: 100%;
+}
+
+.c-button.large {
+    height: 48px;
+    padding: 0 14px;
+    min-width: 56px;
+    border: 0px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: .02em;
+    font-weight: 600;
+}
+
+.c-button {
+    color: #fff;
+    background-color: #2a7de1;
+}
+
+@media only screen and (min-width: 768px) {
+    .c-telling-avatar-quote .telling-wrapper:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        top: calc(50% - 22px);
+        right: -10px;
+        transform: rotate(45deg);
+    }
+}

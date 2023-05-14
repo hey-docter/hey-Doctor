@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
         <link rel="stylesheet" href="../../static/css/mypage/default.css">
+        <link rel="stylesheet" href="../../static/css/mypage/community.css">
         <link rel="stylesheet" href="../../static/css/mypage/left-nav.css">
         <link rel="stylesheet" href="../../static/css/mypage/upper-nav.css">
-        <link rel="stylesheet" href="../../static/css/mypage/community.css">
-        <link rel="stylesheet" href="../../static/css/main-page.css">
+        <link rel="stylesheet" href="../../static/css/main-page/main-page.css">
         <title>코멘토</title>
     </head>
 <body>
-
     <div id="layout">
         <div id="header-layout">
             <div class="header-wrapper">
@@ -246,9 +245,9 @@
                                                 <i class="c-avatar image large"
                                                     style="background-image: url(&quot;https://cdn.comento.kr/images/illust/illust-photo-upload.svg&quot;); width: 48px; height: 48px;"></i>
                                                 <div class="c-avatar--item">
-                                                    
-                                                    
-                                                    
+
+
+
                                                 </div>
                                             </div>
                                         </label>
@@ -279,7 +278,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div>
                                     <div>
                                         <a href="/mypage/community"
@@ -309,14 +308,14 @@
                                                         <div
                                                             class="c-application c-typography p-relative c-body1 f-regular"
                                                             style="color: rgb(32, 35, 37);">
-                                                            
+
                                                             개인 정보 설정
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
-                                        
+
                                     </div>
                                 </div>
 
@@ -329,14 +328,14 @@
                                                         <div
                                                             class="c-application c-typography p-relative c-body1 f-regular"
                                                             style="color: rgb(32, 35, 37);">
-                                                            
+
                                                             이력 관리
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
-                                        
+
                                     </div>
                                 </div>
 
@@ -347,14 +346,14 @@
                                                 <div>
                                                     <div tabindex="0" class="c-application c-list-item large c-pointer">
                                                         <div class="c-application c-typography p-relative c-body1 f-regular" style="color: rgb(32, 35, 37);">
-                                                            
+
                                                             구독 관리
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
-                                        
+
                                     </div>
                                 </div>
 
@@ -365,14 +364,14 @@
                                                 <div>
                                                     <div tabindex="0" class="c-application c-list-item large c-pointer">
                                                         <div class="c-application c-typography p-relative c-body1 f-regular" style="color: rgb(32, 35, 37);">
-                                                            
+
                                                             문의하기
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </a>
-                                        
+
                                     </div>
                                 </div>
                             </aside>
@@ -396,12 +395,8 @@
                                                 <div class="c-application c-tabs c-tabs--menu-container my-page-nav c-tabs--horizontal">
                                                     <div class="c-tabs--menu-wrapper">
                                                         <div class="c-tabs--menu-button active">
-                                                            <a href="/mypage/community"
-                                                                aria-current="page"
-                                                                class="nuxt-link-exact-active nuxt-link-active">
-                                                                
+                                                            <a class="nuxt-link-exact-active nuxt-link-active">
                                                                 <button class="c-application c-button medium primary fill">
-                                                                    
                                                                     <div class="c-button--icon"></div>
                                                                     전체
                                                                     <div class="c-button--icon"></div>
@@ -409,12 +404,8 @@
                                                             </a>
                                                         </div>
                                                         <div data-v-909544e2="" class="c-tabs--menu-button">
-                                                            <a href="/mypage/community?nav=my-post"
-                                                                class=""
-                                                                data-v-909544e2="">
-                                                                
+                                                            <a class="">
                                                                 <button class="c-application c-button medium primary fill">
-                                                                    
                                                                     <div class="c-button--icon"></div>
                                                                     내 글
                                                                     <div class="c-button--icon"></div>
@@ -422,11 +413,8 @@
                                                             </a>
                                                         </div>
                                                         <div class="c-tabs--menu-button">
-                                                            <a href="/mypage/community?nav=my-comment"
-                                                                class="">
-                                                                
+                                                            <a class="">
                                                                 <button class="c-application c-button medium primary fill">
-                                                                    
                                                                     <div data-v-4e8c2e4a="" class="c-button--icon"></div>
                                                                     내 댓글
                                                                     <div data-v-4e8c2e4a="" class="c-button--icon"></div>
@@ -525,5 +513,8 @@
             </div>
         </div>
     </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../../static/js/mypage/upper-nav.js"></script>
 </html>
