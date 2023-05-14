@@ -6,446 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>의사 목록 상세보기</title>
+    <!-- 파비콘 -->
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
-
-    <style>
-
-#main-grid {
-    padding-top: 0!important;
-}
-.new-grid.fluid {
-    padding: 0;
-}
-
-@media only screen and (min-width: 768px){
-.main-grid-component {
-    padding-top: 70px!important;
-}}
-
-.main-grid-component {
-    height: 100%;
-}
-.new-grid {
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px;
-    position: relative;
-    width: 100%;
-}
-
-@media only screen and (min-width: 768px){
-.c-new-row {
-    margin-left: -12px;
-    margin-right: -12px;
-}}
-
-.detail-banner {
-    position: relative;
-    z-index: 3;
-}
-
-.detail-banner:before {
-    -webkit-backdrop-filter: blur(30px);
-    backdrop-filter: blur(30px);
-    background: rgba(0,0,0,.5);
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-}
-
-@media only screen and (min-width: 768px){
-.detail-banner-background {
-    height: 308px;
-}}
-
-.detail-banner-background {
-    height: 280px;
-    overflow: hidden;
-    position: relative;
-}
-
-.detail-banner-background picture {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
-}
-
-@media only screen and (min-width: 768px){
-.detail-banner-content {
-    padding: 40px 0;
-}}
-
-
-.detail-banner-content {
-    bottom: 0;
-    left: 0;
-    padding: 20px 0;
-    position: absolute;
-    right: 0;
-    width: 100%;
-    z-index: 2;
-}
-
-@media only screen and (min-width: 768px){
-.detail-banner-content-title {
-    max-width: 580px;
-}}
-
-@media only screen and (min-width: 768px){
-.new-grid.container {
-    max-width: 1140px;
-}}
-
-.headline1 {
-    font-size: 32px;
-    font-weight: 600;
-    letter-spacing: -.02em;
-    line-height: 40px;
-}
-
-.headline {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 25px;
-}
-
-.detail-banner-sidebox-wrapper {
-    position: fixed;
-    top: 117px;
-    width: 259px;
-    z-index: 10;
-    right: 150px;
-}
-
-.detail-side-box-content {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,.1);
-    margin-bottom: 16px;
-    overflow: hidden;
-    padding: 24px;
-    z-index: 4;
-    height: 200px;
-}
-
-.detail-side-box-schedule-list-item {
-    align-items: center;
-    display: flex!important;
-}
-
-.detail-side-box-schedule {
-    display: flex!important;
-    flex-direction: column;
-}
-
-.flex.align-items-center {
-    align-items: center;
-}
-
-.flex {
-    display: flex;
-    justify-content: space-between;
-}
-
-.c-button.xlarge {
-    border-radius: 8px;
-    font-size: 18px;
-    height: 60px;
-    line-height: 25px;
-    min-width: 84px;
-    padding: 0 26px;
-}
-
-.detail-side-box-bookmark-button {
-    align-items: center;
-    background-color: #eaecee!important;
-    display: flex!important;
-    flex-direction: column;
-    height: 60px;
-    margin-right: 12px;
-    min-width: 64px!important;
-    padding: 0 20px!important;
-    width: 64px;
-}
-
-.c-button.full {
-    width: 100%;
-}
-
-.c-button.xlarge {
-    border-radius: 8px;
-    font-size: 18px;
-    height: 60px;
-    line-height: 25px;
-    min-width: 84px;
-    padding: 0 26px;
-}
-
-.c-button {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    align-items: center;
-    background-color: #2a7de1;
-    border: none;
-    border-radius: 6px;
-    color: #fff;
-    cursor: pointer;
-    display: flex!important;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-}
-
-
-
-.new-grid {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
-    padding-right: 16px;
-    position: relative;
-    width: 100%;
-}
-
-.detail--nav .c-tabs--menu-container:before {
-    background: #eaecee;
-    bottom: 0;
-    content: "";
-    height: 1px;
-    position: absolute;
-    width: 100%;
-}
-
-
-.slide {
-    width: auto;
-}
-.slide {
-    flex-shrink: 0;
-    height: 100%;
-    position: relative;
-    transition-property: transform;
-    width: 60%;
-    text-align: center;
-}
-
-.active .c-button {
-    color: #3c4144;
-    font-weight: 600;
-}
-
-
-@media only screen and (min-width: 768px){
-.detail-summary {
-    padding: 60px 0;
-}}
-
-.c-headline3 {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 33px;
-}
-
-.headline {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 25px;
-}
-
-@media only screen and (min-width: 768px){
-.detail-summary-can {
-    margin-top: 32px;
-}}
-
-.detail-summary-can-list li {
-    align-items: flex-start;
-    display: flex!important;
-    flex-direction: row;
-    margin-bottom: 4px;
-}
-
-.c-body1 {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: .02em;
-    line-height: 0px;
-}
-
-.detail-summary-can-list li strong {
-    color: #2a7de1;
-    font-weight: 600;
-}
-
-@media only screen and (min-width: 768px){
-.detail-summary-can-list li {
-    align-items: center;
-}}
-
-.c-headline5 {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 28px;
-}
-
-.c-headline3 {
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 33px;
-}
-
-.c-body1 {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: .02em;
-    line-height: 25px;
-}
-
-.tabs-menu-button {
-  display: inline-block;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@media only screen and (min-width: 768px){
-#detail-tab.fixed.fixed {
-    top: 69px;
-}}
-
-.detail--nav {
-    background: #fff;
-    position: relative;
-    width: 100%;
-}
-
-.c-box {
-    display: block;
-}
-
-.detail--nav .c-tabs--menu-container {
-    background: transparent;
-    position: relative;
-    z-index: 1;
-}
-
-.detail--nav .c-tabs--menu-container {
-    overflow: visible!important;
-}
-
-.swiper-container-free-mode>.wrapper {
-    margin: 0 auto;
-    transition-timing-function: ease-out;
-}
-
-.slide, .wrapper {
-    transform: translateZ(0);
-}
-.wrapper {
-    box-sizing: content-box;
-    display: flex;
-    height: 100%;
-    position: relative;
-    transition-property: transform;
-    width: 100%;
-    z-index: 1;
-}
-
-.slide:not(:last-child) {
-    margin-right: 12px;
-}
-
-.slide {
-    width: auto;
-}
-.slide {
-    flex-shrink: 0;
-    height: 100%;
-    position: relative;
-    transition-property: transform;
-}
-
-.tabs-menu-button {
-    align-items: center;
-    display: flex!important;
-    position: relative;
-}
-
-.tabs-menu-button .c-button {
-    border: 0;
-    color: #adb3b8;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-    min-width: auto;
-    outline: 0;
-    padding: 4px;
-    width: -moz-fit-content;
-    width: fit-content;
-}
-
-.tabs-menu-button .c-button {
-    background: none!important;
-}
-
-.sticky{
-    z-index: 1;
-    position:sticky;
-    top:0px;
-}
-
-a {
-  color:inherit;
-  text-decoration:none;
-}
-
-.detail-side-box-schedule-list-item .unselected {
-    border: 2px solid #7c8d98;
-    border-radius: 20px;
-    height: 15px;
-    margin: 2px;
-    width: 15px;
-}
-
-.detail-side-box-schedule-list-item .unselected .c-icon {
-    display: none;
-}
-
-.ml-10 {
-    margin-left: 10px!important;
-}
-
-    </style>
+    <!-- 폰트 -->   
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <!-- css -->
+    <link rel="stylesheet" href="../../static/css/meet-doctor-css/detail.css" />
 </head>
 
+
 <body>
+    <!-- 모달 -->
+<div class="modal">
+    <div class="modal_content"
+         title="클릭하면 창이 닫힙니다.">
+        구독이 되어 있지 않습니다.<br>
+        <a href="main-page.html" style="color: #2A7DE1">구독하러가기</a>
+    </div>
+</div>
     <div id="main-grid" class=" new-grid main-grid-component fluid" style="min-height: calc(100vh - 324px);">
             <div class=" new-col detail col lg">
                 <div class=" new-grid fluid" style="background-color: inherit;">
                     <div class=" c-new-row" >
                         <div class=" new-col col lg" >
+                            <!-- 배너 -->
                             <section class="detail-banner">
                                 <div class="detail-banner-background">
                                     <picture class="min-img" style="display: inline-block; --optimized-image-width: 100%; --optimized-image-aspect-ratio: 960 / 744; --optimized-image-fallback-ratio: 77.5%;">
                                         <source
                                             type="image/webp"> <img
                                             src="../../static/image/Group2.png"
-                                            width="960" height="744">
+                                            >
                                     </picture>
                                 </div>
+                                <!-- 의사 프로필, 이름, 병원 -->
                                 <div class="detail-banner-content">
                                     <div class=" new-grid p-relative container"
                                         style="background-color: inherit;">
@@ -462,6 +56,7 @@ a {
                                                     </p>
                                                 </h2>
                                             </div>
+                                            <!-- 예약일자 -->
                                             <div class=" new-col new-col-lg-3">
                                                 <section
                                                     class="detail-banner-sidebox-wrapper">
@@ -469,7 +64,10 @@ a {
                                                         <aside class="detail-side-box-content" style="overflow: auto;">
                                                             <div class="detail-side-box-schedule">
                                                                 <div class="detail-side-box-schedule-fixed">
-                                                                    <div class="detail-side-box-schedule-top flex justify-content-between">
+
+
+                                                                    <!-- 진료 가능일자 변경으로 주석처리됨 -->
+                                                                    <!-- <div class="detail-side-box-schedule-top flex justify-content-between">
                                                                         <div
                                                                             class=" typography c-body2"
                                                                             style="color: rgb(4, 5, 5); text-align: left; font-weight: 600;">
@@ -497,45 +95,35 @@ a {
                                                                               6월 18일(일) 16:00
                                                                             </p>
                                                                           </li>
+                                                                        </ul>
+                                                                      </div>
+
+                                                                </div> -->
+
+                                                                    <div class="detail-side-box-schedule-top flex justify-content-between">
+                                                                        <div
+                                                                            class=" typography c-body2"
+                                                                            style="color: rgb(4, 5, 5); text-align: left; font-weight: 600;">
+                                                                            진료 가능 일자
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class=" c-divider my-6 line horizontal #EAECEE" style="border-color: rgb(234, 236, 238);">
+                                                                    <div class="detail-side-box-schedule-list">
+                                                                        <ul style="padding-inline-start: 0px;">
                                                                           <li class="detail-side-box-schedule-list-item">
-                                                                            <span class="unselected" onclick="handleClick(this)">
-                                                                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);">
-                                                                              </svg>
-                                                                            </span>
+                                                                            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"></path></svg></span>
                                                                             <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
                                                                               6월 18일(일) 16:00
                                                                             </p>
                                                                           </li>
                                                                           <li class="detail-side-box-schedule-list-item">
-                                                                            <span class="unselected" onclick="handleClick(this)">
-                                                                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);">
-                                                                              </svg>
-                                                                            </span>
-                                                                            <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
-                                                                              6월 18일(일) 16:00
-                                                                            </p>
-                                                                          </li>
-                                                                          <li class="detail-side-box-schedule-list-item">
-                                                                            <span class="unselected" onclick="handleClick(this)">
-                                                                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);">
-                                                                              </svg>
-                                                                            </span>
-                                                                            <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
-                                                                              6월 18일(일) 16:00
-                                                                            </p>
-                                                                          </li>
-                                                                          <li class="detail-side-box-schedule-list-item">
-                                                                            <span class="unselected" onclick="handleClick(this)">
-                                                                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);">
-                                                                              </svg>
-                                                                            </span>
+                                                                            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"></path></svg></span>
                                                                             <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
                                                                               6월 18일(일) 16:00
                                                                             </p>
                                                                           </li>
                                                                         </ul>
                                                                       </div>
-
                                                                 </div>
                                                             </div>
                                                         </aside>
@@ -552,10 +140,8 @@ a {
                                                                     </path>
                                                                 </svg>
                                                             </button>
-                                                            <button class=" c-button xlarge primary full fill">
-                                                                <div class=" typography headline" style="color: inherit;">
+                                                            <button class="btn-modal c-button xlarge primary full fill">
                                                                     예약하기
-                                                                </div>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -568,6 +154,9 @@ a {
                         </div>
                     </div>
                 </div>
+
+
+                <!-- 이력 정보 칸 -->
                 <div class="sticky new-grid container c-new-row">
                     <div class=" new-col detail--nav col new-col-lg-9" >
                         <nav class=" c-box" style="padding: 0px;">
@@ -655,7 +244,6 @@ a {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </section>
                         <section id="two">
@@ -665,7 +253,6 @@ a {
                                 <div
                                     class=" typography headline"
                                     style="color: rgb(32, 35, 37); font-weight: 600;">
-
                                     경력 및 연수
                                     <hr
                                         class=" c-divider detail-summary-can-divider line horizontal #F3F4F5"
@@ -730,10 +317,7 @@ a {
                                 </div>
                                 <div class=" new-col col new-col-lg-9" style="margin: 50px 0;">
                                     <div class="detail-mentor-introduce-history-content">
-
-                                        <div   class=" c-box"
-
-                                            style="background-color: rgb(252, 252, 252);">
+                                        <div class=" c-box" style="background-color: rgb(252, 252, 252);">
                                             <div  
                                                 class=" typography c-body1" 
                                                 style="color: rgb(60, 65, 68); text-align: left; font-weight: 400;">
@@ -754,101 +338,17 @@ a {
                     </div>
                 </div>
             </section>
-            <div    
+            <div
                 class=" new-grid fluid" id="campPrice"
                 style="background-color: rgb(252, 252, 252);">
-                <div   
-                    class=" new-grid container" 
-                    style="background-color: inherit;">
-                    <div class=" c-new-row">
-                        <div class=" new-col col new-col-lg-9" >
-                            <section class="detail-price">
-                                <div class="mx-auto mt-36">
-                                    <div  
-                                        class="flex align-items-center detail-side-box-button-container"
-                                        color="light-primary"> 
-                                        <button  
-                                            class=" c-button xlarge light-primary full fill">
-                                            <div  
-                                                class=" typography headline"
-                                                    style="color: inherit;">
-                                                예약하기
-                                            </div>
-                                        </button>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
+
+                    <button class="btn-modal c-button xlarge primary full fill">
+                        예약하기 </button>
+
                 </div>
             </div>
         </div>
-    </div>
 </body>
-
-<script>
-    function handleClick(el) {
-        var items = document.querySelectorAll('.detail-side-box-schedule-list-item');
-        for (var i = 0; i < items.length; i++) {
-            var item = items[i];
-            if (item !== el.parentNode) {
-                item.querySelector('span').classList.remove('selected');
-                item.querySelector('span').classList.add('unselected');
-                item.querySelector('span').innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-            }
-        }
-        el.classList.remove('unselected');
-        el.classList.add('selected');
-        el.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-    }
-</script>
-
-<script>
-
-const marker=document.querySelector(".marker");
-
-//nav의 marker의 길이와 위치를 설정하는 함수
-//A function to set the length and position of the nav marker.
-function setMarker(e) {
-    marker.style.left = e.offsetLeft+"px";
-    marker.style.width = e.offsetWidth+"px";
-}
-
-const sections = document.querySelectorAll("section");
-const menus = document.querySelectorAll(".nav__menu > li > a")
-
-//스크롤 위치에 따라 해당하는 menu의 색깔과 마커가 달라짐
-//The color and marker of the corresponding menu change according to the scroll position
-
-window.addEventListener("scroll",()=>{
-    //현재 영역의 id값
-    //id of the current section
-    let current=""
-
-    sections.forEach(section=>{
-        //각 section의 top 위치(절대적 위치)
-        // The top of each section (absolute)
-        const sectionTop = window.scrollY + section.getBoundingClientRect().top;
-
-        //누적된 스크롤이 section의 top위치에 도달했거나 section의 안에 위치할 경우
-        //When the accumulated scroll reaches the top of the section or is located inside the section
-        if(window.scrollY >= sectionTop) {
-            current = section.getAttribute("id");
-        }
-
-
-        menus.forEach(menu=>{
-            menu.classList.remove("nav__menu--foused");
-            const href = menu.getAttribute("href").substring(1);
-            if(href===current) {
-                //현재 있는 영역의 id와 메뉴의 링크주소가 일치할때
-                //When the Id of the current section matches the href of the menu
-                menu.classList.add("nav__menu--foused");
-                setMarker(menu);
-            }
-        })
-    })
-})
-</script>
-
+<script src="../../static/js/meet-docter-js/modal.js"></script>
+<script src="../../static/js/meet-docter-js/detail.js"></script>
 </html>
