@@ -131,6 +131,19 @@ textarea{
     padding: 10px;
 }
 
+.selectRequest{
+    width: 71.6%;
+    margin-left: 15px;
+    border-radius: 10px;
+    resize: none;
+    border: none;
+    outline: none;
+    line-height: 100%;
+    background-color: rgb(246,246,246);
+    padding: 10px;
+    appearance: none;
+}
+
 .detail-content > div {
     width: 100px;
     text-align: left;
@@ -141,7 +154,7 @@ textarea{
     height: 200px;
 }
 
-button{
+#btnSubmit{
     background-color: rgb(7,92,255);
     color: white;
     font-weight: bolder;
@@ -149,7 +162,8 @@ button{
     border-radius: 10px;
     width: 70%;
     border: none;
-    height: 50px;
+    height: 110px;
     margin: 40px 50px;
     font-size: 15px;
+    cursor: pointer;
 }

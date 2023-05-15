@@ -128,15 +128,7 @@ main{
     height: 50px;
 }
 
-.more{
-    background-image: url("../../../static/image/icon/more.png");
-    background-size: 100%;
-    width: 20px;
-    height: 20px;
-    margin:10px;
-    position:relative;
-    left: 85%;
-}
+
 
 .detail-profile {
     margin: 5px 15px;
@@ -173,5 +165,6 @@ main{
     color: white;
     border: none;
     font-weight: bolder;
+    cursor: pointer;
 }
 

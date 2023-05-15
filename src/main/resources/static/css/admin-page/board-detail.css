@@ -98,6 +98,17 @@ main{
     justify-content: center;
 }
 
+.more-detail{
+    position : absolute;
+    border-radius: 15px;
+    background-color : rgb(240, 240, 240);
+    cursor: pointer;
+    padding: 5px;
+    display : none;
+}
+
+
+
 .detail{
     background-color: white;
     width: 90%;
@@ -127,6 +138,7 @@ main{
     margin:10px;
     position:relative;
     left: 85%;
+    cursor: pointer;
 }
 
 .detail-profile {

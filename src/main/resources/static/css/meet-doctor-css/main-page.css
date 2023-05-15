@@ -707,4 +707,43 @@ ul {
 .c-tabs--menu-button.active button {
     color: #2A7DE1;
   }
-  
+
+.c-tabs--menu-button.active:after {
+    background-color: #2a7de1;
+}
+.c-tabs--menu-button .c-button.active {
+    font-size: 14px;
+    font-weight: 600!important;
+    line-height: 20px;
+}
+
+.c-button.medium {
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    font-weight: 600;
+    height: 36px;
+    line-height: 20px;
+    min-width: 49px;
+    padding: 0 12px;
+}
+
+.c-tabs--menu-button {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex!important;
+    position: relative;
+}
+
+.active:after {
+    /* background-color: #595f63; */
+    bottom: -1px;
+    content: "";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
