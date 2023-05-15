@@ -7,6 +7,11 @@
     <title>1:1문의 등록 페이지</title>
     <link rel="stylesheet" href="../../static/css/admin-page/qna-page.css">
 </head>
+<style>
+    .is-invalid {
+        border-color: red;
+    }
+    </style>
 <body>
     <div class="container">
     <div id="wrap">
@@ -15,23 +20,30 @@
             <p class="p-class">문의 주신 내용은 48시간 내로 최대한 빠르게 답변드리도록 하겠습니다. 남겨주신 이메일을 확인해주세요.</p>
         </div>
         <section>
-            <input type="text" placeholder="제목" class="text-title">
-            <textarea row="5" placeholder="해결이 필요한 문제에 대해 자세히 설명해주세요." class="content"></textarea>
+            <input type="text" placeholder="제목" class="text-title" id="titleBox">
+            <div id="message"></div>
+            <textarea row="5" placeholder="해결이 필요한 문제에 대해 자세히 설명해주세요." class="content" id="contentBox"></textarea>
+            <div id="message2"></div>
             <div class="email-wrap">
-                <input type="text" placeholder="답변 받을 이메일 주소" class="email-input">
+                <input type="text" placeholder="답변 받을 이메일 주소" class="email-input" id="emailBox">
                 <div class="log-setting">
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox">
                     <label class="h7">개인정보 수집 및 이용에 동의합니다. 1:1 문의를 위한 최소한의 개인정보만을 수집하고 있습니다.
                         <br>
                         개인정보는 '개인정보 처리방침'에 근거하여 관리됩니다.
                     </label>
                 </div>
+                <div id="error-message" style="display: none; font-size: 0.8rem; color: red;">개인 정보 수집에 동의를 해주세요.</div>
             </div>
+            <div id="message3"></div>
             <div class="btn-wrapper">
-                <button class="btn-disabled">문의하기</button>
+                <button class="btn-disabled" id="btn">문의하기</button>
             </div>
         </section>
     </div>
 </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../../static/js/admin.js/qna.js">
+</script>
 </html>
