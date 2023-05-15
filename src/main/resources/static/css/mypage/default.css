@@ -649,3 +649,38 @@ input[type=checkbox]+label {
     cursor: not-allowed!important;
     pointer-events: none;
 }
+
+.mr-48 {
+    margin-right: 48px!important;
+}
+
+.c-headline5 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+b, strong {
+    font-weight: inherit;
+    font-weight: 600;
+}
+
+.pr-8 {
+    padding-right: 8px!important;
+}
+
+.primary:hover, .light-primary:hover {
+    background-color: #1b5192;
+}
+
+.c-tabs--menu-button{
+    border-radius: 8px;
+}
+
+.c-tabs--menu-button:hover {
+    background-color: #f0f0f0;
+}
+
+.primary.outline:hover {
+    background-color: rgb(212, 229, 249);
+}

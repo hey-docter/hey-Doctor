@@ -1,3 +1,13 @@
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(221, 215, 215, 0.575);
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar {
+    width: 0.45em;
+    background-color: rgba(247, 240, 240, 0.993);
+}
+
 .header-wrapper {
     background-color: #fff;
 }
@@ -220,33 +230,7 @@ button {
     border-image: initial;
 }
 
-.c-tabs--menu-button .c-button.active {
-    color: #2a7de1 !important;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.primary {
-    background-color: #2a7de1;
-}
-
-.c-tabs--menu-button.active:after {
-    background-color: #2a7de1;
-}
-
-.active:after {
-    bottom: -1px;
-    content: "";
-    display: flex;
-    height: 2px;
-    left: 0;
-    position: absolute;
-    width: 100%;
-}
-
 /* 게시판 헤더 끝 */
-
-
 #main-grid {
     padding-top: 0 !important;
 }
@@ -715,7 +699,12 @@ ul {
     }
 }
 
-.c-header-menu.active>a {
-    color: #2a7de1 !important;
-    font-weight: 600;
+
+.c-tabs--menu-button :hover{
+    color: #2A7DE1;
 }
+
+.c-tabs--menu-button.active button {
+    color: #2A7DE1;
+  }
+  
