@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>관리자 페이지</title>
-    <link rel="stylesheet" href="../../static/css/adminHsw/admin.css">
+    <title>문의 관리 세부 페이지</title>
+    <link rel="stylesheet" href="../../static/css/admin-page/board-detail.css">
 </head>
 <body>
     <div id="wrap">
@@ -34,26 +34,24 @@
             </div>
         </header>
         <main>
-            <div class="main-title-box">
-                <h3>전체 문의목록 페이지</h3>
+            <div class="detail">
+                <div class="title">
+                    <h3>오늘 축구를 하다가 발목을 다쳤습니다.</h3>
+                </div>
+                <div class="profile">
+                    <div class="profile-img"></div>
+                    <div class="detail-profile">
+                        <div class="profile-name">방울청년</div>
+                        <div class="add-date">2023-05-11</div>
+                    </div>
+                    <div class="more"></div>
+                </div>
+                <div style="width:100%">
+                    <hr style="border-width:5px;">
+                </div>
+                <div class="content-img"></div>
+                <div class="content-text">발목에 피멍이 들었습니다. 간단한 응급치료로는 어떻게 처리해야 할까요?</div>
             </div>
-            <form class="main-container">
-                <section class="top-line">
-                    <button type="button" class="delete-btn">삭제</button>
-                </section>
-                <table border="1" id="content-wrap">
-                    <thead>
-                        <th><input type="checkbox" class="check-top"></th>
-                        <th>IDX</th>
-                        <th>제목</th>
-                        <th>작성일</th>
-                        <th>작성자</th>
-                        <th>답변여부</th>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </form>
         </main>
     </div>
 </body>

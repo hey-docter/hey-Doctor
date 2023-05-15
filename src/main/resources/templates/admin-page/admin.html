@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>전체 문의 관리 페이지</title>
+    <link rel="stylesheet" href="../../static/css/admin-page/admin.css">
 </head>
 <body>
     <div id="wrap">
@@ -33,15 +34,25 @@
             </div>
         </header>
         <main>
-            <form>
-                <div class="title">제목이 표시되는 구간입니다.</div>
-                <div class="profile">
-                    <div class="profile-img"></div>
-                    <div class="profile-name"></div>
-                    <div class="add-date"></div>
-                    <div class="more"></div>
-                </div>
-                <div class="content">세부적인 내용이 표시되는 구역입니다.</div>
+            <div class="main-title-box">
+                <h3>전체 문의목록 페이지</h3>
+            </div>
+            <form class="main-container">
+                <section class="top-line">
+                    <button type="button" class="delete-btn">삭제</button>
+                </section>
+                <table border="1" id="content-wrap">
+                    <thead>
+                        <th><input type="checkbox" class="check-top"></th>
+                        <th>IDX</th>
+                        <th>제목</th>
+                        <th>작성일</th>
+                        <th>작성자</th>
+                        <th>답변여부</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </form>
         </main>
     </div>

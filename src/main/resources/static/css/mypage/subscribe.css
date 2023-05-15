@@ -1,1 +1,30 @@
 @charset "UTF-8";
+
+.my-page-setting-career-section {
+    padding-bottom: 52px;
+    background-color: #fff;
+}
+
+.career-title {
+    margin-bottom: 16px;
+}
+
+.company-info-section {
+    position: relative;
+}
+
+.my-page-no-results-box {
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+}
+
+.my-page-no-results-box button {
+    margin: 24px auto 0;
+}
+
+.subscribe-title {
+    margin-top: 24px;
+}
+
