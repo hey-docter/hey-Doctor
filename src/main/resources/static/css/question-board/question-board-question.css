@@ -643,20 +643,6 @@ input[type=checkbox]+label {
     color: #7e848a!important;
 }
 
-input[type=checkbox]+label:before {
-    width: 20px;
-    height: 20px;
-    content: "✓";
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1;
-    color: #fff;
-    background: #fff;
-    border: 1px solid #e1e4e7;
-    text-align: center;
-    display: -moz-inline-stack;
-    zoom: 1;
-}
 
 .c-button.full {
     width: 100%;
@@ -693,4 +679,29 @@ input[type=checkbox]+label:before {
     position: relative;
     cursor: pointer;
     overflow: hidden;
+}
+
+input[type=checkbox]+label:before {
+    width: 20px;
+    height: 20px;
+    content: "✓";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    background: #fff;
+    border: 1px solid #e1e4e7;
+    text-align: center;
+    display: -moz-inline-stack;
+    zoom: 1;
+    *display: inline;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+}
+input[type=checkbox]:checked+label:before {
+    color: #2a7de1;
+    background: #fff;
+    border-color: #2a7de1;
+    cursor: pointer;
 }
