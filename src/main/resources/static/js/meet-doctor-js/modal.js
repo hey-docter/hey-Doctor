@@ -1,13 +1,13 @@
-window.addEventListener('DOMContentLoaded', function() {
-    var modal = document.querySelector('.modal');
-    var modalContent = document.querySelector('.modal_content');
-    var button = document.querySelector('.btn-modal');
-
-    button.addEventListener('click', function() {
-        modal.style.display = 'block';
+$(document).ready(function() {
+    var modal = $('.modal');
+    var modalContent = $('.modal_content');
+    var button = $('.btn-modal');
+    // 모달 보이기
+    button.click(function() {
+        modal.css('display', 'block');
     });
-
-    modalContent.addEventListener('click', function() {
-        modal.style.display = 'none';
+    // 모달 숨기기
+    modalContent.click(function() {
+        modal.css('display', 'none');
     });
 });
