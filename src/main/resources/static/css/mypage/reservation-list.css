@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.fake-my-page-nav {
+    margin-bottom: 24px;
+}
+
+.pin-img {
+    width: 1rem;
+    height: 1rem;
+    position: relative;
+    transform: translateY(3px);
+    opacity: 0.7;
+}
