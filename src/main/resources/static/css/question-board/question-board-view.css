@@ -294,9 +294,8 @@ button {
 }
 
  .c-tabs--menu-button .c-button.active {
-    color: #2a7de1!important;
     font-size: 14px;
-    font-weight: 500!important;
+    font-weight: 600!important;
     font-weight: 400;
     line-height: 20px;
 }
@@ -1036,7 +1035,15 @@ ol, ul {
     max-width: 25%;
 }}
 
-.c-header-menu.active>a {
+/* .c-header-menu.active>a {
     color: #2a7de1!important;
     font-weight: 600;
+} */
+.c-tabs--menu-button :hover {
+    color: #2A7DE1;
 }
+.c-tabs--menu-button.active button {
+    color: #2A7DE1;
+    color: #2a7de1!important;
+  }
+  
