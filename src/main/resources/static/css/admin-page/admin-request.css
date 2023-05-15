@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+h3
+
+button {
+    box-sizing: border-box;
+    border: none;
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+.logo {
+    width: 160px;
+    height: 36px;
+    margin: 33px auto 20px;
+    background-image: url("../../../static/image/icon/JOONGSHIN.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+#wrap{
+    display: flex;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: column;
+    min-width: 232px;
+    max-width: 288px;
+    height: 120vh;
+    background-color: rgb(152, 196, 230);
+}
+
+.nav-container{
+    width:100%;
+    padding-top: 20px;
+}
+
+.nav-box {
+    margin-bottom: 40px;
+}
+
+.flex-line{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 82%;
+    margin: 0 30px;
+}
+
+.nav-title{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.arrow {
+    width: 10px;
+    height: 10px;
+    background-image: url("../../../static/image/icon/arrow.png");
+    background-size: 100%;
+    margin-left: auto;
+    cursor: pointer;
+    transform: rotate(0deg);
+}
+
+.list li{
+    list-style-type: none;
+    padding: 6px;
+}
+
+.list li:hover{
+    cursor: pointer;
+    padding: 6px;
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.inquiries-list li:first-child{
+    color:  rgb(240, 240, 240);
+    font-weight: bolder;
+}
+
+main{
+    flex-grow: 1;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-title-box{
+    width: 90%;
+}
+
+.main-container{
+    background-color: white;
+    width: 90%;
+    min-width: 1040px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 50px;
+}
+
+.detail-content{
+    display: flex;
+    margin: 10px;
+    width: 100%;
+}
+
+textarea{
+    width: 70%;
+    margin-left: 15px;
+    border-radius: 10px;
+    resize: none;
+    border:none;
+    outline: none;
+    line-height: 100%;
+    background-color: rgb(246,246,246);
+    padding: 10px;
+}
+
+.detail-content > div {
+    width: 100px;
+    text-align: left;
+    line-height: 35px;
+}
+
+.qna{
+    height: 200px;
+}
+
+button{
+    background-color: rgb(7,92,255);
+    color: white;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 10px;
+    width: 70%;
+    border: none;
+    height: 50px;
+    margin: 40px 50px;
+    font-size: 15px;
+}
