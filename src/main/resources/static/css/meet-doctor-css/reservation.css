@@ -1,3 +1,13 @@
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(221, 215, 215, 0.575);
+    border-radius: 3px;
+}
+
+body::-webkit-scrollbar {
+    width: 0.45em;
+    background-color: rgba(247, 240, 240, 0.993);
+}
+
 .c-grid.fluid {
     width: 100%;
     padding: 0;
@@ -137,7 +147,6 @@
     .hey-check-wrapper {
         padding: 40px;
         background: #fff;
-        margin-bottom: 200px;
     }
 }
 
@@ -148,7 +157,7 @@
 .check-form-item {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .check-form-item label {
@@ -168,7 +177,6 @@
 }
 
 .text-field--input.text-field--outline {
-    padding: 0 16px;
     border: 1px solid #e1e4e6;
     border-radius: 4px;
 }
@@ -183,6 +191,7 @@
     font-weight: 400;
     letter-spacing: .02em;
     transition: all .2s ease;
+    padding-left: 15px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -201,10 +210,11 @@
 }
 
 .c-button.full {
-    width: 100%;
+    width: 101%;
 }
 
 .c-button.large {
+    margin-top: 30px;
     height: 48px;
     padding: 0 14px;
     min-width: 56px;

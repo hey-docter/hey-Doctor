@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="../../static/css/meet-doctor-css/detail.css" />
 </head>
 
-
 <body>
     <!-- 모달 -->
 <div class="modal">
@@ -104,18 +103,12 @@
                                                                         <div
                                                                             class=" typography c-body2"
                                                                             style="color: rgb(4, 5, 5); text-align: left; font-weight: 600;">
-                                                                            진료 가능 일자
+                                                                            예약되어있는 진료 일자
                                                                         </div>
                                                                     </div>
                                                                     <hr class=" c-divider my-6 line horizontal #EAECEE" style="border-color: rgb(234, 236, 238);">
                                                                     <div class="detail-side-box-schedule-list">
                                                                         <ul style="padding-inline-start: 0px;">
-                                                                          <li class="detail-side-box-schedule-list-item">
-                                                                            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"></path></svg></span>
-                                                                            <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
-                                                                              6월 18일(일) 16:00
-                                                                            </p>
-                                                                          </li>
                                                                           <li class="detail-side-box-schedule-list-item">
                                                                             <span><svg width="24" height="24" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(42, 125, 225);"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM16.7071 10.7071C17.0976 10.3166 17.0976 9.68342 16.7071 9.29289C16.3166 8.90237 15.6834 8.90237 15.2929 9.29289L11 13.5858L8.70711 11.2929C8.31658 10.9024 7.68342 10.9024 7.29289 11.2929C6.90237 11.6834 6.90237 12.3166 7.29289 12.7071L10.2929 15.7071C10.6834 16.0976 11.3166 16.0976 11.7071 15.7071L16.7071 10.7071Z"></path></svg></span>
                                                                             <p class="typography ml-10 c-body1" style="color: rgb(60, 65, 68);">
@@ -159,36 +152,13 @@
                 <!-- 이력 정보 칸 -->
                 <div class="sticky new-grid container c-new-row">
                     <div class=" new-col detail--nav col new-col-lg-9" >
-                        <nav class=" c-box" style="padding: 0px;">
-                            <div class="wrapper" style="transform: translate3d(0px, 0px, 0px);">
-                            <a href="#one">
-                                <div class="slide slide-active">
-                                    <div class="tabs-menu-button active">
-                                        <button class=" c-button medium primary fill">
-                                            전문분야
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#two">
-                                <div class="slide slide-next">
-                                    <div class="tabs-menu-button">
-                                        <button class=" c-button medium primary fill">
-                                                이력
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#three">
-                                <div  class="slide">
-                                    <div class="tabs-menu-button">
-                                        <button   class=" c-button medium primary fill">
-                                                자격증
-                                        </button>
-                                    </div>
-                                </div>
-                            </a>
-                            </div>
+                        <nav id="nav" class="nav">
+                            <ul class="nav__menu">
+                            <li><a href="#one" class="nav__menu--foused">전문분야</a></li>
+                            <li><a href="#two">이력</a></li>
+                            <li><a href="#three">자격증</a></li>
+                            <div class="marker"></div>
+                            </ul>
                         </nav>
                     </div>
                 </div>
@@ -344,11 +314,15 @@
 
                     <button class="btn-modal c-button xlarge primary full fill">
                         예약하기 </button>
-
                 </div>
             </div>
         </div>
 </body>
-<script src="../../static/js/meet-docter-js/modal.js"></script>
-<script src="../../static/js/meet-docter-js/detail.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<!-- 모달 -->
+<script src="../../static/js/meet-doctor-js/modal.js"></script>
+
+<script src="../../static/js/meet-doctor-js/detail.js"></script>
 </html>
