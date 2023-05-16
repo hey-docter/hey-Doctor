@@ -181,7 +181,7 @@ img {
 }
 
 .c-caption1 {
-    font-size: 10.2px;
+    font-size: 12px;
     line-height: 15px;
     font-weight: 400;
 }
@@ -233,6 +233,7 @@ a {
     min-width: 460px;
     width: auto;
     max-width: 520px;
+    height: 550px;
     margin: 0 auto;
     padding: 30px;
     background-color: #fff;
@@ -536,4 +537,9 @@ button {
 
 b, strong {
     font-weight: 600;
+}
+
+.register-button.email {
+    background: #eaecee;
+    color: #949ba0;
 }
