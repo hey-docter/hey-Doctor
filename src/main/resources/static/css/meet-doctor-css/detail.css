@@ -438,3 +438,12 @@ a {
 /*section {*/
 /*    height: 100vh;*/
 /*}*/
+
+@media only screen and (min-width: 768px){
+html ::-webkit-scrollbar-thumb {
+    background: #eaecee;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.1);
+    height: 50px;
+    width: 50px;
+}}
