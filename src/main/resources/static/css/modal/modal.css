@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+@keyframes popUp {
+    from {scale: 0;}
+    to {scale: 1;}
+}
+
+@keyframes popDown {
+    from {scale: 1;}
+    to {scale: 0;}
+}
+
+div.modal {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    inset: 0px;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #8586898a;
+}
+
+div.warn-modal {
+    box-sizing: border-box;
+    position: unset;
+    width: 288px;
+    margin: 20vh 0px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(33 35 41 / 12%) 0px 2px 12px;
+    border-radius: 8px;
+}
+
+div.warn-modal {
+    padding: 24px;
+}
+
+div#content-wrap span{
+    display: block;
+}
+
+.modal-close-btn {
+    text-align: right;
+    opacity: .2;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    float: right;
+    transform: translateY(-10px) translateX(10px);
+}
+
+.add-file {
+    opacity: .8;
+    cursor: pointer;
+}
+
+.add-file img {
+    width: 40%;
+    height: 40%;
+    transform: translateX(8px);
+}
+
+input#license {
+    display: none;
+}
+
+.info-license {
+    margin-top: 20px;
+}
+

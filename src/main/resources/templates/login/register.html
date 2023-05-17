@@ -16,12 +16,18 @@
                 <div class="register-wrapper">
                     <div id="register" class="mb-85">
                         <div class="c-application c-box register-view-wrapper" style="background-color: rgb(255, 255, 255); padding: 60px 38.5px;">
-                            <div class="c-application c-typography mb-40 c-headline3 f-semi-bold" style="color: rgb(32, 35, 37); line-height: 140%; font-size: 21px;">
-                                시작하는 사람들의
-                                <br> 
-					            커리어 커뮤니티
+                            <div class="c-application c-typography mb-40 c-headline3 f-semi-bold" style="color: rgb(32, 35, 37); line-height: 140%; font-size: 24px;">
+					            회원가입
                             </div>
                             <div class="register-buttons-container">
+                                <div class="register-button c-pointer full email" id="btn-modal">
+                                    <div class="register-button-icon">
+                                        <img src="https://cdn.comento.kr/icon/icon-email-medium.svg">
+                                    </div>
+                                    <div class="ml-6">
+                                        <div class="c-application c-typography c-body1 f-regular"> 이메일로 로그인하기 </div>
+                                    </div>
+                                </div>
                                 <div class="register-button c-pointer full kakao">
                                     <div class="register-button-icon">
                                         <img src="https://cdn.comento.kr/icon/icon-kakao-medium.svg" alt>
@@ -30,7 +36,7 @@
                                         <div class="c-application c-typography c-body1 f-regular" style="color: inherit;"> 카카오로 1초만에 시작하기 </div>
                                     </div>
                                 </div>
-                                <div class="register-button c-pointer full naver" id="btn-modal">
+                                <div class="register-button c-pointer full naver">
                                     <div class="register-button-icon">
                                         <img src="https://cdn.comento.kr/icon/icon-naver-medium.svg" alt>
                                     </div>
@@ -72,14 +78,14 @@
                             </div>
                         </div>
                         <div class="modal-mask modal-overlay" id="modal">
-                            <div class="modal-container">
+                            <div class="modal-container" style="border-radius: 20px;">
                                 <img src="https://comento.kr/images/gray_remove.svg" class="box-remove icon-sm-md pointer close-area" alt>
                                 <div id="signInAgree" class="modal-body text-center">
                                     <h2 class="text-normal">회원 가입</h2>
                                     <span>
                                         <form id="signInAgreeFrom">
                                             <section class="apply-card-new text-left">
-                                                <div class="mb-50">
+                                                <div id="mb-50">
                                                     <div class="inputbox-group">
                                                         <span>
                                                             <label>
@@ -110,31 +116,35 @@
                                                             <span class="error-text"></span>
                                                         </span>
                                                     </div>
+                                                    <button id="nextButton" type="button" class="apply-btn btn btn-lg btn-full"> 다음 </button>
                                                 </div>
-                                                <ul class="clearfix mb-40">
-                                                    <li class="allAgree">
-                                                        <input id="allAgree" type="checkbox" name="agreeCheckBox1">
-                                                        <label id="allAgree_label" for="allAgree" class="text-normal f-semi-bold"> 전체 동의 </label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="mustAgree" type="checkbox" name="agreeCheckBox2">
-                                                        <label id="mustAgree_label" for="mustAgree" class="h7 text-sub">
-                                                            <div class="h7">
-                                                                <a href="https://comento.kr/agreement">
-                                                                    <u>이용약관</u>
-                                                                </a>
-                                                                및 
-                                                                <a href="https://comento.kr/agreement">
-                                                                    <u>개인정보제공</u>
-                                                                </a>
-                                                                필수 
-                                                            </div>
-                                                        </label>
-                                                    </li>
-                                                    <li>
-                                                        <input id="marketingAgree" type="checkbox" name="agreeCheckBox3">
-                                                        <label id="anonymous_label" for="marketingAgree" class="h7 text-sub">
-                                                            <div class="h7 pt-15">
+                                                
+
+                                                <div id="remainingContent" style="display: none;">
+                                                    <ul class="clearfix mb-40">
+                                                        <li class="allAgree">
+                                                            <input id="allAgree" type="checkbox" name="agreeCheckBox1">
+                                                            <label id="allAgree_label" for="allAgree" class="text-normal f-semi-bold"> 전체 동의 </label>
+                                                        </li>
+                                                        <li>
+                                                            <input id="mustAgree" type="checkbox" name="agreeCheckBox2">
+                                                            <label id="mustAgree_label" for="mustAgree" class="h7 text-sub">
+                                                                <div class="h7">
+                                                                    <a href="https://comento.kr/agreement">
+                                                                        <u>이용약관</u>
+                                                                    </a>
+                                                                    및 
+                                                                    <a href="https://comento.kr/agreement">
+                                                                        <u>개인정보제공</u>
+                                                                    </a>
+                                                                    필수 
+                                                                </div>
+                                                            </label>
+                                                        </li>
+                                                        <li>
+                                                            <input id="marketingAgree" type="checkbox" name="agreeCheckBox3">
+                                                            <label id="anonymous_label" for="marketingAgree" class="h7 text-sub">
+                                                                <div class="h7 pt-15">
                                                                 코멘토의 
                                                                 <u>혜택 등 유용한 정보 안내</u>
                                                                 를
@@ -144,7 +154,9 @@
                                                         </label>
                                                     </li>
                                                 </ul>
+                                                
                                                 <button type="button" class="apply-btn btn btn-lg btn-full disabled"> 완료 </button>
+                                            </div>
                                             </section>
                                         </form>
                                     </span>
@@ -161,4 +173,16 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="../../static/js/login/register-modal.js"></script>
+<script>
+    function showRemainingContent() {
+  // 이메일, 닉네임, 패스워드가 있는 화면을 숨김 처리합니다.
+  document.getElementById("mb-50").style.display = "none";
+  // 숨겨져 있던 나머지 화면들을 보이게 처리합니다.
+  document.getElementById("remainingContent").style.display = "block";
+}
+
+
+document.getElementById("nextButton").addEventListener("click", showRemainingContent);
+
+</script>
 </html>

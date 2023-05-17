@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../static/css/mypage/default.css">
     <link rel="stylesheet" href="../../static/css/mypage/left-nav.css">
     <link rel="stylesheet" href="../../static/css/mypage/setting.css">
+    <link rel="stylesheet" href="../../static/css/modal/modal.css">
     <link rel="stylesheet" href="../../static/css/mypage/upper-nav.css">
     <link rel="stylesheet" href="../../static/css/main-page/main-page.css">
     <link rel="stylesheet" href="../../static/css/main-page/footer.css">
@@ -177,44 +178,42 @@
                                                     </div>
                                                 </li>
                                                 <li class="top-bar-action-button">
-                                                    <div class="c-application c-badge--container absolute"><button
-                                                            type="button" aria-label="알림 보기"
-                                                            class="c-application c-icon-button medium"><svg width="24"
-                                                                                                            height="24" viewBox="0 0 24 24" fill="black"
-                                                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                                                            class="c-application c-icon"
-                                                                                                            style="fill: rgb(173, 179, 184);">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                              d="M6.88889 13.9814L6.41315 16.5H17.5869L17.1111 13.9814V9.61111C17.1111 6.78832 14.8228 4.5 12 4.5C9.17722 4.5 6.88889 6.78832 6.88889 9.61111V13.9814ZM4.88889 13.7941L4.22395 17.3144C4.10764 17.9302 4.57989 18.5 5.20658 18.5H18.7934C19.4201 18.5 19.8924 17.9302 19.7761 17.3144L19.1111 13.7941V9.61111C19.1111 5.68375 15.9274 2.5 12 2.5C8.07265 2.5 4.88889 5.68375 4.88889 9.61111V13.7941Z">
-                                                        </path>
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                              d="M11 18.5C11 19.0523 11.4477 19.5 12 19.5C12.5523 19.5 13 19.0523 13 18.5H15C15 20.1569 13.6569 21.5 12 21.5C10.3431 21.5 9 20.1569 9 18.5H11Z">
-                                                        </path>
-                                                    </svg></button>
+                                                    <div class="c-application c-badge--container absolute">
+                                                        <button type="button" aria-label="알림 보기" class="c-application c-icon-button medium">
+                                                            <svg width="24"
+                                                                height="24" viewBox="0 0 24 24" fill="black"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                class="c-application c-icon"
+                                                                style="fill: rgb(173, 179, 184);">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.88889 13.9814L6.41315 16.5H17.5869L17.1111 13.9814V9.61111C17.1111 6.78832 14.8228 4.5 12 4.5C9.17722 4.5 6.88889 6.78832 6.88889 9.61111V13.9814ZM4.88889 13.7941L4.22395 17.3144C4.10764 17.9302 4.57989 18.5 5.20658 18.5H18.7934C19.4201 18.5 19.8924 17.9302 19.7761 17.3144L19.1111 13.7941V9.61111C19.1111 5.68375 15.9274 2.5 12 2.5C8.07265 2.5 4.88889 5.68375 4.88889 9.61111V13.7941Z">
+                                                                </path>
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11 18.5C11 19.0523 11.4477 19.5 12 19.5C12.5523 19.5 13 19.0523 13 18.5H15C15 20.1569 13.6569 21.5 12 21.5C10.3431 21.5 9 20.1569 9 18.5H11Z">
+                                                                </path>
+                                                            </svg>
+                                                        </button>
                                                         <!---->
                                                     </div>
                                                 </li>
                                                 <li class="header-info-section-item ml-4">
                                                     <div class="v-popover c-application">
-                                                        <div aria-describedby="popover_o9n1mre6go" class="trigger"
-                                                             style="display: inline-block;"><a href="/mypage/classroom"
-                                                                                               class="user-avatar c-pointer">
-                                                            <div class="c-application c-avatar--container xsmall"><i
-                                                                    class="c-avatar image xsmall"
-                                                                    style="background-image: url(&quot;https://cdn.comento.kr/images/user/profile/pf_s6EfgNHr0o.png&quot;);"></i>
-                                                                <div class="c-avatar--item">
-                                                                    <!---->
-                                                                    <!---->
-                                                                    <!---->
+                                                        <div aria-describedby="popover_o9n1mre6go" class="trigger" style="display: inline-block;">
+                                                            <a href="/mypage/classroom" class="user-avatar c-pointer">
+                                                                <div class="c-application c-avatar--container xsmall">
+                                                                    <i class="c-avatar image xsmall" style="background-image: url(&quot;https://cdn.comento.kr/images/user/profile/pf_s6EfgNHr0o.png&quot;);"></i>
+                                                                    <div class="c-avatar--item">
+                                                                        <!---->
+                                                                        <!---->
+                                                                        <!---->
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </a></div>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
-                            </div>
-                            </aside>
+                                    </div>
+                                </aside>
                             </nav>
                         </div>
                     </div>
@@ -227,6 +226,23 @@
     <div id="main-grid"
     class="c-application c-new-grid main-grid-component fluid"
     style="min-height: calc(100vh - 324px); background-color: rgba(255, 255, 255, .2);">
+
+        <div class="modal ocr">
+            <div class="warn-modal ocr">
+                <div class="modal-close-btn">
+                    <img src="../../static/image/mypage/x.png" alt="close"/>
+                </div>
+                <div id="content-wrap">
+                    <label for="license" class="add-file">
+                        <img src="../../static/image/mypage/add_file.png" alt="">
+                    </label>
+                    <h6 class="info-license">면허 서류를 등록해 주세요.</h6>
+                    <input type="file" name="license" id="license">
+                    <h3 id="result"></h3>
+                </div>
+            </div>
+        </div>
+
         <div class="c-application c-new-row">
             <div class="c-application c-new-col my-page-container new-col-sm-12 new-col-lg-12">
                 <!---->
@@ -249,8 +265,7 @@
                                                 </div>
                                             </div>
                                         </label>
-                                        <input
-                                            id="imageUploadWrapper"
+                                        <input id="imageUploadWrapper"
                                             type="file"
                                             name="imageUploadWrapper"
                                             accept="image/jpg,image/png,image/jpeg,image/gif">
@@ -755,7 +770,7 @@
                                                         style="color: rgb(118, 125, 130); text-align: center;">
                                                         의사 인증을 하면 답변하기 또는 방문진료를 통해 리워드를 획득하실 수 있습니다.
                                                     </div>
-                                                    <button class="c-application c-button medium light-primary fill">
+                                                    <button class="c-application c-button medium light-primary fill certify">
                                                         <!---->
                                                         <div class="c-button--icon"></div>
                                                         <div class="c-application c-typography f-regular" style="color: inherit;">
@@ -1029,6 +1044,7 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="../../static/js/mypage/btns.js"></script>
 <script src="../../static/js/mypage/upper-nav.js"></script>
+<script src="../../static/js/modal/modal.js"></script>
+<script src="../../static/js/mypage/ocr.js"></script>
 </html>
