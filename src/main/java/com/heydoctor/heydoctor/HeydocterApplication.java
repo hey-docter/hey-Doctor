@@ -1,4 +1,4 @@
-package com.heydocter.heydocter;
+package com.heydoctor.heydoctor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

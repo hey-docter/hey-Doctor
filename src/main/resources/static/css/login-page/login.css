@@ -176,3 +176,57 @@ svg:not(:root) {
     clear: both;
 }
 
+
+.c-text-field--input.c-text-field--outline[data-v-7c836184] {
+    padding: 0 16px;
+    border: 1px solid #e1e4e6;
+    border-radius: 4px;
+}
+
+.c-text-field--input[data-v-7c836184] {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: 0;
+    color: #3c4144;
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.c-caption1[data-v-45a3e27e] {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+#login .login-view-login-button-email.full[data-v-0db2248c] {
+    height: 48px!important;
+}
+
+#login .login-view-login-button-email[data-v-0db2248c] {
+    margin: 24px 0;
+}
+
+.c-button.full[data-v-4e8c2e4a] {
+    width: 100%;
+}
+
+.c-button.medium[data-v-4e8c2e4a] {
+    height: 36px;
+    padding: 0 12px;
+    min-width: 49px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.primary[data-v-4e8c2e4a] {
+    background-color: #2a7de1;
+}
