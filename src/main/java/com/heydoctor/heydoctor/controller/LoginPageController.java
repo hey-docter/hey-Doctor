@@ -1,6 +1,6 @@
-package com.heydoctor.heydoctor.controller.login;
+package com.heydoctor.heydoctor.controller;
 
-import com.heydoctor.heydoctor.domain.service.inter.LoginPageService;
+import com.heydoctor.heydoctor.domain.service.loginpage.LoginPageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

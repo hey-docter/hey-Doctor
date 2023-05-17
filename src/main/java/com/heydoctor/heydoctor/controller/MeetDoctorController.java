@@ -1,7 +1,7 @@
-package com.heydoctor.heydoctor.controller.meetdoctor;
+package com.heydoctor.heydoctor.controller;
 
 
-import com.heydoctor.heydoctor.domain.service.inter.MeetDoctorService;
+import com.heydoctor.heydoctor.domain.service.meetdoctor.MeetDoctorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

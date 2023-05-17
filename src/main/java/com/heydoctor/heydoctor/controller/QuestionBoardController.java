@@ -1,4 +1,4 @@
-package com.heydoctor.heydoctor.controller.questionboard;
+package com.heydoctor.heydoctor.controller;
 
 import com.heydoctor.heydoctor.mapper.QuestionMapper;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
-package com.heydoctor.heydoctor.domain.service.impl;
+package com.heydoctor.heydoctor.domain.service.meetdoctor;
 
-import com.heydoctor.heydoctor.domain.service.inter.MeetDoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

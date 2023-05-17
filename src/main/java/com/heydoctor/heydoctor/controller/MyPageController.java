@@ -1,6 +1,6 @@
-package com.heydoctor.heydoctor.controller.mypage;
+package com.heydoctor.heydoctor.controller;
 
-import com.heydoctor.heydoctor.domain.service.inter.MyPageService;
+import com.heydoctor.heydoctor.domain.service.mypage.MyPageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

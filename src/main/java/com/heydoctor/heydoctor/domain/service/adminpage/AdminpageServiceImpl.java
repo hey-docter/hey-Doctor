@@ -1,6 +1,5 @@
-package com.heydoctor.heydoctor.domain.service.impl;
+package com.heydoctor.heydoctor.domain.service.adminpage;
 
-import com.heydoctor.heydoctor.domain.service.inter.AdminpageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

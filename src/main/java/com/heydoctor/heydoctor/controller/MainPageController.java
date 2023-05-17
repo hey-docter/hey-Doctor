@@ -1,18 +1,18 @@
 package com.heydoctor.heydoctor.controller;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/model/*")
 @Slf4j
-public class ModelController {
-
-    @GetMapping("model")
-    public void model(){
-        log.info("model test");
+@RequiredArgsConstructor
+@RequestMapping("/mainPage/*")
+public class MainPageController {
+    private final MainPageController mainPageController;
+    @GetMapping("mainPage")
+    public void mainPage(){ log.info("mainPage test");
     }
-
 }
