@@ -939,6 +939,7 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    display: block;
 }
 
 h2{

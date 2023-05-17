@@ -1,5 +1,6 @@
 const $banner = $("#swiper-wrapper");
 const $secondBanner = $("div.second-banner");
+const $secondBannerSecond = $("div.second-bannerSecond");
 const $thirdBanner = $("div.third-banner");
 const $fourthBanner = $("div.fourth-banner");
 
@@ -106,7 +107,7 @@ function changeBanner(direction){
 
 // 두번째 배너 이전/다음 버튼
 $(".second-next").on("click", function(){
-    if(secondCount < $second_divs.length-4){
+    if(secondCount < $second_divs.length-2){
         $secondBanner.css("transform", `translate(${-283*(++secondCount)}px)`);
         $secondBanner.css("transition", "transform 0.7s");
     }else if($(this).hasClass('swiper-button-disabled')){
@@ -131,6 +132,38 @@ $(".second-prev").on("click", function(){
     }
     if(secondCount < $second_divs.length-4){
         $(".second-next").removeClass('swiper-button-disabled')
+    }
+});
+
+
+// 두번째 오른쪽 배너 이전/다음 버튼
+
+$(".second-nextSecond").on("click", function(){
+    if(secondCount < $second_divs.length-2){
+        $secondBannerSecond.css("transform", `translate(${-283*(++secondCount)}px)`);
+        $secondBannerSecond.css("transition", "transform 0.7s");
+    }else if($(this).hasClass('swiper-button-disabled')){
+    }else{
+        $(".second-nextSecond").addClass('swiper-button-disabled');
+    }
+
+    console.log(secondCount);
+    if(secondCount >= 1){
+        $(".second-prevSecond").removeClass('swiper-button-disabled')
+    }
+});
+
+$(".second-prevSecond").on("click", function(){
+    if(secondCount > 0){
+        $secondBannerSecond.css("transform", `translate(${-283*(--secondCount)}px)`);
+        $secondBannerSecond.css("transition", "transform 0.7s");
+        // console.log(secondCount);
+    }else if($(this).hasClass('swiper-button-disabled')){
+    }else{
+        $(".second-prevSecond").addClass('swiper-button-disabled');
+    }
+    if(secondCount < $second_divs.length-4){
+        $(".second-nextSecond").removeClass('swiper-button-disabled')
     }
 });
 

@@ -686,7 +686,7 @@ c-new-grid.fluid{
 }
 
 .c-new-grid.container {
-    max-width: 1140px;
+    max-width: 1300px;
 }
 
 .index-landing-hero-swiper-content-container{
@@ -846,6 +846,8 @@ c-new-grid.fluid{
     width: 100%;
     z-index: 1;
 }
+
+
 
 .swiper-slide {
     flex-shrink: 0;
@@ -1094,7 +1096,7 @@ img {
 
 .pt-card-list .swiper-container {
     padding: 0;
-    width: 1108px;
+    width: 554px;
 }
 
 .swiper-container {
@@ -1305,7 +1307,7 @@ img {
 .swiper-button-outside {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 34%;
     z-index: 10;
 }
 
@@ -1314,7 +1316,7 @@ svg:not(:root) {
 }
 
 .swiper-button-next-outside {
-    right: -32px;
+    right: 18px;
 }
 
 /* third banner */
@@ -1624,7 +1626,7 @@ p.case-comment{
 
 
 .swiper-button-prev-outside {
-    left: -32px;
+    left: 10px;
 }
 
 /* 세 번째 베너 */
@@ -1816,4 +1818,89 @@ p.case-comment{
 
 .c-alarm-list-item.alarm-unread {
     background-color: #f7fafe;
+}
+
+
+
+
+
+
+
+.swiper-wrapperSecond {
+    box-sizing: content-box;
+    display: flex;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+    z-index: 1;
+}
+
+.swiper-slideSecond {
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+    width: 100%;
+}
+
+.swiper .swiper-slideSecond {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-slideSecond {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    -webkit-transition-property: -webkit-transform;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+    width: 100%;
+}
+
+.swiper-button-nextSecond, .swiper-button-prevSecond {
+    align-items: center;
+    color: #007aff;
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+    cursor: pointer;
+    display: flex;
+    height: 44px;
+    height: var(--swiper-navigation-size);
+    justify-content: center;
+    margin-top: -22px;
+    margin-top: calc(var(--swiper-navigation-size)*-1/2);
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    width: calc(var(--swiper-navigation-size)/44*27);
+    z-index: 10;
+}
+
+.swiper-button-prevSecond{
+    right: auto;
+    --swiper-navigation-size: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 32px;
+    left: -114px;
+    width: 32px;
+}
+
+.swiper-button-prevNext-outside {
+    left: -32px;
+}
+
+.swiper-button-prevNext-outside {
+    left: 10px;
 }
