@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <title>예약 페이지</title>
     <!-- 파비콘 -->
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
-    <!-- 폰트 -->   
+    <!-- 폰트 -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <!-- css -->
-    <link rel="stylesheet" href="../../static/css/meet-doctor-css/main-page.css" />
+    <link rel="stylesheet" href="../../static/css/meet-doctor-css/doctor-list.css" />
 
 </head>
 
 <body>
+<header th:include="~{/main-page/header :: #post-header}"></header>
     <div>
         <div>
             <div class="header-wrapper">
@@ -101,9 +102,9 @@
                                     <div class=" c-new-col no-gutters">
                                         <div>
                                             <div top-load-method="function () { [native code] }">
-                                                <div class="case-list-card-section"> 
+                                                <div class="case-list-card-section">
                                                     <!-- 게시글 -->
-                                                    
+
                                                         <article class="community-timeline-card">
                                                             <div class=" c-box p-relative"
                                                                 style="padding: 20px;">
@@ -193,7 +194,7 @@
                                                                 </div>
                                                             </div>
                                                         </article>
-                                                    
+
                                                     <!-- 광고 -->
                                                     <div class="mb-20">
                                                         <div class="case-list-to-pt-landing-banner c-pointer">
@@ -283,7 +284,7 @@
                                                             </div>
                                                         </article>
 
-                                                        
+
                                                             <article class="community-timeline-card">
                                                                 <div class=" c-box p-relative"
                                                                     style="padding: 20px;">
@@ -372,7 +373,7 @@
                                                             </article>
                                                     </div>
                                                 </article>
-                                                
+
                                                 <!-- 게시글 끝 -->
                                         </div>
                                     </div>
@@ -389,6 +390,6 @@
 
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="../../static/js/meet-doctor-js/main-page.js"></script>
+<script src="../../static/js/meet-doctor-js/doctor-list.js"></script>
 
 </html>
