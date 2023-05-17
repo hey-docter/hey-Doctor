@@ -1,4 +1,4 @@
-package com.heydocter.heydocter;
+package com.heydoctor.heydoctor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
