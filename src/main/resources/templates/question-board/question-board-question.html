@@ -237,29 +237,24 @@
                                     </h2>
                                     <div class="request-box">
                                         <div class="category-wrapper"><span>
-                                                <div id="c-dropdown-5" class="c-application c-dropdown c-select small">
+                                                <div id="c-dropdown-5" class="c-application c-dropdown c-select small" >
                                                     <!---->
                                                     <div class="c-dropdown--item-group" style="max-width: 240px;">
                                                         <div>
-                                                            <div class="c-select--box c-select--basic">
-                                                                <div class="c-select--item"><input type="text"
-                                                                        placeholder="병과" readonly="readonly"
-                                                                        class="c-select--input">
+                                                            <div class="c-select--box c-select--basic" id="select-bar"  onclick="dropdownMenu()">
+                                                                <div class="c-select--item">
+                                                                    <input type="text" placeholder="병과" readonly="readonly" class="c-select--input" id="dropdownId" >
                                                                 </div>
-                                                                <div class="c-select--icon"><svg width="10" height="5"
-                                                                        viewBox="0 0 10 5" fill="#595F63"
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        class="c-application c-icon"
-                                                                        style="fill: rgb(118, 125, 130);">
-                                                                        <path
-                                                                            d="M5.35356 4.64645C5.1583 4.84171 4.84171 4.84171 4.64645 4.64645L0.853554 0.853553C0.538572 0.538571 0.761655 1.46033e-07 1.20711 1.84975e-07L8.79289 -1.05529e-07C9.23835 -6.65858e-08 9.46143 0.538571 9.14645 0.853553L5.35356 4.64645Z">
-                                                                        </path>
-                                                                    </svg></div>
+                                                                <div class="c-select--icon">
+                                                                    <svg width="10" height="5" viewBox="0 0 10 5" fill="#595F63" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(118, 125, 130);">
+                                                                        <path d="M5.35356 4.64645C5.1583 4.84171 4.84171 4.84171 4.64645 4.64645L0.853554 0.853553C0.538572 0.538571 0.761655 1.46033e-07 1.20711 1.84975e-07L8.79289 -1.05529e-07C9.23835 -6.65858e-08 9.46143 0.538571 9.14645 0.853553L5.35356 4.64645Z"></path>
+                                                                    </svg>
+                                                                </div>
                                                             </div><!---->
                                                         </div><!---->
 
                                                         <div class="c-dropdown--list-wrapper">
-                                                            <div class="c-application c-list spacing">
+                                                            <div class="c-application c-list spacing" id="choice" style="display:none;">
                                                                 <div tabindex="0"
                                                                     class="c-application c-list-item c-select--list-item large c-pointer">
                                                                     <div class="c-application c-typography c-body2"
@@ -441,5 +436,16 @@
         </div>
     </div>
 </body>
-
+<script>
+    function dropdownMenu() {
+        let click = document.getElementById("choice");
+        if(click.style.display === "none"){
+                click.style.display = "block";
+ 
+            }else{
+                click.style.display = "none";
+ 
+            }
+    }
+</script>
 </html>
