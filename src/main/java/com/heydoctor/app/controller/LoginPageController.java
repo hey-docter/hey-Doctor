@@ -4,11 +4,11 @@ import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.service.loginpage.LoginPageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
@@ -33,20 +33,21 @@ public class LoginPageController {
 
 //    로그인 스타트 이동
     @GetMapping("login-start")
-    public void goToLoginStartForm(UserVO userVO){;}
+    public void goToLoginStartForm(){;}
 
 //    로그인
     @GetMapping("login")
     public void goToLoginForm(UserVO userVO){;}
 
     @PostMapping("login")
-    public String login(String userEmail, String userPassword, HttpSession session){
+    public RedirectView login(String userEmail, String userPassword, HttpSession session, RedirectAttributes redirectAttributes){
         final Optional<Long> foundUser = loginPageService.login(userEmail, userPassword);
         if(foundUser.isPresent()){
             session.setAttribute("id", foundUser.get());
-            return "/main-page/main-page";
+            return new RedirectView("/post/list");
         }
-        return "/login/login?login=false";
+        redirectAttributes.addFlashAttribute("login", "fail");
+        return new RedirectView("/login/login");
     }
 
     //    로그아웃
