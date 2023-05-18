@@ -1,83 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/login-page/login.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
+    <link rel="stylesheet" href="/css/login-page/login.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <title>로그인</title>
 </head>
 
 <body>
-    <div></div>
     <div id="app">
         <div class="c-application c-grid main-grid-component fluid"
             style="min-height: 100vh; background-color: rgb(255, 255, 255);">
             <div class="c-application c-row">
+
                 <div data-v-0db2248c="" id="login" class="mb-85" data-v-5aa8e08e="">
-                    <div data-v-1d8d6f66="" data-v-0db2248c="" class="c-application c-box login-view-wrapper"
-                        style="background-color: rgb(255, 255, 255); padding: 60px 38.5px;">
-                        <div data-v-0db2248c="" data-v-1d8d6f66="">
-                            <div data-v-45a3e27e="" data-v-0db2248c=""
-                                class="c-application c-typography c-headline3 f-semi-bold mb-20" data-v-1d8d6f66=""
-                                style="color: rgb(32, 35, 37); line-height: 140%; font-size: 24px;"> 로그인 </div>
-                        </div>
-                        <div data-v-0db2248c="" data-v-1d8d6f66="">
-                            <div data-v-45a3e27e="" data-v-0db2248c=""
-                                class="c-application c-typography mb-4 c-caption1" data-v-1d8d6f66=""
-                                style="color: rgb(60, 65, 68);">이메일</div><span data-v-0db2248c="" data-v-1d8d6f66="">
-                                <div data-v-7c836184="" data-v-0db2248c="" class="c-application c-text-field">
-                                    <div data-v-7c836184="" class="c-text-field--input-wrapper"><input
-                                            data-v-7c836184="" id="email" placeholder="your@email.com" name="email"
-                                            autocomplete="off" type="email"
-                                            class="c-text-field--input c-text-field--outline"
-                                            style="text-align: left;"></div>
+                    <div data-v-1d8d6f66="" data-v-0db2248c="" class="c-application c-box login-view-wrapper" style="background-color: rgb(255, 255, 255); padding: 60px 38.5px;">
+                        <form th:action="@{/login/login}" name="login" method="post" th:object="${userVO}">
+                                <div data-v-0db2248c="" data-v-1d8d6f66="">
+                                    <div data-v-45a3e27e="" data-v-0db2248c=""
+                                         class="c-application c-typography c-headline3 f-semi-bold mb-20" data-v-1d8d6f66=""
+                                         style="color: rgb(32, 35, 37); line-height: 140%; font-size: 24px;"> 로그인 </div>
                                 </div>
-                            </span>
-                            <div data-v-45a3e27e="" data-v-0db2248c=""
-                                class="c-application c-typography mt-12 mb-4 c-caption1" data-v-1d8d6f66=""
-                                style="color: rgb(60, 65, 68);">비밀번호</div><span data-v-0db2248c="" data-v-1d8d6f66="">
-                                <div data-v-7c836184="" data-v-0db2248c="" class="c-application c-text-field">
-                                    <div data-v-7c836184="" class="c-text-field--input-wrapper"><input
-                                            data-v-7c836184="" id="password" placeholder="비밀번호" name="password"
-                                            autocomplete="off" type="password"
-                                            class="c-text-field--input c-text-field--outline"
-                                            style="text-align: left;"></div>
+                                <div data-v-0db2248c="" data-v-1d8d6f66="">
+                                    <div data-v-45a3e27e="" data-v-0db2248c=""
+                                         class="c-application c-typography mb-4 c-caption1" data-v-1d8d6f66=""
+                                         style="color: rgb(60, 65, 68);">이메일</div><span data-v-0db2248c="" data-v-1d8d6f66="">
+                                    <div data-v-7c836184="" data-v-0db2248c="" class="c-application c-text-field">
+                                        <div data-v-7c836184="" class="c-text-field--input-wrapper">
+                                            <input th:field="*{userEmail}"
+                                                   data-v-7c836184="" id="email" placeholder="your@email.com" name="email"
+                                                   autocomplete="off" type="email"
+                                                   class="c-text-field--input c-text-field--outline"
+                                                   style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    </span>
+                                    <div data-v-45a3e27e="" data-v-0db2248c=""
+                                         class="c-application c-typography mt-12 mb-4 c-caption1" data-v-1d8d6f66=""
+                                         style="color: rgb(60, 65, 68);">비밀번호</div><span data-v-0db2248c="" data-v-1d8d6f66="">
+                                    <div data-v-7c836184="" data-v-0db2248c="" class="c-application c-text-field">
+                                        <div data-v-7c836184="" class="c-text-field--input-wrapper">
+                                            <input th:field="*{userPassword}"
+                                                   data-v-7c836184="" id="password" placeholder="비밀번호" name="password"
+                                                   autocomplete="off" type="password"
+                                                   class="c-text-field--input c-text-field--outline"
+                                                   style="text-align: left;">
+                                        </div>
+                                    </div>
+                                    </span>
+                                    <button data-v-4e8c2e4a="" data-v-0db2248c=""
+                                    class="c-application c-button login-view-login-button-email medium primary full fill"
+                                    data-v-1d8d6f66="" style="border: 0px;">
+                                        <div data-v-45a3e27e="" data-v-0db2248c=""
+                                        class="c-application c-typography c-body1 f-semi-bold" data-v-4e8c2e4a=""
+                                        style="color: white;">로그인</div>
+                                    </button>
+
+                                    <div style="font-size: 12px;">
+                                        <p class="c-application c-typography agreement-wrapper mb-8 c-caption1" style="color: rgb(173, 179, 184); text-align: center;">
+                                                <u class="c-application c-typography c-caption1" style="color: rgb(118, 125, 130);"> 이용약관 </u>
+                                            및
+                                                <u class="c-application c-typography c-caption1" style="    color: rgb(118, 125, 130);"> 개인정보 처리방침 </u>
+                                            확인 후 동의합니다
+                                        </p>
+                                        <a th:href="@{/login/register}" target="_self">
+                                            <u class="c-application c-typography d-block c-caption1" style="color: rgb(42, 125, 225); text-align: center; margin-left: 87px;">
+                                                회원이 아니신가요?
+                                            </u>
+                                        </a>
+                                    </div>
                                 </div>
-                            </span>
-                            <button data-v-4e8c2e4a="" data-v-0db2248c=""
-                                class="c-application c-button login-view-login-button-email medium primary full fill"
-                                data-v-1d8d6f66="" style="border: 0px;">
-                                <div data-v-4e8c2e4a="" class="c-button--icon"></div>
-                                <div data-v-45a3e27e="" data-v-0db2248c=""
-                                    class="c-application c-typography c-body1 f-semi-bold" data-v-4e8c2e4a=""
-                                    style="color: white;">로그인</div>
-                                <div data-v-4e8c2e4a="" class="c-button--icon"></div>
-                            </button>
-                            <div style="font-size: 12px;">
-                                <p class="c-application c-typography agreement-wrapper mb-8 c-caption1" style="color: rgb(173, 179, 184); text-align: center;">
-                                    <a href="https://comento.kr/agreement" target="_self">
-                                        <u class="c-application c-typography c-caption1" style="color: rgb(118, 125, 130);"> 이용약관 </u>
-                                    </a>
-                                    및                                  
-                                    <a href="https://comento.kr/agreement" target="_self">
-                                        <u class="c-application c-typography c-caption1" style="    color: rgb(118, 125, 130);"> 개인정보 처리방침 </u>
-                                    </a>
-                                    확인 후 동의합니다                               
-                                </p>
-                                <a href="https://comento.kr/login" target="_self">
-                                    <u class="c-application c-typography d-block c-caption1" style="color: rgb(42, 125, 225); text-align: center; margin-left: 87px;">
-                                        이미 가입하셨나요?
-                                    </u>
-                                </a>
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    <div data-v-47dcfea6="" data-v-0db2248c=""></div>
                 </div>
+
             </div>
         </div>
     </div>
