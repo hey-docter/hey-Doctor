@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.UserMapper">
+    <select id="selectByUserEmail" resultType="userVO">
+        SELECT ID, USER_ID, USER_EMAIL, USER_LOGIN_TYPE, USER_NAME, USER_IS_AVAILABLE, USER_PASSWORD, USER_TYPE, USER_PROFILE_NAME, USER_PROFILE_SIZE, USER_PROFILE_ORIGIN_NAME, USER_PROFILE_UUID
+        FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail}
+    </select>
 
+    <insert id="insert">
+        INSERT INTO TBL_USER
+        VALUES(SEQ_USER.NEXTVAL, #{userId}, #{userEmail}, #{userLoginType}, #{userName}, #{userIsAvailable}, #{userPassword}, #{userType}, #{userProfileName}, #{userProfileSize}, #{userProfileOriginName}, #{userProfileUuid})
+    </insert>
 </mapper>

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 @RequestMapping("/mainPage/*")
 public class MainPageController {
-    private final MainPageController mainPageController;
-    @GetMapping("mainPage")
-    public void mainPage(){ log.info("mainPage test");
-    }
+//    private final MainPageController mainPageController;
+//    @GetMapping("mainPage")
+//    public void mainPage(){ log.info("mainPage test");
+//    }
 }

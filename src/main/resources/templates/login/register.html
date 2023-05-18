@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
-    <link rel="stylesheet" href="../../static/css/login-page/register.css">
+    <link rel="stylesheet" href="/css/login-page/register.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <title>회원가입</title>
 </head>
 <body>
-    <div id="app">
+    <div id="join">
         <div class="c-application c-grid main-grid-component fluid" style="min-height: 100vh; background-color: rgb(255, 255, 255);">
             <div class="c-application c-row">
                 <div class="register-wrapper">
@@ -36,7 +36,7 @@
                                         <div class="c-application c-typography c-body1 f-regular" style="color: inherit;"> 카카오로 1초만에 시작하기 </div>
                                     </div>
                                 </div>
-                                <div class="register-button c-pointer full naver">
+                                <div class="register-button c-pointer full naver" @click="naverLogin">
                                     <div class="register-button-icon">
                                         <img src="https://cdn.comento.kr/icon/icon-naver-medium.svg" alt>
                                     </div>
@@ -48,16 +48,12 @@
                             </div>
                             <div>
                                 <p class="c-application c-typography agreement-wrapper mb-8 c-caption1" style="color: rgb(173, 179, 184); text-align: center;">
-                                    <a href="https://comento.kr/agreement" target="_self">
                                         <u class="c-application c-typography c-caption1" style="color: rgb(118, 125, 130);"> 이용약관 </u>
-                                    </a>
-                                    및                                  
-                                    <a href="https://comento.kr/agreement" target="_self">
+                                    및
                                         <u class="c-application c-typography c-caption1"> 개인정보 처리방침 </u>
-                                    </a>
-                                    확인 후 동의합니다                               
+                                    확인 후 동의합니다
                                 </p>
-                                <a href="https://comento.kr/login" target="_self">
+                                <a th:href="@{/login/login-start}" target="_self">
                                     <u class="c-application c-typography d-block c-caption1" style="color: rgb(42, 125, 225); text-align: center; margin-left: 87px;">
                                         이미 가입하셨나요?
                                     </u>
@@ -83,7 +79,7 @@
                                 <div id="signInAgree" class="modal-body text-center">
                                     <h2 class="text-normal">회원 가입</h2>
                                     <span>
-                                        <form id="signInAgreeFrom">
+                                        <form th:action="@{/user/login}" name="join" method="post" th:object="${userVO}">
                                             <section class="apply-card-new text-left">
                                                 <div id="mb-50">
                                                     <div class="inputbox-group">
@@ -101,7 +97,7 @@
                                                             <label>
                                                                 <b>닉네임</b>
                                                             </label>
-                                                            <p class="h7 mb-5">*연락받을 닉네임을 정확히 입력하세요.</p>
+                                                            <p class="h7 mb-5">*닉네임을 입력하세요.</p>
                                                             <input placeholder="your@nickname.com" class="inputbox" type="email" style="width: 100%;">
                                                             <span class="error-text"></span>
                                                         </span>
@@ -109,33 +105,34 @@
                                                     <div class="inputbox-group">
                                                         <span>
                                                             <label>
-                                                                <b>패스워드</b>
+                                                                <b>비밀번호</b>
                                                             </label>
-                                                            <p class="h7 mb-5">*패스워드을 정확히 입력하세요.</p>
+                                                            <p class="h7 mb-5">*비밀번호를 정확히 입력하세요.</p>
                                                             <input placeholder="your@nickname.com" class="inputbox" type="password" style="width: 100%;">
                                                             <span class="error-text"></span>
                                                         </span>
                                                     </div>
                                                     <button id="nextButton" type="button" class="apply-btn btn btn-lg btn-full"> 다음 </button>
                                                 </div>
+
+
                                                 <div id="remainingContent" style="display: none;">
                                                     <ul class="clearfix mb-40">
-                                                        <li class="allAgree">
-                                                            <input id="allAgree" type="checkbox" name="agreeCheckBox1">
-                                                            <label id="allAgree_label" for="allAgree" class="text-normal f-semi-bold"> 전체 동의 </label>
-                                                        </li>
-                                                        <li>
-                                                            <input id="mustAgree" type="checkbox" name="agreeCheckBox2">
-                                                            <label id="mustAgree_label" for="mustAgree" class="h7 text-sub">
+                                                            <li class="allAgree">
+                                                                <input id="allAgree" type="checkbox" name="agreeCheckBox1">
+                                                                <label id="allAgree_label" for="allAgree" class="text-normal f-semi-bold"> 전체 동의 </label>
+                                                            <li>
+                                                                <input id="mustAgree" type="checkbox" name="agreeCheckBox2">
+                                                                <label id="mustAgree_label" for="mustAgree" class="h7 text-sub">
                                                                 <div class="h7">
                                                                     <a href="https://comento.kr/agreement">
                                                                         <u>이용약관</u>
                                                                     </a>
-                                                                    및 
+                                                                    및
                                                                     <a href="https://comento.kr/agreement">
                                                                         <u>개인정보제공</u>
                                                                     </a>
-                                                                    필수 
+                                                                    필수
                                                                 </div>
                                                             </label>
                                                         </li>
@@ -143,26 +140,23 @@
                                                             <input id="marketingAgree" type="checkbox" name="agreeCheckBox3">
                                                             <label id="anonymous_label" for="marketingAgree" class="h7 text-sub">
                                                                 <div class="h7 pt-15">
-                                                                코멘토의 
+                                                                헤이닥터의
                                                                 <u>혜택 등 유용한 정보 안내</u>
                                                                 를
                                                                 <br>
-                                                                문자와 메일로 수신합니다. (선택) 
-                                                            </div>
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                                
-                                                <button type="button" class="apply-btn btn btn-lg btn-full disabled"> 완료 </button>
-                                            </div>
+                                                                문자와 메일로 수신합니다. (선택)
+                                                                </div>
+                                                            </label>
+                                                        </li>
+                                                    </ul>
+                                                    <button type="button" class="apply-btn btn btn-lg btn-full disabled"> 완료 </button>
+                                                </div>
                                             </section>
                                         </form>
                                     </span>
                                 </div>
-                                <div></div>
                             </div>
                         </div>
-                        <div></div>
                     </div>
                 </div>
             </div>
@@ -170,17 +164,14 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script src="../../static/js/login/register-modal.js"></script>
+<script src="/js/login/register-modal.js"></script>
 <script>
     function showRemainingContent() {
-  // 이메일, 닉네임, 패스워드가 있는 화면을 숨김 처리합니다.
+  // 이메일, 닉네임, 패스워드가 있는 화면을 숨김 처리
   document.getElementById("mb-50").style.display = "none";
-  // 숨겨져 있던 나머지 화면들을 보이게 처리합니다.
+  // 숨겨져 있던 나머지 화면들을 보이게 처리
   document.getElementById("remainingContent").style.display = "block";
 }
-
-
 document.getElementById("nextButton").addEventListener("click", showRemainingContent);
-
 </script>
 </html>
