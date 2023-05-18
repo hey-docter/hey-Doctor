@@ -8,18 +8,18 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 public class UserVO {
-    private Long userId;
+    private Long id;
+    private String userId;
     private String userEmail;
     private String userLoginType;
-    private String userNAme;
-    /*구독 여부 확인*/
-    private String userIsAvailable;
-    private String userPassword;
+    private String userName;
     /*휴먼계정 여부 확인*/
-    private String userIsSubscribe;
+    private Long userIsAvailable;
+    private String userPassword;
     private String userType;
     private String userProfileName;
     private String userProfileSize;
     private String userProfileOriginName;
     private String userProfileUuid;
+
 }

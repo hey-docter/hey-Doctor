@@ -543,3 +543,13 @@ b, strong {
     background: #eaecee;
     color: #949ba0;
 }
+
+.register-button.naver:hover {
+    background: #3ea82b;
+}
+.register-button.kakao:hover {
+    background: #f2ca00;
+}
+.register-button.email:hover {
+    background: #c7c8ca;
+}
