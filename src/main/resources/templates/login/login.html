@@ -8,11 +8,17 @@
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
     <link rel="stylesheet" href="/css/login-page/login.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="/css/modal/modal.css">
     <title>로그인</title>
 </head>
 
 <body>
     <div id="app">
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
         <div class="c-application c-grid main-grid-component fluid"
             style="min-height: 100vh; background-color: rgb(255, 255, 255);">
             <div class="c-application c-row">
@@ -82,5 +88,13 @@
         </div>
     </div>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="/js/modal/modal.js"></script>
+<script th:inline="javascript">
+    let check = [[${login}]];
+    if(check){
+        console.log("여기");
+        showWarnModal("<span>아이디 또는 비밀번호를</span><span>확인해주세요.</span>");
+    }
+</script>
 </html>

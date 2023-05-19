@@ -21,16 +21,16 @@ public class UserMapperTests {
     @Test
     public void insertTest(){
         UserVO userVO = new UserVO();
-        userVO.setUserId("jin1234");
         userVO.setUserEmail("jin9822@naver.com");
-        userVO.setUserLoginType("NORMAL");
+        userVO.setUserLoginType("NOMAL");
         userVO.setUserName("kimjin");
         userVO.setUserIsAvailable(1L);
         userVO.setUserPassword("jin1234");
         userVO.setUserType("ADMIN");
+        userVO.setUserProfilePath("");
         userVO.setUserProfileName("");
-        userVO.setUserProfileSize("");
-        userVO.setUserProfileOriginName("");
+        userVO.setUserProfileSize(0L);
+        userVO.setUserProfileType("");
         userVO.setUserProfileUuid("");
         userMapper.insert(userVO);
     }
