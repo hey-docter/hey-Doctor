@@ -16,8 +16,7 @@ public class QuestionDTO {
     private Boolean questionIsPublic;
     private Long questionLikeCount;
     private String doctorDepartmentType;
-    private Long readCount;
+    private Integer readCount;
 
     private String userName;
-    private Boolean isBookmarked;
 }
