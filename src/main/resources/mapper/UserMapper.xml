@@ -12,3 +12,4 @@
         VALUES(SEQ_USER.NEXTVAL, #{userEmail}, #{userLoginType}, #{userName}, #{userIsAvailable, jdbcType=NUMERIC}, #{userPassword}, #{userType}, #{userProfilePath, jdbcType=VARCHAR}, #{userProfileName, jdbcType=VARCHAR}, #{userProfileSize, jdbcType=NUMERIC}, #{userProfileType, jdbcType=VARCHAR}, #{userProfileUuid, jdbcType=VARCHAR})
     </insert>
 </mapper>
+
