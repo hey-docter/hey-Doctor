@@ -5,9 +5,7 @@ import com.heydoctor.app.service.loginpage.LoginPageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -20,6 +18,15 @@ import java.util.Optional;
 @RequestMapping("/login/*")
 public class LoginPageController {
     private final LoginPageService loginPageService;
+
+////    아이디 중복검사
+//    @GetMapping("check-id/{userId}")
+//    @ResponseBody
+//    public boolean checkId(@PathVariable String userId){
+//        return loginPageService.checkId(userId).is;
+//
+//    }
+
 
 //    회원가입
     @GetMapping("register")
