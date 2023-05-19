@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heydoctor.app.mapper.BookmarkMapper">
+    <insert id="insert">
+        INSERT INTO TBL_QUESTION_BOOKMARK (QUESTION_BOOKMARK_ID, USER_ID, QUESTION_ID)
+        VALUES (#{questionBookmarkId}, #{userId}, #{questionId})
+    </insert>
+
+    <select id="count">
+        SELECT COUNT(QUESTION_BOOKMARK_ID) FROM TBL_QUESTION_BOOKMARK
+        WHERE QUESTION_ID = #{qeustionId}
+        GROUP BY QUESTION_ID
+    </select>
+</mapper>

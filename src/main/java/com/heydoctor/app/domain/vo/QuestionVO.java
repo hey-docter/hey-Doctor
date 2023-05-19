@@ -14,7 +14,7 @@ public class QuestionVO {
     private String questionContent;
     private String questionRegisterDateTime;
     private Boolean questionIsPublic;
-    private Long questionLikeCount;
+    private Integer questionLikeCount;
     private String doctorDepartmentType;
-    private Long readCount;
+    private Integer readCount;
 }

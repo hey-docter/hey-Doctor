@@ -1,6 +1,9 @@
 #server
 server:
   port: 10000
+  servlet:
+    session:
+      tracking-modes: cookie
 
 #MyBatis
 spring:
