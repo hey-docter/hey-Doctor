@@ -27,6 +27,7 @@ public class LoginPageController {
 
     @PostMapping("register")
     public RedirectView join(UserVO userVO){
+        userVO.setUserLoginType("NOMAL");
         loginPageService.join(userVO);
         return new RedirectView("/login/login");
     }
@@ -44,7 +45,7 @@ public class LoginPageController {
         final Optional<Long> foundUser = loginPageService.login(userEmail, userPassword);
         if(foundUser.isPresent()){
             session.setAttribute("id", foundUser.get());
-            return new RedirectView("/post/list");
+            return new RedirectView("/main-page/main-page");
         }
         redirectAttributes.addFlashAttribute("login", "fail");
         return new RedirectView("/login/login");
