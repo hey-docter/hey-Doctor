@@ -11,7 +11,8 @@
         <typeAlias type="com.heydoctor.app.domain.vo.DoctorVO" alias="DoctorVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.FileVO" alias="FileVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.HospitalVO" alias="HospitalVO"/>
-        <typeAlias type="com.heydoctor.app.domain.vo.QuestionVO" alias="QuestionVO"/>
+        <typeAlias type="com.heydoctor.app.domain.vo.QuestionVO" alias="questionVO"/>
+        <typeAlias type="com.heydoctor.app.domain.dto.QuestionDTO" alias="questionDTO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.ReplyVO" alias="ReplyVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.UserVO" alias="UserVO"/>
 
