@@ -1,4 +1,4 @@
-package com.heydoctor.app.domain.vo;
+package com.heydoctor.app.domain.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,14 +7,16 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class QuestionVO {
+public class QuestionDTO {
     private Long questionId;
     private Long userId;
     private String questionTitle;
     private String questionContent;
     private String questionRegisterDateTime;
     private Boolean questionIsPublic;
-    private Integer questionLikeCount;
+    private Long questionLikeCount;
     private String doctorDepartmentType;
     private Integer readCount;
+
+    private String userName;
 }
