@@ -10,10 +10,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/QuestionBoard/*")
+@RequestMapping("/question-board/*")
 public class QuestionBoardController {
     private final QuestionMapper questionMapper;
-    @GetMapping("QuestionBoard")
-    public void QuestionBoard(){ log.info("QuestionBoard test");
-    }
+
+    @GetMapping("bookmark")
+    public void qbb(){}
+
+    @GetMapping("detail")
+    public void qbd(){}
+
+    @GetMapping("write")
+    public void qbq(){}
+
+    @GetMapping("list")
+    public void qbv(){}
 }
