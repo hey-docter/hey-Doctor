@@ -4,34 +4,27 @@
     <select id="selectList" resultType="questionVO">
         SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                 QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
-                DOCTOR_DEPARTMENT_TYPE, READ_COUNT,
+                DOCTOR_DEPARTMENT_TYPE, READ_COUNT
         FROM TBL_QUESTION
         <![CDATA[WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10]]>
-        <choose>
-            <when test="search != null">
-                AND FALSE
-            </when>
-        </choose>
     </select>
 
     <select id="selectOne" resultType="questionDTO">
-        SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+        SELECT QUESTION_ID, Q.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
                DOCTOR_DEPARTMENT_TYPE, READ_COUNT, U.USER_NAME
         FROM TBL_USER U JOIN TBL_QUESTION Q
-        ON U.USER_ID = Q.USER_ID AND QUESTION_ID = #{questionId}
+        ON U.USER_ID = Q.USER_ID
+        <![CDATA[AND QUESTION_ID = #{questionId}]]>
     </select>
 
     <insert id="insert">
-        <selectKey keyProperty="questionId" order="BEFORE" resultType="questionVO">
-            SELECT SEQ_QEUSTION.NEXTVAL FROM DUAL
-        </selectKey>
         INSERT INTO TBL_QUESTION (
                 QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                 QUESTION_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE
         )
         VALUES (
-                #{questionId}, #{userId}, #{questionTitle}, #{questionContent},
+                SEQ_QUESTION.NEXTVAL, #{userId}, #{questionTitle}, #{questionContent},
                 #{questionIsPublic}, #{doctorDepartmentType}
         )
     </insert>

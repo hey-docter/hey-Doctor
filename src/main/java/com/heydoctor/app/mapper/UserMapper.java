@@ -16,6 +16,6 @@ public interface UserMapper {
     public void insert(UserVO userVO);
 
     //    로그인
-    @Select("SELECT ID FROM TBL_USER WHERE USER_EMAIL = #{userEmail} AND USER_PASSWORD = #{userPassword}")
+    @Select("SELECT USER_ID FROM TBL_USER WHERE USER_EMAIL = #{userEmail} AND USER_PASSWORD = #{userPassword}")
     public Optional<Long> selectByUserEmailAndUserPassword(@Param("userEmail") String userEmail, @Param("userPassword") String userPassword);
 }
