@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
-    //    아이디 중복검사
+    //    email 중복검사
     public Optional<UserVO> selectByUserEmail(String userEmail);
 
     //    회원가입

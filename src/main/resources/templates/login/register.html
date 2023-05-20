@@ -7,10 +7,18 @@
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
     <link rel="stylesheet" href="/css/login-page/register.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="/css/modal/modal.css">
+    <link rel="stylesheet" href="/css/main-page/header.css">
     <title>회원가입</title>
 </head>
 <body>
+<header th:replace="~{/main-page/header :: #post-header}"></header>
     <div id="join">
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
         <div class="c-application c-grid main-grid-component fluid" style="min-height: 100vh; background-color: rgb(255, 255, 255);">
             <div class="c-application c-row">
                 <div class="register-wrapper">
@@ -25,7 +33,7 @@
                                         <img src="https://cdn.comento.kr/icon/icon-email-medium.svg">
                                     </div>
                                     <div class="ml-6">
-                                        <div class="c-application c-typography c-body1 f-regular"> 이메일로 로그인하기 </div>
+                                        <div class="c-application c-typography c-body1 f-regular"> 이메일로 회원가입하기 </div>
                                     </div>
                                 </div>
                                 <div class="register-button c-pointer full kakao">
@@ -60,6 +68,8 @@
                                 </a>
                             </div>
                         </div>
+
+                    <form th:action="@{/login/register}" name="join" method="post" th:object="${userVO}">
                         <div class="modal-mask" style="display: none;">
                             <div class="modal-container">
                                 <img src="https://comento.kr/images/gray_remove.svg" class="box-remove icon-sm-md pointer" alt>
@@ -73,90 +83,91 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-mask modal-overlay" id="modal">
-                            <div class="modal-container" style="border-radius: 20px;">
-                                <img src="https://comento.kr/images/gray_remove.svg" class="box-remove icon-sm-md pointer close-area" alt>
-                                <div id="signInAgree" class="modal-body text-center">
-                                    <h2 class="text-normal">회원 가입</h2>
-                                    <span>
-                                        <form th:action="@{/user/login}" name="join" method="post" th:object="${userVO}">
-                                            <section class="apply-card-new text-left">
-                                                <div id="mb-50">
-                                                    <div class="inputbox-group">
-                                                        <span>
-                                                            <label>
-                                                                <b>이메일</b>
-                                                            </label>
-                                                            <p class="h7 mb-5">*연락받을 이메일을 정확히 입력하세요.</p>
-                                                            <input placeholder="your@email.com" class="inputbox" type="email" style="width: 100%;">
-                                                            <span class="error-text"></span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="inputbox-group">
-                                                        <span>
-                                                            <label>
-                                                                <b>닉네임</b>
-                                                            </label>
-                                                            <p class="h7 mb-5">*닉네임을 입력하세요.</p>
-                                                            <input placeholder="your@nickname.com" class="inputbox" type="email" style="width: 100%;">
-                                                            <span class="error-text"></span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="inputbox-group">
-                                                        <span>
-                                                            <label>
-                                                                <b>비밀번호</b>
-                                                            </label>
-                                                            <p class="h7 mb-5">*비밀번호를 정확히 입력하세요.</p>
-                                                            <input placeholder="your@nickname.com" class="inputbox" type="password" style="width: 100%;">
-                                                            <span class="error-text"></span>
-                                                        </span>
-                                                    </div>
-                                                    <button id="nextButton" type="button" class="apply-btn btn btn-lg btn-full"> 다음 </button>
+
+                            <div class="modal-mask modal-overlay" id="modal">
+                                <div class="modal-container" style="border-radius: 20px;">
+                                    <img src="https://comento.kr/images/gray_remove.svg" class="box-remove icon-sm-md pointer close-area" alt>
+                                    <div id="signInAgree" class="modal-body text-center">
+                                        <h2 class="text-normal">회원 가입</h2>
+                                        <section class="apply-card-new text-left">
+                                            <div id="mb-50">
+                                                <div class="inputbox-group">
+                                                    <span>
+                                                        <label>
+                                                            <b>이메일</b>
+                                                        </label>
+                                                        <p class="h7 mb-5">*연락받을 이메일을 정확히 입력하세요.</p>
+                                                        <input th:field="*{userEmail}" placeholder="your@email.com"
+                                                               class="inputbox" type="email" style="width: 100%;">
+                                                        <span class="error-text"></span>
+                                                    </span>
+                                                </div>
+                                                <div class="inputbox-group">
+                                                    <span>
+                                                        <label>
+                                                            <b>닉네임</b>
+                                                        </label>
+                                                        <p class="h7 mb-5">*이름을 입력하세요.</p>
+                                                        <input th:field="*{userName}" placeholder="이름을 적어주세요" class="inputbox"
+                                                               type="text" style="width: 100%;">
+                                                        <span class="error-text"></span>
+                                                    </span>
+                                                </div>
+                                                <div class="inputbox-group">
+                                                    <span>
+                                                        <label>
+                                                            <b>비밀번호</b>
+                                                        </label>
+                                                        <p class="h7 mb-5">*비밀번호를 정확히 입력하세요.</p>
+                                                        <input th:field="*{userPassword}" placeholder="비밀번호를 적어주세요" class="inputbox"
+                                                               type="password" style="width: 100%;">
+                                                        <span class="error-text"></span>
+                                                    </span>
                                                 </div>
 
-
-                                                <div id="remainingContent" style="display: none;">
-                                                    <ul class="clearfix mb-40">
-                                                            <li class="allAgree">
-                                                                <input id="allAgree" type="checkbox" name="agreeCheckBox1">
-                                                                <label id="allAgree_label" for="allAgree" class="text-normal f-semi-bold"> 전체 동의 </label>
-                                                            <li>
-                                                                <input id="mustAgree" type="checkbox" name="agreeCheckBox2">
-                                                                <label id="mustAgree_label" for="mustAgree" class="h7 text-sub">
-                                                                <div class="h7">
-                                                                    <a href="https://comento.kr/agreement">
-                                                                        <u>이용약관</u>
-                                                                    </a>
-                                                                    및
-                                                                    <a href="https://comento.kr/agreement">
-                                                                        <u>개인정보제공</u>
-                                                                    </a>
-                                                                    필수
-                                                                </div>
-                                                            </label>
-                                                        </li>
-                                                        <li>
-                                                            <input id="marketingAgree" type="checkbox" name="agreeCheckBox3">
-                                                            <label id="anonymous_label" for="marketingAgree" class="h7 text-sub">
-                                                                <div class="h7 pt-15">
+                                                <button id="nextButton" type="button" class="apply-btn btn btn-lg btn-full"> 다음 </button>
+                                            </div>
+                                            <div id="remainingContent" style="display: none;">
+                                                <ul class="clearfix mb-40">
+                                                    <li class="allAgree">
+                                                        <input id="allAgree" type="checkbox" name="agreeCheckBox1">
+                                                        <label id="allAgree_label" for="allAgree" class="text-normal f-semi-bold"> 전체 동의 </label>
+                                                    <li>
+                                                        <input id="mustAgree" type="checkbox" name="agreeCheckBox2">
+                                                        <label id="mustAgree_label" for="mustAgree" class="h7 text-sub">
+                                                            <div class="h7">
+                                                                <a href="https://comento.kr/agreement">
+                                                                    <u>이용약관</u>
+                                                                </a>
+                                                                및
+                                                                <a href="https://comento.kr/agreement">
+                                                                    <u>개인정보제공</u>
+                                                                </a>
+                                                                필수
+                                                            </div>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <input id="marketingAgree" type="checkbox" name="agreeCheckBox3">
+                                                        <label id="anonymous_label" for="marketingAgree" class="h7 text-sub">
+                                                            <div class="h7 pt-15">
                                                                 헤이닥터의
                                                                 <u>혜택 등 유용한 정보 안내</u>
                                                                 를
                                                                 <br>
                                                                 문자와 메일로 수신합니다. (선택)
-                                                                </div>
-                                                            </label>
-                                                        </li>
-                                                    </ul>
-                                                    <button type="button" class="apply-btn btn btn-lg btn-full disabled"> 완료 </button>
-                                                </div>
-                                            </section>
-                                        </form>
-                                    </span>
+                                                            </div>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                                <button type="submit" class="apply-btn btn btn-lg btn-full"> 완료 </button>
+                                            </div>
+                                        </section>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
