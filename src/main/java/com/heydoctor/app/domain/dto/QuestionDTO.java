@@ -12,7 +12,7 @@ public class QuestionDTO {
     private Long userId;
     private String questionTitle;
     private String questionContent;
-    private String questionRegisterDateTime;
+    private String questionRegisterDatetime;
     private Boolean questionIsPublic;
     private Long questionLikeCount;
     private String doctorDepartmentType;

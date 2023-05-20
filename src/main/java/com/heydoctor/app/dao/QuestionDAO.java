@@ -14,12 +14,12 @@ import java.util.Optional;
 public class QuestionDAO {
     private final QuestionMapper questionMapper;
 
-    public List<QuestionVO> findAll(int page) {
+    public List<QuestionVO> findAll(Integer page) {
         return questionMapper.selectList(page);
     }
 
     public Optional<QuestionDTO> findById(Long questionId) {
-        return questionMapper.selectOne(questionId);
+        return Optional.ofNullable(questionMapper.selectOne(questionId));
     }
 
     public void setQuestionVO(QuestionVO questionVO) {
