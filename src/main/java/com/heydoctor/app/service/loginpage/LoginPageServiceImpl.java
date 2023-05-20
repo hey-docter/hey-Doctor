@@ -27,4 +27,9 @@ public class LoginPageServiceImpl implements LoginPageService {
     public Optional<Long> login(String userEmail, String userPassword){
         return userDAO.findByUserEmailAndUserPassword(userEmail, userPassword);
     }
+
+    @Override
+    public Optional<UserVO> getUser(Long userId) {
+        return userDAO.findById(userId);
+    }
 }

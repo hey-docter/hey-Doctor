@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
+
     //    email 중복검사
     public Optional<UserVO> selectByUserEmail(String userEmail);
 
@@ -18,4 +19,7 @@ public interface UserMapper {
     //    로그인
     @Select("SELECT USER_ID FROM TBL_USER WHERE USER_EMAIL = #{userEmail} AND USER_PASSWORD = #{userPassword}")
     public Optional<Long> selectByUserEmailAndUserPassword(@Param("userEmail") String userEmail, @Param("userPassword") String userPassword);
+
+    //    회원 조회
+    public Optional<UserVO> selectById(Long userId);
 }
