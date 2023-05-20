@@ -19,14 +19,12 @@ import java.util.Optional;
 public class LoginPageController {
     private final LoginPageService loginPageService;
 
-////    아이디 중복검사
-//    @GetMapping("check-id/{userId}")
-//    @ResponseBody
-//    public boolean checkId(@PathVariable String userId){
-//        return loginPageService.checkId(userId).is;
-//
-//    }
-
+    //    이메일 중복검사
+    @GetMapping("check-email/{userEmail}")
+    @ResponseBody
+    public boolean checkId(@PathVariable String userEmail){
+        return loginPageService.checkEmail(userEmail).isPresent();
+    }
 
 //    회원가입
     @GetMapping("register")
