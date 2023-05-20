@@ -19,6 +19,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MypageTests {
 
+
+
+
     @Autowired
     private UserMapper userMapper;
     //mypage 확인 용

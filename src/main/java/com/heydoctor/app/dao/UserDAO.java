@@ -31,13 +31,5 @@ public class UserDAO {
         return userMapper.selectByUserEmailAndUserPassword(userEmail, userPassword);
     }
 
-    //    게시글 목록
-    public List<QuestionVO> findAll(){
-        return QuestionMapper.selectAll();
-    }
 
-    //    댓글 목록
-    public List<ReplyVO> findAll(){
-        return ReplyMapper.selectAll();
-    }
 }

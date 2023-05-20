@@ -5,5 +5,5 @@
     <select id="selectAll" resultType="questionVO">
     SELECT ID, POST_TITLE, POST_CONTENT, POST_REGISTER_DATE, POST_UPDATE_DATE, MEMBER_NAME
     FROM TBL_POST
-
+    </select>
 </mapper>
