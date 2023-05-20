@@ -2,8 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.MypageMapper">
 
-    <select id="selectAll" resultType="questionVO">
-    SELECT ID, POST_TITLE, POST_CONTENT, POST_REGISTER_DATE, POST_UPDATE_DATE, MEMBER_NAME
-    FROM TBL_POST
+    <!-- 내가 쓴게시글 보기-->
+    <select id="selectList" resultType="questionVO">
+        SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+                QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
+                DOCTOR_DEPARTMENT_TYPE, READ_COUNT
+        FROM TBL_QUESTION
+        <![CDATA[WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10]]>
+
+
+        <insert id="insert">
+        INSERT INTO TBL_QUESTION (
+                QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+                QUESTION_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE
+        )
+        VALUES (
+                SEQ_QUESTION.NEXTVAL, #{userId}, #{questionTitle}, #{questionContent},
+                #{questionIsPublic}, #{doctorDepartmentType}
+        )
+    </insert>
     </select>
+
+
 </mapper>

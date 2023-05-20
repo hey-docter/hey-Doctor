@@ -8,8 +8,10 @@ import java.util.List;
 @Mapper
 public interface MypageMapper {
     //    질문 게시글 목록
-    public List<QuestionVO> selectAll();
+    public List<QuestionVO> selectList(Integer page);
 
-    //    댓글 목록
-    public List<ReplyVO> selectAll();
+    // 질문 작성하기
+    // 사용시 id가 주입됨.
+    public void insert(QuestionVO questionVO);
+
 }
