@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class QuestionDTO {
+public class QuestionListDTO {
     private Long questionId;
     private Long userId;
     private String questionTitle;
@@ -18,10 +18,5 @@ public class QuestionDTO {
     private String doctorDepartmentType;
     private Integer readCount;
 
-    private String userName;
-    private String userProfilePath;
-    private String userProfileName;
-    private String userProfileSize;
-    private String userProfileType;
-    private String userProfileUuid;
+    private Integer bookmarkedCount;
 }

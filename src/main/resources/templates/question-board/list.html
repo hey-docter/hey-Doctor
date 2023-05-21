@@ -453,14 +453,16 @@
                                                     <div class="user-information-wrapper">
                                                         <div class="c-application c-typography mb-4 c-body1 f-regular"
                                                             style="color: rgb(32, 35, 37);">
-                                                            kimjin9822
+                                                            <span th:text="${userVO.userName}"></span>
                                                         </div>
                                                         <div class="c-application c-typography c-caption1"
                                                             style="color: rgb(118, 125, 130);">
-                                                            스탠포드대학교<!--마이페이지 내용중 들어올만한거-->
+                                                            <span th:text="${userVO.userType == 'USER' ? 'USER' : 'DOCTOR'}"></span>
                                                         </div>
                                                         <div class="c-application c-typography c-caption1"
-                                                            style="color: rgb(118, 125, 130);">융합컴퓨터공학</div>
+                                                            style="color: rgb(118, 125, 130);">
+                                                            <span th:text="${userVO.userType == 'USER' ? '' : '전문의'}"></span>
+                                                        </div>
                                                     </div>
                                                 </section>
                                             </div>

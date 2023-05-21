@@ -1,6 +1,7 @@
 package com.heydoctor.app.dao;
 
 import com.heydoctor.app.domain.dto.QuestionDTO;
+import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.mapper.QuestionMapper;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ import java.util.Optional;
 public class QuestionDAO {
     private final QuestionMapper questionMapper;
 
-    public List<QuestionVO> findAll(Integer page) {
+    public List<QuestionListDTO> findAll(Integer page) {
         return questionMapper.selectList(page);
     }
 

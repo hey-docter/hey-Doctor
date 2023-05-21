@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     questions.forEach(question => {
         text += `
-            <a href="/question-board/detail/${question.questionId}">
+            <a href="/question-board/detail?questionId=${question.questionId}&bookmarkedCount=${question.bookmarkedCount}">
                 <article class="community-timeline-card">
                     <div class="c-application c-box p-relative" style="padding: 20px;">
                         <div class="main-content-container">
@@ -81,8 +81,7 @@ $(document).ready(function () {
                                         댓글 수
                                     </div>
                                 </div>
-                                <div
-                                    class="c-application c-icon-rating community-timeline-card-bookmark">
+                                <div class="c-application c-icon-rating community-timeline-card-bookmark">
                                     <svg width="16" height="16"
                                         viewBox="0 0 16 16" fill="black"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +94,7 @@ $(document).ready(function () {
                                     </svg>
                                     <div class="c-application c-typography c-body2"
                                         style="color: rgb(148, 155, 160);">
-                                        북마크 수
+                                        ${question.bookmarkedCount}
                                     </div>
                                 </div>
                             </div>

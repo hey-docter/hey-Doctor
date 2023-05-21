@@ -1,10 +1,10 @@
 //첫번째 input 버튼
 
 // 이메일, 이름, 비밀번호 입력 필드를 모두 선택
-var emailInput = document.querySelector('input[name="userEmail"]');
-var nameInput = document.querySelector('input[name="userName"]');
-var passwordInput = document.querySelector('input[name="userPassword"]');
-var nextButton = document.getElementById("nextButton");
+const emailInput = document.querySelector('input[name="userEmail"]');
+const nameInput = document.querySelector('input[name="userName"]');
+const passwordInput = document.querySelector('input[name="userPassword"]');
+const nextButton = document.getElementById("nextButton");
 
 // 입력 필드가 변경될 때마다 유효성을 검사하고 다음 버튼의 활성화 상태를 업데이트
 emailInput.addEventListener("input", validateInputs);
@@ -13,9 +13,9 @@ passwordInput.addEventListener("input", validateInputs);
 
 // 입력 필드 유효성을 검사하고 다음 버튼의 활성화 상태 업데이트 함수
 function validateInputs() {
-    var emailValue = emailInput.value.trim();
-    var nameValue = nameInput.value.trim();
-    var passwordValue = passwordInput.value.trim();
+    const emailValue = emailInput.value.trim();
+    const nameValue = nameInput.value.trim();
+    const passwordValue = passwordInput.value.trim();
 
     // 이메일, 이름, 비밀번호가 모두 작성되어 있는 경우 다음 버튼을 활성화
     if (emailValue !== "" && nameValue !== "" && passwordValue !== "") {
@@ -33,12 +33,12 @@ function validateInputs() {
 
 // 전체 동의 체크박스 변경 이벤트를 감지하는 함수
 function handleCheckAllCheckbox() {
-    var checkAllCheckbox = document.querySelector('input[name="checkAll"]');
-    var requiredCheckboxes = document.querySelectorAll('input[name="check"].check');
-    var button = document.getElementById("check-button");
+    const checkAllCheckbox = document.querySelector('input[name="checkAll"]');
+    const requiredCheckboxes = document.querySelectorAll('input[name="check"].check');
+    const button = document.getElementById("check-button");
 
     // 전체 동의 체크박스가 선택되었는지 확인
-    var isCheckAllChecked = checkAllCheckbox.checked;
+    const isCheckAllChecked = checkAllCheckbox.checked;
 
     // 필수 동의 체크박스의 상태 변경
     requiredCheckboxes.forEach(function (checkbox) {
@@ -57,11 +57,11 @@ function handleCheckAllCheckbox() {
 
 // 필수 동의 체크박스 변경 이벤트를 감지하는 함수
 function handleRequiredCheckbox() {
-    var requiredCheckboxes = document.querySelectorAll('input[name="check"].check');
-    var button = document.getElementById("check-button");
+    const requiredCheckboxes = document.querySelectorAll('input[name="check"].check');
+    const button = document.getElementById("check-button");
 
     // 모든 필수 동의 체크박스가 선택되었는지 확인
-    var allChecked = true;
+    const allChecked = true;
     requiredCheckboxes.forEach(function (checkbox) {
         if (!checkbox.checked) {
             allChecked = false;
@@ -82,7 +82,7 @@ function handleRequiredCheckbox() {
 document.querySelector('input[name="checkAll"]').addEventListener("change", handleCheckAllCheckbox);
 
 // 필수 동의 체크박스의 변경 이벤트를 감지하여 처리하는 코드
-var requiredCheckboxes = document.querySelectorAll('input[name="check"].check');
+const requiredCheckboxes = document.querySelectorAll('input[name="check"].check');
 requiredCheckboxes.forEach(function (checkbox) {
     checkbox.addEventListener("change", handleRequiredCheckbox);
 });

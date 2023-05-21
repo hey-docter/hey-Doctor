@@ -25,3 +25,12 @@ window.addEventListener("keyup", e => {
         modal.style.display = "none"
     }
 })
+
+//모달창 다음버튼 숨김
+function showRemainingContent() {
+    // 이메일, 닉네임, 패스워드가 있는 화면을 숨김 처리
+    document.getElementById("mb-50").style.display = "none";
+    // 숨겨져 있던 나머지 화면들을 보이게 처리
+    document.getElementById("remainingContent").style.display = "block";
+}
+document.getElementById("nextButton").addEventListener("click", showRemainingContent);
