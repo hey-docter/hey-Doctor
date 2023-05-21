@@ -30,14 +30,12 @@ public class MypageTests {
     //mypage 게시글 불러오기
     @Test
     public void selectListTest() {
-//        QuestionVO questionVO = new QuestionVO();
-//        questionVO.setQuestionContent("김진이 찬 민형");
-//        questionVO.setQuestionIsPublic(QuestionType.PUBLIC.isPublic());
-//        questionVO.setQuestionTitle("ㅠㅠ");
-//        questionVO.setUserId(1L);
-//        questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
-//        IntStream.range(0, 10).forEach(i -> mypageMapper.insert(questionVO));
-//        AssertionsForClassTypes.assertThat(MypageMapper.selectList(0).size()).isEqualTo(10);
+        QuestionVO questionVO = new QuestionVO();
+        questionVO.setQuestionContent("김진이 찬 민형");
+        questionVO.setQuestionIsPublic(QuestionType.PUBLIC.isPublic());
+        questionVO.setQuestionTitle("ㅠㅠ");
+        questionVO.setUserId(1L);
+        questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
 
 
     }
