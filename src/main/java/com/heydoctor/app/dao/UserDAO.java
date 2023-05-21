@@ -1,14 +1,10 @@
 package com.heydoctor.app.dao;
 
-import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.domain.vo.UserVO;
-import com.heydoctor.app.mapper.QuestionMapper;
-import com.heydoctor.app.mapper.ReplyMapper;
 import com.heydoctor.app.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -30,6 +26,4 @@ public class UserDAO {
     public Optional<Long> findByUserEmailAndUserPassword(String userEmail, String userPassword){
         return userMapper.selectByUserEmailAndUserPassword(userEmail, userPassword);
     }
-
-
 }
