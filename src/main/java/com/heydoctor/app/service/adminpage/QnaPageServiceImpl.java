@@ -30,7 +30,7 @@ public class QnaPageServiceImpl implements QnaPageService{
     }
 
     @Override
-    public void delete(int qnaId) {
+    public void delete(Long qnaId) {
         qnaDAO.deleteQna(qnaId);
     }
 }

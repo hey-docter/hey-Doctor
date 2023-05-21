@@ -34,52 +34,31 @@ public class QnaMapperTests {
     private Boolean qnaIsPublic;
     private String doctorDepartmentType;
 
+
     @Test
-    public void selectListTest() {
+    public void insertTest() {
         QnaVO qnaVO = new QnaVO();
-        qnaVO.setQnaId(1L);
-        qnaVO.setUserId(1111L);
-        qnaVO.setQnaTitle("test title");
-        qnaVO.setQnaContent("test content");
+        qnaVO.setUserId(1L);
+        qnaVO.setQnaTitle("test title3");
+        qnaVO.setQnaContent("test content3");
         qnaVO.setQnaIsPublic(QuestionType.PUBLIC.isPublic());
         qnaVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
-
-//        IntStream.range(0, 10).forEach(i -> qnaMapper.insert(qnaVO));
-
-        AssertionsForClassTypes.assertThat(qnaMapper.selectList(0).size()).isEqualTo(1);
+        qnaMapper.insert(qnaVO);
     }
 
-//    @Test
-//    public void insertTest() {
-//
-//        QnaVO qnaVO = new QnaVO();
-//        qnaVO.setQnaId(1L);
-//        qnaVO.setQnaTitle("테스트 제목2");
-//        qnaVO.setQnaContent("테스트 내용2");
-//        qnaMapper.insert(qnaVO);
-//    }
+    @Test
+    public void selectListTest() {
+        AssertionsForClassTypes.assertThat(qnaMapper.selectList(0).size()).isEqualTo(3);
+    }
 
-//    @Test
-//    public void selectAllTest() {
-//        assertThat(qnaMapper.selectList()).hasSize(2);
-//    }
+    @Test
+    public void selectOneTest() {
+        qnaMapper.selectOne(12L).map(QnaDTO::getUserName).ifPresent(log::info);
+    }
 
-//    @Test
-//    public void selectTest() {
-//        qnaMapper.selectOne(2L).map(qnaDTO::getMemberName).ifPresent(log::info);
-//    }
-
-//    @Test
-//    public void updateTest() {
-//        qnaMapper.select(2L).ifPresent(qnaDTO -> {
-//            qnaDTO.setqnaContent("수정된 내용");
-//            qnaMapper.update(qnaDTO);
-//        });
-//    }
-
-//    @Test
-//    public void deleteTest() {
-//        qnaMapper.delete(2L);
-//        assertThat(qnaMapper.selectAll()).hasSize(1);
-//    }
+    @Test
+    public void deleteTest() {
+        qnaMapper.delete(13L);
+        assertThat(qnaMapper.selectList(0)).hasSize(2);
+    }
 }
