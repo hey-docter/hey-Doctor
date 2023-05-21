@@ -14,7 +14,7 @@ import java.util.Optional;
 public class QnaDAO {
     private final QnaMapper qnaMapper;
 
-    public List<QnaVO> findAll(int page) {
+    public List<QnaDTO> getAll(int page) {
         return qnaMapper.selectList(page);
     }
 
@@ -22,7 +22,7 @@ public class QnaDAO {
         return qnaMapper.selectOne(qnaId);
     }
 
-    public void setQnaVO(QnaVO qnaVO) {
-        qnaMapper.insert(qnaVO);
+    public void deleteQna(int qnaId) {
+        qnaMapper.delete(qnaId);
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class QuestionDTO {
+public class QnaDTO {
     private Long qnaId;
     private Long userId;
     private String qnaTitle;
@@ -15,4 +15,5 @@ public class QuestionDTO {
     private String qnaRegisterDateTime;
     private Boolean qnaIsPublic;
     private String doctorDepartmentType;
+    private String userName;
 }
