@@ -6,9 +6,9 @@
         VALUES (#{questionBookmarkId}, #{userId}, #{questionId})
     </insert>
 
-    <select id="count">
+    <select id="count" resultType="integer">
         SELECT COUNT(QUESTION_BOOKMARK_ID) FROM TBL_QUESTION_BOOKMARK
-        WHERE QUESTION_ID = #{qeustionId}
+        WHERE QUESTION_ID = #{questionId}
         GROUP BY QUESTION_ID
     </select>
 </mapper>

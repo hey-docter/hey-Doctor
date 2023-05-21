@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.QuestionMapper">
-    <select id="selectList" resultType="questionVO">
-        SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+    <select id="selectList" resultType="questionListDTO">
+        SELECT Q.QUESTION_ID, Q.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                 QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
-                DOCTOR_DEPARTMENT_TYPE, READ_COUNT
-        FROM TBL_QUESTION
-        <![CDATA[WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10]]>
+                DOCTOR_DEPARTMENT_TYPE, READ_COUNT, NVL(C.BOOKMARKED_COUNT, 0) BOOKMARKED_COUNT
+        FROM TBL_QUESTION Q LEFT OUTER JOIN (
+            SELECT QUESTION_ID, COUNT(USER_ID) BOOKMARKED_COUNT
+            FROM TBL_QUESTION_BOOKMARK
+            GROUP BY QUESTION_ID
+        ) C
+        <![CDATA[
+            ON Q.QUESTION_ID = C.QUESTION_ID
+            WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10
+        ]]>
     </select>
 
     <select id="selectOne" resultType="questionDTO">
         SELECT QUESTION_ID, Q.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
-               DOCTOR_DEPARTMENT_TYPE, READ_COUNT, U.USER_NAME
+               DOCTOR_DEPARTMENT_TYPE, READ_COUNT, U.USER_NAME, U.USER_PROFILE_PATH,
+               U.USER_PROFILE_NAME, U.USER_PROFILE_SIZE, U.USER_PROFILE_TYPE, U.USER_PROFILE_UUID
         FROM TBL_USER U JOIN TBL_QUESTION Q
         ON U.USER_ID = Q.USER_ID
         <![CDATA[AND QUESTION_ID = #{questionId}]]>
