@@ -1,4 +1,4 @@
-package com.heydoctor.app;
+package com.heydoctor.app.service.loginpage;
 
     import java.io.UnsupportedEncodingException;
 
