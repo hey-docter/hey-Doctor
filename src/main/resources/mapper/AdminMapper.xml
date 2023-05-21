@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.QuestionMapper">
-    <select id="selectList" resultType="questionVO">
+    <select id="selectLists" resultType="questionListDTO">
         SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
         QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
         DOCTOR_DEPARTMENT_TYPE, READ_COUNT,
@@ -14,7 +14,7 @@
         </choose>
     </select>
 
-    <select id="selectOne" resultType="questionDTO">
+    <select id="select" resultType="questionDTO">
         SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
                DOCTOR_DEPARTMENT_TYPE, READ_COUNT, U.USER_NAME
@@ -23,9 +23,7 @@
     </select>
 
     <delete id="delete">
-        <selectKey keyProperty="questionId" order="BEFORE" resultType="questionVO">
-            SELECT SEQ_QUESTION FROM DUAL
-        </selectKey>
+
         DELETE TBL_QUESTION WHERE QUESTION_ID = #{questionId}
     </delete>
 </mapper>
