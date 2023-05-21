@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface QuestionService {
-    public List<QuestionVO> getList(int page);
+    public List<QuestionVO> getList(Integer page);
 
     public Optional<QuestionDTO> read(Long questionId);
 

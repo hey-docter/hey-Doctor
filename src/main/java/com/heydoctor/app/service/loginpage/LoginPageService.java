@@ -5,6 +5,7 @@ import com.heydoctor.app.domain.vo.UserVO;
 import java.util.Optional;
 
 public interface LoginPageService {
+
     //    아이디 중복검사
     public Optional<UserVO> checkEmail(String userEmail);
 
@@ -13,4 +14,7 @@ public interface LoginPageService {
 
     //    로그인
     public Optional<Long> login(String userEmail, String userPassword);
+
+    //    회원 조회
+    public Optional<UserVO> getUser(Long userId);
 }
