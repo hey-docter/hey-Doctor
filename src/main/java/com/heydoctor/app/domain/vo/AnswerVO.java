@@ -16,5 +16,5 @@ public class AnswerVO {
    private String answerRegisterDateTime;
    private Boolean answerIsPublic;
    private Long answerLikeCount;
-   private Boolean answerIsAdopt;
+   private Boolean answerIsAdopted;
 }
