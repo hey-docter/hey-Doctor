@@ -24,7 +24,9 @@ public class QuestionController {
 
     @GetMapping("detail")
     public void read(@RequestParam Long questionId, @RequestParam Integer bookmarkedCount, Model model){
+        log.info("okaeri");
         Optional.ofNullable(questionId).flatMap(questionService::read).ifPresent(questionDTO -> {
+            log.info("tadaima");
             model.addAttribute("question", questionDTO);
             model.addAttribute("bookmarkedCount", bookmarkedCount);
         });
