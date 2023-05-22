@@ -12,5 +12,5 @@ public interface AdminpageService {
 
     public Optional<QuestionDTO> read(Long questionId);
 
-    public void delete(int questionId);
+    public void delete(Long questionId);
 }
