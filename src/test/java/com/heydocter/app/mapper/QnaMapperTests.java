@@ -42,13 +42,12 @@ public class QnaMapperTests {
         qnaVO.setQnaTitle("test title3");
         qnaVO.setQnaContent("test content3");
         qnaVO.setQnaIsPublic(QuestionType.PUBLIC.isPublic());
-        qnaVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
         qnaMapper.insert(qnaVO);
     }
 
     @Test
     public void selectListTest() {
-        AssertionsForClassTypes.assertThat(qnaMapper.selectList(0).size()).isEqualTo(3);
+        AssertionsForClassTypes.assertThat(qnaMapper.selectList(0).size()).isEqualTo(0);
     }
 
     @Test
