@@ -14,6 +14,8 @@ import java.util.Optional;
 public class QnaDAO {
     private final QnaMapper qnaMapper;
 
+    public void register(QnaVO qnaDTO){qnaMapper.insert(qnaDTO);}
+
     public List<QnaDTO> getAll(int page) {
         return qnaMapper.selectList(page);
     }

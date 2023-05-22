@@ -14,6 +14,6 @@ public class QnaDTO {
     private String qnaContent;
     private String qnaRegisterDateTime;
     private Boolean qnaIsPublic;
-    private String doctorDepartmentType;
+    private String userEmail;
     private String userName;
 }
