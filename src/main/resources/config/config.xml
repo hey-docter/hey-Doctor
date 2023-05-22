@@ -2,9 +2,6 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="com.heydoctor.app.domain.vo.ModelVO" alias="modelVO"/>
-        <typeAlias type="com.heydoctor.app.domain.dto.ModelDTO" alias="modelDTO"/>
-
         <typeAlias type="com.heydoctor.app.domain.vo.AnswerVO" alias="AnswerVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.BookReqeustVO" alias="BookReqeustVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.CareerVO" alias="CareerVO"/>
