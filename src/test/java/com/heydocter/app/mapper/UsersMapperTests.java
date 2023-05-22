@@ -21,7 +21,7 @@ public class UsersMapperTests {
     @Test
     public void insertTest(){
         UserVO userVO = new UserVO();
-        userVO.setUserEmail("jin9822@naver.com");
+        userVO.setUserEmail("jn@naver.com");
         userVO.setUserLoginType("NOMAL");
         userVO.setUserName("kimjin");
         userVO.setUserIsAvailable(1L);
@@ -37,13 +37,13 @@ public class UsersMapperTests {
 
     @Test
     public void selectByUserIdTest(){
-        Optional<UserVO> foundUser = userMapper.selectByUserEmail("jin9822@naver.com");
+        Optional<UserVO> foundUser = userMapper.selectByUserEmail("jin@naver.com");
         assertThat(foundUser.isPresent()).isEqualTo(true);
     }
 
     @Test
     public void selectByUserIdAndUserPasswordTest(){
-        Optional<Long> foundId = userMapper.selectByUserEmailAndUserPassword("jin9822@naver.com", "jin1234");
+        Optional<Long> foundId = userMapper.selectByUserEmailAndUserPassword("jin@naver.com", "jin1234");
         assertThat(foundId.isPresent()).isEqualTo(true);
     }
 
