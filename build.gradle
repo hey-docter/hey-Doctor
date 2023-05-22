@@ -34,7 +34,8 @@ dependencies {
     // spring mail
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.1'
-
+//카카오
+    implementation'com.google.code.gson:gson:2.8.7'
 }
 
 tasks.named('test') {
