@@ -1,5 +1,6 @@
 package com.heydoctor.app.domain.vo;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ public class QuestionVO {
     private Long userId;
     private String questionTitle;
     private String questionContent;
-    private String questionRegisterDateTime;
+    private String questionRegisterDatetime;
     private Boolean questionIsPublic;
     private Integer questionLikeCount;
     private String doctorDepartmentType;

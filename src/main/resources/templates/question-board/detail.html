@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -297,10 +296,7 @@
                                          class="c-application c-box" data-v-59015b26=""
                                          style="background-color: rgb(255, 255, 255); padding: 62px 16px 20px;">
                                     <div data-v-20eabbc8="" data-v-1d8d6f66="" class="flex justify-between">
-                                        <div data-v-b15c718e="" data-v-51416e70="" data-v-907968fa=""
-                                             data-v-20eabbc8=""
-                                             class="c-application c-user-information case-detail-question-user-info simple mb-8"
-                                             data-v-1d8d6f66="">
+                                        <div class="c-application c-user-information case-detail-question-user-info simple mb-8">
                                             <div data-v-b15c718e="" class="avatar-wrapper">
                                                 <div data-v-07e04c21="" data-v-51416e70="" data-v-b15c718e="">
                                                     <div data-v-16c10fa5="" data-v-07e04c21=""
@@ -308,9 +304,8 @@
                                                             data-v-16c10fa5="" class="c-avatar nickname xsmall"
                                                             style="background: rgb(180, 210, 169);"></i>
                                                         <div data-v-16c10fa5="" class="c-avatar--item">
-
-                                                            <div data-v-45a3e27e="" data-v-16c10fa5=""
-                                                                 class="c-application c-typography c-caption2 f-semi-bold"
+                                                            <!-- profile image -->
+                                                            <div class="c-application c-typography c-caption2 f-semi-bold"
                                                                  style="color: rgb(255, 255, 255);"> 솜
                                                             </div>
                                                         </div>
@@ -321,12 +316,8 @@
                                                 <div data-v-b15c718e="" class="name-company-wrapper">
                                                     <div data-v-b15c718e="" class="name-icon-wrapper">
                                                         <div data-v-b15c718e="" class="name-wrapper">
-                                                            <div data-v-45a3e27e="" data-v-31b4f0b0=""
-                                                                 data-v-51416e70=""
-                                                                 class="c-application c-typography user-information-name ellipsis c-caption1"
-                                                                 data-v-b15c718e=""
-                                                                 style="color: inherit; font-weight: 600;">
-                                                                솜므
+                                                            <div class="c-application c-typography user-information-name ellipsis c-caption1" style="color: inherit; font-weight: 600;">
+                                                                <span th:text="${questionDTO.userName}"></span>
                                                             </div>
                                                         </div>
                                                         <div data-v-b15c718e="" class="user-info-wrapper">
@@ -346,8 +337,7 @@
                                                                 data-v-059116fd="" type="button"
                                                                 class="c-application c-icon-button medium"
                                                                 data-v-02c40fcc="">
-                                                            <svg data-v-bd9f2bcc=""
-                                                                 data-v-3035bc76="" width="24" height="24"
+                                                            <svg width="24" height="24"
                                                                  viewBox="0 0 24 24" fill="black"
                                                                  xmlns="http://www.w3.org/2000/svg"
                                                                  class="c-application c-icon"
@@ -356,8 +346,7 @@
                                                                 </circle>
                                                                 <circle data-v-bd9f2bcc="" cx="12" cy="12" r="1.5">
                                                                 </circle>
-                                                                <circle data-v-bd9f2bcc="" cx="12" cy="18.5"
-                                                                        r="1.5">
+                                                                <circle data-v-bd9f2bcc="" cx="12" cy="18.5" r="1.5">
                                                                 </circle>
                                                             </svg>
                                                         </button>
@@ -366,61 +355,48 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p data-v-45a3e27e="" data-v-6f3a78b8="" data-v-20eabbc8=""
-                                       class="c-application c-typography c-application c-content c-caption1 c-content--overline"
-                                       data-v-1d8d6f66="" style="color: rgb(173, 179, 184);">
-                                        안과
+                                    <p class="c-application c-typography c-application c-content c-caption1 c-content--overline" style="color: rgb(173, 179, 184);">
+                                        <span th:text="${questionDTO.doctorDepartmentType}"></span>
                                     </p>
-                                    <h2 data-v-45a3e27e="" data-v-6f3a78b8="" data-v-20eabbc8=""
-                                        class="c-application c-typography c-application c-content c-headline7 c-content--title"
-                                        data-v-1d8d6f66="" style="color: rgb(4, 5, 5);"><span data-v-45a3e27e=""
-                                                                                              data-v-20eabbc8=""
-                                                                                              class="c-application c-typography"
-                                                                                              style="color: rgb(42, 125, 225);">Q.</span>
-                                        <span data-v-45a3e27e=""
-                                              data-v-20eabbc8=""
-                                              class="c-application c-typography c-headline7 f-medium"
-                                              style="color: inherit;">살려주세요</span></h2>
-                                    <p data-v-45a3e27e="" data-v-6f3a78b8="" data-v-20eabbc8=""
-                                       class="c-application c-typography c-application c-content c-body1 c-content--body"
-                                       data-v-1d8d6f66="" style="color: rgb(32, 35, 37);"><span data-v-20eabbc8=""
-                                                                                                data-v-45a3e27e="">너무 아파요 <br>이제야 조금 살거같은데<br>얼마인가요<br><br>
-                                                살려주세요</span></p>
+                                    <h2 class="c-application c-typography c-application c-content c-headline7 c-content--title" style="color: rgb(4, 5, 5);">
+                                        <span class="c-application c-typography" style="color: rgb(42, 125, 225);">Q.</span>
+                                        <span class="c-application c-typography c-headline7 f-medium" style="color: inherit;">
+                                            <span th:text="${questionDTO.questionTitle}"></span>
+                                        </span>
+                                    </h2>
+                                    <p class="c-application c-typography c-application c-content c-body1 c-content--body"
+                                        style="color: rgb(32, 35, 37);">
+                                        <span>
+                                            너무 아파요 <br>이제야 조금 살거같은데<br>얼마인가요<br><br>
+                                                살려주세요
+                                        </span>
+                                    </p>
                                     <div data-v-20eabbc8="" data-v-1d8d6f66="" class="card-footer-container">
                                         <div data-v-20eabbc8="" data-v-1d8d6f66="" class="card-action-container">
                                             <div data-v-20eabbc8="" data-v-1d8d6f66="" class="card-action-wrapper">
-                                                <button data-v-fbfe33cc="" data-v-618e6e58="" data-v-0f60eb4f=""
-                                                        data-v-20eabbc8=""
-                                                        class="c-application c-rating-button case-detail-like-button info"
-                                                        icon-name="IconLikeSmallLine" color="info"
-                                                        data-v-1d8d6f66="">
-                                                    <svg data-v-bd9f2bcc="" data-v-fbfe33cc=""
-                                                         width="16" height="16" viewBox="0 0 16 16" fill="black"
+                                                <button class="c-application c-rating-button case-detail-like-button info"
+                                                        icon-name="IconLikeSmallLine" color="info">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="black"
                                                          xmlns="http://www.w3.org/2000/svg"
                                                          class="mr-4 c-application c-icon"
                                                          style="fill: rgb(148, 155, 160);">
-                                                        <path data-v-bd9f2bcc="" fill-rule="evenodd"
+                                                        <path fill-rule="evenodd"
                                                               clip-rule="evenodd"
                                                               d="M8 5.79179L7.16516 4.5257C6.75467 3.90318 6.05854 3.5 5.27273 3.5C4.02534 3.5 3 4.5219 3 5.8C3 6.46253 3.27323 7.21871 3.78425 8.03207C4.28965 8.8365 4.98019 9.62153 5.6981 10.3215C6.41239 11.0179 7.13067 11.6079 7.67232 12.0246C7.79109 12.116 7.90097 12.1988 8 12.2722C8.09904 12.1988 8.20892 12.116 8.32768 12.0246C8.86934 11.6079 9.58761 11.0179 10.3019 10.3215C11.0198 9.62153 11.7103 8.8365 12.2157 8.03207C12.7268 7.21871 13 6.46253 13 5.8C13 4.5219 11.9747 3.5 10.7273 3.5C9.94146 3.5 9.24533 3.90318 8.83485 4.5257L8 5.79179ZM8 13.5C8 13.5 2 9.5 2 5.8C2 3.97746 3.46525 2.5 5.27273 2.5C6.0432 2.5 6.75149 2.76846 7.31061 3.21768C7.57757 3.43217 7.81052 3.68786 8 3.97522C8.18948 3.68786 8.42244 3.43217 8.6894 3.21768C9.24851 2.76846 9.9568 2.5 10.7273 2.5C12.5348 2.5 14 3.97746 14 5.8C14 9.5 8 13.5 8 13.5Z">
                                                         </path>
                                                     </svg>
-                                                    <div data-v-45a3e27e="" data-v-fbfe33cc=""
-                                                         class="c-application c-typography c-body2"
-                                                         style="color: rgb(148, 155, 160);">0
+                                                    <div class="c-application c-typography c-body2"
+                                                         style="color: rgb(148, 155, 160);">
+                                                        <span th:text="${questionDTO.questionLikeCount}"></span>
                                                     </div>
                                                 </button>
                                             </div>
-                                            <hr data-v-731f4618="" data-v-20eabbc8=""
-                                                class="c-application c-divider mx-12 line vertical #EAECEE"
+                                            <hr class="c-application c-divider mx-12 line vertical #EAECEE"
                                                 data-v-1d8d6f66=""
                                                 style="border-color: rgb(234, 236, 238); height: 12px;">
-                                            <div data-v-20eabbc8="" data-v-1d8d6f66=""
-                                                 class="answer-footer-action-wrapper">
-                                                <button data-v-fbfe33cc=""
-                                                        data-v-618e6e58="" data-v-7e064c56="" data-v-20eabbc8=""
-                                                        class="c-application c-rating-button case-detail-bookmark-button info"
-                                                        icon-name="IconBookmarkSmallLine" color="info"
-                                                        data-v-1d8d6f66="">
+                                            <div class="answer-footer-action-wrapper">
+                                                <button class="c-application c-rating-button case-detail-bookmark-button info"
+                                                        icon-name="IconBookmarkSmallLine" color="info">
                                                     <svg data-v-bd9f2bcc="" data-v-fbfe33cc=""
                                                          width="16" height="16" viewBox="0 0 16 16" fill="black"
                                                          xmlns="http://www.w3.org/2000/svg"
@@ -433,14 +409,16 @@
                                                     </svg>
                                                     <div data-v-45a3e27e="" data-v-fbfe33cc=""
                                                          class="c-application c-typography c-body2"
-                                                         style="color: rgb(148, 155, 160);">0
+                                                         style="color: rgb(148, 155, 160);">
+                                                        <span th:text="${bookmarkCount}"></span>
                                                     </div>
                                                 </button>
                                             </div>
                                         </div>
-                                        <p data-v-45a3e27e="" data-v-6f3a78b8="" data-v-20eabbc8=""
-                                           class="c-application c-typography c-application c-content c-body2 c-content--caption"
-                                           data-v-1d8d6f66="" style="color: rgb(207, 212, 215);">2023.05.11</p>
+                                        <p class="c-application c-typography c-application c-content c-body2 c-content--caption"
+                                           data-v-1d8d6f66="" style="color: rgb(207, 212, 215);">
+                                            <span th:text="${questionDTO.questionRegisterDatetime}"></span>
+                                        </p>
                                     </div>
                                 </article>
                             </div>
@@ -1384,7 +1362,7 @@
                                                         </a>
                                                     </section>
                                                     <hr class="c-application c-divider mx-32 line vertical #EAECEE"
-                                                        href="/comento" class="">
+                                                        href="/comento">
                                                     <div class="c-application c-typography c-caption1"
                                                          style="border-color: #EAECEE;">
                                                     <section class="footer-services">
@@ -1392,13 +1370,9 @@
                                                             <div class="c-application c-typography c-body2"
                                                                  style="color:#202325;font-weight:600;"> 서비스
                                                             </div>
-                                                            <div
-                                                                    style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
-                                                                <div
-                                                                        style="cursor:pointer;width:max-content;margin-top:12px;">
-                                                                    <acolor:
-                                                                    #767D82;">회사소개
-                                                                </div>
+                                                            <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;">
+                                                                <div style="cursor:pointer;width:max-content;margin-top:12px;">
+                                                                    <a style="color: #767D82;">회사소개
                                                                 </a></div>
                                                             <div style="cursor:pointer;width:max-content;margin-top:12px;"
                                                                  data-v-8fa85329=""><a

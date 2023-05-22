@@ -230,10 +230,8 @@ a {
 }
 
 .modal-container {
-    min-width: 460px;
-    width: auto;
-    max-width: 520px;
-    height: 550px;
+    width: 460px;
+    height: 600px;
     margin: 0 auto;
     padding: 30px;
     background-color: #fff;
@@ -406,7 +404,7 @@ input, input[type=search], input[type=text] {
     font-size: 13px!important;
     line-height: 20px;
     font-weight: 400;
-    color: #e92525!important; 
+    color: #e92525;
 }
 
 .clearfix:before, .clearfix:after, .container:before, .container:after, .row:before, .row:after {
@@ -472,9 +470,7 @@ input[type=checkbox]+label:before {
     background: #fff;
     border: 1px solid #e1e4e7;
     text-align: center;
-    display: -moz-inline-stack;
     zoom: 1;
-    *display: inline;
     display: inline-block;
     margin-right: 5px;
     cursor: pointer;
@@ -510,7 +506,7 @@ input[type=checkbox]+label:before {
 }
 
 .btn.btn-full {
-    width: 100%;
+    width: 87%;
     display: block;
 }
 
@@ -552,4 +548,174 @@ b, strong {
 }
 .register-button.email:hover {
     background: #c7c8ca;
+}
+
+
+
+
+
+
+#check-all-wrap, #check-save-id {
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+#check-save-id {
+    width: 45%;
+    margin-bottom: 0px;
+    padding: 8px 0px;
+    border: none;
+}
+
+#check-all-wrap label, #check-save-id label {
+    cursor: pointer;
+    padding: 8px 0px;
+}
+
+#check-all-wrap section, #check-save-id section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#check-all-wrap span, #check-save-id span{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    text-align: center;
+    transition: all 150ms ease 0s;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.checkbox-wrap {
+    display: flex;
+    padding: 8px 0px;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+input[type="checkbox"] {
+    border: 0px;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0px;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+label.checkbox-wrap span.checkbox {
+    border: none;
+    background: none;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    text-align: center;
+    transition: all 150ms ease 0s;
+    background: rgb(255, 255, 255);
+    border: none;
+    box-sizing: border-box;
+}
+
+label.checkbox-all-wrap img, label.check-save-id-wrap img {
+    filter: invert(1);
+}
+
+ul {
+    margin: 0;
+    padding-left: 16px;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+li.disable {
+    color: rgb(177, 179, 181) !important;
+}
+
+li.options-list {
+    justify-content: stretch;
+    padding-left: 25px;
+}
+
+li div label{
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    outline: 0px;
+    cursor: pointer;
+}
+
+button.term-detail {
+    background: none;
+}
+hr.line {
+    margin-top: 20px;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+p.ad-content {
+    margin-top: 4px;
+    margin-bottom: 0;
+    padding-left: 16px;
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    color: rgb(126, 128, 130);
+}
+
+button.next, button.login, button.join {
+    border-radius: 4px;
+    margin: 32px 0px 0px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px 32px 16px;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.4px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: #2a7de1;
+}
+
+button.join {
+    background-color: #2a7de1;
+    margin: 2px 0px 0px;
+}
+
+.btn1.disabled {
+    border: 1px solid #dee2e6!important;
+    background-color: #f8f9fa!important;
+    color: #adb5bd!important;
+    pointer-events: none;
 }

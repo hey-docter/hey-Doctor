@@ -15,7 +15,14 @@
         <typeAlias type="com.heydoctor.app.domain.dto.QuestionDTO" alias="questionDTO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.ReplyVO" alias="ReplyVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.UserVO" alias="UserVO"/>
+<<<<<<< HEAD
         <typeAlias type="com.heydoctor.app.domain.vo.MainVO" alias="MainVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.MainRequestVO" alias="MainRequestVO"/>
+=======
+        <typeAlias type="com.heydoctor.app.domain.vo.QnaVO" alias="QnaVO"/>
+        <typeAlias type="com.heydoctor.app.domain.dto.QnaDTO" alias="QnaDTO"/>
+        <typeAlias type="com.heydoctor.app.domain.dto.QuestionListDTO" alias="QuestionListDTO"/>
+
+>>>>>>> 4c25bbc29b06d40f1731b0ee4065c328b1b09fc1
     </typeAliases>
 </configuration>
