@@ -13,5 +13,5 @@ public interface QnaPageService {
 
     public Optional<QnaDTO> read(Long qnaId);
 
-    public void delete(int qnaId);
+    public void delete(Long qnaId);
 }
