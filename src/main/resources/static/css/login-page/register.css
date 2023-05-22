@@ -230,10 +230,8 @@ a {
 }
 
 .modal-container {
-    min-width: 460px;
-    width: auto;
-    max-width: 520px;
-    height: 550px;
+    width: 460px;
+    height: 600px;
     margin: 0 auto;
     padding: 30px;
     background-color: #fff;
@@ -508,7 +506,7 @@ input[type=checkbox]+label:before {
 }
 
 .btn.btn-full {
-    width: 100%;
+    width: 87%;
     display: block;
 }
 

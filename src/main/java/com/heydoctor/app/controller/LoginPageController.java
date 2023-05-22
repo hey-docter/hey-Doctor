@@ -49,7 +49,7 @@ public class LoginPageController {
     public RedirectView login(String userEmail, String userPassword, HttpSession session, RedirectAttributes redirectAttributes){
         final Optional<Long> foundUser = loginPageService.login(userEmail, userPassword);
         if(foundUser.isPresent()){
-            session.setAttribute("id", foundUser.get());
+            session.setAttribute("userId", foundUser.get());
             return new RedirectView("/main-page/main-page");
         }
         redirectAttributes.addFlashAttribute("login", "fail");
