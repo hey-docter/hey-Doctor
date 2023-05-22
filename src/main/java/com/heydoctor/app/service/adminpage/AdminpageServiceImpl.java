@@ -1,5 +1,6 @@
 package com.heydoctor.app.service.adminpage;
 
+import com.heydoctor.app.dao.AdminDAO;
 import com.heydoctor.app.dao.QuestionDAO;
 import com.heydoctor.app.domain.dto.QuestionDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
@@ -13,20 +14,20 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class AdminpageServiceImpl implements AdminpageService {
-    private final QuestionDAO questionDAO;
+    private final AdminDAO adminDAO;
 
     @Override
     public List<QuestionListDTO> getList(Integer page) {
-        return questionDAO.findAll(page);
+        return adminDAO.findAll(page);
     }
 
     @Override
     public Optional<QuestionDTO> read(Long questionId) {
-        return questionDAO.findById(questionId);
+        return adminDAO.findById(questionId);
     }
 
     @Override
-    public void delete(int questionId) {
+    public void delete(Long questionId) {
 
     }
 }
