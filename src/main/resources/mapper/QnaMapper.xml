@@ -6,31 +6,27 @@
         FROM TBL_USER U JOIN TBL_QNA Q
         ON U.USER_ID = Q.USER_ID
 
---         <![CDATA[WHERE ROWNUM > (#{page, jdbcType=VARCHAR} * 10) AND ROWNUM <= (#{page, jdbcType=VARCHAR} * 10 + 10)]]>
-<!--        <choose>-->
-<!--            <when test="search != null">-->
-<!--                AND FALSE-->
-<!--            </when>-->
-<!--        </choose>-->
+        <![CDATA[
+            WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10
+        ]]>
     </select>
 
     <select id="selectOne" resultType="qnaDTO">
-        SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE,
+        SELECT QNA_ID, Q.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE,
          U.USER_NAME
         FROM TBL_USER U JOIN TBL_QNA Q
-        ON U.USER_ID = Q.USER_ID AND Q.QNA_ID = #{qnaId, jdbcType=VARCHAR}
+        ON U.USER_ID = Q.USER_ID
+        <![CDATA[AND QNA_ID = #{qnaId}]]>
     </select>
 
     <insert id="insert">
-<!--        <selectKey keyProperty="qnaId" order="BEFORE" resultType="qnaVO">-->
-<!--            SELECT SEQ_QNA.NEXTVAL FROM DUAL-->
-<!--        </selectKey>-->
         INSERT INTO TBL_QNA (
-        QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE
+                QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT,
+                QNA_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE
         )
         VALUES (
-        SEQ_QNA.NEXTVAL, #{userId, jdbcType=VARCHAR}, #{qnaTitle, jdbcType=VARCHAR}, #{qnaContent, jdbcType=VARCHAR},
-        #{qnaIsPublic, jdbcType=VARCHAR}, #{doctorDepartmentType, jdbcType=VARCHAR}
+                SEQ_QNA.NEXTVAL, #{userId}, #{qnaTitle}, #{qnaContent},
+                #{qnaIsPublic}, #{doctorDepartmentType}
         )
     </insert>
 

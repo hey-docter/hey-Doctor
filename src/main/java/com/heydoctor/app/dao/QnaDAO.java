@@ -22,7 +22,7 @@ public class QnaDAO {
         return qnaMapper.selectOne(qnaId);
     }
 
-    public void deleteQna(int qnaId) {
+    public void deleteQna(Long qnaId) {
         qnaMapper.delete(qnaId);
     }
 }

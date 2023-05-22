@@ -17,7 +17,7 @@ public interface QnaMapper {
     public Optional<QnaDTO> selectOne(Long qnaId);
 
     //게시글 삭제
-    public void delete(int qnaId);
+    public void delete(Long qnaId);
 
     //게시글 삭제
     public void insert(QnaVO qnaVO);
