@@ -4,7 +4,7 @@
 function validateInput(input) {
     const fieldName = input.getAttribute("name");
     const errorTextElement = input.parentElement.querySelector(".error-text");
-    const isValid = true;
+    let isValid = true;
 
     // 필드별 유효성 검사
     if (fieldName === "userEmail") {
@@ -32,13 +32,17 @@ function validateInput(input) {
         }
     } else if (fieldName === "userPassword") {
         // 비밀번호 유효성 검사
-        if (input.value.length < 8) {
-            errorTextElement.textContent = "비밀번호는 8자 이상이어야 합니다.";
+        const password = input.value;
+        if (!validatePassword(password)) {
+            errorTextElement.textContent = "비밀번호는 8자 이상이고 영문과 숫자를 포함해야 합니다.";
+            errorTextElement.style.color = "#e92525";
             isValid = false;
         } else {
-            errorTextElement.textContent = "";
+            errorTextElement.textContent = "다음 버튼을 눌러주세요.";
+            errorTextElement.style.color = "#2a7de1";
         }
     }
+
 
     return isValid;
 }
@@ -48,6 +52,13 @@ function validateEmail(email) {
     // 이메일 유효성 검사를 수행하는 코드
     const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     return emailRegex.test(email);
+}
+
+// 비밀번호 유효성 검사 함수
+function validatePassword(password) {
+    const hasValidLength = password.length >= 8;
+    const hasValidFormat = /^(?=.*[A-Za-z])(?=.*\d).*$/.test(password);
+    return hasValidLength && hasValidFormat;
 }
 
 // 입력 필드의 blur 이벤트 핸들러 함수
