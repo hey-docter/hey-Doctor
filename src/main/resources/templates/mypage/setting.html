@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="../../static/css/mypage/default.css">
-    <link rel="stylesheet" href="../../static/css/mypage/left-nav.css">
-    <link rel="stylesheet" href="../../static/css/mypage/setting.css">
-    <link rel="stylesheet" href="../../static/css/modal/modal.css">
-    <link rel="stylesheet" href="../../static/css/mypage/upper-nav.css">
-    <link rel="stylesheet" href="../../static/css/main-page/main-page.css">
-    <link rel="stylesheet" href="../../static/css/main-page/footer.css">
+    <link rel="stylesheet" href="/css/mypage/default.css">
+    <link rel="stylesheet" href="/css/mypage/left-nav.css">
+    <link rel="stylesheet" href="/css/mypage/setting.css">
+    <link rel="stylesheet" href="/css/modal/modal.css">
+    <link rel="stylesheet" href="/css/mypage/upper-nav.css">
+    <link rel="stylesheet" href="/css/main-page/main-page.css">
+    <link rel="stylesheet" href="/css/main-page/footer.css">
     <title>코멘토</title>
 </head>
 <body>
+<header th:replace="~{/main-page/header :: #post-header}"></header>
     <div id="layout">
         <div id="header-layout">
             <div class="header-wrapper">
@@ -1044,7 +1045,7 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="../../static/js/mypage/upper-nav.js"></script>
-<script src="../../static/js/modal/modal.js"></script>
-<script src="../../static/js/mypage/ocr.js"></script>
+<script src="/js/mypage/upper-nav.js"></script>
+<script src="/js/modal/modal.js"></script>
+<script src="/js/mypage/ocr.js"></script>
 </html>

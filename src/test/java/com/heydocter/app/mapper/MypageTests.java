@@ -31,9 +31,9 @@ public class MypageTests {
     @Test
     public void selectListTest() {
         QuestionVO questionVO = new QuestionVO();
-        questionVO.setQuestionContent("민형이 찬 김진");
+        questionVO.setQuestionContent("내용");
         questionVO.setQuestionIsPublic(QuestionType.PUBLIC.isPublic());
-        questionVO.setQuestionTitle("명사 세개로 문장이 만들어져요");
+        questionVO.setQuestionTitle("타이틀");
         questionVO.setUserId(1L);
         questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
 

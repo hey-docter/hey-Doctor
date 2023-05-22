@@ -13,11 +13,11 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Qualifier("mypage") @Primary
+
 public class MyPageServiceImpl implements MyPageService {
-    private final QuestionDAO questionDAO;
-//    list 가져오기
     @Override
     public List<QuestionVO> getList(Integer page) {
-        return questionDAO.findAll(page);
+        return null;
     }
+
 }
