@@ -8,9 +8,7 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 public class HospitalVO {
-  private Long hospitalId;
-  private String hospitalNAme;
-  private String hospitalLocation;
-
-
+    private Long hospitalId;
+    private String hospitalName;
+    private String hospitalLocation;
 }
