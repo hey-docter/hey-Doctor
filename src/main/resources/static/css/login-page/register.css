@@ -230,9 +230,7 @@ a {
 }
 
 .modal-container {
-    min-width: 460px;
-    width: auto;
-    max-width: 520px;
+    width: 460px;
     height: 600px;
     margin: 0 auto;
     padding: 30px;
