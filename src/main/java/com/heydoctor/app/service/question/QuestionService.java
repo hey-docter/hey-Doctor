@@ -15,4 +15,6 @@ public interface QuestionService {
     public void write(QuestionVO questionVO);
 
     public Integer getBookmarkCount(Long questionId);
+
+    public List<QuestionVO> getListReadCountDescAll();
 }

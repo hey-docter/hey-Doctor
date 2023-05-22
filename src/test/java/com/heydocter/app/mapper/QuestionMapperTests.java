@@ -42,4 +42,9 @@ public class QuestionMapperTests {
     public void selectOneTest() {
         assertThat(questionMapper.selectOne(4L)).isNotNull();
     }
+
+    @Test
+    public void selectReadDESCAllTest() {
+        log.info(questionMapper.selectReadDESCAll().toString());
+    }
 }

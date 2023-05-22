@@ -36,4 +36,12 @@
                 #{questionIsPublic}, #{doctorDepartmentType}
         )
     </insert>
+
+    <select id="selectReadDESCAll" resultType="questionVO">
+        SELECT USER_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME,QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT
+        FROM TBL_QUESTION
+        ORDER BY READ_COUNT
+        DESC
+    </select>
+
 </mapper>
