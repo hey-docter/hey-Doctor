@@ -6,5 +6,8 @@ import com.heydoctor.app.domain.vo.QuestionVO;
 import java.util.List;
 
 public interface MyPageService {
-    public List<QuestionVO> getList(Integer page);
+//    public List<QuestionVO> getList(Integer page);
+
+
 }
+

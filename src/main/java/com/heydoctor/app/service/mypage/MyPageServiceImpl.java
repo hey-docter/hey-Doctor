@@ -15,9 +15,12 @@ import java.util.List;
 @Qualifier("mypage") @Primary
 
 public class MyPageServiceImpl implements MyPageService {
-    @Override
-    public List<QuestionVO> getList(Integer page) {
-        return null;
-    }
+//    @Override
+//    public List<QuestionVO> getList(Integer page) {
+//        return null;
+//    }
+
+
+    
 
 }

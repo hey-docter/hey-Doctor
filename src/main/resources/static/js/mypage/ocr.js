@@ -23,4 +23,5 @@ $("#license").on("change", function(e){
             }
         });
     };
+    console.log("인증이 되나?");
 });
