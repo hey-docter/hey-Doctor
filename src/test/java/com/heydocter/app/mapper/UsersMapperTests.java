@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(classes = HeydocterApplication.class)
 @Slf4j
-public class UserMapperTests {
+public class UsersMapperTests {
     @Autowired
     private UserMapper userMapper;
 

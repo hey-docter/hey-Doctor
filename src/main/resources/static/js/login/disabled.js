@@ -18,7 +18,7 @@ function validateInputs() {
     const passwordValue = passwordInput.value.trim();
 
     // 이메일, 이름, 비밀번호가 모두 작성되어 있는 경우 다음 버튼을 활성화
-    if (emailValue !== "" && nameValue !== "" && passwordValue !== "") {
+    if (emailValue !== "" && nameValue !== "" && passwordValue !== "" && validateEmail(emailValue) && validatePassword(passwordValue)) {
         nextButton.classList.remove("disabled"); // 버튼의 "disabled" 클래스 제거
         nextButton.removeAttribute("disabled"); // 버튼의 "disabled" 속성 제거
     } else {
