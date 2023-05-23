@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 public class AnswerDTO {
     private Long answerId;
     private Long userId;
+    private String questionTitle;
     private Long questionId;
+
     private String answerTitle;
     private String answerContent;
     private String answerRegisterDateTime;
@@ -25,4 +27,3 @@ public class AnswerDTO {
     private String doctorDepartmentType;
     private String hospitalName;
 }
-

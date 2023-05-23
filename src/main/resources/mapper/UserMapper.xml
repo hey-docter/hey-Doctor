@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.UserMapper">
-
     <select id="selectByUserEmail" resultType="userVO">
         SELECT USER_ID, USER_EMAIL, USER_LOGIN_TYPE, USER_NAME, USER_IS_AVAILABLE, USER_PASSWORD, USER_TYPE, USER_PROFILE_PATH, USER_PROFILE_NAME, USER_PROFILE_SIZE, USER_PROFILE_TYPE, USER_PROFILE_UUID
         FROM TBL_USER
