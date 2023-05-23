@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.heydoctor.app.mapper.MainMapper">
-    <select id="selectAll" resultType="MainVO">
-        SELECT USER_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME,QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT
-        FROM TBL_QUESTION
-        ORDER BY READ_COUNT
-        DESC
-    </select>
-
-    <select id="selectLikeCount" resultType="MainVO">
-        SELECT ANSWER_ID, USER_ID, QUESTION_ID, ANSWER_TITLE, ANSWER_CONTENT, ANSWER_REGISTER_DATETIME, ANSWER_IS_PUBLIC, ANSWER_LIKE_COUNT, ANSWER_IS_ADOPTED
-        FROM HR.TBL_ANSWER
-        WHERE ANSWER_IS_PUBLIC = 1
-        ORDER BY ANSWER_LIKE_COUNT
-        DESC
-    </select>
+<mapper namespace="com.heydoctor.app.mapper.MainVO">
 </mapper>

@@ -56,9 +56,19 @@
         )
     </insert>
 
+<<<<<<< HEAD
+    <select id="selectReadDESCAll" resultType="questionVO">
+        SELECT USER_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME,QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT
+        FROM TBL_QUESTION
+        ORDER BY READ_COUNT
+        DESC
+    </select>
+
+=======
     <update id="updateReadCount">
         UPDATE TBL_QUESTION
         SET READ_COUNT = READ_COUNT + 1
         WHERE QUESTION_ID = #{questionId}
     </update>
+>>>>>>> 4fbae7e845994c5cd2265e1f5e2fbf3b10507312
 </mapper>
