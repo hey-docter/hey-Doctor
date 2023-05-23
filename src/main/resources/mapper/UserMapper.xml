@@ -20,4 +20,10 @@
     </select>
 
 
+    <update id="kakaoUpdate" parameterType="userVO">
+    UPDATE TBL_USER
+    SET USER_EMAIL = #{userEmail}, USER_NAME = #{userName}, USER_PASSWORD = #{userPassword}
+    WHERE USER_EMAIL = #{userEmail}
+</update>
+
 </mapper>
