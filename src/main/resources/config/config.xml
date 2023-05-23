@@ -23,6 +23,6 @@
         <typeAlias type="com.heydoctor.app.domain.vo.MainRequestVO" alias="MainRequestVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.QnaVO" alias="QnaVO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.QnaDTO" alias="QnaDTO"/>
-        <typeAlias type="com.heydoctor.app.domain.dto.QuestionListDTO" alias="QuestionListDTO"/>
+        <typeAlias type="com.heydoctor.app.domain.dto.QuestionListDTO" alias="questionListDTO"/>
     </typeAliases>
 </configuration>

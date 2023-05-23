@@ -28,7 +28,9 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
+    @Transactional()
     public Optional<QuestionDTO> read(Long questionId) {
+        questionDAO.addCount(questionId);
         return questionDAO.findById(questionId);
     }
 

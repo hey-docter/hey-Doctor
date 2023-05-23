@@ -18,13 +18,18 @@
         SELECT ANSWER_ID, USER_ID, QUESTION_ID, ANSWER_TITLE,
                ANSWER_CONTENT, ANSWER_REGISTER_DATETIME, ANSWER_IS_PUBLIC, ANSWER_LIKE_COUNT,
                ANSWER_IS_ADOPTED, DOCTOR_NAME,
-                (
-                    SELECT
-                        (COUNT(ANSWER_ID) / (SELECT COUNT(ANSWER_ID) FROM TBL_ANSWER WHERE USER_ID = D.USER_ID GROUP BY USER_ID))
-                    FROM TBL_ANSWER
-                    WHERE USER_ID = D.USER_ID AND ANSWER_IS_ADOPTED = 1
-                    GROUP BY USER_ID
-                ) ADOPTED_ANSWER_PERCENT, HOSPITAL_NAME, DOCTOR_DEPARTMENT_TYPE
+               NVL((
+                   SELECT COUNT(ANSWER_BOOKMARK_ID)
+                   FROM TBL_ANSWER_BOOKMARK
+                   GROUP BY ANSWER_ID
+               ), 0) BOOKMARK_COUNT,
+               NVL((
+                   SELECT
+                       (COUNT(ANSWER_ID) / (SELECT COUNT(ANSWER_ID) FROM TBL_ANSWER WHERE USER_ID = D.USER_ID GROUP BY USER_ID))
+                   FROM TBL_ANSWER
+                   WHERE USER_ID = D.USER_ID AND ANSWER_IS_ADOPTED = 1
+                   GROUP BY USER_ID
+               ), 0) ADOPTED_ANSWER_PERCENT, HOSPITAL_NAME, DOCTOR_DEPARTMENT_TYPE
         FROM TBL_ANSWER D
         WHERE QUESTION_ID = #{questionId}
     </select>

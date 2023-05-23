@@ -70,7 +70,7 @@ public class AnswerMapperTests {
 
     @Test
     public void selectByQuestionIdsTest() {
-        assertThat(answerMapper.selectByQuestionId(6L).size()).isEqualTo(1);
+        assertThat(answerMapper.selectByQuestionId(6L).size()).isEqualTo(2);
     }
 
     @Test

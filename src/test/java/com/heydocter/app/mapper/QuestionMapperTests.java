@@ -33,7 +33,7 @@ public class QuestionMapperTests {
         questionVO.setUserId(1L);
         questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
 
-        IntStream.range(0, 10).forEach(i -> questionMapper.insert(questionVO));
+        //IntStream.range(0, 10).forEach(i -> questionMapper.insert(questionVO));
 
         assertThat(questionMapper.selectList(0).size()).isEqualTo(10);
     }
@@ -44,7 +44,17 @@ public class QuestionMapperTests {
     }
 
     @Test
+<<<<<<< HEAD
     public void selectReadDESCAllTest() {
         log.info(questionMapper.selectReadDESCAll().toString());
     }
+=======
+    public void updateTest() {
+        QuestionDTO questionDTO = questionMapper.selectOne(4L);
+        questionMapper.updateReadCount(4L);
+        assertThat(questionMapper.selectOne(4L).getReadCount())
+                .isEqualTo(questionDTO.getReadCount() + 1);
+    }
+
+>>>>>>> 4fbae7e845994c5cd2265e1f5e2fbf3b10507312
 }
