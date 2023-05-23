@@ -26,4 +26,8 @@ public class QuestionDAO {
     public void setQuestionVO(QuestionVO questionVO) {
         questionMapper.insert(questionVO);
     }
+
+    public void addCount(Long questionId) {
+        questionMapper.updateReadCount(questionId);
+    }
 }
