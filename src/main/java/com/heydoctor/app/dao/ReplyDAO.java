@@ -19,4 +19,14 @@ public class ReplyDAO {
     public List<ReplyVO> selectAllReplyVO(List<Long> answerIds) {
         return replyMapper.selectAllReplyVO(answerIds);
     }
+
+    //    댓글 삭제
+    public void delete(Long replyId){
+        replyMapper.delete(replyId);
+    }
+
+    //    게시글의 댓글 전체 삭제
+    public void deleteAll(Long answerId){
+        replyMapper.deleteAll(answerId);
+    }
 }
