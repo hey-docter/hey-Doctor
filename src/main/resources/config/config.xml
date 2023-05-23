@@ -5,6 +5,7 @@
         <typeAlias type="com.heydoctor.app.domain.vo.ModelVO" alias="modelVO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.ModelDTO" alias="modelDTO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.AnswerVO" alias="AnswerVO"/>
+        <typeAlias type="com.heydoctor.app.domain.dto.AnswerDTO" alias="AnswerDTO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.BookReqeustVO" alias="BookReqeustVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.CareerVO" alias="CareerVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.DoctorVO" alias="DoctorVO"/>
@@ -14,7 +15,8 @@
         <typeAlias type="com.heydoctor.app.domain.dto.QuestionDTO" alias="questionDTO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.ReplyVO" alias="ReplyVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.UserVO" alias="UserVO"/>
-        <!--<typeAlias type="com.heydoctor.app.domain.vo.MainVO" alias="MainVO"/>-->
+
+
         <typeAlias type="com.heydoctor.app.domain.vo.MainRequestVO" alias="MainRequestVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.QnaVO" alias="QnaVO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.QnaDTO" alias="QnaDTO"/>

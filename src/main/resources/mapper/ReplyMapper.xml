@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.ReplyMapper">
+    <insert id="insert">
+        INSERT INTO TBL_REPLY (REPLY_ID, USER_ID, ANSWER_ID, REPLY_CONTENT)
+        VALUES (SEQ_REPLY.NEXTVAL, #{userId}, #{answerId}, #{replyContent})
+    </insert>
 
+    <select id="selectAllReplyVO" resultType="replyVO" parameterType="list">
+        SELECT REPLY_ID, USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME
+        FROM TBL_REPLY
+        WHERE ANSWER_ID IN
+        <choose>
+            <when test="list.size() != 0">
+                <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </when>
+            <otherwise>
+                (0)
+            </otherwise>
+        </choose>
+    </select>
 </mapper>
