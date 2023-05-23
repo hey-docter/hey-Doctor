@@ -37,6 +37,8 @@ public class LoginPageController {
         return new RedirectView("/login/login");
     }
 
+
+
 //    로그인 스타트 이동
     @GetMapping("login-start")
     public void goToLoginStartForm(){;}
