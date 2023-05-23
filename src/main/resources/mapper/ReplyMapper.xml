@@ -6,7 +6,7 @@
         VALUES (SEQ_REPLY.NEXTVAL, #{userId}, #{answerId}, #{replyContent})
     </insert>
 
-    <select id="selectAllReplyVO" resultType="replyVO" parameterType="list">
+    <select id="selectAllReplyDTO" resultType="replyVO" parameterType="list">
         SELECT REPLY_ID, USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME
         FROM TBL_REPLY
         WHERE ANSWER_ID IN

@@ -873,3 +873,23 @@ c-button.medium {
     display: -ms-flexbox!important;
     display: flex!important;
 }
+
+.f-divider {
+    width: inherit;
+    border: 0 dashed rgb(220, 220, 220);
+    margin: 0;
+    overflow: visible;
+    height: 30px;
+}
+
+.silght-divider {
+    width: inherit;
+    border: 0 dashed rgb(220, 220, 220);
+    margin: 0;
+    overflow: visible;
+    height: 1px;
+}
+
+.text-wrap {
+    width: 100%;
+}

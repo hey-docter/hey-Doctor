@@ -2,6 +2,7 @@ package com.heydoctor.app.controller;
 
 import com.heydoctor.app.domain.dto.AnswerDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
+import com.heydoctor.app.domain.dto.ReplyDTO;
 import com.heydoctor.app.domain.vo.AnswerVO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.domain.vo.ReplyVO;
@@ -36,7 +37,7 @@ public class QuestionController {
         Long userId = 1L;
         Optional.ofNullable(questionId).flatMap(questionService::read).ifPresent(questionDTO -> {
             List<AnswerDTO> answers = answerService.getAllAnswer(questionId);
-            List<ReplyVO> replies = replyService.getAllReplyVO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
+            List<ReplyDTO> replies = replyService.getAllReplyDTO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
             UserVO userVO = /*WIP*/userMapper.selectById(userId).get()/*session.getAttribute("user")*/ ;
 
             model.addAttribute("question", questionDTO);

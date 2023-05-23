@@ -1,13 +1,9 @@
 package com.heydocter.app.mapper;
 
 import com.heydoctor.app.HeydocterApplication;
-import com.heydoctor.app.domain.enums.DepartmentType;
-import com.heydoctor.app.domain.vo.AnswerVO;
 import com.heydoctor.app.domain.vo.ReplyVO;
-import com.heydoctor.app.mapper.AnswerMapper;
 import com.heydoctor.app.mapper.ReplyMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,7 +35,7 @@ public class ReplyMapperTests {
 
     @Test
     public void selectAllTest() {
-        assertThat(replyMapper.selectAllReplyVO(Arrays.asList(1L,2L,3L)).size()).isEqualTo(3);
+        assertThat(replyMapper.selectAllReplyDTO(Arrays.asList(1L,2L,3L)).size()).isEqualTo(3);
     }
 
     @Test
