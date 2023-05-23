@@ -1,6 +1,7 @@
 package com.heydoctor.app.dao;
 
 import com.heydoctor.app.domain.dto.AnswerDTO;
+import com.heydoctor.app.domain.dto.Pagination;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.dto.ReplyDTO;
 import com.heydoctor.app.domain.vo.QuestionVO;
@@ -17,13 +18,16 @@ import java.util.List;
 public class MypageDAO {
     private final MypageMapper mypageMapper;
 
-    public List<QuestionVO> findQuestionAll(Integer page)
-    {return mypageMapper.selectQuestionAll(page);}
+    //  질문 게시글 목록
+    public List<QuestionVO> findQuestionAll(Pagination pagination)
+    {return mypageMapper.selectQuestionAll(pagination);}
 
-    public List<AnswerDTO> findAnswerAll(Integer page)
-    {return mypageMapper.selectAnswerAll(page);}
+    //  질문 답변 목록
+    public List<AnswerDTO> findAnswerAll(Pagination pagination)
+    {return mypageMapper.selectAnswerAll(pagination);}
 
-    public List<ReplyDTO> findReplyAll(Integer page)
-    {return mypageMapper.selectReplyAll(page);}
+    // 댓글 목록
+    public List<ReplyDTO> findReplyAll(Pagination pagination)
+    {return mypageMapper.selectReplyAll(pagination);}
 
 }
