@@ -21,4 +21,8 @@ public class AnswerVO {
     private String doctorName;
     private String doctorDepartmentType;
     private String hospitalName;
+
+
+    private Long answerCount;
+    private String userName;
 }

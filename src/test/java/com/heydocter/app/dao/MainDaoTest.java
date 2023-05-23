@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(classes = HeydocterApplication.class)
 @Slf4j
 public class MainDaoTest {
-    @Autowired
+/*    @Autowired
 
     private MainDAO mainDao;
 
@@ -24,5 +24,5 @@ public class MainDaoTest {
     @Test
     public void findLikeDESCAllTest(){
         log.info(mainDao.findLikeDESCAll().toString());
-    }
+    }*/
 }

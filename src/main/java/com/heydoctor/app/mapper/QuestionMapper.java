@@ -18,7 +18,12 @@ public interface QuestionMapper {
     // 질문 작성하기
     public void insert(QuestionVO questionVO);
 
+<<<<<<< HEAD
+    //    커뮤니티 좋아요 순 정렬
+    public List<QuestionVO> selectReadDESCAll();
+=======
     //조회수 카운팅 스타
     public void updateReadCount(Long questionId);
+>>>>>>> 4fbae7e845994c5cd2265e1f5e2fbf3b10507312
 
 }
