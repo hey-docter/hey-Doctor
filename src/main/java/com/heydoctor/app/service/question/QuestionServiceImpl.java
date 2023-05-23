@@ -42,12 +42,10 @@ public class QuestionServiceImpl implements QuestionService {
         return bookmarkDAO.getCount(questionId);
     }
 
-<<<<<<< HEAD
+
     @Override
     public List<QuestionVO> getListReadCountDescAll() {
         return questionDAO.findReadDescAll();
     }
-=======
 
->>>>>>> 592f235a05d0d78903c2d773e230a1a18244c69e
 }
