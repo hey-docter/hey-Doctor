@@ -15,5 +15,6 @@ public class MainPageController {
 
     @GetMapping("main-page")
     public void goToMainPage(){}
+    //수정
 
 }
