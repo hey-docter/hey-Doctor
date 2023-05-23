@@ -18,4 +18,7 @@ public interface QuestionMapper {
     // 질문 작성하기
     public void insert(QuestionVO questionVO);
 
+    //조회수 카운팅 스타
+    public void updateReadCount(Long questionId);
+
 }

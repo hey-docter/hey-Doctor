@@ -32,7 +32,7 @@ public class QuestionController {
     private final HttpSession session;
 
     @GetMapping("detail")
-    public void read(@RequestParam Long questionId, @RequestParam Integer bookmarkedCount, Model model){
+    public void read(@RequestParam Long questionId, Model model){
         Long userId = 1L;
         Optional.ofNullable(questionId).flatMap(questionService::read).ifPresent(questionDTO -> {
             List<AnswerDTO> answers = answerService.getAllAnswer(questionId);
@@ -41,7 +41,6 @@ public class QuestionController {
 
             model.addAttribute("question", questionDTO);
             model.addAttribute("user", userVO);
-            model.addAttribute("bookmarkedCount", bookmarkedCount);
             model.addAttribute("answers", answers);
             model.addAttribute("replies", replies);
         });

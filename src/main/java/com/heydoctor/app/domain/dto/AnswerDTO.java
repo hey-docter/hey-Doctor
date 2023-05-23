@@ -18,6 +18,8 @@ public class AnswerDTO {
     private Integer answerLikeCount;
     private Boolean answerIsAdopted;
 
+    private Integer bookmarkCount;
+
     private String doctorName;
     private Double adoptedAnswerPercent;
     private String doctorDepartmentType;
