@@ -5,26 +5,28 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonElement;
 import com.heydoctor.app.dao.UserDAO;
 import com.heydoctor.app.domain.vo.UserVO;
-import lombok.RequiredArgsConstructor;
+import com.heydoctor.app.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.view.RedirectView;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Optional;
 
 @Service
 @Slf4j
+@Transactional
 public class KakaoService {
 
     private final UserDAO userDAO;
+    private final UserMapper userMapper;
 
     @Autowired
-    public KakaoService(UserDAO userDAO) {
+    public KakaoService(UserDAO userDAO, UserMapper userMapper) {
         this.userDAO = userDAO;
+        this.userMapper = userMapper;
     }
 
     public String getKaKaoAccessToken(String code) {
@@ -78,7 +80,8 @@ public class KakaoService {
         return access_Token;
     }
 
-    public void getKakaoInfo(String token) throws Exception {
+    public UserVO getKakaoInfo(String token) throws Exception {
+        UserVO user = null;
         String reqURL = "https://kapi.kakao.com/v2/user/me";
 
         try {
@@ -106,18 +109,24 @@ public class KakaoService {
             JsonObject properties = element.getAsJsonObject().get("properties").getAsJsonObject();
             JsonObject kakao_account = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
 
+            int id = element.getAsJsonObject().get("id").getAsInt();
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
 
-            UserVO user = new UserVO();
+            user = new UserVO();
             user.setUserName(nickname);
             user.setUserEmail(email);
+            user.setUserPassword(Integer.toString(id));
             user.setUserLoginType("KAKAO");
 
-            saveUser(user);
+            userMapper.kakaoUpdate(user);
+
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return user;
     }
 
     public void saveUser(UserVO userVO) {
@@ -152,3 +161,4 @@ public class KakaoService {
         }
     }
 }
+

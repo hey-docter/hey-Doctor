@@ -32,13 +32,9 @@ public class UserDAO {
         return userMapper.selectById(userId);
     }
 
-    // 카카오 회원가입
-    public void saveKakaoUser(UserVO userVO) {
+    // 카카오 회원가입 DB에 저장
+    public void saveKakao(UserVO userVO) {
         userMapper.insert(userVO);
     }
-    // 사용자 정보를 DB에 저장하는 메서드
-    public void saveUser(UserVO userVO) {
-        // 사용자 정보를 DB에 저장하는 로직 구현
-        userMapper.insert(userVO);
-    }
+
 }
