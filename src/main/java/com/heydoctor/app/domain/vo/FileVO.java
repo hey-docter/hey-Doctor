@@ -12,6 +12,5 @@ public class FileVO {
   private Long fileSize;
   private String fileOriginName;
   private String fileUuid;
-
-
+  private String questionId;
 }
