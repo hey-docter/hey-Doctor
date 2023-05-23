@@ -52,7 +52,7 @@ public class QnaMapperTests {
 
     @Test
     public void selectOneTest() {
-        qnaMapper.selectOne(12L).map(QnaDTO::getUserName).ifPresent(log::info);
+        qnaMapper.selectOne(19L).map(QnaDTO::toString).ifPresent(log::info);
     }
 
     @Test
