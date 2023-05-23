@@ -26,4 +26,16 @@ public class QuestionDAO {
     public void setQuestionVO(QuestionVO questionVO) {
         questionMapper.insert(questionVO);
     }
+
+<<<<<<< HEAD
+    //    커뮤니티 좋아요 순 정렬
+    public List<QuestionVO> findReadDescAll() {
+           return questionMapper.selectReadDESCAll();
+    }
+
+=======
+    public void addCount(Long questionId) {
+        questionMapper.updateReadCount(questionId);
+    }
+>>>>>>> 4fbae7e845994c5cd2265e1f5e2fbf3b10507312
 }

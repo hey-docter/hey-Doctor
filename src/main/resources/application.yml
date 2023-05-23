@@ -14,3 +14,7 @@ spring:
       username: hr
       password: hr
 
+#Multipart
+  servlet:
+    multipart:
+      enabled: true

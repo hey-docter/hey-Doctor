@@ -1,0 +1,28 @@
+package com.heydoctor.app.domain.dto;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
+
+@Component
+@Data
+@NoArgsConstructor
+public class AnswerDTO {
+    private Long answerId;
+    private Long userId;
+    private Long questionId;
+    private String answerTitle;
+    private String answerContent;
+    private String answerRegisterDateTime;
+    private Boolean answerIsPublic;
+    private Integer answerLikeCount;
+    private Boolean answerIsAdopted;
+
+    private Integer bookmarkCount;
+
+    private String doctorName;
+    private Double adoptedAnswerPercent;
+    private String doctorDepartmentType;
+    private String hospitalName;
+}
+

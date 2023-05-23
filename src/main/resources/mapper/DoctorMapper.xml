@@ -2,4 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.DoctorMapper">
 
+    <insert id="insert">
+        INSERT INTO TBL_DOCTOR (
+                USER_ID, HOSPITAL_ID, DOCTOR_CERTIFICATION_ID, IS_BOOKABLE,
+                DOCTOR_INTRODUCTION, DOCTOR_DEPARTMENT_TYPE
+        )
+        VALUES (
+                SEQ_DOCTOR.NEXTVAL, #{hospitalId}, #{doctorCertificationId}, #{isBookable},
+                #{doctorIntroduction}, #{doctorDepartmentType}
+        )
+    </insert>
 </mapper>

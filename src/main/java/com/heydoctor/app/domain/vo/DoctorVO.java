@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 public class DoctorVO {
   private Long userId;
   private Long hospitalId;
-  private String certificationId;
+  private String doctorCertificationId;
   private Boolean isBookable;
   private String doctorIntroduction;
+
+  private String doctorDepartmentType;
 }

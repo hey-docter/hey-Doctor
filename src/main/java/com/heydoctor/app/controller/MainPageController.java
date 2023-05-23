@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/mainPage/*")
+@RequestMapping("/main-page/*")
+
 public class MainPageController {
-//    private final MainPageController mainPageController;
-//    @GetMapping("mainPage")
-//    public void mainPage(){ log.info("mainPage test");
-//    }
+
+    @GetMapping("main-page")
+    public void goToMainPage(){}
+    //수정
+
 }
