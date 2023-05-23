@@ -9,4 +9,9 @@ import java.util.List;
 public interface ReplyMapper {
     public void insert(ReplyVO replyVO);
     public List<ReplyVO> selectAllReplyVO(List<Long> answerIds);
+    //    댓글 삭제
+    public void delete(Long replyId);
+
+    //    게시글의 댓글 전체 삭제
+    public void deleteAll(Long answerId);
 }

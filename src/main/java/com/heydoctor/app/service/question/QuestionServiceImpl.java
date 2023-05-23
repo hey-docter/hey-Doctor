@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,8 +42,12 @@ public class QuestionServiceImpl implements QuestionService {
         return bookmarkDAO.getCount(questionId);
     }
 
+<<<<<<< HEAD
     @Override
     public List<QuestionVO> getListReadCountDescAll() {
         return questionDAO.findReadDescAll();
     }
+=======
+
+>>>>>>> 592f235a05d0d78903c2d773e230a1a18244c69e
 }

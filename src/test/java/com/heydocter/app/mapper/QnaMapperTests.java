@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -39,21 +40,23 @@ public class QnaMapperTests {
     public void insertTest() {
         QnaVO qnaVO = new QnaVO();
         qnaVO.setUserId(1L);
-        qnaVO.setQnaTitle("test title3");
-        qnaVO.setQnaContent("test content3");
+        qnaVO.setQnaTitle("test title4");
+        qnaVO.setQnaContent("test content4");
         qnaVO.setQnaIsPublic(QuestionType.PUBLIC.isPublic());
-        qnaVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
         qnaMapper.insert(qnaVO);
     }
 
     @Test
     public void selectListTest() {
-        AssertionsForClassTypes.assertThat(qnaMapper.selectList(0).size()).isEqualTo(3);
+        AssertionsForClassTypes.assertThat(qnaMapper.selectList(0).size()).isEqualTo(2);
+        for(QnaDTO qnaDTO: qnaMapper.selectList(0)){
+            System.out.println(qnaDTO.toString());
+        }
     }
 
     @Test
     public void selectOneTest() {
-        qnaMapper.selectOne(12L).map(QnaDTO::getUserName).ifPresent(log::info);
+        qnaMapper.selectOne(19L).map(QnaDTO::toString).ifPresent(log::info);
     }
 
     @Test

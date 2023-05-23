@@ -21,4 +21,12 @@
             </otherwise>
         </choose>
     </select>
+
+    <delete id="delete">
+        DELETE FROM TBL_REPLY WHERE REPLY_ID = #{replyId}
+    </delete>
+
+    <delete id="deleteAll">
+        DELETE FROM TBL_REPLY WHERE ANSWER_ID = #{answerId}
+    </delete>
 </mapper>

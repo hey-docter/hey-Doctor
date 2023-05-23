@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface QnaPageService {
-    public void insert(QnaVO qnaVO);
+    public void register(QnaVO qnaVO);
 
     public List<QnaDTO> getList(int page);
 
     public Optional<QnaDTO> read(Long qnaId);
 
-    public void delete(Long qnaId);
+    public void deleteQna(Long qnaId);
 }

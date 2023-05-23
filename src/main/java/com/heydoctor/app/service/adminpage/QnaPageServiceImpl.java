@@ -14,9 +14,10 @@ import java.util.Optional;
 public class QnaPageServiceImpl implements QnaPageService{
     private final QnaDAO qnaDAO;
 
-    @Override
-    public void insert(QnaVO qnaVO) {
 
+    @Override
+    public void register(QnaVO qnaVO) {
+        qnaDAO.register(qnaVO);
     }
 
     @Override
@@ -30,7 +31,7 @@ public class QnaPageServiceImpl implements QnaPageService{
     }
 
     @Override
-    public void delete(Long qnaId) {
+    public void deleteQna(Long qnaId) {
         qnaDAO.deleteQna(qnaId);
     }
 }

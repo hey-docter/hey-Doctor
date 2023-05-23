@@ -14,5 +14,6 @@ public class QnaVO {
     private String qnaContent;
     private String qnaRegisterDateTime;
     private Boolean qnaIsPublic;
-    private String doctorDepartmentType;
+    private String userEmail;
+
 }

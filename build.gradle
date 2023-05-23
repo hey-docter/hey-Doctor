@@ -23,6 +23,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
+    implementation 'net.coobird:thumbnailator:0.4.8'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -36,6 +37,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.1'
 //카카오
     implementation'com.google.code.gson:gson:2.8.7'
+
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+
 }
 
 tasks.named('test') {
