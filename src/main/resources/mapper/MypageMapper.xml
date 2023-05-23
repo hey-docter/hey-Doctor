@@ -2,14 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.MypageMapper">
 
-    <!-- 내가 쓴 게시글 보기-->
-    <select id="selectList" resultType="questionVO">
+
+    <!-- 내가 쓴 질문 보기-->
+    <select id="selectQuestionAll" resultType="questionVO">
         SELECT QUESTION_ID, USER_ID, QUESTION_TITLE,
-                QUESTION_REGISTER_DATETIME, QUESTION_LIKE_COUNT,
-                DOCTOR_DEPARTMENT_TYPE
+                 QUESTION_REGISTER_DATETIME, DOCTOR_DEPARTMENT_TYPE
         FROM TBL_QUESTION
+        WHERE USER_ID = #{id}
     </select>
 
+<!--    내 대답 보기 -->
+    <select id="selectAnswerAll" resultType="answerDTO">
+        SELECT a.ANSWER_ID, a.USER_ID, a.ANSWER_TITLE, a.ANSWER_REGISTER_DATETIME, q.QUESTION_TITLE
+        FROM TBL_ANSWER a
+        INNER JOIN TBL_QUESTION q ON a.QUESTION_ID = q.QUESTION_ID
+        WHERE a.USER_ID = #{id}
+    </select>
 
+<!--   내 댓글 보기-->
+    <select id="selectReplyAll" resultType="replyDTO">
+         SELECT REPLY_ID, USER_ID, ANSWER_ID, REPLY_ECONTENT, REPLY_RGISTER_DATETIME
+         FROM TBL_REPLY
+         WHERE USER_ID = #{id}
+    </select>
 
 </mapper>

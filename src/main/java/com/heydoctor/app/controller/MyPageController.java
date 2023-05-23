@@ -4,8 +4,11 @@ import com.heydoctor.app.service.mypage.MyPageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @Slf4j
@@ -16,7 +19,9 @@ public class MyPageController {
 
     //community 작성한 글, 댓글 보기
     @GetMapping("community")
-    public void community() {
+    public void community(Integer page, HttpSession session, Model model) {
+        Long userId = 1L/*(Long) session.getAttribute("userId")*/;
+
         log.info("community");
     }
 
