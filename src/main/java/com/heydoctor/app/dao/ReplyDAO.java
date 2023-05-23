@@ -1,11 +1,32 @@
 package com.heydoctor.app.dao;
 
+import com.heydoctor.app.domain.vo.ReplyVO;
 import com.heydoctor.app.mapper.ReplyMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
 public class ReplyDAO {
     private final ReplyMapper replyMapper;
+
+    public void insert(ReplyVO replyVO) {
+        replyMapper.insert(replyVO);
+    }
+
+    public List<ReplyVO> selectAllReplyVO(List<Long> answerIds) {
+        return replyMapper.selectAllReplyVO(answerIds);
+    }
+
+    //    댓글 삭제
+    public void delete(Long replyId){
+        replyMapper.delete(replyId);
+    }
+
+    //    게시글의 댓글 전체 삭제
+    public void deleteAll(Long answerId){
+        replyMapper.deleteAll(answerId);
+    }
 }

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
     <typeAliases>
         <typeAlias type="com.heydoctor.app.domain.vo.AnswerVO" alias="AnswerVO"/>
+        <typeAlias type="com.heydoctor.app.domain.dto.AnswerDTO" alias="AnswerDTO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.BookReqeustVO" alias="BookReqeustVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.CareerVO" alias="CareerVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.DoctorVO" alias="DoctorVO"/>
@@ -19,6 +23,5 @@
         <typeAlias type="com.heydoctor.app.domain.dto.AnswerDTO" alias="AnswerDTO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.ReplyDTO" alias="ReplyDTO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.QuestionListDTO" alias="QuestionListDTO"/>
-
     </typeAliases>
 </configuration>

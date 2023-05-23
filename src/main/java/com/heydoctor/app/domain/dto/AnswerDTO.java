@@ -10,7 +10,18 @@ import org.springframework.stereotype.Component;
 public class AnswerDTO {
     private Long answerId;
     private Long userId;
+    private String questionTitle;
+    private Long questionId;
+
     private String answerTitle;
-    private String answerRegisterDatetime;
-    private String question_title;
+    private String answerContent;
+    private String answerRegisterDateTime;
+    private Boolean answerIsPublic;
+    private Integer answerLikeCount;
+    private Boolean answerIsAdopted;
+
+    private String doctorName;
+    private Double adoptedAnswerPercent;
+    private String doctorDepartmentType;
+    private String hospitalName;
 }

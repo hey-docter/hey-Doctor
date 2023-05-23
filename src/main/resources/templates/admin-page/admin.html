@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>전체 문의 관리 페이지</title>
+
     <link rel="stylesheet" href="../../static/css/admin-page/admin.css">
 </head>
 <body>
@@ -51,6 +52,12 @@
                         <th>답변여부</th>
                     </thead>
                     <tbody>
+                        <tr th:each="qna:${qnas}">
+                            <td th:text="안녕하세요?"></td>
+                            <td th:text="${qna.qnaTitle}"></td>
+                            <td th:text="${qna.qnaRegisterDateTime}"></td>
+                            <td th:text="${qna.userName}"></td>
+                        </tr>
                     </tbody>
                 </table>
             </form>
