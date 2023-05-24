@@ -52,4 +52,11 @@ public class ReplyMapperTests {
     public void deleteAllTest(){
         replyMapper.deleteAll(4L);
     }
+
+    @Test
+    public void selectAllAnswerReply() {
+        log.info(replyMapper.selectAllAnswerReply().toString());
+    }
+
+
 }

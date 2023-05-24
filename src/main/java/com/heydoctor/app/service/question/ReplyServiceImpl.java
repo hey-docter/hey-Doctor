@@ -30,4 +30,9 @@ public class ReplyServiceImpl implements ReplyService {
     public List<ReplyVO> getAllReplyVO(List<Long> answerIds) {
         return replyDAO.selectAllReplyVO(answerIds);
     }
+
+    @Override
+    public List<ReplyVO> getAllAnswerReply() {
+        return replyDAO.findAllAnswerReply();
+    }
 }

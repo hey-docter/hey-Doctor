@@ -9,4 +9,5 @@ public interface ReplyService {
     public List<ReplyVO> getAllReplyVO(Long... answerIds);
     public List<ReplyVO> getAllReplyVO(List<Long> answerIds);
 
+    public List<ReplyVO> getAllAnswerReply();
 }
