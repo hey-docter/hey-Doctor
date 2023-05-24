@@ -19,4 +19,6 @@ public class QuestionListDTO {
     private Integer readCount;
 
     private Integer bookmarkedCount;
+
+    private String userName;
 }
