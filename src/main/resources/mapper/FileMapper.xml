@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.FileMapper">
+
     <select id="selectAll" resultType="fileVO">
         SELECT F.FILE_ID, FILE_PATH, FILE_NAME, FILE_SIZE, FILE_TYPE, FILE_UUID, Q.QUESTION_ID
         FROM TBL_FILE F JOIN TBL_QUESTION_FILE Q
@@ -9,9 +10,21 @@
     </select>
 
     <insert id="insert">
-        INSERT INTO HR.TBL_FILE
+        INSERT ALL
+
+        INTO TBL_FILE
         (FILE_ID, FILE_PATH, FILE_NAME, FILE_SIZE, FILE_TYPE, FILE_UUID)
         VALUES(SEQ_FILE.NEXTVAL, #{filePath}, #{fileName}, #{fileSize}, #{fileType}, #{fileUuid});
+
+        INTO TBL_QUESTION_FILE
+        (TBL_QUESTION_FILE_ID, FILE_ID, QUESTION_ID)
+        VALUES(SEQ_QUESTION_FILE.NEXTVAL, #{fileId}, #{questionId})
+
+        SELECT F.FILE_ID, FILE_PATH, FILE_NAME, FILE_SIZE, FILE_TYPE, FILE_UUID, Q.QUESTION_ID
+        FROM TBL_FILE F JOIN TBL_QUESTION_FILE Q
+        ON F.FILE_ID = Q.FILE_ID
+        WHERE QUESTION_ID = #{questionId}
+
     </insert>
 
     <delete id="delete">
@@ -24,3 +37,8 @@
         WHERE QUESTION_ID = #{questionId}
     </delete>
 </mapper>
+
+        INSERT ALL
+        INTO EMP_HIR VALUES(EMPNO, ENAME, HIREDATE)
+        INTO EMP_MGR VALUES(EMPNO, ENAME, MGR)
+        SELECT (EMPNO, ENAME, HIREDATE, MGR) FROM EMP WHERE DEPTNO = 20;

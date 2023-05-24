@@ -41,5 +41,5 @@ public class QuestionServiceImpl implements QuestionService {
         return bookmarkDAO.getCount(questionId);
     }
 
-
+ 
 }

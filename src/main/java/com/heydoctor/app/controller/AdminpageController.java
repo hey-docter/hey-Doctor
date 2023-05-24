@@ -36,7 +36,7 @@ public class AdminpageController {
     }
     @GetMapping("admin-board-list")
     public void list(Integer page, HttpSession session, Model model){
-        model.addAttribute("question", adminpageService.getList(page));
+        model.addAttribute("questions", adminpageService.getList(page));
     }
 
 //
