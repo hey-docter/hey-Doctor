@@ -6,9 +6,12 @@
         VALUES (SEQ_REPLY.NEXTVAL, #{userId}, #{answerId}, #{replyContent})
     </insert>
 
-    <select id="selectAllReplyDTO" resultType="replyVO" parameterType="list">
-        SELECT REPLY_ID, USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME
-        FROM TBL_REPLY
+    <select id="selectAllReplyDTO" resultType="replyDTO" parameterType="list">
+        SELECT REPLY_ID, U.USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME,
+               U.USER_NAME, USER_PROFILE_PATH, USER_PROFILE_NAME, USER_PROFILE_SIZE,
+               USER_PROFILE_TYPE, USER_PROFILE_UUID
+        FROM TBL_USER U JOIN TBL_REPLY R
+        ON U.USER_ID = R.USER_ID
         WHERE ANSWER_ID IN
         <choose>
             <when test="list.size() != 0">
@@ -29,4 +32,11 @@
     <delete id="deleteAll">
         DELETE FROM TBL_REPLY WHERE ANSWER_ID = #{answerId}
     </delete>
+
+    <select id="selectAllAnswerReply" resultType="replyVO">
+        SELECT TBL_REPLY.REPLY_CONTENT, TBL_REPLY.REPLY_REGISTER_DATETIME, TBL_REPLY.REPLY_ID, TBL_REPLY.ANSWER_ID
+        FROM TBL_REPLY
+        JOIN TBL_ANSWER ON TBL_REPLY.ANSWER_ID = TBL_ANSWER.ANSWER_ID
+        GROUP BY TBL_ANSWER.ANSWER_ID, TBL_REPLY.REPLY_CONTENT, TBL_REPLY.REPLY_REGISTER_DATETIME, TBL_REPLY.REPLY_ID
+    </select>
 </mapper>

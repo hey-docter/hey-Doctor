@@ -33,4 +33,15 @@
         FROM TBL_ANSWER D
         WHERE QUESTION_ID = #{questionId}
     </select>
+
+    <select id="selectByAdoptCount" resultType="AnswerVO">
+        SELECT U.USER_ID, U.USER_TYPE, U.USER_NAME, COUNT(A.USER_ID) AS ANSWER_COUNT, SUM(A.ANSWER_IS_ADOPTED) AS ADOPTED_ANSWER_COUNT
+        FROM TBL_USER U
+        LEFT JOIN TBL_ANSWER A ON U.USER_ID = A.USER_ID
+        WHERE U.USER_TYPE = 'DOCTOR' AND A.ANSWER_IS_ADOPTED = 1
+        GROUP BY U.USER_ID, U.USER_TYPE, U.USER_NAME
+        ORDER BY COUNT(A.USER_ID)
+        DESC
+    </select>
+
 </mapper>

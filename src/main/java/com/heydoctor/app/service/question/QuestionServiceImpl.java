@@ -20,10 +20,16 @@ import java.util.Optional;
 public class QuestionServiceImpl implements QuestionService {
     private final QuestionDAO questionDAO;
     private final BookmarkDAO bookmarkDAO;
+    private final QuestionVO questionVO;
 
     @Override
     public List<QuestionListDTO> getList(Integer page) {
         return questionDAO.findAll(page);
+    }
+
+    @Override
+    public List<QuestionListDTO> getList(Integer page, String type) {
+        return questionDAO.findAll(page, type);
     }
 
     @Override
@@ -43,5 +49,11 @@ public class QuestionServiceImpl implements QuestionService {
         return bookmarkDAO.getCount(questionId);
     }
 
+
+
+    @Override
+    public List<QuestionVO> getListReadCountDescAll() {
+        return questionDAO.findReadDescAll();
+    }
 
 }

@@ -11,7 +11,7 @@ public interface FileMapper {
     public void insert(FileVO fileVO);
 
     //    파일 삭제
-    public void delete(Long id);
+    public void delete(Long fileId);
 
     //    게시글의 파일 전체 삭제
     public void deleteAll(Long questionId);

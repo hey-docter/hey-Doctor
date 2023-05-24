@@ -30,4 +30,9 @@ public class ReplyDAO {
     public void deleteAll(Long answerId){
         replyMapper.deleteAll(answerId);
     }
+
+    // 의사 댓글만 불러오는 것들
+    public List<ReplyVO> findAllAnswerReply() {
+        return replyMapper.selectAllAnswerReply();
+    }
 }

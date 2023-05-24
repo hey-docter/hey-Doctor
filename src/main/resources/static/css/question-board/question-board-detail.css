@@ -874,7 +874,7 @@ c-button.medium {
     display: flex!important;
 }
 
-.f-divider {
+hr.f-divider {
     width: inherit;
     border: 0 dashed rgb(220, 220, 220);
     margin: 0;
@@ -882,7 +882,7 @@ c-button.medium {
     height: 30px;
 }
 
-.silght-divider {
+hr.slight-divider {
     width: inherit;
     border: 0 dashed rgb(220, 220, 220);
     margin: 0;
@@ -893,3 +893,14 @@ c-button.medium {
 .text-wrap {
     width: 100%;
 }
+
+div.avatar-wrapper.reply {
+    margin-right: 8px;
+}
+
+.small {
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+}
+

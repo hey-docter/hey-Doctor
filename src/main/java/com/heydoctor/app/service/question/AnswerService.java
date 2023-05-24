@@ -9,4 +9,5 @@ public interface AnswerService {
     public void write(AnswerVO answerVO);
     public List<AnswerDTO> getAllAnswer(Long questionId);
 
+    public List<AnswerVO> getListDoctorListAll();
 }

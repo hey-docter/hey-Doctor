@@ -10,4 +10,5 @@ public interface ReplyService {
     public List<ReplyDTO> getAllReplyDTO(Long... answerIds);
     public List<ReplyDTO> getAllReplyDTO(List<Long> answerIds);
 
+    public List<ReplyVO> getAllAnswerReply();
 }
