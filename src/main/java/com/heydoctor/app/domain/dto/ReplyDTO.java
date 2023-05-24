@@ -1,6 +1,5 @@
 package com.heydoctor.app.domain.dto;
 
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -9,9 +8,16 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 public class ReplyDTO {
-   Long replyId;
-   Long userId;
-   Long answerId;
-   String replyContent;
-   String ReplyRegisterDateiime;
+    private Long replyId;
+    private Long userId;
+    private Long answerId;
+    private String replyContent;
+    private String replyRegisterDateTime;
+
+    private String userName;
+    private String userProfilePath;
+    private String userProfileName;
+    private Long userProfileSize;
+    private String userProfileType;
+    private String userProfileUuid;
 }

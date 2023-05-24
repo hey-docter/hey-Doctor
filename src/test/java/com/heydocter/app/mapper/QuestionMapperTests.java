@@ -35,7 +35,7 @@ public class QuestionMapperTests {
 
         //IntStream.range(0, 10).forEach(i -> questionMapper.insert(questionVO));
 
-        assertThat(questionMapper.selectList(0).size()).isEqualTo(10);
+        assertThat(questionMapper.selectList(0, DepartmentType.ALL.getType()).size()).isEqualTo(10);
     }
 
     @Test
@@ -44,7 +44,10 @@ public class QuestionMapperTests {
     }
 
     @Test
-
+    public void selectReadDESCAllTest() {
+        log.info(questionMapper.selectReadDESCAll().toString());
+    }
+    @Test
     public void updateTest() {
         QuestionDTO questionDTO = questionMapper.selectOne(4L);
         questionMapper.updateReadCount(4L);
