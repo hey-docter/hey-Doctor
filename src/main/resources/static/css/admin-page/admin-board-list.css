@@ -29,7 +29,7 @@ input{
     width: 160px;
     height: 36px;
     margin: 33px auto 20px;
-    background-image: url("../../../static/image/icon/JOONGSHIN.svg");
+    background-image: url("/static/image/icon/JOONGSHIN.svg");
     background-repeat: no-repeat;
     background-size: 100%;
 }

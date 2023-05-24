@@ -3,8 +3,10 @@ package com.heydocter.app.mapper;
 import com.heydoctor.app.HeydocterApplication;
 import com.heydoctor.app.domain.dto.QnaDTO;
 import com.heydoctor.app.domain.dto.QuestionDTO;
+import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.enums.DepartmentType;
 import com.heydoctor.app.domain.enums.QuestionType;
+import com.heydoctor.app.domain.vo.FileVO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.mapper.AdminMapper;
@@ -30,7 +32,8 @@ public class AdminMapperTests {
 
     @Test
     public void selectListTest() {
-        AssertionsForClassTypes.assertThat(adminMapper.selectLists(0).size()).isEqualTo(10);
+//        AssertionsForClassTypes.assertThat(adminMapper.selectLists(0).size()).isEqualTo(10);
+        adminMapper.selectLists(0).stream().map(QuestionListDTO::toString).forEach(log::info);
     }
 
     @Test

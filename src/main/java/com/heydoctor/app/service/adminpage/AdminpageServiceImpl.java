@@ -8,6 +8,8 @@ import com.heydoctor.app.domain.dto.QuestionDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
