@@ -6,9 +6,12 @@
         VALUES (SEQ_REPLY.NEXTVAL, #{userId}, #{answerId}, #{replyContent})
     </insert>
 
-    <select id="selectAllReplyDTO" resultType="replyVO" parameterType="list">
-        SELECT REPLY_ID, USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME
-        FROM TBL_REPLY
+    <select id="selectAllReplyDTO" resultType="replyDTO" parameterType="list">
+        SELECT REPLY_ID, U.USER_ID, ANSWER_ID, REPLY_CONTENT, REPLY_REGISTER_DATETIME,
+               U.USER_NAME, USER_PROFILE_PATH, USER_PROFILE_NAME, USER_PROFILE_SIZE,
+               USER_PROFILE_TYPE, USER_PROFILE_UUID
+        FROM TBL_USER U JOIN TBL_REPLY R
+        ON U.USER_ID = R.USER_ID
         WHERE ANSWER_ID IN
         <choose>
             <when test="list.size() != 0">

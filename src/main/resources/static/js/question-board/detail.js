@@ -1,8 +1,6 @@
 const $answerTextarea = $("article.answer-write-box")
-const $answerContainer = $('div#answer-container-main');
 
 $answerTextarea.hide();
-$(document).ready(() => showList(answers));
 
 $('div.answer-btn').on('click', function() {
     $('div.fake-submit-btn').each((_, e) => $(e).hide());
@@ -11,6 +9,11 @@ $('div.answer-btn').on('click', function() {
 
 $('textarea.answer-area').on('keyup', function() {
     $('div.answer-char-size').text(`${$(this).val().length}`);
+});
+
+$(document).ready(() => {
+    showList(answers);
+    showReplies(replies);
 });
 
 function showList(answers) {
@@ -75,7 +78,6 @@ function showList(answers) {
                              </div>
                              
                          </div>
-                         
                          <div>
                             <div class="c-application c-dropdown">
                                 <div class="c-dropdown--item-group" style="max-width: 200px;">
@@ -146,6 +148,7 @@ function showList(answers) {
                                     </div>
                                 </button>
                             </div>
+                            
                         </div>
                         <p class="c-application c-typography c-application c-content c-body2 c-content--caption"
                            style="color: rgb(207, 212, 215);">
@@ -160,7 +163,7 @@ function showList(answers) {
                         <div class="c-application c-textarea additional-comment-textarea reply">
                             <div class="flex">
                                 <label class="text-wrap">
-                                    <textarea placeholder="답변에 대한 의견이 있으신가요?" style="max-height: 256px; min-height: 38px; overflow-y: auto;"></textarea>
+                                    <textarea class="reply-write-${answer.answerId}" placeholder="답변에 대한 의견이 있으신가요?" style="max-height: 256px; min-height: 38px; overflow-y: auto;"></textarea>
                                 </label>
                                 <button type="button" disabled="disabled"
                                         class="c-application c-icon-button c-textarea--reply-icon medium">
@@ -180,28 +183,33 @@ function showList(answers) {
                         </div>
                     </div>
                 </div>
+                 <div class="reply-container ${answer.answerId}">
+                     <!---->
+                     <!---->
+                     <!---->
+                 </div>
              </article>
              <hr class="f-divider">
         `;
     });
-    $answerContainer.append(text);
+    $('div#answer-container-main').html(text);
 }
 
 function showReplies(replies) {
-    let text = "";
-
+    let texts = [];
     replies.forEach(reply => {
-        text += `
+        if(!texts[reply.answerId]) texts[reply.answerId] = "";
+
+        texts[reply.answerId] += `
             <div class="answer-comment">
                 <hr class="slight-divider">
-                
                 <div class="c-application c-box"
                     style="background-color: rgb(255, 255, 255); padding: 20px 16px 0px;">
                     <div class="c-application c-typography c-body2" style="color: rgb(89, 95, 99);">
-                        ${reply.}
+                        댓글
                         <span class="c-application c-typography"
                             style="color: inherit; font-weight: 500;">
-                            1
+                            ${replies.length}
                         </span>
                     </div>
                 </div>
@@ -219,7 +227,7 @@ function showReplies(replies) {
                                             <!---->
                                             <div class="c-application c-typography c-body2 f-semi-bold"
                                                 style="color: rgb(255, 255, 255);">
-                                                도
+                                                ${reply.userName.substring(0, 1)}
                                             </div>
                                         </div>
                                     </div>
@@ -231,7 +239,7 @@ function showReplies(replies) {
                                         <div class="name-wrapper">
                                             <div class="c-application c-typography user-information-name ellipsis c-body2"
                                                 style="color: inherit; font-weight: 600;">
-                                                도이체
+                                                ${reply.userName}
                                             </div>
                                         </div>
                                         <div class="user-info-wrapper">
@@ -243,7 +251,7 @@ function showReplies(replies) {
                                 <div class="other-wrapper">
                                     <div class="c-application c-typography c-caption1"
                                         type="normal" style="color: rgb(173, 179, 184);">
-                                        2023.05.22
+                                        ${elapsedTime(reply.replyRegisterDateTime.substring(0, 10))}
                                     </div>
                                 </div>
                             </div>
@@ -251,53 +259,23 @@ function showReplies(replies) {
                         <!---->
                     </div>
                     <div class="c-application c-typography c-body1" style="color: rgb(60, 65, 68);">
-                        <span>오오</span>
+                        <span>${reply.replyContent}</span>
                     </div>
                     <div class="comment-card-footer-container">
-                        <button type="button" class="c-application c-narrow-button small" style="color: rgb(118, 125, 130);">
+                        <button type="button" class="c-application c-narrow-button small focus-${reply.asnwerId}" style="color: rgb(118, 125, 130);">
                             <div class="c-narrow-button--icon"></div>댓글 달기<div class="c-narrow-button--icon"></div>
                         </button>
                         <hr class="silght-divider">
-                        <div class="comment-card-footer-action-container-right">
-                            <button class="c-application c-rating-button case-detail-like-button info"
-                                icon-name="IconLikeSmallLine"
-                                color="info">
-                               
-                                <svg width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="black"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="mr-4 c-application c-icon"
-                                    style="fill: rgb(148, 155, 160);">
-                                    <path fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M8 5.79179L7.16516 4.5257C6.75467 3.90318 6.05854 3.5 5.27273 3.5C4.02534 3.5 3 4.5219 3 5.8C3 6.46253 3.27323 7.21871 3.78425 8.03207C4.28965 8.8365 4.98019 9.62153 5.6981 10.3215C6.41239 11.0179 7.13067 11.6079 7.67232 12.0246C7.79109 12.116 7.90097 12.1988 8 12.2722C8.09904 12.1988 8.20892 12.116 8.32768 12.0246C8.86934 11.6079 9.58761 11.0179 10.3019 10.3215C11.0198 9.62153 11.7103 8.8365 12.2157 8.03207C12.7268 7.21871 13 6.46253 13 5.8C13 4.5219 11.9747 3.5 10.7273 3.5C9.94146 3.5 9.24533 3.90318 8.83485 4.5257L8 5.79179ZM8 13.5C8 13.5 2 9.5 2 5.8C2 3.97746 3.46525 2.5 5.27273 2.5C6.0432 2.5 6.75149 2.76846 7.31061 3.21768C7.57757 3.43217 7.81052 3.68786 8 3.97522C8.18948 3.68786 8.42244 3.43217 8.6894 3.21768C9.24851 2.76846 9.9568 2.5 10.7273 2.5C12.5348 2.5 14 3.97746 14 5.8C14 9.5 8 13.5 8 13.5Z"></path>
-                                </svg>
-                                <div class="c-application c-typography c-body2" style="color: rgb(148, 155, 160);">
-                                    0
-                                </div>
-                            </button>
-                            <hr class="silght-divider">
-                            <button class="c-application c-rating-button case-detail-bookmark-button info">
-                                <svg width="16"
-                                    height="16"
-                                    viewBox="0 0 16 16"
-                                    fill="black"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="mr-4 c-application c-icon"
-                                    style="fill: rgb(148, 155, 160);">
-                                    <path fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z"></path>
-                                </svg>
-                                <div class="c-application c-typography c-body2" style="color: rgb(148, 155, 160);">0</div>
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
         `;
+
+        $(`focus-${reply.answerId}`).on('click', function() {
+            $(`reply-write-${reply.answerId}`).focus();
+        });
     });
+
+    replies.map(reply => reply.answerId).forEach(id => $(`.reply-container.${id}`).html(texts[id]));
 }
 
