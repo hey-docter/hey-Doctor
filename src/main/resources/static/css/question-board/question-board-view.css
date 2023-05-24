@@ -661,7 +661,12 @@ div {
 .primary.outline {
     background-color: transparent;
     border: 1px solid #2a7de1;
-   
+}
+
+.primary.outline.blue {
+    background-color: #2A7DE1;
+    border: 1px solid #2a7de1;
+    margin-top: 5%;
 }
 
 .c-button--icon, .c-button--loading{
@@ -1046,5 +1051,10 @@ ol, ul {
     color: #2A7DE1;
     color: #2a7de1!important;
 }
+
+.no-list {
+    align-items: center;
+}
+
 
   

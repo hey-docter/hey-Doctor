@@ -3,6 +3,7 @@ package com.heydoctor.app.controller;
 import com.heydoctor.app.domain.dto.AnswerDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.dto.ReplyDTO;
+import com.heydoctor.app.domain.enums.DepartmentType;
 import com.heydoctor.app.domain.vo.AnswerVO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.domain.vo.ReplyVO;
@@ -67,5 +68,15 @@ public class QuestionController {
         Optional.ofNullable(userId).flatMap(/*WIP*/userMapper::selectById)/*session.getAttribute("user")*/
                 .ifPresent(userVO -> model.addAttribute("userVO", userVO));
         model.addAttribute("questions", questions);
+    }
+
+    @PostMapping("list/{page}/{type}")
+    @ResponseBody
+    public void getQuestionList(@PathVariable Integer page, @PathVariable String type) {
+        try {
+            DepartmentType departmentType = DepartmentType.valueOf(type);
+            List<QuestionListDTO> questions = questionService.getList(page);
+
+        } catch (IllegalArgumentException ignored) {;}
     }
 }

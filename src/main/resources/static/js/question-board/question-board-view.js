@@ -1,24 +1,26 @@
 
-const $buttons = $('.c-tabs--menu-button button');
+const $buttons = $('div.type-wrapper .c-tabs--menu-button');
 const $listContainer = $('.case-list-card-section');
-
-$buttons.eq(0).addClass('active');
 
 $buttons.each((i, button) => {
     $(button).on('click', function() {
-        if($('button.active')) $('button.active').removeClass('active');
+        let $active = $('div.c-tabs--menu-button.active');
+        if($active) $active.removeClass('active');
         $(this).addClass('active');
         let type = $(button).text();
-        console.log(type);
         getList(type, showList);
     });
 });
 
 $(document).ready(() => showList(questions));
 
+$('.loading-items').on('click', function (){
+    getList($('div.c-tabs--menu-button.active').text(), showList);
+});
+
 function getList(type, onGet) {
     $.ajax({
-        url: `/question-board/list?type=${type}`,
+        url: `/question-board/list/${type}`,
         success: function(questions) {
             if(onGet) onGet(questions);
         }
@@ -27,6 +29,11 @@ function getList(type, onGet) {
 
 function showList(questions) {
     let text = "";
+
+    if(questions.length !== 0) {
+        $('none-items').show();
+        return;
+    }
 
     questions.forEach(question => {
         text += `
@@ -117,6 +124,6 @@ function showList(questions) {
         `;
     });
 
-    $listContainer.html(text);
+    $listContainer.append(text);
 }
 

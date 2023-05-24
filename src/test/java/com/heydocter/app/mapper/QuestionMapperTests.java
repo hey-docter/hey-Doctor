@@ -35,7 +35,7 @@ public class QuestionMapperTests {
 
         //IntStream.range(0, 10).forEach(i -> questionMapper.insert(questionVO));
 
-        assertThat(questionMapper.selectList(0).size()).isEqualTo(10);
+        assertThat(questionMapper.selectList(0, DepartmentType.ALL.getType()).size()).isEqualTo(10);
     }
 
     @Test
