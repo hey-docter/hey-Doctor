@@ -44,11 +44,7 @@ public class QuestionMapperTests {
     }
 
     @Test
-<<<<<<< HEAD
-    public void selectReadDESCAllTest() {
-        log.info(questionMapper.selectReadDESCAll().toString());
-    }
-=======
+
     public void updateTest() {
         QuestionDTO questionDTO = questionMapper.selectOne(4L);
         questionMapper.updateReadCount(4L);
@@ -56,5 +52,4 @@ public class QuestionMapperTests {
                 .isEqualTo(questionDTO.getReadCount() + 1);
     }
 
->>>>>>> 4fbae7e845994c5cd2265e1f5e2fbf3b10507312
 }

@@ -13,4 +13,6 @@ public class ReplyVO {
   private Long answerId;
   private String replyContent;
   private String replyRegisterDateTime;
+
+  private String userName;
 }
