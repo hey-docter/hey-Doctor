@@ -18,6 +18,8 @@ public class QuestionDTO {
     private String doctorDepartmentType;
     private Integer readCount;
 
+    private Integer bookmarkCount;
+
     private String userName;
     private String userProfilePath;
     private String userProfileName;

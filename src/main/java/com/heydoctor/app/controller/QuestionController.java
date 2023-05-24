@@ -2,6 +2,8 @@ package com.heydoctor.app.controller;
 
 import com.heydoctor.app.domain.dto.AnswerDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
+import com.heydoctor.app.domain.dto.ReplyDTO;
+import com.heydoctor.app.domain.enums.DepartmentType;
 import com.heydoctor.app.domain.vo.AnswerVO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.domain.vo.ReplyVO;
@@ -32,16 +34,15 @@ public class QuestionController {
     private final HttpSession session;
 
     @GetMapping("detail")
-    public void read(@RequestParam Long questionId, @RequestParam Integer bookmarkedCount, Model model){
+    public void read(@RequestParam Long questionId, Model model){
         Long userId = 1L;
         Optional.ofNullable(questionId).flatMap(questionService::read).ifPresent(questionDTO -> {
             List<AnswerDTO> answers = answerService.getAllAnswer(questionId);
-            List<ReplyVO> replies = replyService.getAllReplyVO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
+            List<ReplyDTO> replies = replyService.getAllReplyDTO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
             UserVO userVO = /*WIP*/userMapper.selectById(userId).get()/*session.getAttribute("user")*/ ;
 
             model.addAttribute("question", questionDTO);
             model.addAttribute("user", userVO);
-            model.addAttribute("bookmarkedCount", bookmarkedCount);
             model.addAttribute("answers", answers);
             model.addAttribute("replies", replies);
         });
@@ -67,5 +68,15 @@ public class QuestionController {
         Optional.ofNullable(userId).flatMap(/*WIP*/userMapper::selectById)/*session.getAttribute("user")*/
                 .ifPresent(userVO -> model.addAttribute("userVO", userVO));
         model.addAttribute("questions", questions);
+    }
+
+    @PostMapping("list/{page}/{type}")
+    @ResponseBody
+    public void getQuestionList(@PathVariable Integer page, @PathVariable String type) {
+        try {
+            DepartmentType departmentType = DepartmentType.valueOf(type);
+            List<QuestionListDTO> questions = questionService.getList(page);
+
+        } catch (IllegalArgumentException ignored) {;}
     }
 }

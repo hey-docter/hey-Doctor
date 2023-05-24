@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../static/css/login-page/resume-edit.css">
+    <link rel="stylesheet" href="/css/login-page/resume.css">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="https://cdn.comento.kr/favicon/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="/css/main-page/header.css">
+    <link rel="stylesheet" href="/css/main-page/footer.css">
     <title>이력서 | 코멘토</title>
 </head>
 <body>
+<header th:replace="~{/main-page/header :: #post-header}"></header>
     <div id="app">
         <div class="c-application c-grid main-grid-component fluid" style="min-height: 100vh;">
             <div class="c-application c-row">

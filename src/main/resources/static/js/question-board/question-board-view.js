@@ -1,27 +1,43 @@
-// 버튼 요소들을 가져옵니다.
-const buttons = document.querySelectorAll('.c-tabs--menu-button button');
 
-// 버튼 요소들에 클릭 이벤트를 추가합니다.
-buttons.forEach(button => {
-    button.addEventListener('click', function() {
-        // 클릭한 버튼 요소에 active 클래스를 추가합니다.
-        this.parentNode.classList.add('active');
+const $buttons = $('div.type-wrapper .c-tabs--menu-button');
+const $listContainer = $('.case-list-card-section');
 
-        // 다른 버튼 요소들의 active 클래스를 제거합니다.
-        buttons.forEach(otherButton => {
-            if (otherButton !== button) {
-                otherButton.parentNode.classList.remove('active');
-            }
-        });
+$buttons.each((i, button) => {
+    $(button).on('click', function() {
+        let $active = $('div.c-tabs--menu-button.active');
+        if($active) $active.removeClass('active');
+        $(this).addClass('active');
+        let type = $(button).text();
+        getList(type, showList);
     });
 });
 
-$(document).ready(function () {
+$(document).ready(() => showList(questions));
+
+$('.loading-items').on('click', function (){
+    getList($('div.c-tabs--menu-button.active').text(), showList);
+});
+
+function getList(type, onGet) {
+    $.ajax({
+        url: `/question-board/list/${type}`,
+        success: function(questions) {
+            if(onGet) onGet(questions);
+        }
+    });
+}
+
+function showList(questions) {
     let text = "";
+
+    if(questions.length !== 0) {
+        $('none-items').show();
+        return;
+    }
 
     questions.forEach(question => {
         text += `
-            <a href="/question-board/detail?questionId=${question.questionId}&bookmarkedCount=${question.bookmarkedCount}">
+            <a href="/question-board/detail?questionId=${question.questionId}">
                 <article class="community-timeline-card">
                     <div class="c-application c-box p-relative" style="padding: 20px;">
                         <div class="main-content-container">
@@ -30,8 +46,7 @@ $(document).ready(function () {
                                     ${question.questionTitle}
                                 </div>
                                 <div class="c-application c-typography timeline-content c-body2" style="color: rgb(89, 95, 99); font-weight: 400;">
-                                    ${question.questionContent}
-                                    <span class="more-text">더보기</span>
+                                    ${question.questionContent.length >= 30 ? question.questionContent.substring(0, 30) + "..." : question.questionContent}
                                 </div>
                             </div>
                         </div>
@@ -78,7 +93,7 @@ $(document).ready(function () {
                                     </svg>
                                     <div class="c-application c-typography c-body2"
                                         style="color: rgb(148, 155, 160);">
-                                        댓글 수
+                                        ${question.answerCount}
                                     </div>
                                 </div>
                                 <div class="c-application c-icon-rating community-timeline-card-bookmark">
@@ -97,6 +112,10 @@ $(document).ready(function () {
                                         ${question.bookmarkedCount}
                                     </div>
                                 </div>
+                                <p class="c-application c-typography c-application c-content c-body2 c-content--caption float-right-date"
+                                    style="color: rgb(207, 212, 215);">
+                                    ${elapsedTime(question.questionRegisterDatetime.substring(0, 10))}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -105,5 +124,6 @@ $(document).ready(function () {
         `;
     });
 
-    $('.case-list-card-section').html(text);
-});
+    $listContainer.append(text);
+}
+

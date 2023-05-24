@@ -17,8 +17,10 @@ public class QuestionListDTO {
     private Long questionLikeCount;
     private String doctorDepartmentType;
     private Integer readCount;
-
     private Integer bookmarkedCount;
 
     private String userName;
+
+    private Integer answerCount;
+
 }

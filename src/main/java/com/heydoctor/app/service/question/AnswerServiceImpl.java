@@ -27,4 +27,8 @@ public class AnswerServiceImpl implements AnswerService {
         return answerDAO.getAllAnswers(questionId);
     }
 
+    @Override
+    public List<AnswerVO> getListDoctorListAll() {
+        return answerDAO.findByAdoptCount();
+    }
 }

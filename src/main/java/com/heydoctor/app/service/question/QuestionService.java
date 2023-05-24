@@ -10,11 +10,13 @@ import java.util.Optional;
 public interface QuestionService {
     public List<QuestionListDTO> getList(Integer page);
 
+    public List<QuestionListDTO> getList(Integer page, String type);
     public Optional<QuestionDTO> read(Long questionId);
 
     public void write(QuestionVO questionVO);
 
     public Integer getBookmarkCount(Long questionId);
 
+    public List<QuestionVO> getListReadCountDescAll();
 
 }
