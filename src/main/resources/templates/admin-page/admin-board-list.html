@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,6 +51,7 @@
                         <th>작성자</th>
                     </thead>
                     <tbody>
+
                     </tbody>
                 </table>
             </form>
@@ -58,5 +59,12 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="../../static/js/admin.js/board-nav.js"></script>
+<script src="../../static/js/admin/board-nav.js"></script>
+<script src="../../static/js/admin/list.js"></script>
+<script th:inline="javascript">
+    let check = [[${login}]];
+    console.log(check);
+
+</script>
+<script></script>
 </html>

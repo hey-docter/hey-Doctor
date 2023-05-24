@@ -65,10 +65,16 @@ public class AnswerMapperTests {
         answerVO.setUserId(1L);
 
         answerMapper.insert(answerVO);
+
     }
 
     @Test
     public void selectByQuestionIdsTest() {
         assertThat(answerMapper.selectByQuestionId(6L).size()).isEqualTo(2);
+    }
+
+    @Test
+    public void selectByAdoptCountTest() {
+        log.info(answerMapper.selectByAdoptCount().toString());
     }
 }

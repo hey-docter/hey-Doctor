@@ -5,9 +5,7 @@ import com.heydoctor.app.service.loginpage.KakaoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
@@ -19,15 +17,15 @@ import javax.servlet.http.HttpSession;
 public class KakaoController {
     private final KakaoService kakaoService;
 
-    @ResponseBody
-    @GetMapping("/login/kakao")
-    public RedirectView  kakaoCallback(@RequestParam String code, HttpSession session) throws Exception {
-        log.info(code);
-        String token = kakaoService.getKaKaoAccessToken(code);
-        session.setAttribute("token", token);
-        kakaoService.getKakaoInfo(token);
-        return new RedirectView("/login/register");
-    }
+//    @ResponseBody
+//    @GetMapping("/login/kakao")
+//    public RedirectView  kakaoCallback(UserVO userVO, @RequestParam String code, HttpSession session) throws Exception {
+//        log.info(code);
+//        String token = kakaoService.getKaKaoAccessToken(code);
+//        session.setAttribute("token", token);
+//        kakaoService.getKakaoInfo(token);
+//        return new RedirectView("/login/register");
+//    }
 
 
 
@@ -40,4 +38,16 @@ public class KakaoController {
     }
 
 
+
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    public String index() {
+        log.info("home controller");
+        return "/login/register";
+    }
+
+    @RequestMapping(value="login/naver", method=RequestMethod.GET)
+    public String loginPOSTNaver(HttpSession session) {
+        log.info("callback controller");
+        return "/login/callback";
+    }
 }

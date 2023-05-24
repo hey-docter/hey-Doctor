@@ -17,4 +17,5 @@ public interface LoginPageService {
 
     //    회원 조회
     public Optional<UserVO> getUser(Long userId);
+
 }
