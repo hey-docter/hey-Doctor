@@ -1,4 +1,4 @@
-
+console.log("나와랏");
 $(".certify").on('click', function() {
     showOCRModal();
 });

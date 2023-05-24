@@ -196,7 +196,7 @@
                                             <div class="c-application c-new-row">
                                                 <div class="c-application c-tabs c-tabs--menu-container my-page-nav c-tabs--horizontal">
                                                     <div class="c-tabs--menu-wrapper">
-                                                        <div class="c-tabs--menu-button active">
+                                                        <div class="c-tabs--menu-button ">
                                                             <a class="nuxt-link-exact-active nuxt-link-active" th:href="@{/mypage/community} " target="_self">
                                                                 <button class="c-application c-button medium primary fill">
                                                                     <div class="c-button--icon"></div>
@@ -214,7 +214,7 @@
                                                                 </button>
                                                             </a>
                                                         </div>
-                                                        <div class="c-tabs--menu-button">
+                                                        <div class="c-tabs--menu-button active">
                                                             <a class="" th:href="@{/mypage/community-reply} " target="_self">
                                                                 <button class="c-application c-button medium primary fill">
                                                                     <div data-v-4e8c2e4a="" class="c-button--icon"></div>
@@ -233,37 +233,35 @@
                             </div>
                             <!-- upper nav -->
                             <div class="c-application c-new-col my-page-community new-col-sm-4 new-col-lg-12 no-gutters">
-                                    <div id="questions" class="c-application c-list my-page-community-list">
-                                        <ul> </ul>
+                                <div>
+                                    <div class="c-application c-list my-page-community-list">
+                                        <div tabindex="0" class="c-application c-list-item my-page-community-list-item my-page-community-card medium c-pointer">
+                                            <div class="c-application c-typography w-full c-body2" style="color: rgb(173, 179, 184);">
+                                                <div class="flex justify-content-between mb-8">
+                                                    <div class="flex align-items-center">
+                                                        <div class="c-application c-typography c-caption1 f-semi-bold"
+                                                            style="color: rgb(118, 125, 130);">
+                                                            질문
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="c-application c-typography my-page-community-list-item-title c-body1"
+                                                    style="color: rgb(60, 65, 68);">
+                                                    답변은 어떻게 하나요?
+                                                </div>
 
-<!--                                        <div tabindex="0" class="c-application c-list-item my-page-community-list-item my-page-community-card medium c-pointer">-->
-<!--                                            <div class="c-application c-typography w-full c-body2" style="color: rgb(173, 179, 184);">-->
-<!--                                                <div class="flex justify-content-between mb-8">-->
-<!--                                                    <div class="flex align-items-center">-->
-<!--                                                        <div class="c-application c-typography c-caption1 f-semi-bold"-->
-<!--                                                            style="color: rgb(118, 125, 130);">-->
-<!--                                                            질문-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                                <div class="c-application c-typography my-page-community-list-item-title c-body1"-->
-<!--                                                    style="color: rgb(60, 65, 68);">-->
-<!--                                                    답변은 어떻게 하나요?-->
-<!--                                                </div>-->
-
-<!--                                                <div class="flex flex-column">-->
-<!--                                                    <div class="c-application c-typography text-right"-->
-<!--                                                        style="color: rgb(173, 179, 184);">-->
-<!--                                                        4일 전-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                        <hr class="c-appli  cation c-divider line horizontal #F3F4F5 my-8"-->
-<!--                                            style="border-color: rgba(243, 244, 245, .2);">-->
-<!--                                    </div>-->
-
-
+                                                <div class="flex flex-column">
+                                                    <div class="c-application c-typography text-right"
+                                                        style="color: rgb(173, 179, 184);">
+                                                        4일 전
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                        <hr class="c-application c-divider line horizontal #F3F4F5 my-8"
+                                            style="border-color: rgba(243, 244, 245, .2);"></div>
                                     <div class="flex justify-center w-full mt-32">
                                         <div class="VuePagination">
                                             <nav class="">
@@ -473,11 +471,10 @@
     </div>
 </body>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="/js/mypage/post.js"></script>
-    <script src="/js/mypage/question-list.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/js/mypage/reply-list.js"></script>
     <script th:inline="javascript">
-        let posts = [[${posts}]];
+        let questions = [[${questions}]];
     </script>
 <script src="/js/mypage/upper-nav.js"></script>
 </html>

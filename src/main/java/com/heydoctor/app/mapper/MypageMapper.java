@@ -13,13 +13,13 @@ import java.util.List;
 @Mapper
 public interface MypageMapper {
     //    질문 게시글 목록
-    public List<QuestionVO> selectQuestionAll(@Param("pagination") Pagination pagination);
+    public List<QuestionVO> selectQuestionAll(Long id);
 
     // 질문 답변 목록
-    public List<AnswerDTO> selectAnswerAll(@Param("pagination") Pagination pagination);
+    public List<AnswerDTO> selectAnswerAll(Long id);
 
     //    질문 댓글 목록
-    public List<ReplyDTO> selectReplyAll(@Param("pagination") Pagination pagination);
+    public List<ReplyDTO> selectReplyAll(Long id);
 
 
 }
