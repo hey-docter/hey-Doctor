@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 public class ReplyVO {
-  private Long replyId;
-  private Long userId;
-  private Long answerId;
-  private String replyContent;
-  private String replyRegisterDateTime;
+    private Long replyId;
+    private Long userId;
+    private Long answerId;
+    private String replyContent;
+    private String replyRegisterDateTime;
 }
