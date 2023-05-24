@@ -22,4 +22,7 @@ public interface UserMapper {
 
     //    회원 조회
     public Optional<UserVO> selectById(Long userId);
+
+    // 카카오 값 변경
+    public void kakaoUpdate(UserVO userVO);
 }

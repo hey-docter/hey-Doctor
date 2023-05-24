@@ -21,11 +21,11 @@ public class UsersMapperTests {
     @Test
     public void insertTest(){
         UserVO userVO = new UserVO();
-        userVO.setUserEmail("jn@naver.com");
+        userVO.setUserEmail("8888");
         userVO.setUserLoginType("NOMAL");
-        userVO.setUserName("kimjin");
+        userVO.setUserName("admin");
         userVO.setUserIsAvailable(1L);
-        userVO.setUserPassword("jin1234");
+        userVO.setUserPassword("8888");
         userVO.setUserType("ADMIN");
         userVO.setUserProfilePath("");
         userVO.setUserProfileName("");

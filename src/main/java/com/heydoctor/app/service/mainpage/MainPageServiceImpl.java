@@ -1,7 +1,6 @@
 package com.heydoctor.app.service.mainpage;
 
 import com.heydoctor.app.dao.MainDAO;
-import com.heydoctor.app.domain.vo.MainVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +9,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class MainPageServiceImpl implements MainPageService {
-    private final MainDAO mainDAO;
+/*    private final MainDAO mainDAO;*/
+/*
 
     @Override
     public List<MainVO> getListAll() {
@@ -19,5 +19,6 @@ public class MainPageServiceImpl implements MainPageService {
 
     @Override
     public List<MainVO> getListLikeDESCAll() { return mainDAO.findLikeDESCAll(); }
+*/
 
 }

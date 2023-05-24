@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(classes = HeydocterApplication.class)
 @Slf4j
 public class MainServiceTest {
-    @Autowired
+/*    @Autowired
     private MainPageService mainPageService;
 
     @Test
@@ -21,5 +21,5 @@ public class MainServiceTest {
     @Test
     public void getListLikeDESCAllTest() {
         log.info(mainPageService.getListLikeDESCAll().toString());
-    }
+    }*/
 }

@@ -20,4 +20,9 @@ public class AnswerDAO {
     public void insert(AnswerVO answerVO) {
         answerMapper.insert(answerVO);
     }
+
+    //    답변 왕 조회
+    public List<AnswerVO> findByAdoptCount() {
+        return answerMapper.selectByAdoptCount();
+    }
 }

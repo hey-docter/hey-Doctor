@@ -16,5 +16,6 @@ public interface QuestionService {
 
     public Integer getBookmarkCount(Long questionId);
 
+    public List<QuestionVO> getListReadCountDescAll();
 
 }
