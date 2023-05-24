@@ -156,7 +156,7 @@ function showList(answers) {
                         </p>
                     </div>
                 </div>
-                 <hr class="silght-divider">
+                 <hr class="slight-divider">
                  <div class="c-application c-box reply-textarea-container"
                      style="background-color: rgb(255, 255, 255); padding: 16px 20px;">
                     <div class="c-application c-box additional-comment-container additional-comment-content-wrapper" style="background-color: rgb(255, 255, 255); padding: 0px;">
@@ -198,10 +198,8 @@ function showList(answers) {
 function showReplies(replies) {
     let texts = [];
     replies.forEach(reply => {
-        if(!texts[reply.answerId]) texts[reply.answerId] = "";
-
-        texts[reply.answerId] += `
-            <div class="answer-comment">
+        if(!texts[reply.answerId]) {
+            texts[reply.answerId] = `
                 <hr class="slight-divider">
                 <div class="c-application c-box"
                     style="background-color: rgb(255, 255, 255); padding: 20px 16px 0px;">
@@ -209,15 +207,19 @@ function showReplies(replies) {
                         댓글
                         <span class="c-application c-typography"
                             style="color: inherit; font-weight: 500;">
-                            ${replies.length}
+                            ${replies.filter(r => r.answerId === reply.answerId).length}
                         </span>
                     </div>
                 </div>
-            
+            `;
+        }
+
+        texts[reply.answerId] += `
+            <div class="answer-comment">
                 <div class="c-application c-box" style="background-color: rgb(255, 255, 255); padding: 16px 20px;">
                     <div class="flex justify-between">
                         <div class="c-application c-user-information normal">
-                            <div class="avatar-wrapper">
+                            <div class="avatar-wrapper reply">
                                 <div>
                                     <div class="c-application c-avatar--container small">
                                         <i class="c-avatar nickname small"
@@ -261,19 +263,10 @@ function showReplies(replies) {
                     <div class="c-application c-typography c-body1" style="color: rgb(60, 65, 68);">
                         <span>${reply.replyContent}</span>
                     </div>
-                    <div class="comment-card-footer-container">
-                        <button type="button" class="c-application c-narrow-button small focus-${reply.asnwerId}" style="color: rgb(118, 125, 130);">
-                            <div class="c-narrow-button--icon"></div>댓글 달기<div class="c-narrow-button--icon"></div>
-                        </button>
-                        <hr class="silght-divider">
-                    </div>
                 </div>
             </div>
+            <hr class="slight-divider">
         `;
-
-        $(`focus-${reply.answerId}`).on('click', function() {
-            $(`reply-write-${reply.answerId}`).focus();
-        });
     });
 
     replies.map(reply => reply.answerId).forEach(id => $(`.reply-container.${id}`).html(texts[id]));

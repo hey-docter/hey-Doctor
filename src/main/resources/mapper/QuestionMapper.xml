@@ -2,25 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.QuestionMapper">
     <select id="selectList" resultType="questionListDTO">
-        SELECT Q.QUESTION_ID, Q.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+        SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
-               DOCTOR_DEPARTMENT_TYPE, READ_COUNT,
-               NVL(BOOKMARKED_COUNT, 0) AS "BOOKMARKED_COUNT", NVL(ANSWER_COUNT, 0) AS "ANSWER_COUNT"
-        FROM TBL_QUESTION Q LEFT OUTER JOIN (
-            SELECT B.QUESTION_ID, BOOKMARKED_COUNT, ANSWER_COUNT
-            FROM
-            (
-                SELECT QUESTION_ID, COUNT(USER_ID) BOOKMARKED_COUNT
-                FROM TBL_QUESTION_BOOKMARK
-                GROUP BY QUESTION_ID
-            ) B FULL OUTER JOIN (
-                SELECT QUESTION_ID, COUNT(ANSWER_ID) ANSWER_COUNT
-                FROM TBL_ANSWER
-                GROUP BY QUESTION_ID
-            ) R
-            ON B.QUESTION_ID = R.QUESTION_ID
-        ) C
-        ON Q.QUESTION_ID = C.QUESTION_ID
+               DOCTOR_DEPARTMENT_TYPE, READ_COUNT, BOOKMARKED_COUNT, ANSWER_COUNT
+        FROM (
+             SELECT Q.QUESTION_ID, Q.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+                    QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
+                    DOCTOR_DEPARTMENT_TYPE, READ_COUNT,
+                    NVL(BOOKMARKED_COUNT, 0) AS "BOOKMARKED_COUNT", NVL(ANSWER_COUNT, 0) AS "ANSWER_COUNT"
+             FROM TBL_QUESTION Q LEFT OUTER JOIN (
+                 SELECT B.QUESTION_ID, BOOKMARKED_COUNT, ANSWER_COUNT
+                 FROM (
+                     SELECT QUESTION_ID, COUNT(USER_ID) BOOKMARKED_COUNT
+                     FROM TBL_QUESTION_BOOKMARK
+                     GROUP BY QUESTION_ID
+                 ) B FULL OUTER JOIN (
+                     SELECT QUESTION_ID, COUNT(ANSWER_ID) ANSWER_COUNT
+                     FROM TBL_ANSWER
+                     GROUP BY QUESTION_ID
+                 ) R
+                 ON B.QUESTION_ID = R.QUESTION_ID
+             ) C
+             ON Q.QUESTION_ID = C.QUESTION_ID
+             ORDER BY QUESTION_REGISTER_DATETIME DESC
+        )
         <![CDATA[WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10]]>
     </select>
 
@@ -59,15 +64,12 @@
         </selectKey>
     </insert>
 
-</mapper>
-
     <select id="selectReadDESCAll" resultType="questionVO">
         SELECT USER_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME,QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT
         FROM TBL_QUESTION
         ORDER BY READ_COUNT
         DESC
     </select>
-
 
     <update id="updateReadCount">
         UPDATE TBL_QUESTION
