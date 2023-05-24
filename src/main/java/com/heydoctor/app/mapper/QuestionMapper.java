@@ -25,4 +25,5 @@ public interface QuestionMapper {
     //조회수 카운팅 스타
     public void updateReadCount(Long questionId);
 
+
 }

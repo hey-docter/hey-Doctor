@@ -54,7 +54,11 @@
             SEQ_QUESTION.NEXTVAL, #{userId}, #{questionTitle}, #{questionContent},
             #{questionIsPublic}, #{doctorDepartmentType}
         )
+        <selectKey keyProperty="questionId" resultType="Long" order="AFTER">
+            SELECT QUESTION_ID()
+        </selectKey>
     </insert>
+
 
     <select id="selectReadDESCAll" resultType="questionVO">
         SELECT USER_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT
@@ -68,7 +72,6 @@
         ]]>
     </select>
 
-
     <update id="updateReadCount">
         UPDATE TBL_QUESTION
         SET READ_COUNT = READ_COUNT + 1
@@ -76,3 +79,4 @@
     </update>
 
 </mapper>
+

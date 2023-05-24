@@ -29,10 +29,9 @@ public class QnaPageController {
     @GetMapping("admin")
     public void list(Integer page, HttpSession session, Model model){
         model.addAttribute("qnas", qnaService.getList(page));
-        for(QnaDTO qnaDTO:qnaService.getList(page)){
-            System.out.println(qnaDTO);
-        }
-
+//        for(QnaDTO qnaDTO:qnaService.getList(page)){
+//            System.out.println(qnaDTO);
+//        }
     }
 
     @GetMapping("qna-page")

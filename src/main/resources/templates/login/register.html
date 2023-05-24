@@ -9,6 +9,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="/css/modal/modal.css">
     <link rel="stylesheet" href="/css/main-page/header.css">
+
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
     <title>회원가입</title>
 </head>
 <body>
@@ -54,7 +58,7 @@
 
 
                             <!-- 네이버 로그인 버튼 노출 영역 -->
-                            <div class="register-button c-pointer full naver">
+                            <div id="naver_id_login" class="register-button c-pointer full naver">
                                 <div class="register-button-icon">
                                     <img src="https://cdn.comento.kr/icon/icon-naver-medium.svg" alt>
                                 </div>
@@ -64,7 +68,18 @@
                             </div>
 
                                 <!-- //네이버 로그인 버튼 노출 영역 -->
+
+
+
+
+
+
+
+
+
+
                         </div>
+
                         <div>
                             <p class="c-application c-typography agreement-wrapper mb-8 c-caption1" style="color: rgb(173, 179, 184); text-align: center;">
                                 <u class="c-application c-typography c-caption1" style="color: rgb(118, 125, 130);"> 이용약관 </u>
@@ -208,4 +223,15 @@
 <script src="/js/login/disabled.js"></script>
 <script src="/js/login/validation.js"></script>
 <script src="/js/login/enter.js"></script>
+
+<script type="text/javascript">
+    var naver_id_login = new naver_id_login("0QEJy5lMTxel75jSVhqm", "http://localhost:10000/login/naver");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("white", 3,40);
+    naver_id_login.setDomain("http://localhost:10000/");
+    naver_id_login.setState(state);
+    naver_id_login.setPopup();
+    naver_id_login.init_naver_id_login();
+</script>
+
 </html>

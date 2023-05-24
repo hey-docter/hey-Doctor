@@ -32,4 +32,5 @@ public class LoginPageServiceImpl implements LoginPageService {
     public Optional<UserVO> getUser(Long userId) {
         return userDAO.findById(userId);
     }
+
 }
