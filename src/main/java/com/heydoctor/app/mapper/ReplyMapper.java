@@ -16,4 +16,6 @@ public interface ReplyMapper {
 
     //    게시글의 댓글 전체 삭제
     public void deleteAll(Long answerId);
+
+    public List<ReplyVO> selectAllAnswerReply();
 }
