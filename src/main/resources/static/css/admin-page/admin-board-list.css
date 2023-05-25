@@ -5,6 +5,14 @@ body{
     padding: 0;
 }
 
+html{
+    border: 0;
+    font-family: "Pretendard","Apple SD Gothic Neo","Helvetica Neue",Helvetica,Arial,"Trebuchet MS",sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
 h3
 
 button {
@@ -21,7 +29,7 @@ input{
     width: 160px;
     height: 36px;
     margin: 33px auto 20px;
-    background-image: url("../../../static/image/icon/JOONGSHIN.svg");
+    background-image: url("/static/image/icon/JOONGSHIN.svg");
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -161,3 +169,4 @@ td.pending {
 .delete-btn:hover {
     background-color: rgb(180, 180, 180);
 }
+

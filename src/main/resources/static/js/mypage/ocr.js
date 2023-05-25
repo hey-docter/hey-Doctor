@@ -1,4 +1,4 @@
-
+console.log("나와랏");
 $(".certify").on('click', function() {
     showOCRModal();
 });
@@ -18,7 +18,7 @@ $("#license").on("change", function(e){
             success: function(result){
                 console.log(result);
                 let datetime = result.ParsedResults[0].TextOverlay.Lines[6].LineText;
-                //추출된 전체 문자열값에서 줄바꿈문자로 분리하여 12번째 인덱스에 있는 취득 년월일 추출
+                //추출된 전체 문자열값에서 줄바꿈문자로 분리하여 12번째 인덱 스에 있는 취득 년월일 추출
                 $("#result").html(datetime);
             }
         });

@@ -28,6 +28,11 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
+    public List<QuestionListDTO> getList(Integer page, String type) {
+        return questionDAO.findAll(page, type);
+    }
+
+    @Override
     @Transactional()
     public Optional<QuestionDTO> read(Long questionId) {
         questionDAO.addCount(questionId);
@@ -43,6 +48,7 @@ public class QuestionServiceImpl implements QuestionService {
     public Integer getBookmarkCount(Long questionId) {
         return bookmarkDAO.getCount(questionId);
     }
+
 
 
     @Override

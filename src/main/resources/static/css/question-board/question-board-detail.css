@@ -873,3 +873,34 @@ c-button.medium {
     display: -ms-flexbox!important;
     display: flex!important;
 }
+
+hr.f-divider {
+    width: inherit;
+    border: 0 dashed rgb(220, 220, 220);
+    margin: 0;
+    overflow: visible;
+    height: 30px;
+}
+
+hr.slight-divider {
+    width: inherit;
+    border: 0 dashed rgb(220, 220, 220);
+    margin: 0;
+    overflow: visible;
+    height: 1px;
+}
+
+.text-wrap {
+    width: 100%;
+}
+
+div.avatar-wrapper.reply {
+    margin-right: 8px;
+}
+
+.small {
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+}
+

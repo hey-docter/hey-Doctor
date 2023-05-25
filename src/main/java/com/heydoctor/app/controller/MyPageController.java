@@ -1,6 +1,7 @@
 package com.heydoctor.app.controller;
 
 import com.heydoctor.app.domain.dto.Pagination;
+import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.service.mypage.MyPageService;
 import com.heydoctor.app.service.question.QuestionService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -21,28 +23,23 @@ public class MyPageController {
 
     //community 작성한 글, 댓글 보기
     @GetMapping("community")
-    public void community(Pagination pagination, Model model) {
-        Long userId = 1L/*(Long) session.getAttribute("userId")*/;
-        pagination.progress();
-        model.addAttribute("questions", myPageService.getQuestionList(pagination));
-        log.info("community");
+    public void community(Long id, Model model) {
+        model.addAttribute("posts", myPageService.getQuestionList(1L));
+
+//        model.addAttribute("memberName", memberService.getMember((Long)session.getAttribute("id")).get().getMemberName());
     }
-// 답변과 댓글
-//    @GetMapping("community")
-//    public void community(Pagination pagination, Model model) {
-//        Long userId = 1L/*(Long) session.getAttribute("userId")*/;
-//        pagination.progress();
-//        model.addAttribute("questions", myPageService.getAnswerList(pagination));
-//        log.info("community");
-//    }
-//
-//    @GetMapping("community")
-//    public void community(Pagination pagination, Model model) {
-//        Long userId = 1L/*(Long) session.getAttribute("userId")*/;
-//        pagination.progress();
-//        model.addAttribute("questions", myPageService.getReplyList(pagination));
-//        log.info("community");
-//    }
+
+    // 답변
+    @GetMapping("community-answer")
+    public void communityAnswer(Long id, Model model) {
+        model.addAttribute("posts", myPageService.getAnswerList(1L));
+    }
+
+    // 댓글
+    @GetMapping("community-reply")
+    public void communityReply(Long id, Model model) {
+        model.addAttribute("posts", myPageService.getReplyList(1L));
+    }
 
 
     //스테이터스

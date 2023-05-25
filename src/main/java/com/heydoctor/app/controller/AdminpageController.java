@@ -26,7 +26,6 @@ public class AdminpageController {
 //    @GetMapping("admin")
 //    public void admin(){ log.info("admin test");
 //    }
-
     @GetMapping("board-detail")
     public void read(@RequestParam Long questionId, Model model){
         Optional.ofNullable(questionId).flatMap(adminpageService::read).ifPresent(questionDTO -> {
@@ -34,19 +33,26 @@ public class AdminpageController {
 //            model.addAttribute("bookmarkedCount", bookmarkedCount);
         });
     }
+
+
+//    @GetMapping("admin-board-list")
+//    public void getList(Integer page, HttpSession session, Model model){
+//        Optional.ofNullable(page).flatMap(adminpageService::getList).ifPresent(questionListDTO -> {
+////                    model.addAttribute("question", questionListDTO);
+//        model.addAttribute("questions", adminpageService.getList(page));
+//
+//    }
     @GetMapping("admin-board-list")
-    public void list(Integer page, HttpSession session, Model model){
-        model.addAttribute("question", adminpageService.getList(page));
+    public String getList(Integer page, HttpSession session, Model model){
+        model.addAttribute("questions", adminpageService.getList(page));
+        return "/admin-page/admin-board-list";
     }
 
 //
     @PostMapping("delete")
-    public RedirectView remove(Long questionId){
+    public RedirectView delete(Long questionId, Model model){
         adminpageService.delete(questionId);
         return new RedirectView("/admin-page/admin-board-list");
     }
-
-
-
 
 }

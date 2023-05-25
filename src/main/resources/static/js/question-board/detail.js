@@ -2,7 +2,21 @@ const $answerTextarea = $("article.answer-write-box")
 
 $answerTextarea.hide();
 
-$(document).ready(function () {
+$('div.answer-btn').on('click', function() {
+    $('div.fake-submit-btn').each((_, e) => $(e).hide());
+    $answerTextarea.show();
+});
+
+$('textarea.answer-area').on('keyup', function() {
+    $('div.answer-char-size').text(`${$(this).val().length}`);
+});
+
+$(document).ready(() => {
+    showList(answers);
+    showReplies(replies);
+});
+
+function showList(answers) {
     let text = "";
 
     answers.forEach(answer => {
@@ -64,7 +78,6 @@ $(document).ready(function () {
                              </div>
                              
                          </div>
-                         
                          <div>
                             <div class="c-application c-dropdown">
                                 <div class="c-dropdown--item-group" style="max-width: 200px;">
@@ -135,22 +148,23 @@ $(document).ready(function () {
                                     </div>
                                 </button>
                             </div>
+                            
                         </div>
                         <p class="c-application c-typography c-application c-content c-body2 c-content--caption"
                            style="color: rgb(207, 212, 215);">
-                            ${answer.answerRegisterDateTime}
+                            ${elapsedTime(answer.answerRegisterDateTime.substring(0, 10))}
                         </p>
                     </div>
                 </div>
-                <hr class="c-application c-divider dash horizontal #EAECEE" style="border-color: rgb(234, 236, 238); background: white;">
-                <div class="c-application c-box reply-textarea-container"
+                 <hr class="slight-divider">
+                 <div class="c-application c-box reply-textarea-container"
                      style="background-color: rgb(255, 255, 255); padding: 16px 20px;">
                     <div class="c-application c-box additional-comment-container additional-comment-content-wrapper" style="background-color: rgb(255, 255, 255); padding: 0px;">
                         <div class="c-application c-textarea additional-comment-textarea reply">
                             <div class="flex">
-                                <label>
-                                    <textarea placeholder="답변에 대한 의견이 있으신가요?" style="max-height: 256px; min-height: 38px; overflow-y: auto;"></textarea>
-                                </label>        
+                                <label class="text-wrap">
+                                    <textarea class="reply-write-${answer.answerId}" placeholder="답변에 대한 의견이 있으신가요?" style="max-height: 256px; min-height: 38px; overflow-y: auto;"></textarea>
+                                </label>
                                 <button type="button" disabled="disabled"
                                         class="c-application c-icon-button c-textarea--reply-icon medium">
                                     <svg width="24" height="24"
@@ -169,18 +183,92 @@ $(document).ready(function () {
                         </div>
                     </div>
                 </div>
-            </article>
-        `
+                 <div class="reply-container ${answer.answerId}">
+                     <!---->
+                     <!---->
+                     <!---->
+                 </div>
+             </article>
+             <hr class="f-divider">
+        `;
     });
-    $('div#answer-container-main').append(text);
-});
+    $('div#answer-container-main').html(text);
+}
 
-$('div.answer-btn').on('click', function() {
-    $('div.fake-submit-btn').each((_, e) => $(e).hide());
-    $answerTextarea.show();
-});
+function showReplies(replies) {
+    let texts = [];
+    replies.forEach(reply => {
+        if(!texts[reply.answerId]) {
+            texts[reply.answerId] = `
+                <hr class="slight-divider">
+                <div class="c-application c-box"
+                    style="background-color: rgb(255, 255, 255); padding: 20px 16px 0px;">
+                    <div class="c-application c-typography c-body2" style="color: rgb(89, 95, 99);">
+                        댓글
+                        <span class="c-application c-typography"
+                            style="color: inherit; font-weight: 500;">
+                            ${replies.filter(r => r.answerId === reply.answerId).length}
+                        </span>
+                    </div>
+                </div>
+            `;
+        }
 
-$('textarea.answer-area').on('keyup', function() {
-    $('div.answer-char-size').text(`${$(this).val().length}`);
-});
+        texts[reply.answerId] += `
+            <div class="answer-comment">
+                <div class="c-application c-box" style="background-color: rgb(255, 255, 255); padding: 16px 20px;">
+                    <div class="flex justify-between">
+                        <div class="c-application c-user-information normal">
+                            <div class="avatar-wrapper reply">
+                                <div>
+                                    <div class="c-application c-avatar--container small">
+                                        <i class="c-avatar nickname small"
+                                            style="background: rgb(176, 171, 164);"></i>
+                                        <div class="c-avatar--item">
+                                            <!---->
+                                            <!---->
+                                            <div class="c-application c-typography c-body2 f-semi-bold"
+                                                style="color: rgb(255, 255, 255);">
+                                                ${reply.userName.substring(0, 1)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="information-wrapper">
+                                <div class="name-company-wrapper">
+                                    <div class="name-icon-wrapper">
+                                        <div class="name-wrapper">
+                                            <div class="c-application c-typography user-information-name ellipsis c-body2"
+                                                style="color: inherit; font-weight: 600;">
+                                                ${reply.userName}
+                                            </div>
+                                        </div>
+                                        <div class="user-info-wrapper">
+                                            <!---->
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="other-wrapper">
+                                    <div class="c-application c-typography c-caption1"
+                                        type="normal" style="color: rgb(173, 179, 184);">
+                                        ${elapsedTime(reply.replyRegisterDateTime.substring(0, 10))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                    </div>
+                    <div class="c-application c-typography c-body1" style="color: rgb(60, 65, 68);">
+                        <span>${reply.replyContent}</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="slight-divider">
+        `;
+    });
+
+    replies.map(reply => reply.answerId).forEach(id => $(`.reply-container.${id}`).html(texts[id]));
+}
 
