@@ -523,9 +523,6 @@ textarea {
 .mt-10 {
     margin-top: 10px!important;
 }
-.text-caption {
-    color: #adb5bd!important;
-}
 .float-left {
     float: left!important;
 }
@@ -537,7 +534,7 @@ textarea {
 }
 
 .text-caption {
-    color: #adb5bd!important;
+    color: #adb5bd;
 }
 
 #request .request-box+.request-box {
