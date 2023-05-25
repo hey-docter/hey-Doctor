@@ -20,4 +20,7 @@ public class ReplyDTO {
     private Long userProfileSize;
     private String userProfileType;
     private String userProfileUuid;
+
+    private String answerContent;
+    private String questionTitle;
 }

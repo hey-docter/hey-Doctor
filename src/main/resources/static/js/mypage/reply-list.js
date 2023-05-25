@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    const $ul = $("#questions ul");
+    const $ul = $("#reply ul");
 
     let text = "";
     posts.forEach(post => {
@@ -22,7 +22,7 @@ $(document).ready(function(){
                         <div class="flex flex-column">
                             <div class="c-application c-typography text-right"
                                 style="color: rgb(173, 179, 184);">
-                                <span class="date">${elapsedTime(post.questionRegisterDatetime)}</span> 
+                                <span class="date">${elapsedTime(post.replyRegisterDatetime)}</span> 
                             </div>
                         </div>
                     </div>
@@ -33,4 +33,5 @@ $(document).ready(function(){
     });
 
     $ul.html(text);
+    console.log("나와랏");
 });

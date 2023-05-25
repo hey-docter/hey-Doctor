@@ -29,7 +29,6 @@ public class MypageDAO {
         }
 
     // 댓글 목록
-    public List<ReplyDTO> findReplyAll(Long id)
-    {return mypageMapper.selectReplyAll(id);}
+    public List<ReplyDTO> findReplyAll(Long id) {return mypageMapper.selectReplyAll(id);}
 
 }

@@ -22,7 +22,7 @@ $(document).ready(function(){
                         <div class="flex flex-column">
                             <div class="c-application c-typography text-right"
                                 style="color: rgb(173, 179, 184);">
-                                <span class="date">${elapsedTime(post.questionRegisterDatetime)}</span> 
+                                <span class="date">${elapsedTime(post.answerRegisterDatetime)}</span> 
                             </div>
                         </div>
                     </div>

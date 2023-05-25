@@ -9,7 +9,7 @@ import com.heydoctor.app.domain.vo.QuestionVO;
 import java.util.List;
 
 public interface MyPageService {
-//        질문 게시글 목록
+    // 질문 게시글 목록
     public List<QuestionVO> getQuestionList(Long id);
 
     // 질문 답변 목록

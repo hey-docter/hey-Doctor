@@ -37,8 +37,3 @@
         WHERE QUESTION_ID = #{questionId}
     </delete>
 </mapper>
-
-        INSERT ALL
-        INTO EMP_HIR VALUES(EMPNO, ENAME, HIREDATE)
-        INTO EMP_MGR VALUES(EMPNO, ENAME, MGR)
-        SELECT (EMPNO, ENAME, HIREDATE, MGR) FROM EMP WHERE DEPTNO = 20;

@@ -28,12 +28,14 @@ public class MyPageController {
 
 //        model.addAttribute("memberName", memberService.getMember((Long)session.getAttribute("id")).get().getMemberName());
     }
-// 답변과 댓글
+
+    // 답변
     @GetMapping("community-answer")
     public void communityAnswer(Long id, Model model) {
         model.addAttribute("posts", myPageService.getAnswerList(1L));
     }
 
+    // 댓글
     @GetMapping("community-reply")
     public void communityReply(Long id, Model model) {
         model.addAttribute("posts", myPageService.getReplyList(1L));
