@@ -10,20 +10,18 @@
     </select>
 
     <insert id="insert">
-        INSERT ALL
-
-        INTO TBL_FILE
+        INSERT INTO TBL_FILE
         (FILE_ID, FILE_PATH, FILE_NAME, FILE_SIZE, FILE_TYPE, FILE_UUID)
         VALUES(SEQ_FILE.NEXTVAL, #{filePath}, #{fileName}, #{fileSize}, #{fileType}, #{fileUuid});
-
-        INTO TBL_QUESTION_FILE
-        (TBL_QUESTION_FILE_ID, FILE_ID, QUESTION_ID)
-        VALUES(SEQ_QUESTION_FILE.NEXTVAL, #{fileId}, #{questionId})
-
-        SELECT F.FILE_ID, FILE_PATH, FILE_NAME, FILE_SIZE, FILE_TYPE, FILE_UUID, Q.QUESTION_ID
-        FROM TBL_FILE F JOIN TBL_QUESTION_FILE Q
-        ON F.FILE_ID = Q.FILE_ID
-        WHERE QUESTION_ID = #{questionId}
+--
+--         INTO TBL_QUESTION_FILE
+--         (TBL_QUESTION_FILE_ID, FILE_ID, QUESTION_ID)
+--         VALUES(SEQ_QUESTION_FILE.NEXTVAL, #{fileId}, #{questionId})
+--
+--         SELECT F.FILE_ID, FILE_PATH, FILE_NAME, FILE_SIZE, FILE_TYPE, FILE_UUID, Q.QUESTION_ID
+--         FROM TBL_FILE F JOIN TBL_QUESTION_FILE Q
+--         ON F.FILE_ID = Q.FILE_ID
+--         WHERE QUESTION_ID = #{questionId}
 
     </insert>
 
