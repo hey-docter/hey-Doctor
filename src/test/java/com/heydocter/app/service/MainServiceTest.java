@@ -10,16 +10,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(classes = HeydocterApplication.class)
 @Slf4j
 public class MainServiceTest {
-/*    @Autowired
+@Autowired
     private MainPageService mainPageService;
 
     @Test
-    public void getListAllTest(){
-        log.info(mainPageService.getListAll().toString());
+    public void selectReadCountTest(){
+        log.info(mainPageService.selectReadCount().toString());
     }
 
     @Test
-    public void getListLikeDESCAllTest() {
-        log.info(mainPageService.getListLikeDESCAll().toString());
-    }*/
+    public void selectAdopCountTest(){
+        log.info(mainPageService.selectAdopCount().toString());
+    }
+
+    @Test
+    public void selectVisitCount() {
+        log.info(mainPageService.selectVisitCount().toString());
+    }
 }
