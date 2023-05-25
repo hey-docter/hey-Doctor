@@ -28,4 +28,12 @@
     INNER JOIN TBL_QUESTION c ON b.QUESTION_ID = c.QUESTION_ID
     WHERE a.USER_ID = #{id}
 </select>
+
+        <!-- 유저정보 불러오기 -->
+    <select id ="selectUser" resultType="UserVO">
+        SELECT USER_ID, USER_NAME, USER_EMAIL
+    FROM TBL_USER
+    WHERE USER_ID = #{ID}
+    </select>
+
 </mapper>
