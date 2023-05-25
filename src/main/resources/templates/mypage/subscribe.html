@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="/css/mypage/left-nav.css">
     <link rel="stylesheet" href="/css/mypage/upper-nav.css">
     <link rel="stylesheet" href="/css/mypage/subscribe.css">
-    <link rel="stylesheet" href="/css/main-page/main-page.css">
+    <link rel="stylesheet" href="/css/main-page/header.css">
+    <link rel="stylesheet" href="/css/main-page/footer.css">
+
     <title>코멘토</title>
 </head>
 <body>
@@ -424,8 +426,14 @@
                 </div>
             </div>
         </div>
+      </div>
+        <div>
+            <div class="footer-wrapper" >
+        <footer th:replace="~{/main-page/footer :: #footer}"></footer>
+            </div>
+        </div>
     </div>
-    </div>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://js.bootpay.co.kr/bootpay-4.3.1.min.js" type="application/javascript"></script>
