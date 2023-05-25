@@ -25,4 +25,7 @@ public interface UserMapper {
 
     // 카카오 값 변경
     public void kakaoUpdate(UserVO userVO);
+
+    // 네이버 값 변경
+    public void naverUpdate(UserVO userVO);
 }

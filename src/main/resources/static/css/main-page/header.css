@@ -615,7 +615,7 @@ button, select {
 }
 
 .main-grid-component {
-    height: 100%;
+    /*height: 100%;*/
     overflow-x: hidden;
     -ms-overflow-x: hidden;
     padding-top: 48px!important;
@@ -626,7 +626,7 @@ c-new-grid.fluid{
 }
 
 .main-grid-component {
-    height: 100%;
+    /*height: 100%;*/
     overflow-x: hidden;
     -ms-overflow-x: hidden;
     padding-top: 48px!important;

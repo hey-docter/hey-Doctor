@@ -6,14 +6,16 @@ import com.google.gson.JsonElement;
 import com.heydoctor.app.dao.UserDAO;
 import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.mapper.UserMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.*;
 
 @Service
 @Slf4j
@@ -22,6 +24,7 @@ public class KakaoService {
 
     private final UserDAO userDAO;
     private final UserMapper userMapper;
+//    private final ApplicationEnvironmentConfig envConfig;
 
     @Autowired
     public KakaoService(UserDAO userDAO, UserMapper userMapper) {
@@ -161,4 +164,3 @@ public class KakaoService {
         }
     }
 }
-

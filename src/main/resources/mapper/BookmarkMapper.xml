@@ -12,3 +12,4 @@
         GROUP BY QUESTION_ID
     </select>
 </mapper>
+
