@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -52,7 +53,10 @@ public class QuestionController {
     public void goToWriteForm(QuestionVO questionVO){}
 
     @PostMapping("question/write")
-    public void write(QuestionVO questionVO){}
+    public RedirectView write(QuestionVO questionVO){
+        log.info(questionVO.toString());
+        return new RedirectView("/question-board/list");
+    }
 
     @PostMapping("answer/write")
     public void write(AnswerVO answerVO){}
