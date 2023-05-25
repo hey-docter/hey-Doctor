@@ -2,13 +2,16 @@ package com.heydoctor.app.controller;
 
 import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.service.loginpage.KakaoService;
+import com.heydoctor.app.service.loginpage.LoginPageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 
 @Controller
@@ -27,8 +30,6 @@ public class KakaoController {
 //        return new RedirectView("/login/register");
 //    }
 
-
-
     @GetMapping("/logout/kakao")
     public RedirectView kakaoLogout(HttpSession session){
         log.info("logout");
@@ -39,15 +40,4 @@ public class KakaoController {
 
 
 
-    @RequestMapping(value="/", method= RequestMethod.GET)
-    public String index() {
-        log.info("home controller");
-        return "/login/register";
-    }
-
-    @RequestMapping(value="login/naver", method=RequestMethod.GET)
-    public String loginPOSTNaver(HttpSession session) {
-        log.info("callback controller");
-        return "/login/callback";
-    }
 }

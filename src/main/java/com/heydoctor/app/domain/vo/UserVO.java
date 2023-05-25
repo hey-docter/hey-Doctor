@@ -22,4 +22,5 @@ public class UserVO {
     private String userProfileType;
     private String userProfileUuid;
 
+
 }
