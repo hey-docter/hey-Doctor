@@ -24,7 +24,20 @@ $('textarea.request-textarea').on('keyup', function () {
     else $('.length-all').css('color', '#adb5bd');
 });
 
-$('div.request-box-cont').on('click', 'button.send-btn',function (e) {
+const $reqBtn = $('div.request-box-cont');
+const $department = $('.q-department');
+const $title = $('.q-title');
+const $content = $('.q-content');
+
+$reqBtn.on('click', 'button.send-btn',function (e) {
     e.preventDefault();
+    console.log($('.q-department').val());
+    if($department.val() === '병과') {showWarnModal("병과를 선택하세요."); return}
+    if($title.val() === '') {showWarnModal("제목을 입력하세요."); return}
+    if($content.val() === '') {showWarnModal("내용을 입력하세요."); return}
+
+    let department = getDepartment($department.val());
+    $department.val(department.eng);
+
     $('form.write-q').submit();
 });

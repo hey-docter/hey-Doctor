@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/question-board/question-board-question.css" />
+    <link rel="stylesheet" href="/css/question-board/question-board-question.css" />
+    <link rel="stylesheet" href="/css/modal/modal.css" />
+    <link rel="stylesheet" href="/css/main-page/header.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <title>Title</title>
-
-
 </head>
-<link rel="stylesheet" href="/css/question-board/question-board-question.css" />
-<link rel="stylesheet" href="/css/main-page/header.css" />
-<link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-
 <body>
-
     <div id="header-layout">
         <div class="header-wrapper">
             <header class="header">
@@ -221,6 +220,11 @@
         </div>
     </div>
     <!-- 헤더 끝 -->
+    <div class="modal">
+        <div class="warn-modal">
+            <div id="content-wrap"></div>
+        </div>
+    </div>
     <div class="c-application c-grid main-grid-component fluid" style="padding-top: 0px !important; min-height: 100vh; background-color: rgb(252, 252, 252) ;">
         <div class="c-application c-row">
             <div class="c-application c-new-col">
@@ -231,9 +235,10 @@
                                 <div class="request-container px-24 py-18">
 
                                     <form class="write-q" th:action="@{/question-board/question/write}" method="post" name="write" th:object="${questionVO}">
-                                        <h2 class="request-container-title"> 질문하기 <p class="request-container-title-sub">
-                                                <strong>현직의사</strong>에게 <strong>정확한
-                                                    정보</strong>를 물어보세요.
+                                        <h2 class="request-container-title">
+                                            질문하기
+                                            <p class="request-container-title-sub">
+                                                <strong>현직의사</strong>에게 <strong>정확한 정보</strong>를 물어보세요.
                                             </p>
                                         </h2>
                                         <div class="request-box">
@@ -245,7 +250,7 @@
                                                             <div>
                                                                 <div class="c-select--box c-select--basic" id="select-bar">
                                                                     <div class="c-select--item">
-                                                                        <input th:field="*{doctorDepartmentType}" type="text" value="병과" readonly="readonly" class="c-select--input dropdown-text" id="dropdownId" >
+                                                                        <input th:field="*{doctorDepartmentType}" type="text" value="병과" readonly="readonly" class="c-select--input dropdown-text q-department" id="dropdownId" placeholder="병과">
                                                                     </div>
                                                                     <div class="c-select--icon">
                                                                         <svg width="10" height="5" viewBox="0 0 10 5" fill="#595F63" xmlns="http://www.w3.org/2000/svg" class="c-application c-icon" style="fill: rgb(118, 125, 130);">
@@ -355,7 +360,7 @@
                                                             <input id="question" th:field="*{questionTitle}"
                                                                 placeholder="제목을 입력하세요" name="question"
                                                                 autocomplete="off" type="text"
-                                                                class="c-text-field--input c-text-field--outline"
+                                                                class="c-text-field--input c-text-field--outline q-title"
                                                                 style="text-align: left;">
                                                         </div>
                                                     </div>
@@ -365,7 +370,7 @@
                                                 <div class="request-textarea-wrapper">
                                                     <textarea cols="30" rows="10" th:field="*{questionContent}"
                                                         placeholder="카테고리를 선택해 원하는 고민을 작성해보세요." maxlength="500"
-                                                        class="request-textarea">
+                                                        class="request-textarea q-content">
                                                     </textarea>
                                                 </div>
                                                 <div class="h7 text-caption mt-10 float-left length-all">
@@ -376,56 +381,44 @@
                                                 <div class="h7 text-caption request-box-userInfo">
                                                     <div class="request-box-userInfo-infoTip"><i
                                                             class="icon icon-tip icon-tip-info"></i>
-
                                                         <div class="request-box-userInfo-open">
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
-
                                             <div class="request-box">
-
                                             </div>
                                         </div>
                                         <div class="request-box">
                                             <div class="c-application c-typography mb-15 c-body1 f-semi-bold"
-                                                style="color: rgb(60, 65, 68);"> 빠른 답변 요청
-                                                <div class="float-right anonymous_label-wrap"><input id="asap"
-                                                        type="checkbox" name="anonymous"><label id="asap-label"
-                                                        for="asap" class="h7 left text-sub"
-                                                        style="font-size: 14px !important ; ">빠른 답변 요청</label></div>
-                                                <!--빠른 답변요청 -->
-                                            </div>
-
-                                        </div>
-                                        <div class="request-box">
-                                            <div class="c-application c-typography mb-4 c-body1 f-semi-bold"
-                                                style="color: rgb(60, 65, 68);"> 공개 설정 </div>
-                                            <div class="request-box-cont">
+                                                style="color: rgb(60, 65, 68);"> 비공개 요청
                                                 <div class="flex flex-row align-center"><svg width="16" height="16"
-                                                        viewBox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg"
-                                                        class="mr-4 c-application c-icon" style="fill: rgb(118, 125, 130);">
+                                                                                             viewBox="0 0 16 16" fill="black" xmlns="http://www.w3.org/2000/svg"
+                                                                                             class="mr-4 c-application c-icon" style="fill: rgb(118, 125, 130);">
                                                         <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z">
+                                                              d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14ZM8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z">
                                                         </path>
                                                         <path
-                                                            d="M8.75 10.75C8.75 11.1642 8.41421 11.5 8 11.5C7.58579 11.5 7.25 11.1642 7.25 10.75C7.25 10.3358 7.58579 10 8 10C8.41421 10 8.75 10.3358 8.75 10.75Z">
+                                                                d="M8.75 10.75C8.75 11.1642 8.41421 11.5 8 11.5C7.58579 11.5 7.25 11.1642 7.25 10.75C7.25 10.3358 7.58579 10 8 10C8.41421 10 8.75 10.3358 8.75 10.75Z">
                                                         </path>
                                                         <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M8 4.5C8.27614 4.5 8.5 4.72386 8.5 5V8.5C8.5 8.77614 8.27614 9 8 9C7.72386 9 7.5 8.77614 7.5 8.5V5C7.5 4.72386 7.72386 4.5 8 4.5Z">
+                                                              d="M8 4.5C8.27614 4.5 8.5 4.72386 8.5 5V8.5C8.5 8.77614 8.27614 9 8 9C7.72386 9 7.5 8.77614 7.5 8.5V5C7.5 4.72386 7.72386 4.5 8 4.5Z">
                                                         </path>
                                                     </svg><span class="c-application c-typography c-body2"
-                                                        style="color: rgb(118, 125, 130);"><strong>답변이 남겨지면 수정/삭제는
+                                                                style="color: rgb(118, 125, 130);"><strong>공개로 답변이 남겨지면 수정/삭제는
                                                             불가능</strong>하며, 사례로 공개됩니다.
                                                     </span></div>
-                                                <div class="float-right anonymous_label-wrap"><input id="anonymous"
-                                                        type="checkbox" name="anonymous"><label id="anonymous_label"
-                                                        for="anonymous" class="h7 left text-sub"
-                                                        style="font-size: 14px !important;">비공개로 요청</label></div>
+                                                <div class="float-right anonymous_label-wrap">
+                                                    <input id="asap" type="checkbox" name="anonymous">
+                                                    <label id="asap-label"
+                                                        for="asap" class="h7 left text-sub"
+                                                        style="font-size: 14px !important ; ">
+                                                        비공개로 질문하기
+                                                    </label>
+                                                </div>
+                                                <!--빠른 답변요청 -->
                                             </div>
                                         </div>
-
                                         <div class="request-box">
                                             <div class="request-box-cont">
                                                 <button type="button" class="c-application c-button xlarge primary full fill send-btn"><!---->
@@ -433,7 +426,6 @@
                                                     요청하기
                                                     <div class="c-button--icon"></div>
                                                 </button>
-
                                             </div>
                                         </div>
                                     </form>
@@ -447,8 +439,7 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script th:inline="javascript">
-
-</script>
+<script src="/js/modal/modal.js"></script>
+<script src="/js/department.js"></script>
 <script src="/js/question-board/write.js"></script>
 </html>

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -54,33 +55,71 @@ public class QuestionController {
 
     @PostMapping("question/write")
     public RedirectView write(QuestionVO questionVO){
-        log.info(questionVO.toString());
+        questionVO.setUserId(1L /*session.getAttribute("id")*/);
+        questionService.write(questionVO);
+        //log.info("==========ID: {}", questionVO.getQuestionId());
         return new RedirectView("/question-board/list");
     }
 
     @PostMapping("answer/write")
-    public void write(AnswerVO answerVO){}
+    public void write(AnswerVO answerVO){
+        log.info("==========answerVO: {}", answerVO);
+        answerService.write(answerVO);
+    }
 
     @PostMapping("reply/write")
-    public void write(ReplyVO replyVO){}
+    @ResponseBody
+    public void write(ReplyVO replyVO){
+
+    }
 
     @GetMapping("list")
-    public void list(Integer page, Model model){
+    public void list(Model model){
         Long userId = 1L/*(Long) session.getAttribute("userId")*/;
-        List<QuestionListDTO> questions = questionService.getList(Optional.ofNullable(page).orElse(0));
         // userService WIP
         Optional.ofNullable(userId).flatMap(/*WIP*/userMapper::selectById)/*session.getAttribute("user")*/
                 .ifPresent(userVO -> model.addAttribute("userVO", userVO));
-        model.addAttribute("questions", questions);
     }
 
-    @PostMapping("list/{page}/{type}")
+    @PostMapping("question/list/{page}/{name}")
     @ResponseBody
-    public void getQuestionList(@PathVariable Integer page, @PathVariable String type) {
-        try {
-            DepartmentType departmentType = DepartmentType.valueOf(type);
-            List<QuestionListDTO> questions = questionService.getList(page);
+    public List<QuestionListDTO> getQuestionList(@PathVariable Integer page, @PathVariable String name) {
+        DepartmentType departmentType = DepartmentType.valueOf(name);
+        List<QuestionListDTO> questions = questionService.getList(page, departmentType.name());
 
-        } catch (IllegalArgumentException ignored) {;}
+        log.info("=========== type: {}", name);
+        log.info("=========== page: {}", page);
+        log.info("=========== count: {}", questions.size());
+        log.info("=======================|");
+
+        return questions;
+    }
+
+    @PostMapping("answer/list/{page}/{name}")
+    @ResponseBody
+    public List<QuestionListDTO> getAnswerList(@PathVariable Integer page, @PathVariable String name) {
+        DepartmentType departmentType = DepartmentType.valueOf(name);
+        List<QuestionListDTO> questions = questionService.getList(page, departmentType.name());
+
+        log.info("=========== type: {}", name);
+        log.info("=========== page: {}", page);
+        log.info("=========== count: {}", questions.size());
+        log.info("=======================|");
+
+        return questions;
+    }
+
+    @PostMapping("reply/list/{page}/{name}")
+    @ResponseBody
+    public List<QuestionListDTO> getReplyList(@PathVariable Integer page, @PathVariable String name) {
+        DepartmentType departmentType = DepartmentType.valueOf(name);
+        List<QuestionListDTO> questions = questionService.getList(page, departmentType.name());
+
+        log.info("=========== type: {}", name);
+        log.info("=========== page: {}", page);
+        log.info("=========== count: {}", questions.size());
+        log.info("=======================|");
+
+        return questions;
     }
 }
