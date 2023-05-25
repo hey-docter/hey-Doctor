@@ -19,15 +19,16 @@ public class MypageDAO {
     private final MypageMapper mypageMapper;
 
     //  질문 게시글 목록
-    public List<QuestionVO> findQuestionAll(Pagination pagination)
-    {return mypageMapper.selectQuestionAll(pagination);}
+        public List<QuestionVO> findQuestionAll(Long id){
+        return mypageMapper.selectQuestionAll(id);
+    }
 
     //  질문 답변 목록
-    public List<AnswerDTO> findAnswerAll(Pagination pagination)
-    {return mypageMapper.selectAnswerAll(pagination);}
+    public List<AnswerDTO> findAnswerAll(Long id) {
+            return mypageMapper.selectAnswerAll(id);
+        }
 
     // 댓글 목록
-    public List<ReplyDTO> findReplyAll(Pagination pagination)
-    {return mypageMapper.selectReplyAll(pagination);}
+    public List<ReplyDTO> findReplyAll(Long id) {return mypageMapper.selectReplyAll(id);}
 
 }

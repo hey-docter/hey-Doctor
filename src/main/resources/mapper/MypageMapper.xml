@@ -19,11 +19,13 @@
         WHERE a.USER_ID = #{id}
     </select>
 
-<!--   내 댓글 보기-->
+    <!-- 내 댓글 보기 -->
     <select id="selectReplyAll" resultType="replyDTO">
-         SELECT REPLY_ID, USER_ID, ANSWER_ID, REPLY_ECONTENT, REPLY_RGISTER_DATETIME
-         FROM TBL_REPLY
-         WHERE USER_ID = #{id}
-    </select>
-
+    SELECT a.REPLY_ID, a.USER_ID, a.ANSWER_ID, a.REPLY_CONTENT, a.REPLY_REGISTER_DATETIME,
+           b.ANSWER_TITLE, c.QUESTION_TITLE
+    FROM TBL_REPLY a
+    INNER JOIN TBL_ANSWER b ON a.ANSWER_ID = b.ANSWER_ID
+    INNER JOIN TBL_QUESTION c ON b.QUESTION_ID = c.QUESTION_ID
+    WHERE a.USER_ID = #{id}
+</select>
 </mapper>
