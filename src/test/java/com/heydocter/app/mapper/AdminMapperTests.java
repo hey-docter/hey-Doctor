@@ -1,9 +1,7 @@
 package com.heydocter.app.mapper;
 
 import com.heydoctor.app.HeydocterApplication;
-import com.heydoctor.app.domain.dto.QnaDTO;
-import com.heydoctor.app.domain.dto.QuestionDTO;
-import com.heydoctor.app.domain.dto.QuestionListDTO;
+import com.heydoctor.app.domain.dto.*;
 import com.heydoctor.app.domain.enums.DepartmentType;
 import com.heydoctor.app.domain.enums.QuestionType;
 import com.heydoctor.app.domain.vo.FileVO;
@@ -32,14 +30,17 @@ public class AdminMapperTests {
 
     @Test
     public void selectListTest() {
+        Pagination pagination = new Pagination();
+        Search search = new Search();
+        pagination.setPage(1);
 //        AssertionsForClassTypes.assertThat(adminMapper.selectLists(0).size()).isEqualTo(10);
-        adminMapper.selectLists(0).stream().map(QuestionListDTO::toString).forEach(log::info);
+        adminMapper.selectLists(pagination, search).stream().map(QuestionListDTO::toString).forEach(log::info);
     }
 
     @Test
     public void deleteTest() {
-        adminMapper.delete(11L);
-        assertThat(adminMapper.select(11L)).isNull();
+        adminMapper.delete(20L);
+        assertThat(adminMapper.select(20L)).isNull();
     }
 
     @Test
