@@ -1,13 +1,13 @@
 
 $(document).ready(function () {
     let text = "";
-    mains.forEach(main => {
+    questions.forEach(question => {
 
 
     text += `
                 
                     <div class="swiper-slide swiper-slide-active" style="width: 542px; margin-right: 24px;">
-                        <a href="/qeustion-board/detail?id=${main.questionId}">
+                        <a href="/qeustion-board/detail?id=${question.questionId}">
                         <article class="c-application c-core-card" style="width: auto;">
                             <div class="c-application c-box c-box--has-border" style="border-color: rgb(234, 236, 238); padding: 18px 20px 16px;">
                             <div data-v-1d8d6f66="" class="c-core-card--content-wrapper">
@@ -15,17 +15,17 @@ $(document).ready(function () {
                             <span class="c-application c-chip chip-views-top fill  info small">
                              조회수 TOP
                             </span>
-                            <span class="c-application c-chip chip-case-category fill  info small">${main.doctorDepartmentType}</span>
+                            <span class="c-application c-chip chip-case-category fill  info small">${question.doctorDepartmentType}</span>
                         </div>
                         <p class="c-application c-typography c-application c-content c-caption1 c-content--overline" data-v-1d8d6f66="" style="color: rgb(173, 179, 184);">
                             <span class="c-application c-typography" style="color: inherit;"></span> · 
                             <span class="c-application c-typography" style="color: inherit;"></span>
                         </p>
                         <h2 class="c-application c-typography c-application c-content c-headline7 c-content--title" style="color: rgb(4, 5, 5);">
-                            ${main.questionTitle}
+                            ${question.questionTitle}
                         </h2>
                         <p class="c-application c-typography c-application c-content c-body1 c-content--body" style="color: rgb(32, 35, 37);">
-                        ${main.questionContent}
+                        ${question.questionContent}
                         </p>
                         <div class="c-application c-rating-group">
                             <div class="c-application c-icon-rating">
@@ -49,12 +49,19 @@ $(document).ready(function () {
                                     </path>
                                 </svg>
                                 <div class="c-application c-typography c-body2" style="color: rgb(233, 37, 37);">
-                                 ${main.questionLikeCount}
+                                 ${question.questionLikeCount}
                                  <!-- 좋아요 갯수 나와야함 -->
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                       `
+    });
+    replies.forEach(reply=> {
+
+
+        text += `
                     <hr class="c-application c-divider dash horizontal #EAECEE" style="border-color: rgb(234, 236, 238);">
                     <div class="c-card--replies-wrapper">
                         <div class="name-text-container">
@@ -62,9 +69,10 @@ $(document).ready(function () {
                                                                 <div class="c-application c-typography text-truncate c-body2 f-semi-bold"
                                                                      style="color: rgb(32, 35, 37);">
                                                                     <div class="case-profile-name">
-                                                                        <span>${main.answerTitle}</span>
+                                                                        <span>${reply.answerTitle}</span>
                                                                         <div class="c-application c-typography ml-4 c-caption1"
                                                                              style="color: rgb(148, 155, 160);">
+                                                                             <span>${reply.userName}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -73,7 +81,7 @@ $(document).ready(function () {
                                                                 <p data-v-45a3e27e=""
                                                                    class="c-application c-typography case-comment c-body2"
                                                                    style="color: rgb(60, 65, 68);">
-                                                                    ${main.answerContent}
+                                                                    ${reply.answerContent}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -91,6 +99,8 @@ $(document).ready(function () {
     });
     $('#check-test').html(text);
 });
+
+
 
 $(document).ready(function () {
     let text = "";
