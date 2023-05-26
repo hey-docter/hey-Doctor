@@ -28,7 +28,7 @@ public class MainDTO {
     private Long hospitalId;
     private String doctorIntroduction;
     private String doctorDepartmentType;
-    private Long visitCount;
+    private Long doctorVisitCount;
 
     private String hospitalName;
     private String hospitalLocation;

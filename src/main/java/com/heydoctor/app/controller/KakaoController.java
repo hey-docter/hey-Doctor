@@ -47,7 +47,7 @@ public class KakaoController {
                 UserVO user = foundUser.get();
                 if (user.getUserLoginType().equals("NOMAL") || user.getUserLoginType().equals("NAVER")) {
                     log.info("일반이나 네이버아이디 있음");
-                    return new RedirectView("/login/register");
+                    return new RedirectView("/login/register?login=false");
                 }
                 else if (user.getUserLoginType().equals("KAKAO")) {
                     Optional<UserVO> foundUser2 = loginPageService.checkEmail(kakaoUser.getUserEmail());
@@ -74,9 +74,6 @@ public class KakaoController {
         }
         return new RedirectView("/main-page/main-page");
     }
-
-
-
     @GetMapping("/logout/kakao")
     public RedirectView kakaoLogout(HttpSession session){
         log.info("logout");
@@ -84,7 +81,4 @@ public class KakaoController {
         session.invalidate();
         return new RedirectView("/login/login-start");
     }
-
-
-
 }
