@@ -13,6 +13,6 @@ public class DoctorVO {
   private String doctorCertificationId;
   private Boolean isBookable;
   private String doctorIntroduction;
-
+  private Long doctorVisitCount;
   private String doctorDepartmentType;
 }

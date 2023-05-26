@@ -9,7 +9,15 @@ import java.util.List;
 
 @Mapper
 public interface MainMapper {
-    public List<MainDTO> selectReadCount();
+//    public List<MainDTO> selectReadCount();
+
+//    질문 조회수 정렬
+
+    public List<MainDTO> selectQuestionReadCount();
+
+//    답변 정렬
+
+    public List<MainDTO> selectAnswerAll();
 
     //    답변 왕 조회
     public List<MainDTO> selectAdoptCount();

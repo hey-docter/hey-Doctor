@@ -13,9 +13,19 @@ public class MainPageServiceImpl implements MainPageService {
     private final MainDTO mainDTO;
     private final MainDAO mainDAO;
 
+//    @Override
+//    public List<MainDTO> selectReadCount() {
+//        return mainDAO.findReadCount();
+//    }
+
     @Override
-    public List<MainDTO> selectReadCount() {
-        return mainDAO.findReadCount();
+    public List<MainDTO> selectQuestionReadCount() {
+        return mainDAO.findQuestionReadCount();
+    }
+
+    @Override
+    public List<MainDTO> selectAnswerAll() {
+        return mainDAO.findAnswerAll();
     }
 
     @Override
