@@ -3,10 +3,7 @@ package com.heydoctor.app.mapper;
 import com.heydoctor.app.domain.dto.AnswerDTO;
 import com.heydoctor.app.domain.dto.Pagination;
 import com.heydoctor.app.domain.dto.ReplyDTO;
-import com.heydoctor.app.domain.vo.AnswerVO;
-import com.heydoctor.app.domain.vo.QuestionVO;
-import com.heydoctor.app.domain.vo.ReplyVO;
-import com.heydoctor.app.domain.vo.UserVO;
+import com.heydoctor.app.domain.vo.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -25,4 +22,9 @@ public interface MypageMapper {
     //    유저정보 가져오기
     public UserVO selectUser(Long id);
 
+    public QuestionLikeCountVO selectQuestionLike(Long id);
+
+    public AnswerLikeCountVO selectAnswerLike(Long id);
+
+    public ReplyLikeCountVO selectReplyLike(Long id);
 }
