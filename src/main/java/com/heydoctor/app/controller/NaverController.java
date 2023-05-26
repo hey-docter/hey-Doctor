@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
@@ -29,16 +30,13 @@ public class NaverController {
     public String joinNaver(@RequestParam(value="email", required=false) String email,@RequestParam(value="name", required=false)String name,@RequestParam(value="id", required=false) String id, HttpSession session) {
         log.info("들옴");
         UserVO userVO = new UserVO();
-        userVO.setUserEmail(email);
-        userVO.setUserPassword(id);
-        userVO.setUserName(name);
-
 
 
         Optional<UserVO> foundId = loginPageService.checkEmail(email);
         if(foundId.isPresent()){
             if (foundId.get().getUserLoginType().equals("KAKAO") || foundId.get().getUserLoginType().equals("NOMAL") ) {
-                return "/login/login";
+                log.info("카카오나 일반으로 가입되어있음");
+                return "/login/register";
             }else{
                 userMapper.naverUpdate(userVO);
                 Optional<UserVO> newid = loginPageService.checkEmail(email);
@@ -48,7 +46,11 @@ public class NaverController {
                 return "/main-page/main-page";
             }
         }
+
         userVO.setUserLoginType("NAVER");
+        userVO.setUserEmail(email);
+        userVO.setUserPassword(id);
+        userVO.setUserName(name);
         loginPageService.join(userVO);
         Optional<UserVO> newid2 = loginPageService.checkEmail(email);
         session.setAttribute("id",newid2.get().getUserId());
@@ -56,43 +58,10 @@ public class NaverController {
         return "/main-page/main-page";
     }
 
-
-
-
-
-
-
-//    @GetMapping("/login/naver")
-//    public String loginGETNaver(HttpSession session, @RequestParam(value = "email", required = false) String email, @RequestParam(value = "name", required = false) String name, @RequestParam(value = "id", required = false) String id) {
-//
-//        Optional<UserVO> existingUserOptional = loginPageService.checkEmail(email);
-//        UserVO newUser = new UserVO();
-//
-//        if (email != null && name != null) {
-//
-//
-//            // 사용자 정보를 활용하여 DB 조회
-//            //이메일이 없을 경우 DB 추가
-//            if (!existingUserOptional.isPresent()) {
-//                // DB에 사용자 등록
-//                newUser.setUserEmail(email);
-//                newUser.setUserName(name);
-//                newUser.setUserPassword(id);
-//                newUser.setUserLoginType("NAVER");
-//                log.info("New user email: {}", newUser.getUserEmail());
-//                log.info("New user name: {}", newUser.getUserName());
-//                log.info("New user id: {}", newUser.getUserPassword());
-//                log.info("세션: {}", newUser.getUserId());
-//                loginPageService.join(newUser); // 회원가입 메서드 호출
-//            } else {
-//                //업데이트
-//                userMapper.naverUpdate(newUser);
-//            }
-//
-//            // 프로필 데이터를 세션에 저장
-//            session.setAttribute("id", existingUserOptional.get().getUserId());
-//        }
-//        // 세션을 활용한 다른 처리 로직 수행
-//        return "login/callback";
-//    }
+    @GetMapping("/logout/naver")
+    public RedirectView naverLogout(HttpSession session){
+        log.info("logout");
+        session.invalidate();
+        return new RedirectView("/login/login-start");
+    }
 }
