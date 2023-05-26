@@ -7,10 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class ReplyVO {
-    private Long replyId;
+public class QuestionLikeCountVO {
+    private Long QuestionLikeCountId;
     private Long userId;
-    private Long answerId;
-    private String replyContent;
-    private String replyRegisterDateTime;
+    private Long QuestionId;
 }
