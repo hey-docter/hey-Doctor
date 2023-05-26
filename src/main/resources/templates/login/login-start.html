@@ -13,6 +13,11 @@
 <body>
 <header th:replace="~{/main-page/header :: #post-header}"></header>
     <div id="login-start">
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
         <div class="c-application c-grid main-grid-component fluid" style="min-height: 100vh; background-color: rgb(255, 255, 255);">
             <div class="c-application c-row">
                 <div id="login" class="mb-85">
@@ -22,6 +27,7 @@
                         </div>
                         <div>
                             <div class="register-buttons-container">
+
                                 <a th:href="@{/login/login}" target="_self">
                                 <div class="register-button c-pointer full email">
                                     <div class="register-button-icon">
@@ -32,22 +38,31 @@
                                     </div>
                                 </div>
                                 </a>
-                                <div class="register-button c-pointer full kakao">
+
+                                <form th:action="@{/login/register}" name="join" method="post" th:object="${userVO}">
+                                    <div class="register-button c-pointer full kakao">
+                                        <div class="register-button-icon">
+                                            <img src="https://cdn.comento.kr/icon/icon-kakao-medium.svg" alt>
+                                        </div>
+                                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=76a60ca6aa2dea1ac80cdec7ec6060b5&redirect_uri=http://localhost:10000/login/kakao&response_type=code" class="ml-6">
+                                            <div class="c-application c-typography c-body1 f-regular" style="color: inherit;"> 카카오로 1초만에 시작하기 </div>
+                                        </a>
+                                    </div>
+                                </form>
+
+                                <!-- 네이버 로그인 버튼 노출 영역 -->
+                                <div class="register-button c-pointer full naver show1" onclick="location.href='https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=0QEJy5lMTxel75jSVhqm&redirect_uri=http%3A%2F%2Flocalhost%3A10000%2Flogin%2Fnaver&state=84966d20-cb02-4435-abb3-68945bedc582'">
                                     <div class="register-button-icon">
-                                        <img src="https://cdn.comento.kr/icon/icon-kakao-medium.svg" alt>
+                                        <img src="https://cdn.comento.kr/icon/icon-naver-medium.svg" alt>
                                     </div>
                                     <div class="ml-6">
-                                        <div class="c-application c-typography c-body1 f-regular" style="color: inherit;"> 카카오로 1초만에 시작하기 </div>
+                                        <div class="c-application c-typography c-body1 f-regular" style="color: white;">네이버로 시작하기</div>
                                     </div>
                                 </div>
-                                <div class="register-button c-pointer full naver">
-                                    <div class="register-button-icon">
-                                        <img src="https://cdn.comento.kr/icon/icon-naver-medium.svg">
-                                    </div>
-                                    <div class="ml-6">
-                                        <div class="c-application c-typography c-body1 f-regular wr">  네이버로 시작하기 </div>
-                                    </div>
-                                </div>
+
+                                <!-- //네이버 로그인 버튼 노출 영역 -->
+                                <div id="naver_id_login" class="show2"></div>
+
                             </div>
                             <div>
                                 <p class="c-application c-typography agreement-wrapper mb-8 c-caption1" style="color: rgb(173, 179, 184); text-align: center;">
@@ -74,4 +89,18 @@
         </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var naver_id_login = new naver_id_login("0QEJy5lMTxel75jSVhqm", "http://localhost:10000/login/naver");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("white", 3,48);
+    naver_id_login.setDomain("http://localhost:10000/");
+    naver_id_login.setState(state);
+    naver_id_login.init_naver_id_login();
+
+    $(document).ready(function() {
+        $('.show2').hide(); //페이지를 로드할 때 숨길 요소
+    });
+</script>
 </html>

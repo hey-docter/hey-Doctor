@@ -31,11 +31,13 @@ public class QuestionMapperTests {
         questionVO.setQuestionIsPublic(QuestionType.PUBLIC.isPublic());
         questionVO.setQuestionTitle("test title");
         questionVO.setUserId(1L);
-        questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
+        questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.name());
 
         //IntStream.range(0, 10).forEach(i -> questionMapper.insert(questionVO));
-
-        assertThat(questionMapper.selectList(0, DepartmentType.ALL.getType()).size()).isEqualTo(10);
+//        log.info(
+//                questionMapper.selectList(0, DepartmentType.ENT_CLINIC.name()).toString()
+//        );
+        assertThat(questionMapper.selectList(0, DepartmentType.ENT_CLINIC.name()).size()).isEqualTo(11);
     }
 
     @Test

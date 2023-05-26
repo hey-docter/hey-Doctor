@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
 <link rel="stylesheet" href="/css/main-page/header.css">
 <link rel="stylesheet" href="/css/main-page/footer.css">
+<link rel="stylesheet" href="/css/modal/modal.css">
 
 <body>
 <div id="__nuxt">
@@ -275,6 +276,11 @@
                 </div>
             </div>
         </div>
+        <div class="modal">
+            <div class="warn-modal">
+                <div id="content-wrap"></div>
+            </div>
+        </div>
         <div id="main-grid" class="c-application c-new-grid main-grid-component fluid" style="min-height: calc(100vh - 324px); background-color: rgb(255, 255, 255);">
             <div class="c-application c-new-row">
                 <div class="c-application c-new-col read-case-container new-col-sm-4 new-col-lg-12">
@@ -338,8 +344,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="c-application c-typography c-application c-content c-caption1 c-content--overline"
-                                       style="color: rgb(173, 179, 184);" th:text="${question.doctorDepartmentType}">
+                                    <p class="c-application c-typography c-application c-content c-caption1 c-content--overline department-type"
+                                       style="color: rgb(173, 179, 184);">
                                     </p>
                                     <h2 class="c-application c-typography c-application c-content c-headline7 c-content--title" style="color: rgb(4, 5, 5);">
                                         <span class="c-application c-typography" style="color: rgb(42, 125, 225);">Q.</span>
@@ -445,7 +451,7 @@
                                                         <div class="c-application c-textarea basic">
                                                             <div class="flex">
                                                                 <label class="text-wrap">
-                                                                    <textarea class="answer-area" placeholder="내용을 입력해주세요." style="max-height: 185px; min-height: 185px; overflow-y: auto;"></textarea>
+                                                                    <textarea class="answer-area" placeholder="내용을 입력해주세요." maxlength="500" style="max-height: 185px; min-height: 185px; overflow-y: auto;"></textarea>
                                                                 </label>
                                                             </div>
                                                         </div>
@@ -453,17 +459,17 @@
                                                             <div class="c-application c-typography c-application c-text-rating c-body2"
                                                                  style="color: rgb(89, 95, 99); font-weight: 400;">
                                                                 <div class="mr-4">
-                                                                    <div class="c-application c-typography c-caption1" style="color: rgb(148, 155, 160);">
+                                                                    <div class="c-application c-typography c-caption1"  style="color: rgb(148, 155, 160);">
                                                                         글자수
                                                                     </div>
                                                                 </div>
-                                                                <div>
-                                                                    <div class="c-application c-typography c-caption1 answer-char-size" style="color: rgb(89, 95, 99);">
-                                                                        0
+                                                                <div class="text-length">
+                                                                    <div class="c-application c-typography c-caption1 answer-char-size" style="color: #adb5bd;">
+                                                                        <span>0</span> / 500
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <button disabled="disabled" class="c-application c-button medium light-primary fill"><!---->
+                                                            <button type="button" class="c-application c-button medium light-primary fill write-answer"><!---->
                                                                 <div class="c-button--icon"></div>
                                                                 답변 등록
                                                                 <div class="c-button--icon"></div>
@@ -512,21 +518,58 @@
                                                 <!---->
                                             </div>
                                             <div class="infinite-loading-container">
-                                                <div class="infinite-status-prompt" style="display: none;">
-                                                    <span></span>
+                                                <div class="infinite-status-prompt loading-items">
+                                                    <span>
+                                                        <div style="width: 50px; height: 50px; overflow: hidden; margin: 0px auto;">
+                                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                 viewBox="0 0 100 100" width="100" height="100"
+                                                                 preserveAspectRatio="xMidYMid meet"
+                                                                 style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                                                                <defs>
+                                                                    <clipPath id="__lottie_element_274">
+                                                                        <rect width="100" height="100" x="0"
+                                                                              y="0"></rect>
+                                                                    </clipPath>
+                                                                </defs>
+                                                                <g clip-path="url(#__lottie_element_274)">
+                                                                    <g transform="matrix(0.4048864245414734,0,0,0.4048864245414734,29.755678176879883,29.755678176879883)"
+                                                                       opacity="0.5" style="display: block;">
+                                                                        <g opacity="1"
+                                                                           transform="matrix(1,0,0,1,50,50)">
+                                                                            <path fill="rgb(42,125,225)"
+                                                                                  fill-opacity="1"
+                                                                                  d=" M40,0 C40,22.090999603271484 22.090999603271484,40 0,40 C-22.090999603271484,40 -40,22.090999603271484 -40,0 C-40,-22.090999603271484 -22.090999603271484,-40 0,-40 C22.090999603271484,-40 40,-22.090999603271484 40,0z">
+                                                                            </path>
+                                                                        </g>
+                                                                    </g>
+                                                                    <g transform="matrix(0.5951135754585266,0,0,0.5951135754585266,20.244321823120117,20.244321823120117)"
+                                                                       opacity="0.5" style="display: block;">
+                                                                        <g opacity="1"
+                                                                           transform="matrix(1,0,0,1,50,50)">
+                                                                            <path fill="rgb(42,125,225)"
+                                                                                  fill-opacity="1"
+                                                                                  d=" M40,0 C40,22.090999603271484 22.090999603271484,40 0,40 C-22.090999603271484,40 -40,22.090999603271484 -40,0 C-40,-22.090999603271484 -22.090999603271484,-40 0,-40 C22.090999603271484,-40 40,-22.090999603271484 40,0z">
+                                                                            </path>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </span>
                                                 </div>
-                                                <div class="infinite-status-prompt" style="display: none;">
-                                                    <span></span>
-                                                </div>
-                                                <div class="infinite-status-prompt" style="display: none;">
-                                                    <span></span>
-                                                </div>
-                                                <div class="infinite-status-prompt"sty le="color: rgb(102, 102, 102); font-size: 14px; padding: 10px 0px; display: none;">
-                                                    Opps, something went wrong :(
-                                                    <br>
-                                                    <button class="btn-try-infinite">
-                                                        Retry
-                                                    </button>
+                                                <div class="infinite-status-prompt none-items" style="display: none">
+                                                    <span>
+                                                        <div class="c-application c-box no-list"
+                                                             style="background-color: rgb(252, 252, 252); padding: 24px;">
+                                                            <div class="no-list">
+                                                                <div class="c-application c-typography c-body1 f-semi-bold"
+                                                                     style="color: rgb(32, 35, 37); text-align: left;">
+                                                                    아직 작성된 답변이 없습니다.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -550,5 +593,7 @@
     let replies = [[${replies}]];
 </script>
 <script src="/js/question-board/util.js"></script>
+<script src="/js/modal/modal.js"></script>
+<script src="/js/department.js"></script>
 <script src="/js/question-board/detail.js"></script>
 </html>
