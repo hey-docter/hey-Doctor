@@ -19,12 +19,10 @@ import java.util.Optional;
 @RequestMapping("/login/*")
 public class LoginPageController {
     private final LoginPageService loginPageService;
-    private final KakaoService kakaoService;
 
     @Autowired
     public LoginPageController(LoginPageService loginPageService, KakaoService kakaoService) {
         this.loginPageService = loginPageService;
-        this.kakaoService = kakaoService;
     }
 
     //    이메일 중복검사
@@ -80,49 +78,6 @@ public class LoginPageController {
         return new RedirectView("/login/login-start");
     }
 
-//카카오
-    @ResponseBody
-    @GetMapping("/kakao")
-    public RedirectView kakaoCallback(@RequestParam String code, HttpSession session, RedirectAttributes redirectAttributes) {
-        log.info("Kakao code: " + code);
-        String token = kakaoService.getKaKaoAccessToken(code);
-        session.setAttribute("token", token);
-
-        try {
-            UserVO kakaoUser = kakaoService.getKakaoInfo(token);
-            if (kakaoUser == null) {
-                redirectAttributes.addFlashAttribute("login", "fail-kakao-non-email");
-                return new RedirectView("/login/login");
-            }
-            Optional<UserVO> foundUser = loginPageService.checkEmail(kakaoUser.getUserEmail());
-
-            if (foundUser.isPresent()) {
-                UserVO user = foundUser.get();
-                if (user.getUserLoginType().equals("NOMAL") || user.getUserLoginType().equals("NAVER")) {
-                    return new RedirectView("/login/login");
-                }
-                else if (user.getUserLoginType().equals("KAKAO")) {
-                    Optional<UserVO> foundUser2 = loginPageService.checkEmail(kakaoUser.getUserEmail());
-                    kakaoUser.setUserId(user.getUserId());
-                    log.info(kakaoUser.toString());
-                    session.setAttribute("userId", foundUser2.get().getUserId());
-                    return new RedirectView("/main-page/main-page");
-                }
-            }
-
-            loginPageService.join(kakaoUser);
-
-            session.setAttribute("userId", kakaoUser.getUserId());
-            log.info("세션: {}", foundUser.get().getUserId());
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("login", "fail-kakao");
-            return new RedirectView("/login/register");
-        }
-        return new RedirectView("/main-page/main-page");
-    }
 
 
 }

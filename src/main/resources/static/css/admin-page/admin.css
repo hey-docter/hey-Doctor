@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+html{
+    border: 0;
+    font-family: "Pretendard","Apple SD Gothic Neo","Helvetica Neue",Helvetica,Arial,"Trebuchet MS",sans-serif;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -21,7 +30,7 @@ input{
     width: 160px;
     height: 36px;
     margin: 33px auto 20px;
-    background-image: url("../../../static/image/icon/JOONGSHIN.svg");
+    /*background-image: url("../../../static/image/icon/JOONGSHIN.svg");*/
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -64,7 +73,7 @@ input{
 .arrow {
     width: 10px;
     height: 10px;
-    background-image: url("../../../static/image/icon/arrow.png");
+    background-image: url("/image/icon/arrow.png");
     background-size: 100%;
     margin-left: auto;
     cursor: pointer;
@@ -160,4 +169,36 @@ td.pending {
 
 .delete-btn:hover {
     background-color: rgb(180, 180, 180);
+}
+
+
+a.paging {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+a.paging-checked {
+    color: rgb(235 124 120);
+    background: rgba(235, 124, 120, 0.1);
+    font-weight: 700;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+a.paging-move {
+    margin: 0px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+h5#content {
+    padding-bottom: 64px;
+    line-height: 28px;
+    word-break: break-word;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }

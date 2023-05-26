@@ -40,7 +40,6 @@ public class KakaoService {
         try {
             URL url = new URL(reqURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
 
@@ -116,14 +115,18 @@ public class KakaoService {
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
 
+
             user = new UserVO();
-            user.setUserName(nickname);
-            user.setUserEmail(email);
-            user.setUserPassword(Integer.toString(id));
-            user.setUserLoginType("KAKAO");
+            user.setUserLoginType("KAKAO"); // 항상 "KAKAO"로 설정
 
-            userMapper.kakaoUpdate(user);
+            if (!user.getUserLoginType().equals("NOMAL") && !user.getUserLoginType().equals("NAVER")) {
 
+                user.setUserName(nickname);
+                user.setUserEmail(email);
+                user.setUserPassword(Integer.toString(id));
+
+//                userMapper.kakaoUpdate(user);
+            }
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -131,6 +134,7 @@ public class KakaoService {
 
         return user;
     }
+
 
     public void saveUser(UserVO userVO) {
         userDAO.save(userVO);

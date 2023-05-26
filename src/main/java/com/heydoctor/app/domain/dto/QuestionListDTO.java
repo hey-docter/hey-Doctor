@@ -1,8 +1,12 @@
 package com.heydoctor.app.domain.dto;
 
+import com.heydoctor.app.domain.vo.FileVO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @Data
@@ -22,5 +26,8 @@ public class QuestionListDTO {
     private String userName;
 
     private Integer answerCount;
+    private List<FileVO> files = new ArrayList<>();
+
+    private List<Long> fileIdsForDelete = new ArrayList<>();
 
 }
