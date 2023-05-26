@@ -116,8 +116,8 @@ public class KakaoService {
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
 
 
-                user = new UserVO();
-                user.setUserLoginType("KAKAO"); // 항상 "KAKAO"로 설정
+            user = new UserVO();
+            user.setUserLoginType("KAKAO"); // 항상 "KAKAO"로 설정
 
             if (!user.getUserLoginType().equals("NOMAL") && !user.getUserLoginType().equals("NAVER")) {
 
