@@ -1,21 +1,22 @@
 package com.heydoctor.app.domain.enums;
 
-import lombok.Getter;
+import java.util.Arrays;
+import java.util.Optional;
 
 /**
  * '전체',
  * '비뇨기과',
  * '산부인과',
  * '소아청소년과',
- * '안과',
+ * '안과', <p><p>
  * '이비인후과',
  * '정신건강의학과',
  * '정형외과',
- * '피부과',
+ * '피부과',<p><p>
  * '치과',
  * '기타'
+ *
  */
-@Getter
 public enum DepartmentType {
     ALL("전체"),
     UROLOGY("비뇨기과"),
@@ -34,5 +35,20 @@ public enum DepartmentType {
 
     DepartmentType(String type) {
         this.type = type;
+    }
+
+    /**
+     * DB insert 시에는 {@link #getType()} 대신 {@link #name()}을 사용하세요.
+     * <p>
+     * {@link #name()}은 {@link Enum}의 선언명을, {@link #getType()}은 한글명을 리턴합니다.
+     *
+     * @return type(한글명)
+     */
+    public String getType() {
+        return this.type;
+    }
+
+    public static Optional<DepartmentType> getByType(String type) {
+        return Arrays.stream(values()).filter(d -> d.type.equals(type)).findFirst();
     }
 }

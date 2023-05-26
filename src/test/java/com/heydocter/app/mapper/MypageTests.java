@@ -35,7 +35,7 @@ public class MypageTests {
         questionVO.setQuestionIsPublic(QuestionType.PUBLIC.isPublic());
         questionVO.setQuestionTitle("타이틀");
         questionVO.setUserId(1L);
-        questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.getType());
+        questionVO.setDoctorDepartmentType(DepartmentType.MENTAL_HEALTH.name());
 
 
     }

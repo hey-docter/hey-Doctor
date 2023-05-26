@@ -21,3 +21,22 @@ function elapsedTime(date) {
     }
     return '방금 전';
 }
+
+function Lock() {
+    this.register = (key) => {
+        if(!this[key])
+            this[key] = {key: key, isLocked: false};
+    }
+
+    this.lock = (key) => {
+        if(!this[key]) this.register(key);
+        this[key].isLocked = true;
+    }
+
+    this.unLock = (key) => {
+        if(!this[key]) this.register(key);
+        this[key].isLocked = false;
+    }
+
+    this.has = (key) => this[key];
+}
