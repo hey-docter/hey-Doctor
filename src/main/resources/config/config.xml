@@ -3,6 +3,7 @@
 <configuration>
     <settings>
         <setting name="jdbcTypeForNull" value="NULL" />
+
     </settings>
     <typeAliases>
         <typeAlias type="com.heydoctor.app.domain.vo.AnswerVO" alias="AnswerVO"/>
