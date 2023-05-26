@@ -292,19 +292,27 @@ function showList(answers, appendType) {
             `;
         }
     });
-    switch (appendType) {
-    case appendTypes.BEFORE:
-        $answerContainer.prepend(text);
-        if($answerContainer.length % 10 && $answerContainer.length > 0) return;
-        $answerContainer.lastChild.remove();
-        break;
-    case appendTypes.AFTER:
-        $answerContainer.append(text);
-        break;
-    case appendTypes.INIT:
-        $answerContainer.html(text);
-        break;
+
+    console.log(appendType);
+    console.log(text);
+
+    if(appendType) {
+        switch (appendType) {
+            case appendTypes.BEFORE:
+                $answerContainer.prepend(text);
+                //if($answerContainer.length % 10 && $answerContainer.length > 0) return;
+                //$answerContainer.lastChild.remove();
+                break;
+            case appendTypes.AFTER:
+                $answerContainer.append(text);
+                break;
+            case appendTypes.INIT:
+                $answerContainer.html(text);
+                break;
+        }
+        return;
     }
+    $answerContainer.append(text);
 }
 
 function showReplies(replies) {

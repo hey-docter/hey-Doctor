@@ -13,8 +13,18 @@ import java.util.List;
 public class MainDAO {
     private final MainMapper mainMapper;
 //    QUESITON 조회순 정렬
-    public List<MainDTO> findReadCount() {
-        return mainMapper.selectReadCount();
+//    public List<MainDTO> findReadCount() {
+//        return mainMapper.selectReadCount();
+//    }
+
+//    질문 조회수 정렬
+    public List<MainDTO> findQuestionReadCount() {
+        return mainMapper.selectQuestionReadCount();
+    }
+
+//    답변 정렬
+    public List<MainDTO> findAnswerAll(){
+        return mainMapper.selectAnswerAll();
     }
 
     public List<MainDTO> findAdopCount() {

@@ -34,11 +34,13 @@ public class MainPageController {
     @GetMapping("main-page")
     public void goToMainPage(Model model){
         List<MainDTO> answers = mainPageService.selectAdopCount();
-        List<MainDTO> mains = mainPageService.selectReadCount();
         List<MainDTO> visits = mainPageService.selectVisitCount();
+        List<MainDTO> questions = mainPageService.selectQuestionReadCount();
+        List<MainDTO> replies = mainPageService.selectAnswerAll();
         model.addAttribute("answers", answers);
-        model.addAttribute("mains", mains);
         model.addAttribute("visits", visits);
+        model.addAttribute("replies",replies);
+        model.addAttribute("questions", questions);
     }
 
     @GetMapping("loginOk")
@@ -47,5 +49,4 @@ public class MainPageController {
 
     }
     //수정
-
 }
