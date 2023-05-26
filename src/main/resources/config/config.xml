@@ -27,6 +27,9 @@
         <typeAlias type="com.heydoctor.app.domain.dto.QuestionListDTO" alias="QuestionListDTO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.Search" alias="Search"/>
         <typeAlias type="com.heydoctor.app.domain.dto.DoctorDTO" alias="DoctorDTO"/>
+        <typeAlias type="com.heydoctor.app.domain.vo.ReplyLikeCountVO" alias="ReplyLikeCountVO"/>
+        <typeAlias type="com.heydoctor.app.domain.vo.AnswerLikeCountVO" alias="AnswerLikeCountVO"/>
+        <typeAlias type="com.heydoctor.app.domain.vo.QuestionLikeCountVO" alias="QuestionLikeCountVO"/>
 
     </typeAliases>
 </configuration>
