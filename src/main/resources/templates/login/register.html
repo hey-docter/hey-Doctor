@@ -52,10 +52,6 @@
                                     </a>
                                 </div>
                             </form>
-
-
-
-
                             <!-- 네이버 로그인 버튼 노출 영역 -->
                             <div class="register-button c-pointer full naver show1" onclick="location.href='https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=0QEJy5lMTxel75jSVhqm&redirect_uri=http%3A%2F%2Flocalhost%3A10000%2Flogin%2Fnaver&state=84966d20-cb02-4435-abb3-68945bedc582'">
                                 <div class="register-button-icon">
@@ -65,16 +61,11 @@
                                     <div class="c-application c-typography c-body1 f-regular" style="color: inherit;">네이버로 시작하기</div>
                                 </div>
                             </div>
-
                                 <!-- //네이버 로그인 버튼 노출 영역 -->
                             <div id="naver_id_login" class="show2"></div>
-
-
-
                         </div>
-
                         <a href="https://kauth.kakao.com/oauth/logout?client_id=76a60ca6aa2dea1ac80cdec7ec6060b5&logout_redirect_uri=http://localhost:10000/logout/kakao">카카오 로그아웃</a>
-                        <a href=" http://nid.naver.com/nidlogin.logout">네이버 로그아웃</a>
+                        <a th:href="@{/logout/naver}">네이버 로그아웃</a>
 
                         <div>
                             <p class="c-application c-typography agreement-wrapper mb-8 c-caption1" style="color: rgb(173, 179, 184); text-align: center;">
@@ -90,7 +81,6 @@
                             </a>
                         </div>
                     </div>
-
                     <form th:action="@{/login/register}" name="join" method="post" th:object="${userVO}">
                         <div class="modal-mask" style="display: none;">
                             <div class="modal-container">
@@ -201,7 +191,7 @@
                                                                 <span class="checkbox" style="margin-right: 10px;">
                                                                         <img src="/image/icon/check.png" width="15px">
                                                                     </span>
-                                                                <p class="h6">[선택] 헤이닥터의 혜택 등 유용한 정보 안내를<br> 문자와 메일로 수신합니다</p>
+                                                                <p class="h6">[선택] 헤이닥터의 혜택 등 유용한 정보 안내를<br> 문자로 수신합니다</p>
                                                             </section>
                                                         </label>
                                                     </div>
@@ -214,7 +204,7 @@
                                                                 <span class="checkbox" style="margin-right: 10px;">
                                                                         <img src="/image/icon/check.png" width="15px">
                                                                     </span>
-                                                                <p class="h6">[선택] 헤이닥터의 혜택 등 유용한 정보 안내를<br> 문자와 메일로 수신합니다</p>
+                                                                <p class="h6">[선택] 헤이닥터의 혜택 등 유용한 정보 안내를<br> 메일로 수신합니다</p>
                                                             </section>
                                                         </label>
                                                     </div>
@@ -227,7 +217,7 @@
                                                                 <span class="checkbox" style="margin-right: 10px;">
                                                                         <img src="/image/icon/check.png" width="15px">
                                                                     </span>
-                                                                <p class="h6">[선택] 헤이닥터의 혜택 등 유용한 정보 안내를<br> 문자와 메일로 수신합니다</p>
+                                                                <p class="h6">[선택] 개인정보 수집 및 이용 동의</p>
                                                             </section>
                                                         </label>
                                                     </div>
