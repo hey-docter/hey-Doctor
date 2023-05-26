@@ -36,7 +36,7 @@ public class NaverController {
         if(foundId.isPresent()){
             if (foundId.get().getUserLoginType().equals("KAKAO") || foundId.get().getUserLoginType().equals("NOMAL") ) {
                 log.info("카카오나 일반으로 가입되어있음");
-                return "/login/register";
+                return "/login/register?login=false";
             }else{
                 userMapper.naverUpdate(userVO);
                 Optional<UserVO> newid = loginPageService.checkEmail(email);
