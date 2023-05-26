@@ -21,19 +21,19 @@ import java.util.List;
 public class MyPageController {
     private final MyPageService myPageService;
     private final HttpSession session;
-    //community 작성한 글, 댓글 보기
-//    @GetMapping("community")
-//    public void community(Long id, Model model, HttpSession session) {
-//        model.addAttribute("posts", myPageService.getQuestionList(1L));
-////      회원 정보 가져오기
-//        model.addAttribute("user", myPageService.getUser(1L));
-//    }
+//    community 작성한 글, 댓글 보기
     @GetMapping("community")
-    public void community(Model model, HttpSession session) {
-        Long userId = (Long) session.getAttribute("id"); // 세션에서 id 값을 가져옴
-        model.addAttribute("posts", myPageService.getQuestionList(userId));
-        model.addAttribute("user", myPageService.getUser(userId)); // getUser() 메서드에 세션에서 가져온 id 전달
+    public void community(Long id, Model model, HttpSession session) {
+        model.addAttribute("posts", myPageService.getQuestionList(1L));
+//      회원 정보 가져오기
+        model.addAttribute("user", myPageService.getUser(1L));
     }
+//    @GetMapping("community")
+//    public void community(Model model, HttpSession session) {
+//        Long userId = (Long) session.getAttribute("id"); // 세션에서 id 값을 가져옴
+//        model.addAttribute("posts", myPageService.getQuestionList(userId));
+//        model.addAttribute("user", myPageService.getUser(userId)); // getUser() 메서드에 세션에서 가져온 id 전달
+//    }
 
 
     // 답변
