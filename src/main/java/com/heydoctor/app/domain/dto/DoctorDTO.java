@@ -1,4 +1,4 @@
-package com.heydoctor.app.domain.vo;
+package com.heydoctor.app.domain.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,11 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class ReplyVO {
-    private Long replyId;
+public class DoctorDTO {
     private Long userId;
-    private Long answerId;
-    private String replyContent;
-    private String replyRegisterDateTime;
+    private Integer questionLikeCount;
+    private Integer answerLikeCount;
     private Integer replyLikeCount;
+    private String doctorVisitCount;
 }

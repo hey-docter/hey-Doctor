@@ -36,4 +36,13 @@
     WHERE USER_ID = #{ID}
     </select>
 
+    <!-- DOCTOR_STATUS 불러오기  -->
+    <select id="doctorStatus" resultType="DoctorDTO">
+     SELECT DISTINCT d.USER_ID, d.DOCTOR_VISIT_COUNT, q.QUESTION_LIKE_COUNT, a.ANSWER_LIKE_COUNT, r.REPLY_LIKE_COUNT, q.QUESTION_ID
+    FROM TBL_DOCTOR d
+    INNER JOIN TBL_QUESTION q ON d.USER_ID = q.USER_ID
+    INNER JOIN TBL_ANSWER a ON d.USER_ID = a.USER_ID
+    INNER JOIN TBL_REPLY r ON d.USER_ID = r.USER_ID
+    WHERE USER_ID = #{ID}
+    </select>
 </mapper>
