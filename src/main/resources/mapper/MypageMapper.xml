@@ -36,13 +36,25 @@
     WHERE USER_ID = #{ID}
     </select>
 
-    <!-- DOCTOR_STATUS 불러오기  -->
-    <select id="doctorStatus" resultType="DoctorDTO">
-     SELECT DISTINCT d.USER_ID, d.DOCTOR_VISIT_COUNT, q.QUESTION_LIKE_COUNT, a.ANSWER_LIKE_COUNT, r.REPLY_LIKE_COUNT, q.QUESTION_ID
-    FROM TBL_DOCTOR d
-    INNER JOIN TBL_QUESTION q ON d.USER_ID = q.USER_ID
-    INNER JOIN TBL_ANSWER a ON d.USER_ID = a.USER_ID
-    INNER JOIN TBL_REPLY r ON d.USER_ID = r.USER_ID
-    WHERE USER_ID = #{ID}
+    <!-- replyStatusLike 불러오기  -->
+    <select id="selectReplyLike" resultType="ReplyLikeCountVO">
+        SELECT USER_ID, COUNT(*) AS LIKE_REPLY_COUNT
+        FROM TBL_REPLY_LIKE_COUNT
+        WHERE USER_ID = #{ID};
     </select>
+
+    <!-- answerStatusLike 불러오기  -->
+    <select id="selectAnswerLike" resultType="ReplyLikeCountVO">
+        SELECT USER_ID, COUNT(*) AS LIKE_ANSWER_COUNT
+        FROM TBL_ANSWER_LIKE_COUNT
+        WHERE USER_ID = #{ID};
+    </select>
+
+    <!-- questionStatusLike 불러오기  -->
+    <select id="selectQuestionLike" resultType="ReplyLikeCountVO">
+        SELECT USER_ID, COUNT(*) AS LIKE_QUESTION_COUNT
+        FROM TBL_QUESTION_LIKE_COUNT
+        WHERE USER_ID = #{ID};
+    </select>
+
 </mapper>
