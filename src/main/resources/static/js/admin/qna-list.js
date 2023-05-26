@@ -1,21 +1,21 @@
 
 $(document).ready(function(){
     const $ul = $("#content-wrap tbody");
-    $("#content-wrap tbody").html("hello");
+    // $("#content-wrap tbody").html("hello");
     let text = "";
-    questions.forEach(question => {
-        console.log(question.userName);
+    qnas.forEach(qna => {
+        console.log(qna);
         text += `
                     <a href="javascript:void(0)">
                     
                         <tr>
                             <td class="checkbox-line"><input type="checkbox" name="check"></td>
-                            <td class="noticeId">${question.questionId}</td>
+                            <td class="noticeId">${qna.qnaId}</td>
                             <td>
-                                <a href="">${question.questionTitle}</a>
+                                <a href="">${qna.qnaTitle}</a>
                             </td>
-                            <td>${question.userName}</td>
-                            <td>${question.questionRegisterDatetime}</td>
+                            <td>${qna.userName}</td>
+                            <td>${qna.qnaRegisterDateTime}</td>
                          </tr>
         `
         // questions.files.forEach(file => {

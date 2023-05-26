@@ -47,5 +47,4 @@ public class MainPageController {
 
     }
     //수정
-
 }

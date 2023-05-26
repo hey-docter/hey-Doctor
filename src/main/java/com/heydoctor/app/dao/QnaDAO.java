@@ -1,6 +1,8 @@
 package com.heydoctor.app.dao;
 
+import com.heydoctor.app.domain.dto.Pagination;
 import com.heydoctor.app.domain.dto.QnaDTO;
+import com.heydoctor.app.domain.dto.Search;
 import com.heydoctor.app.domain.vo.QnaVO;
 import com.heydoctor.app.mapper.QnaMapper;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +18,8 @@ public class QnaDAO {
 
     public void register(QnaVO qnaDTO){qnaMapper.insert(qnaDTO);}
 
-    public List<QnaDTO> getAll(int page) {
-        return qnaMapper.selectList(page);
+    public List<QnaDTO> getAll(Pagination pagination, Search search) {
+        return qnaMapper.selectList(pagination, search);
     }
 
     public Optional<QnaDTO> findById(Long qnaId) {
@@ -26,5 +28,10 @@ public class QnaDAO {
 
     public void deleteQna(Long qnaId) {
         qnaMapper.delete(qnaId);
+    }
+
+    //    게시글 총 개수
+    public int findCountOfPost(Search search){
+        return qnaMapper.selectCountOfPost(search);
     }
 }
