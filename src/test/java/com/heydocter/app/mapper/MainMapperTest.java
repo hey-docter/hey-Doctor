@@ -16,9 +16,18 @@ public class MainMapperTest {
     @Autowired
     private MainMapper mainMapper;
 
-    @Test
+    /*@Test
     public void selectReadCountTest() {
         log.info(mainMapper.selectReadCount().toString());
+    }*/
+    @Test
+    public void selectQuestionReadCountTest() {
+        log.info(mainMapper.selectQuestionReadCount().toString());
+    }
+
+    @Test
+    public void selectAnswerAll(){
+        log.info(mainMapper.selectAnswerAll().toString());
     }
 
     @Test

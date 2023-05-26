@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestExecutionListeners;
 
 @SpringBootTest(classes = HeydocterApplication.class)
 @Slf4j
@@ -13,9 +14,19 @@ public class MainServiceTest {
 @Autowired
     private MainPageService mainPageService;
 
-    @Test
+    /*@Test
     public void selectReadCountTest(){
         log.info(mainPageService.selectReadCount().toString());
+    }*/
+
+    @Test
+    public void selectQuestionReadCountTest(){
+        log.info(mainPageService.selectQuestionReadCount().toString());
+    }
+
+    @Test
+    public void selectAnswerAllTest(){
+        log.info(mainPageService.selectAnswerAll().toString());
     }
 
     @Test
