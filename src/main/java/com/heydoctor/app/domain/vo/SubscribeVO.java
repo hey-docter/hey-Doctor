@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 public class SubscribeVO {
-    Long subscribeId;
-    Long userId;
-    String subscribeRegisterDate;
-    String subscribeUpdateDate;
+   private Long subscribeId;
+   private Long userId;
+   private String subscribeRegisterDate;
+   private String subscribeUpdateDate;
 }
