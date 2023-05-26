@@ -6,6 +6,7 @@ import com.heydoctor.app.domain.dto.ReplyDTO;
 import com.heydoctor.app.domain.vo.AnswerVO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.domain.vo.ReplyVO;
+import com.heydoctor.app.domain.vo.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -21,5 +22,7 @@ public interface MypageMapper {
     //    질문 댓글 목록
     public List<ReplyDTO> selectReplyAll(Long id);
 
+    //    유저정보 가져오기
+    public UserVO selectUser(Long id);
 
 }

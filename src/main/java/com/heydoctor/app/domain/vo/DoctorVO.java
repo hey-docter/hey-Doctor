@@ -15,4 +15,5 @@ public class DoctorVO {
   private String doctorIntroduction;
   private Long doctorVisitCount;
   private String doctorDepartmentType;
+
 }

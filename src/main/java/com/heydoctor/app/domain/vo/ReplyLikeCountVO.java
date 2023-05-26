@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 @NoArgsConstructor
-public class PayVO {
-    private Long payId;
-    private Long subscribeId;
-    private Long payPrice;
+public class ReplyLikeCountVO {
+    private Long replyLikeCountId;
+    private Long userId;
+    private Long ReplyId;
 }

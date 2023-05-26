@@ -7,6 +7,7 @@ import com.heydoctor.app.domain.dto.AnswerDTO;
 import com.heydoctor.app.domain.dto.Pagination;
 import com.heydoctor.app.domain.dto.ReplyDTO;
 import com.heydoctor.app.domain.vo.QuestionVO;
+import com.heydoctor.app.domain.vo.UserVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
@@ -36,6 +37,12 @@ public class MyPageServiceImpl implements MyPageService {
     @Override
     public List<ReplyDTO> getReplyList(Long id) {
         return mypageDAO.findReplyAll(id);
+    }
+
+    // 유저 정보 불러오기
+    @Override
+    public UserVO getUser(Long id){
+        return mypageDAO.findUser(id);
     }
 
     }

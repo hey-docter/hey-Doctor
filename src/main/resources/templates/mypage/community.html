@@ -63,12 +63,12 @@
                                     <div class="ml-4 c-pointer" style="overflow: hidden;">
                                         <div class="c-application c-typography mb-2 c-headline7"
                                             style="color: rgb(32, 35, 37); font-weight: 500;">
-                                            이찬
+                                            <th:block th:text="${user.userName}"></th:block>
                                         </div>
                                         <div class="flex align-items-center c-pointer">
                                             <div class="c-application c-typography text-truncate c-caption1"
                                                 style="color: rgb(118, 125, 130); line-height: 16px !important;">
-                                                3dollee@naver.com
+                                                <th:block th:text="${user.userEmail}"></th:block>
                                             </div>
                                             <div class="social-icon-wrapper mt-2 ml-6 kakao"
                                                 style="height: 14px; min-width: 14px;">
@@ -124,7 +124,7 @@
 
                                 <div>
                                     <div>
-                                        <a href="/mypage/resumeControl" class="w-full">
+                                        <a th:href="@{/mypage/essay}" class="w-full">
                                             <div class="mypage-aside-menu-button">
                                                 <div>
                                                     <div tabindex="0" class="c-application c-list-item large c-pointer">
@@ -144,7 +144,8 @@
 
                                 <div>
                                     <div>
-                                        <a href="/mypage/essay" class="w-full">
+
+                                        <a th:href="@{/mypage/subscribe}"  class="w-full">
                                             <div class="mypage-aside-menu-button">
                                                 <div>
                                                     <div tabindex="0" class="c-application c-list-item large c-pointer">
@@ -162,7 +163,7 @@
 
                                 <div>
                                     <div>
-                                        <a href="/mypage/essay" class="w-full">
+                                        <a th:href="@{/qna/qna-page}" class="w-full">
                                             <div class="mypage-aside-menu-button">
                                                 <div>
                                                     <div tabindex="0" class="c-application c-list-item large c-pointer">
@@ -482,6 +483,7 @@
     <script src="/js/mypage/question-list.js"></script>
     <script th:inline="javascript">
         let posts = [[${posts}]];
+        let user = [[${user}]];
     </script>
 <script src="/js/mypage/upper-nav.js"></script>
 </html>

@@ -3,6 +3,7 @@
 <configuration>
     <settings>
         <setting name="jdbcTypeForNull" value="NULL" />
+
     </settings>
     <typeAliases>
         <typeAlias type="com.heydoctor.app.domain.vo.AnswerVO" alias="AnswerVO"/>
@@ -25,6 +26,7 @@
         <typeAlias type="com.heydoctor.app.domain.dto.ReplyDTO" alias="ReplyDTO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.QuestionListDTO" alias="QuestionListDTO"/>
         <typeAlias type="com.heydoctor.app.domain.dto.Search" alias="Search"/>
+        <typeAlias type="com.heydoctor.app.domain.dto.DoctorDTO" alias="DoctorDTO"/>
 
     </typeAliases>
 </configuration>
