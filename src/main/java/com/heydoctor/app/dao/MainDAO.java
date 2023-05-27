@@ -1,12 +1,14 @@
 package com.heydoctor.app.dao;
 
 import com.heydoctor.app.domain.dto.MainDTO;
+import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.mapper.MainMapper;
 import com.sun.tools.javac.Main;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -33,5 +35,9 @@ public class MainDAO {
 
     public List<MainDTO> findVisitCount(){
         return mainMapper.selectVisitCount();
+    }
+
+    public Optional<UserVO> getUserId() {
+        return mainMapper.selectUserId();
     }
 }

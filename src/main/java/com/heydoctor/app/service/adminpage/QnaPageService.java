@@ -16,7 +16,7 @@ public interface QnaPageService {
 
     public Optional<QnaDTO> read(Long qnaId);
 
-    public void deleteQna(Long qnaId);
+    public void deleteQna(List<Long> qnaId);
 
     //    게시글 전체 개수 조회
     public int getTotal(Search search);

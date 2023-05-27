@@ -31,6 +31,7 @@
         <typeAlias type="com.heydoctor.app.domain.vo.ReplyLikeCountVO" alias="ReplyLikeCountVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.AnswerLikeCountVO" alias="AnswerLikeCountVO"/>
         <typeAlias type="com.heydoctor.app.domain.vo.QuestionLikeCountVO" alias="QuestionLikeCountVO"/>
+        <typeAlias type="com.heydoctor.app.domain.vo.QnaAnswerVO" alias="QnaAnswerVO"/>
 
     </typeAliases>
 </configuration>

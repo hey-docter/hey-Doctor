@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -41,7 +42,9 @@ public class QnaPageController {
     @GetMapping("qna-page")
     public String goToWriteForm(QnaVO qnaVO, HttpSession session, Model model){
 //        model.addAttribute("userName", loginPageService.getUser((Long)session.getAttribute("userId")).get().getUserName());
-        return "admin-page/qna-page";
+        qnaVO.setUserId(1L /*session.getAttribute("id")*/);
+        model.addAttribute("userId", 1L);
+        return "/admin-page/qna-page";
     }
 
     @PostMapping("qna-page")
@@ -71,9 +74,10 @@ public class QnaPageController {
     }
 
     @PostMapping("delete")
-    public RedirectView delete(Long qnaId){
+    public RedirectView delete(List<Long> qnaId){
         qnaService.deleteQna(qnaId);
         return new RedirectView("/admin-page/admin");
     }
+
 
 }

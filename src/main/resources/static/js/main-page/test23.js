@@ -140,9 +140,21 @@ $(document).ready(function () {
                                                                             </span>
                                                                         </div>
                                                                     </div>
-                                                                    <img src="/image/main-page/ex-img.png"
+                                                                    `
+                                                if(answer.userProfileUuid != null){
+                                                    text += `
+                                                    <img src="/image/icon/${answer.userProfileName}.png"
                                                                          alt="" loading="lazy"
                                                                          class="c-edu-card--image">
+                                                    `
+                                                } else {
+                                                text += `<img src="/image/main-page/ex-img.png"
+                                                    alt="" loading="lazy"
+                                                class="c-edu-card--image">`
+                                                }
+
+
+        text += `
                                                                 </div>
                                                                 <div class="c-edu-card--info-container">
                                                                     <div class="c-edu-card--subtitle">
@@ -205,9 +217,21 @@ $(document).ready(function () {
                                                                             </span>
                                                                         </div>
                                                                     </div>
-                                                                    <img src="/image/main-page/ex-img.png"
+                                                                    `
+                                                if(visit.userProfileUuid != null){
+                                                    text += `
+                                                    <img src="/image/icon/${visit.userProfileName}.png"
                                                                          alt="" loading="lazy"
                                                                          class="c-edu-card--image">
+                                                    `
+                                                } else {
+                                                text += `<img src="/image/main-page/ex-img.png"
+                                                    alt="" loading="lazy"
+                                                class="c-edu-card--image">`
+                                                }
+
+
+        text += `
                                                                 </div>
                                                                 <div class="c-edu-card--info-container">
                                                                     <div class="c-edu-card--subtitle">
@@ -231,7 +255,7 @@ $(document).ready(function () {
                                                                     </div>
                                                                     <div class="c-edu-card--caption mt-8"><span
                                                                             class="c-application c-typography c-caption1"
-                                                                            style="color: rgb(173, 179, 184);"> 방문 횟수 = ${visit.visitCount} </span>
+                                                                            style="color: rgb(173, 179, 184);"> 방문 횟수 = ${visit.doctorVisitCount} </span>
                                                                         <hr class="c-application c-divider mx-8 line vertical"
                                                                             style="border-color: rgb(234, 236, 238);">
                                                                         <span
