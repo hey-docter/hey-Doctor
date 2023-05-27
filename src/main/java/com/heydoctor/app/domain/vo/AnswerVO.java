@@ -24,4 +24,6 @@ public class AnswerVO {
 
     private Long answerCount;
     private String userName;
+
+    private Integer answerLikeCount;
 }

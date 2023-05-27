@@ -32,12 +32,13 @@
             <h2 class="title">1:1 문의하기</h2>
             <p class="p-class">문의 주신 내용은 48시간 내로 최대한 빠르게 답변드리도록 하겠습니다. 남겨주신 이메일을 확인해주세요.</p>
         </div>
-        <form>
+        <form class="write-form" th:action="@{/qna/qna-page}" method="post" name="writeForm" th:object="${qnaVO}">
             <section>
+                <input th:field="*{userId}" style="display:none;">
                 <input type="text" placeholder="제목" class="text-title" id="titleBox" th:field="*{qnaTitle}">
                 <div id="message"></div>
                 <textarea row="5" placeholder="해결이 필요한 문제에 대해 자세히 설명해주세요." class="content" id="contentBox"
-                          th:field="*{qnaContext}"></textarea>
+                          th:field="*{qnaContent}"></textarea>
                 <div id="message2"></div>
                 <div class="email-wrap">
                     <input type="text" placeholder="답변 받을 이메일 주소" class="email-input" id="emailBox"
@@ -54,7 +55,7 @@
                 </div>
                 <div id="message3"></div>
                 <div class="btn-wrapper">
-                    <button class="btn-disabled" id="btn">문의하기</button>
+                    <button class="btn-disabled ok-button" id="btn">문의하기</button>
                 </div>
             </section>
         </form>
@@ -185,7 +186,7 @@
                                         <div class="flex align-center"><a href="https://comento.kr/agreement"
                                                                           target="_self">
                                             <div class="c-application c-typography c-caption1"
-                                                 style="color:#767D82;"> 이용약관
+                                                 style="color:#767D82; margin-right:50px;"> 이용약관
                                             </div>
                                         </a>
                                             <hr class="c-application c-divider mx-8 line vertical #EAECEE"
@@ -233,6 +234,8 @@
     <!---->
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="/js/admin/qna.js">
-</script>
+<script src="/js/admin/qna.js"></script>
+
+
+
 </html>
