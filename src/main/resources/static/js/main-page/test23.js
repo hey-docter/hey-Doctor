@@ -140,9 +140,21 @@ $(document).ready(function () {
                                                                             </span>
                                                                         </div>
                                                                     </div>
-                                                                    <img src="/image/main-page/ex-img.png"
+                                                                    `
+                                                if(answer.userProfileUuid != null){
+                                                    text += `
+                                                    <img src="/image/icon/${answer.userProfileName}.png"
                                                                          alt="" loading="lazy"
                                                                          class="c-edu-card--image">
+                                                    `
+                                                } else {
+                                                text += `<img src="/image/main-page/ex-img.png"
+                                                    alt="" loading="lazy"
+                                                class="c-edu-card--image">`
+                                                }
+
+
+        text += `
                                                                 </div>
                                                                 <div class="c-edu-card--info-container">
                                                                     <div class="c-edu-card--subtitle">
@@ -205,9 +217,21 @@ $(document).ready(function () {
                                                                             </span>
                                                                         </div>
                                                                     </div>
-                                                                    <img src="/image/main-page/ex-img.png"
+                                                                    `
+                                                if(visit.userProfileUuid != null){
+                                                    text += `
+                                                    <img src="/image/icon/${visit.userProfileName}.png"
                                                                          alt="" loading="lazy"
                                                                          class="c-edu-card--image">
+                                                    `
+                                                } else {
+                                                text += `<img src="/image/main-page/ex-img.png"
+                                                    alt="" loading="lazy"
+                                                class="c-edu-card--image">`
+                                                }
+
+
+        text += `
                                                                 </div>
                                                                 <div class="c-edu-card--info-container">
                                                                     <div class="c-edu-card--subtitle">
