@@ -297,8 +297,8 @@ article, aside, body, div, footer, header, section {
 }
 
 input, textarea {
-    -webkit-appearance: none;
-    appearance: none;
+    /*-webkit-appearance: none;*/
+    /*appearance: none;*/
 }
 
 

@@ -2,6 +2,7 @@ function titleBoxInput() {
 	var titleBox = document.getElementById("titleBox").value.trim();
 	var message = document.getElementById("message");
 	var input = document.getElementById("titleBox");
+	let check = 0;
 
 	if (titleBox == "") {
 		message.innerHTML = "제목을 입력해주세요.";
@@ -13,7 +14,9 @@ function titleBoxInput() {
 	} else {
 		input.classList.remove("is-invalid");
 		input.classList.add("is-valid");
+		check++;
 		message.innerHTML = "";
+		checkCondition();
 	}
 }
 
@@ -35,7 +38,9 @@ function contentBoxInput() {
 	} else {
 		input.classList.remove("is-invalid");
 		input.classList.add("is-valid");
+		check++;
 		message2.innerHTML = "";
+		checkCondition();
 	}
 }
 
@@ -57,19 +62,24 @@ function emailBoxInput() {
 	} else {
 		input.classList.remove("is-invalid");
 		input.classList.add("is-valid");
+		check++;
 		message3.innerHTML = "";
+		checkCondition();
 	}
 }
 
 var emailBoxboxInput = document.getElementById("emailBox");
 emailBoxboxInput.addEventListener("blur", emailBoxInput);
 
-
-
-
 const checkbox = document.querySelector('#checkbox');
 const btn = document.querySelector('#btn');
 const errorMessage = document.querySelector('#error-message');
+
+function checkCondition(){
+	if(check==3){
+		btn.classList.remove("btn-disabled");
+	}
+}
 
 btn.addEventListener('click', function() {
   if (!checkbox.checked) {
@@ -79,6 +89,27 @@ btn.addEventListener('click', function() {
   }
 });
 
+$("button.ok-button").on("click", function(){
+	// const imgs = $("img.thumbnail").filter((i, img) => $(img).attr("src"));
+	// let text = ``;
+	// imgs.each((i, img) => {
+	// 	let fullPath = $(img).attr("src");
+	// 	let datas = fullPath.split("_");
+	// 	let filePath = datas[0].split("=")[1].replace("/t", "");
+	// 	let fileUuid = datas[1];
+	// 	let fileName = datas[2];
+	// 	let fileSize = sizes[i];
+	//
+	// 	text += `
+    //         <input type="hidden" name="files[${i}].filePath" value="${filePath}">
+    //         <input type="hidden" name="files[${i}].fileUuid" value="${fileUuid}">
+    //         <input type="hidden" name="files[${i}].fileName" value="${fileName}">
+    //         <input type="hidden" name="files[${i}].fileSize" value="${fileSize}">
+    //     `
+	// });
+	// $(writeForm).append(text);
+	$('form.write-form').submit();
+});
 
 
 

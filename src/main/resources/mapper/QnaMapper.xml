@@ -22,30 +22,58 @@
             </trim>
         </if>
     </sql>
+<!--    <select id="selectList" resultType="questionListDTO">-->
+<!--        SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, USER_NAME-->
+<!--        FROM (-->
+<!--        SELECT ROWNUM R, Q.QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, U.USER_NAME-->
+<!--        FROM (-->
+<!--        SELECT Q.QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, U.USER_NAME,-->
+<!--        NVL(ANSWER_COUNT, 0) AS "ANSWER_COUNT"-->
+<!--        FROM TBL_QNA Q FULL OUTER JOIN (-->
+<!--        SELECT QNA_ID, COUNT(ANSWER_ID) ANSWER_COUNT-->
+<!--        FROM (-->
+<!--            FROM TBL_QNA_ANSWER-->
+<!--            GROUP BY QNA_ID-->
+<!--        )ANS-->
+<!--        ON B.QUESTION_ID = ANS.QUESTION_ID-->
+
+<!--        ORDER BY QNA_REGISTER_DATETIME DESC-->
+<!--        )-->
+<!--        )-->
+<!--        <![CDATA[WHERE R > #{page} * 10 AND R <= #{page} * 10 + 11]]>-->
+<!--    </select>-->
 
     <select id="selectList" resultType="qnaDTO">
-        SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, USER_NAME
+        SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC,
+        ANSWER_COUNT, USER_NAME
+        FROM(
+        SELECT ROWNUM R, Q.QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC,
+        ANSWER_COUNT, USER_NAME
+        FROM
+        (SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, USER_NAME
         FROM
         (
-        SELECT ROWNUM R, Q.QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, U.USER_NAME
-        FROM TBL_USER U JOIN TBL_QNA Q
-        <![CDATA[
-            ON U.USER_ID = Q.USER_ID AND
-            ROWNUM <= #{pagination.page} * #{pagination.rowCount}
-        ]]>
+        SELECT QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, USER_NAME
+        FROM TBL_USER U JOIN TBL_QNA QNA ON U.USER_ID = QNA.USER_ID
+        )
+        ) Q FULL OUTER JOIN (
+        SELECT QNA_ID, NVL(COUNT(QNA_ANSWER_ID), 0) AS "ANSWER_COUNT"
+        FROM TBL_QNA_ANSWER
+        GROUP BY QNA_ID) A
+        ON Q.QNA_ID = A.QNA_ID
+        )
         <include refid="search"/>
-        ORDER BY
-        <choose>
-            <when test="search.order == 'popular'">
-                READ_COUNT
-            </when>
-            <otherwise>
-                QNA_ID
-            </otherwise>
-        </choose>
-        ASC
-        <![CDATA[
-        ) Q WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
+<!--        ORDER BY-->
+<!--        <choose>-->
+<!--            <when test="search.order == 'popular'">-->
+<!--                READ_COUNT-->
+<!--            </when>-->
+<!--            <otherwise>-->
+<!--                Q.QNA_ID-->
+<!--            </otherwise>-->
+<!--        </choose>-->
+--         ASC
+        <![CDATA[ WHERE R <= #{pagination.page} * #{pagination.rowCount} AND R > (#{pagination.page} - 1) * #{pagination.rowCount}
         ]]>
     </select>
 

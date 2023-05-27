@@ -1,6 +1,8 @@
 package com.heydoctor.app.service.adminpage;
 
+import com.heydoctor.app.dao.FileDAO;
 import com.heydoctor.app.dao.QnaDAO;
+import com.heydoctor.app.dao.ReplyDAO;
 import com.heydoctor.app.domain.dto.Pagination;
 import com.heydoctor.app.domain.dto.QnaDTO;
 import com.heydoctor.app.domain.dto.Search;
@@ -16,6 +18,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class QnaPageServiceImpl implements QnaPageService{
     private final QnaDAO qnaDAO;
+    private final FileDAO fileDAO;
+    private final ReplyDAO replyDAO;
 
 
     @Override
@@ -36,10 +40,15 @@ public class QnaPageServiceImpl implements QnaPageService{
         return qnaDAO.findById(qnaId);
     }
 
+
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void deleteQna(Long qnaId) {
-        qnaDAO.deleteQna(qnaId);
+    public void deleteQna(List<Long> qnaId) {
+        qnaId.forEach(qna -> {
+            fileDAO.deleteAll(qna);
+            replyDAO.deleteAll(qna);
+            qnaDAO.deleteQna(qna);
+        });
     }
 
     @Override

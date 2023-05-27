@@ -53,7 +53,7 @@ public class AdminpageController {
 
 //
     @PostMapping("delete")
-    public RedirectView delete(Long questionId, Model model){
+    public RedirectView delete(List<Long> questionId, Model model){
         adminpageService.delete(questionId);
         return new RedirectView("/admin-page/admin-board-list");
     }

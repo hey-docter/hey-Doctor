@@ -39,6 +39,11 @@ $(".delete-btn").on("click", function(){
 
 });
 
+function deleteRow() {
+    document.querySelectorAll('input[name=check]:checked').forEach(e => {
+        e.parentNode.parentNode.remove()
+    });
+}
 // $deleteBtn.click(function() {
 //
 //     $("tr").each(function() {
@@ -47,4 +52,5 @@ $(".delete-btn").on("click", function(){
 //         }
 //     });
 // });
+
 

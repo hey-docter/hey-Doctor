@@ -29,14 +29,12 @@ public class QnaMapperTests {
     @Autowired
     private QnaMapper qnaMapper;
 
-
-
     @Test
     public void insertTest() {
         QnaVO qnaVO = new QnaVO();
         qnaVO.setUserId(1L);
-        qnaVO.setQnaTitle("test title5");
-        qnaVO.setQnaContent("test content5");
+        qnaVO.setQnaTitle("test title7");
+        qnaVO.setQnaContent("test content7");
         qnaVO.setQnaIsPublic(QuestionType.PUBLIC.isPublic());
         qnaMapper.insert(qnaVO);
     }

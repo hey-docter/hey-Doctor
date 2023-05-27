@@ -17,6 +17,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -39,8 +41,10 @@ public class AdminMapperTests {
 
     @Test
     public void deleteTest() {
-        adminMapper.delete(20L);
-        assertThat(adminMapper.select(20L)).isNull();
+        List<Long> deleteIds =  new ArrayList<Long>();
+        deleteIds.add(15L);
+        adminMapper.delete(15L);
+        assertThat(adminMapper.select(15L)).isNull();
     }
 
     @Test
