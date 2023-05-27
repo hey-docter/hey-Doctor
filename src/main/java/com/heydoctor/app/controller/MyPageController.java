@@ -58,6 +58,7 @@ public class MyPageController {
     @GetMapping("essay")
     public void essay(Long id, Model model, HttpSession session ) {
         //      회원 정보 가져오기
+        model.addAttribute("user", myPageService.getUser(1L));
         model.addAttribute("questionLikeCount", myPageService.getQuestionLike(1L));
         model.addAttribute("answerLikeCount", myPageService.getAnswerLike(1L));
         model.addAttribute("replyLikeCount", myPageService.getReplyLike(1L));
