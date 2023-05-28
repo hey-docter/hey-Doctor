@@ -2,6 +2,9 @@ const $arrows = $('.arrow');
 const $naviTitle = $('.nav-title');
 const $boardList = $('.board-list li');
 const $inquiriesList = $('.inquiries-list li');
+const $deleteBtn = $('.delete-btn');
+
+// public final QnaPageService QnaPageService;
 
 // 사이드 바 이벤트 관련 코드
 $arrows.eq(0).css('transform', 'rotate(180deg)')
@@ -30,3 +33,24 @@ $arrows.eq(1).on('click', function() {
     $(this).css('transform',deg === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)');
     $inquiriesList.slideToggle(300);
 })
+
+$(".delete-btn").on("click", function(){
+    // e.preventDefault();
+
+});
+
+function deleteRow() {
+    document.querySelectorAll('input[name=check]:checked').forEach(e => {
+        e.parentNode.parentNode.remove()
+    });
+}
+// $deleteBtn.click(function() {
+//
+//     $("tr").each(function() {
+//         if($("input[name=check]").is(":checked")){
+//             deleteQna($(this).find("td.noticeId").val());
+//         }
+//     });
+// });
+
+

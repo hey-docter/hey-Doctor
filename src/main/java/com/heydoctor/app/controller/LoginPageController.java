@@ -19,13 +19,12 @@ import java.util.Optional;
 @RequestMapping("/login/*")
 public class LoginPageController {
     private final LoginPageService loginPageService;
-    private final KakaoService kakaoService;
 
     @Autowired
     public LoginPageController(LoginPageService loginPageService, KakaoService kakaoService) {
         this.loginPageService = loginPageService;
-        this.kakaoService = kakaoService;
     }
+
     //    이메일 중복검사
     @GetMapping("check-email/{userEmail}")
     @ResponseBody
@@ -76,56 +75,10 @@ public class LoginPageController {
     @GetMapping("logout")
     public RedirectView logout(HttpSession session){
         session.invalidate();
+        log.info("삭제 ^^");
         return new RedirectView("/login/login-start");
     }
 
-//카카오
-    @ResponseBody
-    @GetMapping("/kakao")
-    public RedirectView kakaoCallback(@RequestParam String code, HttpSession session, RedirectAttributes redirectAttributes) {
-        log.info("Kakao code: " + code);
-        String token = kakaoService.getKaKaoAccessToken(code);
-        session.setAttribute("token", token);
 
-        try {
-            UserVO kakaoUser = kakaoService.getKakaoInfo(token);
 
-            if (kakaoUser == null) {
-                redirectAttributes.addFlashAttribute("login", "fail-kakao-non-email");
-                return new RedirectView("/login/login");
-            }
-
-            Optional<UserVO> foundUser = loginPageService.checkEmail(kakaoUser.getUserEmail());
-
-            if (foundUser.isPresent()) {
-                UserVO user = foundUser.get();
-                if (user.getUserLoginType().equals("NOMAL")) {
-                    redirectAttributes.addFlashAttribute("login", "already-exist-NORMAL");
-                    return new RedirectView("/login/login");
-                } else if (user.getUserLoginType().equals("NAVER")) {
-                    redirectAttributes.addFlashAttribute("login", "already-exist-NAVER");
-                    return new RedirectView("/login/login");
-                } else if (user.getUserLoginType().equals("KAKAO")) {
-                    // Update user data if it's a Kakao account
-                    kakaoUser.setUserId(user.getUserId());
-                    log.info(kakaoUser.toString());
-                    session.setAttribute("userId", user.getUserId());
-                    return new RedirectView("/main-page/main-page");
-                }
-            }
-
-            loginPageService.join(kakaoUser);
-
-            Optional<Long> foundIdOptional = loginPageService.login(kakaoUser.getUserEmail(), kakaoUser.getUserPassword());
-            Long foundId = foundIdOptional.orElse(null);
-
-            session.setAttribute("userId", foundId);
-        } catch (Exception e) {
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("login", "fail-kakao");
-            return new RedirectView("/login/login");
-        }
-
-        return new RedirectView("/main-page/main-page");
-    }
 }

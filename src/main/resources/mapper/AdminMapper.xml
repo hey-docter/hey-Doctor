@@ -1,15 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.AdminMapper">
+    <sql id="search">
+        <if test="search.type != null and !search.type.equals('')">
+            <trim prefix="AND(" prefixOverrides="OR" suffix=")">
+                <foreach item="type" collection="search.types">
+                    <trim prefix="OR">
+                        <choose>
+                            <when test="type=='t'.toString()">
+                                POST_TITLE LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='c'.toString()">
+                                POST_CONTENT LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='w'.toString()">
+                                MEMBER_NAME LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                        </choose>
+                    </trim>
+                </foreach>
+            </trim>
+        </if>
+    </sql>
     <select id="selectLists" resultType="questionListDTO">
-        SELECT QUESTION_ID, U.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
-               QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
-               DOCTOR_DEPARTMENT_TYPE, READ_COUNT, U.USER_NAME
-        FROM TBL_USER U JOIN TBL_QUESTION Q
-        ON U.USER_ID = Q.USER_ID
-        <![CDATA[WHERE ROWNUM > #{page} * 10 AND ROWNUM <=  #{page} * 10 + 10]]>
-    </select>
+        SELECT QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+        QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
+        DOCTOR_DEPARTMENT_TYPE, READ_COUNT, USER_NAME
+        FROM
+        (
+        SELECT ROWNUM R, QUESTION_ID, U.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+        QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
+        DOCTOR_DEPARTMENT_TYPE, READ_COUNT, U.USER_NAME
 
+        FROM TBL_USER U JOIN TBL_QUESTION Q
+        <![CDATA[
+            ON U.USER_ID = Q.USER_ID AND
+            ROWNUM <= #{pagination.page} * #{pagination.rowCount}
+        ]]>
+        <include refid="search"/>
+        ORDER BY
+        <choose>
+            <when test="search.order == 'popular'">
+                READ_COUNT
+            </when>
+            <otherwise>
+                QUESTION_ID
+            </otherwise>
+        </choose>
+        ASC
+        <![CDATA[
+        ) Q WHERE R > (#{pagination.page} - 1) * #{pagination.rowCount}
+        ]]>
+    </select>
     <select id="select" resultType="questionDTO">
         SELECT QUESTION_ID, U.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
                QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
@@ -21,4 +63,11 @@
     <delete id="delete">
         <![CDATA[DELETE FROM TBL_QUESTION WHERE QUESTION_ID = #{questionId}]]>
     </delete>
+
+    <select id="selectCountOfPost" resultType="_int">
+        SELECT COUNT(Q.USER_ID)
+        FROM TBL_USER U JOIN TBL_QUESTION Q
+        ON Q.USER_ID = U.USER_ID
+        <include refid="search"/>
+    </select>
 </mapper>

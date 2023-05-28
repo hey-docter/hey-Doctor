@@ -1,11 +1,21 @@
 package com.heydoctor.app.service.mainpage;
 
+import com.heydoctor.app.domain.dto.MainDTO;
+import com.heydoctor.app.domain.vo.UserVO;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface MainPageService {
-/*    //    커뮤니티 좋아요 순 정렬
-    public List<MainVO> getListAll();
+    //public List<MainDTO> selectReadCount();
 
-//    답변 킹 좋아요 순 정렬
-    public List<MainVO> getListLikeDESCAll();*/
+    public List<MainDTO> selectQuestionReadCount();
+
+    public List<MainDTO> selectAnswerAll();
+
+    public List<MainDTO> selectAdopCount();
+
+    public List<MainDTO> selectVisitCount();
+
+    public Optional<UserVO> selectUserId(Long userId);
 }

@@ -15,7 +15,6 @@ public class AnswerVO {
     private String answerContent;
     private String answerRegisterDateTime;
     private Boolean answerIsPublic;
-    private Integer answerLikeCount;
     private Boolean answerIsAdopted;
 
     private String doctorName;
@@ -25,4 +24,6 @@ public class AnswerVO {
 
     private Long answerCount;
     private String userName;
+
+    private Integer answerLikeCount;
 }

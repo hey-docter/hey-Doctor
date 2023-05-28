@@ -28,4 +28,33 @@
     INNER JOIN TBL_QUESTION c ON b.QUESTION_ID = c.QUESTION_ID
     WHERE a.USER_ID = #{id}
 </select>
+
+        <!-- 유저정보 불러오기 -->
+    <select id ="selectUser" resultType="UserVO">
+        SELECT USER_ID, USER_NAME, USER_EMAIL
+    FROM TBL_USER
+    WHERE USER_ID = #{ID}
+    </select>
+
+    <!-- replyStatusLike 불러오기  -->
+    <select id="selectReplyLike" resultType="ReplyLikeCountVO">
+        SELECT USER_ID, COUNT(*) AS LIKE_REPLY_COUNT
+        FROM TBL_REPLY_LIKE_COUNT
+        WHERE USER_ID = #{ID};
+    </select>
+
+    <!-- answerStatusLike 불러오기  -->
+    <select id="selectAnswerLike" resultType="ReplyLikeCountVO">
+        SELECT USER_ID, COUNT(*) AS LIKE_ANSWER_COUNT
+        FROM TBL_ANSWER_LIKE_COUNT
+        WHERE USER_ID = #{ID};
+    </select>
+
+    <!-- questionStatusLike 불러오기  -->
+    <select id="selectQuestionLike" resultType="ReplyLikeCountVO">
+        SELECT USER_ID, COUNT(*) AS LIKE_QUESTION_COUNT
+        FROM TBL_QUESTION_LIKE_COUNT
+        WHERE USER_ID = #{ID};
+    </select>
+
 </mapper>

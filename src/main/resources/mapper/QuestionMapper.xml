@@ -6,27 +6,35 @@
                QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
                DOCTOR_DEPARTMENT_TYPE, READ_COUNT, BOOKMARKED_COUNT, ANSWER_COUNT
         FROM (
-             SELECT Q.QUESTION_ID, Q.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
-                    QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
-                    DOCTOR_DEPARTMENT_TYPE, READ_COUNT,
-                    NVL(BOOKMARKED_COUNT, 0) AS "BOOKMARKED_COUNT", NVL(ANSWER_COUNT, 0) AS "ANSWER_COUNT"
-             FROM TBL_QUESTION Q LEFT OUTER JOIN (
-                 SELECT B.QUESTION_ID, BOOKMARKED_COUNT, ANSWER_COUNT
-                 FROM (
-                     SELECT QUESTION_ID, COUNT(USER_ID) BOOKMARKED_COUNT
-                     FROM TBL_QUESTION_BOOKMARK
-                     GROUP BY QUESTION_ID
-                 ) B FULL OUTER JOIN (
-                     SELECT QUESTION_ID, COUNT(ANSWER_ID) ANSWER_COUNT
-                     FROM TBL_ANSWER
-                     GROUP BY QUESTION_ID
-                 ) R
-                 ON B.QUESTION_ID = R.QUESTION_ID
-             ) C
-             ON Q.QUESTION_ID = C.QUESTION_ID
-             ORDER BY QUESTION_REGISTER_DATETIME DESC
+            SELECT ROWNUM R, QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+                   QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
+                   DOCTOR_DEPARTMENT_TYPE, READ_COUNT, BOOKMARKED_COUNT, ANSWER_COUNT
+            FROM (
+                 SELECT Q.QUESTION_ID, Q.USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
+                        QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT,
+                        DOCTOR_DEPARTMENT_TYPE, READ_COUNT,
+                        NVL(BOOKMARKED_COUNT, 0) AS "BOOKMARKED_COUNT", NVL(ANSWER_COUNT, 0) AS "ANSWER_COUNT"
+                 FROM TBL_QUESTION Q LEFT OUTER JOIN (
+                     SELECT B.QUESTION_ID, BOOKMARKED_COUNT, ANSWER_COUNT
+                     FROM (
+                         SELECT QUESTION_ID, COUNT(USER_ID) BOOKMARKED_COUNT
+                         FROM TBL_QUESTION_BOOKMARK
+                         GROUP BY QUESTION_ID
+                     ) B FULL OUTER JOIN (
+                         SELECT QUESTION_ID, COUNT(ANSWER_ID) ANSWER_COUNT
+                         FROM TBL_ANSWER
+                         GROUP BY QUESTION_ID
+                     ) R
+                     ON B.QUESTION_ID = R.QUESTION_ID
+                 ) C
+                 ON Q.QUESTION_ID = C.QUESTION_ID
+                 <if test="type != 'ALL'.toString()">
+                     WHERE DOCTOR_DEPARTMENT_TYPE = #{type}
+                 </if>
+                 ORDER BY QUESTION_REGISTER_DATETIME DESC
+            )
         )
-        <![CDATA[WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10]]>
+        <![CDATA[WHERE R > #{page} * 10 AND R <= #{page} * 10 + 11]]>
     </select>
 
     <select id="selectOne" resultType="questionDTO">
@@ -51,17 +59,17 @@
     </select>
 
     <insert id="insert">
+        <selectKey keyProperty="questionId" resultType="long" order="BEFORE">
+            SELECT SEQ_QUESTION.NEXTVAL FROM DUAL
+        </selectKey>
         INSERT INTO TBL_QUESTION (
             QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT,
             QUESTION_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE
         )
         VALUES (
-            SEQ_QUESTION.NEXTVAL, #{userId}, #{questionTitle}, #{questionContent},
+            #{questionId}, #{userId}, #{questionTitle}, #{questionContent},
             #{questionIsPublic}, #{doctorDepartmentType}
         )
-        <selectKey keyProperty="questionId" resultType="Long" order="AFTER">
-            SELECT QUESTION_ID()
-        </selectKey>
     </insert>
 
     <select id="selectReadDESCAll" resultType="questionVO">

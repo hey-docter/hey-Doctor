@@ -161,9 +161,6 @@ img {
     max-width: 100%;
 }
 
-.ml-6 {
-    margin-left: 6px!important;
-}
 
 .c-body1 {
     font-size: 14px;
@@ -351,7 +348,7 @@ article, aside, footer, header, nav, section {
 }
 
 .inputbox-group {
-    margin-bottom: 15px;
+    height: 90px;
 }
 
 .mb-5 {

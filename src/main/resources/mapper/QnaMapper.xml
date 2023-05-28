@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.QnaMapper">
-    <select id="selectList" resultType="qnaDTO">
-        SELECT Q.QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, U.USER_NAME
-        FROM TBL_USER U JOIN TBL_QNA Q
-        ON U.USER_ID = Q.USER_ID
+    <sql id="search">
+        <if test="search.type != null and !search.type.equals('')">
+            <trim prefix="AND(" prefixOverrides="OR" suffix=")">
+                <foreach item="type" collection="search.types">
+                    <trim prefix="OR">
+                        <choose>
+                            <when test="type=='t'.toString()">
+                                POST_TITLE LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='c'.toString()">
+                                POST_CONTENT LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                            <when test="type=='w'.toString()">
+                                MEMBER_NAME LIKE '%'||#{search.keyword}||'%'
+                            </when>
+                        </choose>
+                    </trim>
+                </foreach>
+            </trim>
+        </if>
+    </sql>
+<!--    <select id="selectList" resultType="questionListDTO">-->
+<!--        SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, USER_NAME-->
+<!--        FROM (-->
+<!--        SELECT ROWNUM R, Q.QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, U.USER_NAME-->
+<!--        FROM (-->
+<!--        SELECT Q.QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, U.USER_NAME,-->
+<!--        NVL(ANSWER_COUNT, 0) AS "ANSWER_COUNT"-->
+<!--        FROM TBL_QNA Q FULL OUTER JOIN (-->
+<!--        SELECT QNA_ID, COUNT(ANSWER_ID) ANSWER_COUNT-->
+<!--        FROM (-->
+<!--            FROM TBL_QNA_ANSWER-->
+<!--            GROUP BY QNA_ID-->
+<!--        )ANS-->
+<!--        ON B.QUESTION_ID = ANS.QUESTION_ID-->
 
-        <![CDATA[
-            WHERE ROWNUM > #{page} * 10 AND ROWNUM <= #{page} * 10 + 10
+<!--        ORDER BY QNA_REGISTER_DATETIME DESC-->
+<!--        )-->
+<!--        )-->
+<!--        <![CDATA[WHERE R > #{page} * 10 AND R <= #{page} * 10 + 11]]>-->
+<!--    </select>-->
+
+    <select id="selectList" resultType="qnaDTO">
+        SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC,
+        ANSWER_COUNT, USER_NAME
+        FROM(
+        SELECT ROWNUM R, Q.QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC,
+        ANSWER_COUNT, USER_NAME
+        FROM
+        (SELECT QNA_ID, USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, USER_NAME
+        FROM
+        (
+        SELECT QNA_ID, U.USER_ID, QNA_TITLE, QNA_CONTENT, QNA_REGISTER_DATETIME, QNA_IS_PUBLIC, USER_NAME
+        FROM TBL_USER U JOIN TBL_QNA QNA ON U.USER_ID = QNA.USER_ID
+        )
+        ) Q FULL OUTER JOIN (
+        SELECT QNA_ID, NVL(COUNT(QNA_ANSWER_ID), 0) AS "ANSWER_COUNT"
+        FROM TBL_QNA_ANSWER
+        GROUP BY QNA_ID) A
+        ON Q.QNA_ID = A.QNA_ID
+        )
+        <include refid="search"/>
+<!--        ORDER BY-->
+<!--        <choose>-->
+<!--            <when test="search.order == 'popular'">-->
+<!--                READ_COUNT-->
+<!--            </when>-->
+<!--            <otherwise>-->
+<!--                Q.QNA_ID-->
+<!--            </otherwise>-->
+<!--        </choose>-->
+--         ASC
+        <![CDATA[ WHERE R <= #{pagination.page} * #{pagination.rowCount} AND R > (#{pagination.page} - 1) * #{pagination.rowCount}
         ]]>
     </select>
 
@@ -33,4 +99,11 @@
     <delete id="delete">
         DELETE FROM TBL_QNA WHERE QNA_ID = #{qnaId, jdbcType=VARCHAR}
     </delete>
+
+    <select id="selectCountOfPost" resultType="_int">
+        SELECT COUNT(Q.USER_ID)
+        FROM TBL_USER U JOIN TBL_QNA Q
+        ON Q.USER_ID = U.USER_ID
+--         <include refid="search"/>
+    </select>
 </mapper>

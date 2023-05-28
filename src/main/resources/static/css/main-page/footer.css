@@ -40,7 +40,7 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     line-height: 1.15;
-    height: 3767.5px;
+    /*height: 3767.5px;*/
 }
 
 body{
@@ -298,8 +298,8 @@ article, aside, body, div, footer, header, section {
 }
 
 input, textarea {
-    -webkit-appearance: none;
-    appearance: none;
+    /*-webkit-appearance: none;*/
+    /*appearance: none;*/
 }
 
 

@@ -6,14 +6,16 @@ import com.google.gson.JsonElement;
 import com.heydoctor.app.dao.UserDAO;
 import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.mapper.UserMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.*;
 
 @Service
 @Slf4j
@@ -22,6 +24,7 @@ public class KakaoService {
 
     private final UserDAO userDAO;
     private final UserMapper userMapper;
+//    private final ApplicationEnvironmentConfig envConfig;
 
     @Autowired
     public KakaoService(UserDAO userDAO, UserMapper userMapper) {
@@ -37,7 +40,6 @@ public class KakaoService {
         try {
             URL url = new URL(reqURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
             conn.setRequestMethod("POST");
             conn.setDoOutput(true);
 
@@ -113,14 +115,18 @@ public class KakaoService {
             String nickname = properties.getAsJsonObject().get("nickname").getAsString();
             String email = kakao_account.getAsJsonObject().get("email").getAsString();
 
+
             user = new UserVO();
-            user.setUserName(nickname);
-            user.setUserEmail(email);
-            user.setUserPassword(Integer.toString(id));
-            user.setUserLoginType("KAKAO");
+            user.setUserLoginType("KAKAO"); // 항상 "KAKAO"로 설정
 
-            userMapper.kakaoUpdate(user);
+            if (!user.getUserLoginType().equals("NOMAL") && !user.getUserLoginType().equals("NAVER")) {
 
+                user.setUserName(nickname);
+                user.setUserEmail(email);
+                user.setUserPassword(Integer.toString(id));
+
+//                userMapper.kakaoUpdate(user);
+            }
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -128,6 +134,7 @@ public class KakaoService {
 
         return user;
     }
+
 
     public void saveUser(UserVO userVO) {
         userDAO.save(userVO);
@@ -161,4 +168,3 @@ public class KakaoService {
         }
     }
 }
-

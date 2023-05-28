@@ -1,6 +1,7 @@
 package com.heydocter.app.mapper;
 
 import com.heydoctor.app.HeydocterApplication;
+import com.heydoctor.app.mapper.MainMapper;
 import com.heydoctor.app.mapper.QuestionMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -13,17 +14,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class MainMapperTest {
     @Autowired
-    private QuestionMapper questionMapper;
+    private MainMapper mainMapper;
 
-//    커뮤니티 좋아요 순 mapper 테스트
-/*    @Test
-    public void selectAllTest() {
-        log.info(questionMapper.selectLikeDESCAll().toString());
+    /*@Test
+    public void selectReadCountTest() {
+        log.info(mainMapper.selectReadCount().toString());
     }*/
+    @Test
+    public void selectQuestionReadCountTest() {
+        log.info(mainMapper.selectQuestionReadCount().toString());
+    }
 
-//    답변 킹 좋아요 순 mapper 테스트
-//    @Test
-//    public void selectLikeCountTest() {
-//        log.info(mainMapper.selectLikeCount().toString());
-//    }
+    @Test
+    public void selectAnswerAll(){
+        log.info(mainMapper.selectAnswerAll().toString());
+    }
+
+    @Test
+    public void selectAdoptCountTest() {
+        log.info(mainMapper.selectAdoptCount().toString());
+    }
+
+    @Test
+    public void selectVisitCountTest(){
+        log.info(mainMapper.selectVisitCount().toString());
+    }
+
 }

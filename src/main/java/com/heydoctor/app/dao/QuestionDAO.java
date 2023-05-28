@@ -17,7 +17,7 @@ public class QuestionDAO {
     private final QuestionMapper questionMapper;
 
     public List<QuestionListDTO> findAll(Integer page) {
-        return questionMapper.selectList(page, DepartmentType.ALL.getType());
+        return questionMapper.selectList(page, DepartmentType.ALL.name());
     }
 
     public List<QuestionListDTO> findAll(Integer page, String type) {
