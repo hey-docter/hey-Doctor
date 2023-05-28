@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 public class LikeDTO {
-    private Long QuestionLikeCountId;
-    private Long AnswerLikeCountId;
-    private Long ReplyLikeCountId;
     private Long UserId;
     private Long DoctorVisitCount;
     private Long AnswerIsAdopted;
