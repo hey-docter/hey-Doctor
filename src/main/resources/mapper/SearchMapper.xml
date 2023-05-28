@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heydoctor.app.mapper.SearchMapper">
+
+
+    <select id="selectAll" resultType="questionDTO">
+        select QUESTION_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT, m.USER_ID, m.USER_NAME, m.USER_PROFILE_NAME
+        FROM TBL_QUESTION q join TBL_USER m
+        on q.user_id = m.user_id
+        <if test="keyword != ''.toString()">
+            AND (q.QUESTION_TITLE like ('%' || #{keyword} || '%') OR m.USER_NAME like ('%' || #{keyword} || '%'))
+        </if>
+        order by QUESTION_TITLE desc
+    </select>
+
+    <select id="selectOne" resultType="questionDTO">
+        select QUESTION_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT, m.USER_ID, m.USER_NAME, m.USER_PROFILE_NAME
+        FROM TBL_QUESTION q join TBL_USER m
+        on q.user_id = m.user_id
+        order by QUESTION_TITLE desc
+    </select>
+
+    <insert id="insert">
+        INSERT INTO HR.TBL_QUESTION
+        (QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT)
+        VALUES(#{questionId}, #{userId}, #{questionTitle}, #{questionContent}, #{questionRegisterDatetime}, #{questionIsPublic}, #{questionLikeCount}, #{doctorDepartmentType}, #{readCount});
+    </insert>
+</mapper>

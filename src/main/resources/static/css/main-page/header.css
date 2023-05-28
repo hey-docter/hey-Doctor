@@ -1057,3 +1057,22 @@ img {
     overflow: hidden;
     position: relative;
 }
+
+.search-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("../../image/icon/search.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.search {
+    width: 20%;
+    line-height: 30px;
+    padding: 10px;
+    background-color: rgba(222, 227, 227, 0.6);
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 10px;
+}
