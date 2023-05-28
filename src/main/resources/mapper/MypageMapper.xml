@@ -33,28 +33,48 @@
     <select id ="selectUser" resultType="UserVO">
         SELECT USER_ID, USER_NAME, USER_EMAIL
     FROM TBL_USER
-    WHERE USER_ID = #{ID}
+    WHERE USER_ID = #{id}
     </select>
 
-    <!-- replyStatusLike 불러오기  -->
+
+    <!-- STATUS VISITCOUNT 불러오기  -->
+    <select id="selectVisit" resultType="DoctorVO">
+        SELECT USER_ID, DOCTOR_VISIT_COUNT
+        FROM TBL_DOCTOR
+        WHERE USER_ID = #{id}
+    </select>
+
+    <!-- STATUS 채택 수 불러오기  -->
+    <select id="selectAdopted" resultType="AnswerVO">
+        SELECT USER_ID, DOCTOR_VISIT_COUNT
+        FROM TBL_DOCTOR
+        WHERE USER_ID = #{id}
+    </select>
+
+    <!-- STATUS QUESTION 좋아요 수 불러오기  -->
+    <select id="selectQuestionLike" resultType="QuestionLikeCountVO">
+    SELECT QUESTION_ID, COUNT(USER_ID)
+    FROM TBL_QUESTION_LIKE_COUNT
+    WHERE USER_ID = #{id}
+    GROUP BY QUESTION_ID
+    </select>
+
+    <!-- STATUS ANSWER 좋아요 수 불러오기  -->
+    <select id="selectAnswerLike" resultType="AnswerLikeCountVO">
+    SELECT ANSWER_ID, COUNT(USER_ID)
+    FROM TBL_ANSWER_LIKE_COUNT
+    WHERE USER_ID = #{id}
+    GROUP BY ANSWER_ID
+    </select>
+
+    <!-- STATUS REPLY 좋아요 수 불러오기  -->
     <select id="selectReplyLike" resultType="ReplyLikeCountVO">
-        SELECT USER_ID, COUNT(*) AS LIKE_REPLY_COUNT
-        FROM TBL_REPLY_LIKE_COUNT
-        WHERE USER_ID = #{ID};
-    </select>
+    SELECT REPLY_ID, COUNT(USER_ID)
+    FROM TBL_REPLY_LIKE_COUNT
+    WHERE USER_ID = #{id}
+    GROUP BY REPLY_ID
 
-    <!-- answerStatusLike 불러오기  -->
-    <select id="selectAnswerLike" resultType="ReplyLikeCountVO">
-        SELECT USER_ID, COUNT(*) AS LIKE_ANSWER_COUNT
-        FROM TBL_ANSWER_LIKE_COUNT
-        WHERE USER_ID = #{ID};
-    </select>
 
-    <!-- questionStatusLike 불러오기  -->
-    <select id="selectQuestionLike" resultType="ReplyLikeCountVO">
-        SELECT USER_ID, COUNT(*) AS LIKE_QUESTION_COUNT
-        FROM TBL_QUESTION_LIKE_COUNT
-        WHERE USER_ID = #{ID};
     </select>
 
 </mapper>
