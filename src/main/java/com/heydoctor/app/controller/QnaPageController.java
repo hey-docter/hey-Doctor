@@ -69,8 +69,10 @@ public class QnaPageController {
 //
 //    상세보기
     @GetMapping("read")
-    public void read(Long id, Model model){
-        model.addAttribute("qnaId", qnaService.read(id));
+    public String read(Long id, Model model){
+//        model.addAttribute("qnaId", qnaService.read(id));
+        model.addAttribute("qnaId", qnaService.read(id).get());
+        return "/question-board/detail";
     }
 
     @PostMapping("delete")

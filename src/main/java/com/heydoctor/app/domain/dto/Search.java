@@ -10,13 +10,12 @@ import org.springframework.stereotype.Component;
 public class Search {
 
     String keyword;
+    String type;
+    String order;
 
     public Search(String keyword) {
         this.keyword = keyword;
     }
-}
-    String type;
-    String order;
     public String[] getTypes() {
         return type.split("");
     }

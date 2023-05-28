@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
     const $ul = $("#content-wrap tbody");
-    $("#content-wrap tbody").html("hello");
+    // $("#content-wrap tbody").html("hello");
     let text = "";
     questions.forEach(question => {
         console.log(question.userName);
@@ -12,7 +12,7 @@ $(document).ready(function(){
                             <td class="checkbox-line"><input type="checkbox" name="check"></td>
                             <td class="noticeId">${question.questionId}</td>
                             <td>
-                                <a href="">${question.questionTitle}</a>
+                                <a>${question.questionTitle}</a>
                             </td>
                             <td>${question.userName}</td>
                             <td>${question.questionRegisterDatetime}</td>
