@@ -505,8 +505,8 @@
                                                 <div class="c-application c-typography c-body2"
                                                      style="color: rgb(89, 95, 99);">
                                                     답변
-                                                    <span class="c-application c-typography f-medium" style="color: rgb(32, 35, 37);"
-                                                          th:text="${answers.size()}">
+                                                    <span class="c-application c-typography f-medium answer-size" style="color: rgb(32, 35, 37);"
+                                                          th:text="${answerCount}">
                                                     </span>
                                                 </div>
                                             </div>
@@ -591,6 +591,7 @@
     let answers = [[${answers}]];
     let user = [[${user}]];
     let replies = [[${replies}]];
+    let answerCount = [[${answerCount}]];
 </script>
 <script src="/js/question-board/util.js"></script>
 <script src="/js/modal/modal.js"></script>

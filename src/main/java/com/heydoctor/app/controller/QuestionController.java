@@ -4,7 +4,6 @@ import com.heydoctor.app.domain.dto.AnswerDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.dto.ReplyDTO;
 import com.heydoctor.app.domain.enums.DepartmentType;
-import com.heydoctor.app.domain.vo.AnswerVO;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import com.heydoctor.app.domain.vo.ReplyVO;
 import com.heydoctor.app.domain.vo.UserVO;
@@ -39,32 +38,28 @@ public class QuestionController {
     public void read(@RequestParam Long questionId, Model model){
         Long userId = 1L;
         Optional.ofNullable(questionId).flatMap(questionService::read).ifPresent(questionDTO -> {
-            List<AnswerDTO> answers = answerService.getAllAnswer(questionId);
+            List<AnswerDTO> answers = answerService.getAllAnswer(0, questionId);
             List<ReplyDTO> replies = replyService.getAllReplyDTO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
             UserVO userVO = /*WIP*/userMapper.selectById(userId).get()/*session.getAttribute("user")*/ ;
+            Integer answerCount = answerService.getCount(questionId);
 
             model.addAttribute("question", questionDTO);
             model.addAttribute("user", userVO);
             model.addAttribute("answers", answers);
             model.addAttribute("replies", replies);
+            model.addAttribute("answerCount", answerCount);
         });
     }
 
     @GetMapping("write")
-    public void goToWriteForm(QuestionVO questionVO){}
+    public void goToWriteForm(QuestionVO questionVO){;}
 
-    @PostMapping("question/write")
+    @PostMapping("write")
     public RedirectView write(QuestionVO questionVO){
         questionVO.setUserId(1L /*session.getAttribute("id")*/);
         questionService.write(questionVO);
         //log.info("==========ID: {}", questionVO.getQuestionId());
         return new RedirectView("/question-board/list");
-    }
-
-    @PostMapping("answer/write")
-    public void write(AnswerVO answerVO){
-        log.info("==========answerVO: {}", answerVO);
-        answerService.write(answerVO);
     }
 
     @PostMapping("reply/write")
@@ -84,20 +79,6 @@ public class QuestionController {
     @PostMapping("question/list/{page}/{name}")
     @ResponseBody
     public List<QuestionListDTO> getQuestionList(@PathVariable Integer page, @PathVariable String name) {
-        DepartmentType departmentType = DepartmentType.valueOf(name);
-        List<QuestionListDTO> questions = questionService.getList(page, departmentType.name());
-
-        log.info("=========== type: {}", name);
-        log.info("=========== page: {}", page);
-        log.info("=========== count: {}", questions.size());
-        log.info("=======================|");
-
-        return questions;
-    }
-
-    @PostMapping("answer/list/{page}/{name}")
-    @ResponseBody
-    public List<QuestionListDTO> getAnswerList(@PathVariable Integer page, @PathVariable String name) {
         DepartmentType departmentType = DepartmentType.valueOf(name);
         List<QuestionListDTO> questions = questionService.getList(page, departmentType.name());
 
