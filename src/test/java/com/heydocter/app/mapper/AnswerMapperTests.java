@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -69,8 +70,13 @@ public class AnswerMapperTests {
     }
 
     @Test
+    public void selectTest() {
+        log.info(answerMapper.select(66L).toString());
+    }
+
+    @Test
     public void selectByQuestionIdsTest() {
-        assertThat(answerMapper.selectByQuestionId(6L).size()).isEqualTo(2);
+        assertThat(answerMapper.selectByQuestionId(1, 6L).size()).isEqualTo(2);
     }
 
     @Test

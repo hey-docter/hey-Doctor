@@ -29,7 +29,7 @@ const $department = $('.q-department');
 const $title = $('.q-title');
 const $content = $('.q-content');
 
-$reqBtn.on('click', 'button.send-btn',function (e) {
+$reqBtn.on('click', 'button.send-btn', function (e) {
     e.preventDefault();
     console.log($('.q-department').val());
     if($department.val() === '병과') {showWarnModal("병과를 선택하세요."); return}
