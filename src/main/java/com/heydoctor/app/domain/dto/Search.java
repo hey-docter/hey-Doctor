@@ -14,7 +14,7 @@ public class Search {
     public Search(String keyword) {
         this.keyword = keyword;
     }
-}
+
     String type;
     String order;
     public String[] getTypes() {

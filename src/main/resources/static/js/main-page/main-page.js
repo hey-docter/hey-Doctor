@@ -107,7 +107,7 @@ function changeBanner(direction){
 
 // 두번째 배너 이전/다음 버튼
 $(".second-next").on("click", function(){
-    if(secondCount < $second_divs.length-2){
+    if(secondCount < $second_divs.length+2){
         $secondBanner.css("transform", `translate(${-283*(++secondCount)}px)`);
         $secondBanner.css("transition", "transform 0.7s");
     }else if($(this).hasClass('swiper-button-disabled')){
@@ -139,7 +139,7 @@ $(".second-prev").on("click", function(){
 // 두번째 오른쪽 배너 이전/다음 버튼
 
 $(".second-nextSecond").on("click", function(){
-    if(secondCount < $second_divs.length-2){
+    if(secondCount < $second_divs.length+2){
         $secondBannerSecond.css("transform", `translate(${-283*(++secondCount)}px)`);
         $secondBannerSecond.css("transition", "transform 0.7s");
     }else if($(this).hasClass('swiper-button-disabled')){
@@ -170,13 +170,17 @@ $(".second-prevSecond").on("click", function(){
 
 // 세번째 배너 이전/다음 버튼
 $(".third-next").on("click", function(){
-    if(thirdCount < $third_divs.length-2){
+    console.log("왜 안될까")
+    if(thirdCount < $third_divs.length+2){
+        console.log("왜 안될까 이프문 들어옴")
         $thirdBanner.css("transform", `translate(${-566*(++thirdCount)}px)`);
         $thirdBanner.css("transition", "transform 0.7s");
         // console.log(secondCount);
     }else if($(this).hasClass('swiper-button-disabled')){
+        console.log("요쪽으로 들어옴")
     }else{
         $(".third-next").addClass('swiper-button-disabled');
+        console.log("조짝으로 들어옴")
     }
     if(thirdCount >= 1){
         $(".third-prev").removeClass('swiper-button-disabled')
