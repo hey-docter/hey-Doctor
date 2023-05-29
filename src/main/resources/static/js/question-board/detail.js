@@ -1,14 +1,18 @@
+
 //=============================================================
 // Modules
 //=============================================================
+function Replies(answerId, replies) {
+    this.answerId = answerId;
+    this.replies = replies ? replies : [];
+    this.page = 0;
 
-// function Replies(answerId, replies) {
-//     this.answerId = answerId;
-//     this.replies = replies ? replies : [];
-//     this.page = 0;
-//     this.addPage = ++page;
-//     this.clearPage = () => { page = 0; return page };
-// }
+    this.addPage = () => ++page;
+    this.clearPage = () => { page = 0; return page };
+}
+
+// answerId => the answer`s replies data
+const repliesMap = {};
 
 let appendTypes = {BEFORE: 'before', AFTER: 'after', INIT: 'init'};
 
@@ -27,7 +31,7 @@ let answerService = (() => {
 
     function getAnswerList(callback) {
         $.ajax({
-            url: `/answer/list/${questionId}/${page}`,
+            url: `/answer/list/${question.questionId}/${page}`,
             success: function(answers) {
                 if(callback) callback(answers);
             }
@@ -64,9 +68,9 @@ let replyService = (() => {
         });
     }
 
-    function getReplyList(answer, callback) {
+    function getReplyList(answerId, callback) {
         $.ajax({
-            url: `/reply/list/${answerId}/${page}`,
+            url: `/reply/list/${answerId}/${++repliesMap[answerId].page}`,
             success: function(replies) {
                 if(callback) callback(replies);
             }
@@ -82,7 +86,7 @@ let replyService = (() => {
 const $answerArea = $("article.answer-write-box");
 const $answerTextarea = $('textarea.answer-area');
 const $answerContainer = $('div#answer-container-main');
-
+const $answerSize = $('span.answer-size');
 const $loading = $('.loading-items');
 const $noneItems = $('.none-items');
 
@@ -93,8 +97,10 @@ $answerArea.hide();
 
 $(window).scroll(function(){
     if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.scrollHeight && isListRemains) {
-        let type = $('.active').text().trim();
-        answerService.getAnswerList(answers => showList(answers, appendTypes.AFTER));
+        page++;
+        answerService.getAnswerList(answers => {
+            showList(answers, appendTypes.AFTER);
+        });
     }
 });
 
@@ -127,6 +133,8 @@ $('button.write-answer').on('click', function (e) {
         showList([answer], appendTypes.BEFORE);
         $('div.fake-submit-btn').each((_, e) => $(e).show());
         $answerArea.hide();
+
+        $answerSize.text(parseInt($answerSize.text())+1);
     });
 });
 
@@ -344,7 +352,8 @@ function showList(answers, appendType) {
 function showReplies(replies) {
     let texts = [];
     replies.forEach(reply => {
-        if(!texts[reply.answerId]) {
+        //check if init reply group
+        if(!repliesMap[reply.answerId]) {
             texts[reply.answerId] = `
                 <hr class="slight-divider">
                 <div class="c-application c-box"
@@ -358,6 +367,11 @@ function showReplies(replies) {
                     </div>
                 </div>
             `;
+
+            repliesMap[reply.answerId] = {
+                replies: [reply,],
+                page: 0
+            };
         }
 
         texts[reply.answerId] += `
@@ -413,6 +427,8 @@ function showReplies(replies) {
             </div>
             <hr class="slight-divider">
         `;
+
+        repliesMap[reply.answerId].replies.push(reply);
     });
 
     replies.map(reply => reply.answerId).forEach(id => $(`.reply-container.${id}`).html(texts[id]));

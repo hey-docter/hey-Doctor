@@ -14,8 +14,8 @@ import java.util.Optional;
 public class AnswerDAO {
     private final AnswerMapper answerMapper;
 
-    public List<AnswerDTO> getAllAnswers(Long questionId) {
-        return answerMapper.selectByQuestionId(questionId);
+    public List<AnswerDTO> getAllAnswers(Integer page, Long questionId) {
+        return answerMapper.selectByQuestionId(page, questionId);
     }
 
     public void insert(AnswerVO answerVO) {
@@ -24,6 +24,10 @@ public class AnswerDAO {
 
     public Optional<AnswerDTO> select(Long answerId) {
         return Optional.ofNullable(answerMapper.select(answerId));
+    }
+
+    public Integer getCount(Long questionId) {
+        return answerMapper.count(questionId);
     }
     //    답변 왕 조회
     public List<AnswerVO> findByAdoptCount() {

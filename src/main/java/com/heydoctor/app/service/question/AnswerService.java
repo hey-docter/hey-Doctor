@@ -8,9 +8,11 @@ import java.util.Optional;
 
 public interface AnswerService {
     public AnswerDTO write(AnswerVO answerVO);
-    public List<AnswerDTO> getAllAnswer(Long questionId);
+    public List<AnswerDTO> getAllAnswer(Integer page, Long questionId);
 
     Optional<AnswerDTO> getAnswer(Long answerId);
+
+    Integer getCount(Long questionId);
 
     public List<AnswerVO> getListDoctorListAll();
 }

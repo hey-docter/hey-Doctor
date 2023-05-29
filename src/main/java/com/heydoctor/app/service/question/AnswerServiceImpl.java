@@ -28,13 +28,18 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public List<AnswerDTO> getAllAnswer(Long questionId) {
-        return answerDAO.getAllAnswers(questionId);
+    public List<AnswerDTO> getAllAnswer(Integer page, Long questionId) {
+        return answerDAO.getAllAnswers(page, questionId);
     }
 
     @Override
     public Optional<AnswerDTO> getAnswer(Long answerId) {
         return answerDAO.select(answerId);
+    }
+
+    @Override
+    public Integer getCount(Long questionId) {
+        return answerDAO.getCount(questionId);
     }
 
     @Override

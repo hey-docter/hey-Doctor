@@ -9,8 +9,9 @@ import java.util.List;
 @Mapper
 public interface AnswerMapper {
     public void insert(AnswerVO answerVO);
-    public List<AnswerDTO> selectByQuestionId(Long questionId);
+    public List<AnswerDTO> selectByQuestionId(Integer page, Long questionId);
     public AnswerDTO select(Long answerId);
+    public Integer count(Long questionId);
 //    답변 왕 조회
     public List<AnswerVO> selectByAdoptCount();
 }

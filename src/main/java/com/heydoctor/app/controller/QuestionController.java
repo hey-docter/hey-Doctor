@@ -38,14 +38,16 @@ public class QuestionController {
     public void read(@RequestParam Long questionId, Model model){
         Long userId = 1L;
         Optional.ofNullable(questionId).flatMap(questionService::read).ifPresent(questionDTO -> {
-            List<AnswerDTO> answers = answerService.getAllAnswer(questionId);
+            List<AnswerDTO> answers = answerService.getAllAnswer(0, questionId);
             List<ReplyDTO> replies = replyService.getAllReplyDTO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
             UserVO userVO = /*WIP*/userMapper.selectById(userId).get()/*session.getAttribute("user")*/ ;
+            Integer answerCount = answerService.getCount(questionId);
 
             model.addAttribute("question", questionDTO);
             model.addAttribute("user", userVO);
             model.addAttribute("answers", answers);
             model.addAttribute("replies", replies);
+            model.addAttribute("answerCount", answerCount);
         });
     }
 

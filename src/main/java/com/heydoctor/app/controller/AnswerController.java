@@ -30,17 +30,15 @@ public class AnswerController {
         return answerService.write(answerVO);
     }
 
-    @PostMapping("list/{page}/{name}")
-    public List<QuestionListDTO> getAnswerList(@PathVariable Integer page, @PathVariable String name) {
-        DepartmentType departmentType = DepartmentType.valueOf(name);
-        List<QuestionListDTO> questions = questionService.getList(page, departmentType.name());
+    @GetMapping("list/{questionId}/{page}")
+    public List<AnswerDTO> getAnswerList(@PathVariable Integer page, @PathVariable Long questionId) {
+        List<AnswerDTO> answers = answerService.getAllAnswer(page, questionId);
 
-        log.info("=========== type: {}", name);
         log.info("=========== page: {}", page);
-        log.info("=========== count: {}", questions.size());
+        log.info("=========== count: {}", answers.size());
         log.info("=======================|");
 
-        return questions;
+        return answers;
     }
 
 }
