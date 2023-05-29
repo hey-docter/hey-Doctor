@@ -255,16 +255,21 @@
                                 <div class="flex mb-32">
                                     <div class="image-upload-wrapper">
                                         <label for="imageUploadWrapper">
-                                            <div class="c-application c-avatar--container large"
-                                                 style="width: 48px; height: 48px;">
-                                                <i id="previewImage" class="c-avatar image large"
-                                                   style="background-image: url(&quot;https://cdn.comento.kr/images/illust/illust-photo-upload.svg&quot;); width: 48px; height: 48px;"></i>
-                                                <div class="c-avatar--item">
-                                                    <!---->
-                                                    <!---->
-                                                    <!---->
+
+
+                                            <form id="uploadForm" action="/files/upload" method="post" enctype="multipart/form-data">
+                                                <div class="image-upload-wrapper">
+                                                    <label for="file">
+                                                        <div class="c-application c-avatar--container my-page-setting-profile-image large">
+                                                            <img id="profileImage" class="c-avatar image large" src="" style="width: 45px; height: 45px;">
+                                                            <div class="c-avatar--item"></div>
+                                                        </div>
+                                                    </label>
+                                                    <input id="file" class="upload1" type="file" name="imgFile" accept="image/jpg,image/png,image/jpeg,image/gif" onchange="uploadImage(event)">
                                                 </div>
-                                            </div>
+                                            </form>
+
+
                                         </label>
                                         <input id="imageUploadWrapper"
                                                type="file"
@@ -481,17 +486,7 @@
 
 
 
-                                                <form id="uploadForm" action="/files/upload" method="post" enctype="multipart/form-data">
-                                                    <div class="image-upload-wrapper">
-                                                        <label for="file">
-                                                            <div class="c-application c-avatar--container my-page-setting-profile-image large">
-                                                                <img id="profileImage" class="c-avatar image large" src="" style="width: 67px; height: 67px;">
-                                                                <div class="c-avatar--item"></div>
-                                                            </div>
-                                                        </label>
-                                                        <input id="file" class="upload1" type="file" name="imgFile" accept="image/jpg,image/png,image/jpeg,image/gif" onchange="uploadImage(event)">
-                                                    </div>
-                                                </form>
+
 
 
 
@@ -812,20 +807,6 @@
     let user = [[${user}]];
 </script>
 <script>
-    // 프로필 이미지 로드
-    function loadProfileImage() {
-
-
-        fetch('/files/profileImage')
-            .then(response => response.text())
-            .then(imageUrl => {
-                profileImage.src = imageUrl;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }
-
     // 이미지 업로드
     function uploadImage(event) {
         const imgFile = event.target.files[0];
@@ -854,13 +835,22 @@
     // 페이지 로드 시 프로필 이미지 로드
     window.addEventListener('DOMContentLoaded', loadProfileImage);
 
-    // 이미지 선택 시 업로드 처리
-    const uploadInput = document.getElementById('file');
-    uploadInput.addEventListener('change', uploadImage);
-
-
-
-
+    // 프로필 이미지 로드
+    function loadProfileImage() {
+        $profileImage.attr("src", `/files/display?fileName=${user.userFileUuid}_${user.userFileName}`);
+        // $.ajax({
+        //     url: "/files/profileImage",
+        //     type: "get",
+        //     data: {userProfileName:  },
+        //     success: function (image) {
+        //         let reader = new FileReader();
+        //         reader.onload = function (e) {
+        //             $profileImage.attr("src", image);
+        //         }
+        //         reader.readAsDataURL(file);
+        //     }
+        // });
+    }
     const $upload = $("input.upload1");
     const $profileImage = $("#profileImage");
 
@@ -880,16 +870,9 @@
                 data: formData,
                 contentType: false,
                 processData: false,
-                success: function () {
+                success: function (uuid) {
                     console.log("프로필 변경 성공");
-                    // $profileImage.attr("src", imageUrl);
-                    let reader = new FileReader();
-                    reader.onload = function(e) {
-                        $profileImage.attr("src", e.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                    // location.replace(uuid);
-                    // location.href = "/mypage/setting";
+                    $profileImage.attr("src", `/files/display?fileName=${uuid}_${file.name}`);
                 },
                 error: function(error) {
                     console.error('프로필 데이터 저장 중 오류가 발생했습니다:', error);
