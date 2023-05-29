@@ -12,6 +12,12 @@ public class MainDTO {
     private String userName;
     private String userType;
 
+    private String userProfilePath;
+    private String userProfileName;
+    private Long userProfileSize;
+    private String userProfileType;
+    private String userProfileUuid;
+
     private Long questionId;
     private String questionTitle;
     private String questionContent;
@@ -28,9 +34,11 @@ public class MainDTO {
     private Long hospitalId;
     private String doctorIntroduction;
     private String doctorDepartmentType;
-    private Long visitCount;
+    private Long doctorVisitCount;
 
     private String hospitalName;
     private String hospitalLocation;
     private Long answerCount;
+
+
 }

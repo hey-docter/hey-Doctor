@@ -47,9 +47,12 @@ public class AdminpageServiceImpl implements AdminpageService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Long questionId) {
-        adminDAO.delete(questionId);
-        replyDAO.deleteAll(questionId);
+    public void delete(List<Long> questionId) {
+        questionId.forEach(question -> {
+            fileDAO.deleteAll(question);
+            replyDAO.deleteAll(question);
+            adminDAO.delete(question);
+        });
     }
 
     @Override

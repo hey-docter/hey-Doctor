@@ -22,7 +22,7 @@ public interface QnaMapper {
     //게시글 삭제
     public void delete(Long qnaId);
 
-    //게시글 삭제
+    //게시글 작성
     public void insert(QnaVO qnaVO);
 
     //    게시글 총 개수

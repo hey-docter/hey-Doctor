@@ -51,7 +51,9 @@
             </div>
             <form class="main-container">
                 <section class="top-line">
-                    <button type="button" class="delete-btn">삭제</button>
+<!--                    <a th:href="@{/qna/delete(qnaId=*{qnaId})}" class="delete">-->
+                        <button type="button" class="delete-btn">삭제</button>
+<!--                    </a>-->
                 </section>
                 <article id="info-container">
                     <h6 class="info">게시글 목록<br><th:block th:text="${pagination.total} + '개'"></th:block></h6>

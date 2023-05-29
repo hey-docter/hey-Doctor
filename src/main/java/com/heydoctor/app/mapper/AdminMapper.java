@@ -12,7 +12,7 @@ import java.util.List;
 
 @Mapper
 public interface AdminMapper {
-    // 질문 목록 - 검색어 / 10개씩 무한로딩 DTO
+    // 질문 목록 -
     public List<QuestionListDTO> selectLists(@Param("pagination") Pagination pagination, @Param("search")Search search);
 
     // 질문 상세보기 - 질문에 따른 답변 - 답변에 따른 댓글

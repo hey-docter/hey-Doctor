@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heydoctor.app.mapper.QnaAnswerMapper">
+    <insert id="insert">
+        <selectKey keyProperty="qnaAnswerId" resultType="long" order="BEFORE">
+            SELECT SEQ_QNA_ANSWER_ID.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO TBL_QNA_ANSWER
+        (
+        QNA_ANSWER_ID, USER_ID, QNA_ID, QNA_ANSWER_TITLE, QNA_ANSWER_CONTENT
+        )
+        VALUES( #{qnaAnswerId}, #{userId}, #{qnaId}, '답변',
+        #{qnaAnswerContent}
+        )
+    </insert>
+
+    <select id="selectByQnaId" resultType="QnaAnswerVO" parameterType="list">
+        SELECT QNA_ANSWER_ID, USER_ID, QNA_ID, QNA_ANSWER_TITLE, QNA_ANSWER_CONTENT,
+        QNA_ANSWER_REGISTER_DATETIME
+--                NVL((
+--                    SELECT
+--                        (COUNT(ANSWER_ID) / (SELECT COUNT(ANSWER_ID) FROM TBL_ANSWER WHERE USER_ID = D.USER_ID GROUP BY USER_ID))
+--                    FROM TBL_ANSWER
+--                    WHERE USER_ID = D.USER_ID
+--                    GROUP BY USER_ID
+--                ), 0)
+        FROM TBL_QNA_ANSWER D
+        WHERE QNA_ID = #{qnaId}
+    </select>
+
+</mapper>

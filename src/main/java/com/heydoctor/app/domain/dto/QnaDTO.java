@@ -20,6 +20,7 @@ public class QnaDTO {
     private Boolean qnaIsPublic;
     private String userEmail;
     private String userName;
+    private String answerCount;
 
     private List<FileVO> files = new ArrayList<>();
     private List<Long> fileIdsForDelete = new ArrayList<>();

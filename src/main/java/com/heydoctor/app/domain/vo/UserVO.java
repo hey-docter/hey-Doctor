@@ -21,6 +21,4 @@ public class UserVO {
     private Long userProfileSize;
     private String userProfileType;
     private String userProfileUuid;
-
-
 }
