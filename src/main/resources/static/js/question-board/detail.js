@@ -57,10 +57,14 @@ let replyService = (() => {
     function setReplySendEvent(answerId) {
         $(`.reply-send-${answerId}`).on('click', function () {
             let $replyContent = $(`.reply-write-${answerId}`);
+            let $count = $(`span.reply-size-${answerId}`);
             if($replyContent.val() === '') {
                 showWarnModal("내용을 입력해 주세요.");
                 return;
             }
+
+            $count.text(parseInt($count.text())+1);
+
             replyService.writeReply(answerId, $replyContent.val(), reply => {
                 showReplies([reply], appendTypes.BEFORE);
                 $replyContent.val("");
@@ -361,6 +365,7 @@ function showList(answers, appendType) {
 
 function showReplies(replies, type) {
     let texts = [];
+    let isFirst = false;
     console.log(repliesMap);
 
     replies.forEach(reply => {
@@ -368,6 +373,8 @@ function showReplies(replies, type) {
         //console.log(repliesMap[reply.answerId]);
 
         if(!repliesMap[reply.answerId]) {
+            isFirst = true;
+            console.log(`created ${reply.answerId}.`);
             texts[reply.answerId] = `
                 <hr class="slight-divider">
                 <div class="c-application c-box reply-title-${reply.answerId}"
@@ -448,14 +455,17 @@ function showReplies(replies, type) {
     });
 
     let distinctList = [];
-    Object.keys(repliesMap).forEach(id => {
-        console.log(texts[id]);
-        let $count = $(`span.reply-size-${id}`);
-        $count.text(parseInt($count.text())+1);
 
+    Object.keys(repliesMap).forEach(id => {
         let $container = $(`.reply-container-${id}`);
-        if(type === appendTypes.BEFORE) $(`.reply-title-${id}`).after(texts[id]);
-        else $container.append(texts[id]);
+        let $replyStart = $(`.reply-title-${id}`);
+
+        if(type === appendTypes.BEFORE && !isFirst) {
+            $replyStart.after(texts[id]);
+        }
+        else {
+            $container.append(texts[id]);
+        }
     });
 }
 
