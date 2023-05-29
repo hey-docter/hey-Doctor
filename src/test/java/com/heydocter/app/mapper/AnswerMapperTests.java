@@ -35,7 +35,7 @@ public class AnswerMapperTests {
         answerVO.setAnswerIsPublic(true);
         answerVO.setQuestionId(6L);
         answerVO.setAnswerTitle("test title1");
-        answerVO.setAnswerLikeCount(3);
+//        answerVO.setAnswerLikeCount(3);
         answerVO.setDoctorDepartmentType(DepartmentType.ENT_CLINIC.name());
         answerVO.setHospitalName("test hospital1");
         answerVO.setDoctorName("test doctor");
@@ -48,7 +48,7 @@ public class AnswerMapperTests {
         answerVO.setAnswerIsPublic(true);
         answerVO.setQuestionId(8L);
         answerVO.setAnswerTitle("test title1");
-        answerVO.setAnswerLikeCount(3);
+//        answerVO.setAnswerLikeCount(3);
         answerVO.setDoctorDepartmentType(DepartmentType.ENT_CLINIC.name());
         answerVO.setHospitalName("test hospital1");
         answerVO.setUserId(1L);
@@ -60,7 +60,7 @@ public class AnswerMapperTests {
         answerVO.setAnswerIsPublic(true);
         answerVO.setQuestionId(9L);
         answerVO.setAnswerTitle("test title1");
-        answerVO.setAnswerLikeCount(3);
+//        answerVO.setAnswerLikeCount(3);
         answerVO.setDoctorDepartmentType(DepartmentType.ENT_CLINIC.name());
         answerVO.setHospitalName("test hospital1");
         answerVO.setUserId(1L);

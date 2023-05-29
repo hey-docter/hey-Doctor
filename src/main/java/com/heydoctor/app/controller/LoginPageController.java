@@ -59,7 +59,7 @@ public class LoginPageController {
         if (foundUser.isPresent()) {
             if (userEmail.equals("8888") && userPassword.equals("8888")) {
                 // 이메일과 비밀번호가 "8888"인 경우 관리자 페이지로 이동
-                return new RedirectView("/admin-page/admin");
+                return new RedirectView("/admin/admin-board-list");
             }
             //성공 메인페이지 이동
             session.setAttribute("userId", foundUser.get());

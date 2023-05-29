@@ -21,7 +21,7 @@ public class UsersMapperTests {
     @Test
     public void insertTest(){
         UserVO userVO = new UserVO();
-        userVO.setUserEmail("8888");
+        userVO.setUserEmail("88881");
         userVO.setUserLoginType("NOMAL");
         userVO.setUserName("admin");
         userVO.setUserIsAvailable(1L);
