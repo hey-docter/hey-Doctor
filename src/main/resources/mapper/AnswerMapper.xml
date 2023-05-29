@@ -2,39 +2,72 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.heydoctor.app.mapper.AnswerMapper">
     <insert id="insert">
+        INSERT INTO TBL_ANSWER (
+            ANSWER_ID, USER_ID, QUESTION_ID, ANSWER_TITLE,
+            ANSWER_CONTENT
+        )
+        VALUES(
+            #{answerId}, #{userId}, #{questionId}, #{answerTitle},
+            #{answerContent}
+        )
         <selectKey keyProperty="answerId" resultType="long" order="BEFORE">
             SELECT SEQ_ANSWER.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO TBL_ANSWER (
-                ANSWER_ID, USER_ID, QUESTION_ID, ANSWER_TITLE,
-                ANSWER_CONTENT, ANSWER_IS_PUBLIC, ANSWER_LIKE_COUNT, ANSWER_IS_ADOPTED,
-                DOCTOR_NAME, HOSPITAL_NAME, DOCTOR_DEPARTMENT_TYPE
-        )
-        SELECT #{answerId}, #{userId}, #{questionId}, '답변',
-               #{answerContent}, #{answerIsPublic}, #{answerLikeCount}, #{answerIsAdopted},
-               (SELECT USER_NAME FROM TBL_USER WHERE USER_ID = #{userId}), HOSPITAL_NAME, DOCTOR_DEPARTMENT_TYPE
-        FROM TBL_DOCTOR D JOIN TBL_HOSPITAL H
-        ON D.HOSPITAL_ID = H.HOSPITAL_ID AND D.USER_ID = #{userId}
     </insert>
+
+    <select id="select" resultType="answerDTO">
+         SELECT ANSWER_ID, A.USER_ID, A.QUESTION_ID, ANSWER_TITLE,
+                ANSWER_CONTENT, ANSWER_REGISTER_DATETIME, ANSWER_LIKE_COUNT,
+                ANSWER_IS_ADOPTED, U.USER_NAME AS DOCTOR_NAME,
+                NVL((
+                    SELECT COUNT(ANSWER_BOOKMARK_ID)
+                    FROM TBL_ANSWER_BOOKMARK
+                    GROUP BY ANSWER_ID
+                ), 0) BOOKMARK_COUNT,
+                NVL((
+                    SELECT
+                        (COUNT(ANSWER_ID) / (SELECT COUNT(ANSWER_ID) FROM TBL_ANSWER WHERE USER_ID = A.USER_ID GROUP BY USER_ID))
+                    FROM TBL_ANSWER
+                    WHERE USER_ID = A.USER_ID AND ANSWER_IS_ADOPTED = 1
+                    GROUP BY USER_ID
+                ), 0) ADOPTED_ANSWER_PERCENT,
+                HOSPITAL_NAME, D.DOCTOR_DEPARTMENT_TYPE
+         FROM TBL_ANSWER A
+         JOIN TBL_USER U ON U.USER_ID = A.USER_ID AND A.ANSWER_ID = #{answerId}
+         JOIN TBL_DOCTOR D ON D.USER_ID = U.USER_ID
+         JOIN TBL_HOSPITAL H ON H.HOSPITAL_ID = D.HOSPITAL_ID
+    </select>
 
     <select id="selectByQuestionId" resultType="answerDTO" parameterType="list">
         SELECT ANSWER_ID, USER_ID, QUESTION_ID, ANSWER_TITLE,
-               ANSWER_CONTENT, ANSWER_REGISTER_DATETIME, ANSWER_IS_PUBLIC, ANSWER_LIKE_COUNT,
-               ANSWER_IS_ADOPTED, DOCTOR_NAME,
-               NVL((
-                   SELECT COUNT(ANSWER_BOOKMARK_ID)
-                   FROM TBL_ANSWER_BOOKMARK
-                   GROUP BY ANSWER_ID
-               ), 0) BOOKMARK_COUNT,
-               NVL((
-                   SELECT
-                       (COUNT(ANSWER_ID) / (SELECT COUNT(ANSWER_ID) FROM TBL_ANSWER WHERE USER_ID = D.USER_ID GROUP BY USER_ID))
-                   FROM TBL_ANSWER
-                   WHERE USER_ID = D.USER_ID AND ANSWER_IS_ADOPTED = 1
-                   GROUP BY USER_ID
-               ), 0) ADOPTED_ANSWER_PERCENT, HOSPITAL_NAME, DOCTOR_DEPARTMENT_TYPE
-        FROM TBL_ANSWER D
-        WHERE QUESTION_ID = #{questionId}
+               ANSWER_CONTENT, ANSWER_REGISTER_DATETIME, ANSWER_LIKE_COUNT,
+               ANSWER_IS_ADOPTED, DOCTOR_NAME, BOOKMARK_COUNT, ADOPTED_ANSWER_PERCENT,
+               HOSPITAL_NAME, DOCTOR_DEPARTMENT_TYPE
+        FROM (
+            SELECT ROWNUM R, ANSWER_ID, A.USER_ID, Q.QUESTION_ID, ANSWER_TITLE,
+                   ANSWER_CONTENT, ANSWER_REGISTER_DATETIME, ANSWER_LIKE_COUNT,
+                   ANSWER_IS_ADOPTED, U.USER_NAME AS DOCTOR_NAME,
+                   NVL((
+                       SELECT COUNT(ANSWER_BOOKMARK_ID)
+                       FROM TBL_ANSWER_BOOKMARK
+                       GROUP BY ANSWER_ID
+                   ), 0) BOOKMARK_COUNT,
+                   NVL((
+                       SELECT
+                           (COUNT(ANSWER_ID) / (SELECT COUNT(ANSWER_ID) FROM TBL_ANSWER WHERE USER_ID = A.USER_ID GROUP BY USER_ID))
+                       FROM TBL_ANSWER
+                       WHERE USER_ID = A.USER_ID AND ANSWER_IS_ADOPTED = 1
+                       GROUP BY USER_ID
+                   ), 0) ADOPTED_ANSWER_PERCENT,
+                   HOSPITAL_NAME, D.DOCTOR_DEPARTMENT_TYPE
+            FROM TBL_QUESTION Q
+            JOIN TBL_ANSWER A ON A.QUESTION_ID = #{questionId} AND Q.QUESTION_ID = A.QUESTION_ID
+            JOIN TBL_USER U ON U.USER_ID = A.USER_ID
+            JOIN TBL_DOCTOR D ON D.USER_ID = U.USER_ID
+            JOIN TBL_HOSPITAL H ON H.HOSPITAL_ID = D.HOSPITAL_ID
+            ORDER BY A.ANSWER_REGISTER_DATETIME DESC
+        )
+        <!--<![CDATA[WHERE R > #{page} * 10 AND R <= #{page} * 10 + 11 ]]>-->
     </select>
 
     <select id="selectByAdoptCount" resultType="AnswerVO">

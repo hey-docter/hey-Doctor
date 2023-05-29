@@ -10,7 +10,7 @@ import java.util.List;
 public interface AnswerMapper {
     public void insert(AnswerVO answerVO);
     public List<AnswerDTO> selectByQuestionId(Long questionId);
-
+    public AnswerDTO select(Long answerId);
 //    답변 왕 조회
     public List<AnswerVO> selectByAdoptCount();
 }

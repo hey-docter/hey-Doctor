@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -21,6 +22,9 @@ public class AnswerDAO {
         answerMapper.insert(answerVO);
     }
 
+    public Optional<AnswerDTO> select(Long answerId) {
+        return Optional.ofNullable(answerMapper.select(answerId));
+    }
     //    답변 왕 조회
     public List<AnswerVO> findByAdoptCount() {
         return answerMapper.selectByAdoptCount();

@@ -9,7 +9,7 @@ function elapsedTime(date) {
         { name: '개월', milliSeconds: 60 * 60 * 24 * 30 },
         { name: '일', milliSeconds: 60 * 60 * 24 },
         { name: '시간', milliSeconds: 60 * 60 },
-        { name: '분', milliSeconds: 60 },
+        { name: '븜', milliSeconds: 60 },
     ];
 
     for (const value of times) {

@@ -1,17 +1,16 @@
 //=============================================================
 // Modules
 //=============================================================
-function Answer(answerId, replies) {
-    this.answerId = answerId;
-    this.replies = replies ?  replies : [];
-    this.page = 0;
-    this.addPage = ++page;
-    this.clearPage = () => {page = 0; return page};
-}
+
+// function Replies(answerId, replies) {
+//     this.answerId = answerId;
+//     this.replies = replies ? replies : [];
+//     this.page = 0;
+//     this.addPage = ++page;
+//     this.clearPage = () => { page = 0; return page };
+// }
 
 let appendTypes = {BEFORE: 'before', AFTER: 'after', INIT: 'init'};
-
-let answerObjects = [];
 
 let answerService = (() => {
     function writeAnswer(answerContent, callback) {
@@ -20,8 +19,8 @@ let answerService = (() => {
             type: `post`,
             data: JSON.stringify({userId: user.userId, questionId: question.questionId, answerContent: answerContent}),
             contentType: "application/json;charset=utf-8",
-            success: function() {
-                if(callback) callback();
+            success: function(answer) {
+                if(callback) callback(answer);
             }
         });
     }
@@ -29,8 +28,8 @@ let answerService = (() => {
     function getAnswerList(callback) {
         $.ajax({
             url: `/answer/list/${questionId}/${page}`,
-            success: function() {
-                if(callback) callback();
+            success: function(answers) {
+                if(callback) callback(answers);
             }
         });
     }
@@ -45,44 +44,66 @@ let replyService = (() => {
             type: `post`,
             data: JSON.stringify({userId: user.userId, answerId: answerId, replyContent: replyContent}),
             contentType: "application/json;charset=utf-8",
-            success: function() {
-                if(callback) callback();
+            success: function(reply) {
+                if(callback) callback(reply);
             }
+        });
+    }
+
+    function setReplySendEvent(answerId) {
+        $(`.reply-send-${answerId}`).on('click', function () {
+            let replyContent = $(`.reply-write-${answerId}`).val();
+
+            if(replyContent === '') {
+                showWarnModal("내용을 입력해 주세요.");
+                return;
+            }
+            replyService.writeReply(answerId, replyContent, reply => {
+                showReplies([reply]);
+            });
         });
     }
 
     function getReplyList(answer, callback) {
         $.ajax({
             url: `/reply/list/${answerId}/${page}`,
-            success: function() {
-                if(callback) callback();
+            success: function(replies) {
+                if(callback) callback(replies);
             }
         });
     }
 
-    return {writeReply: writeReply, getReplyList: getReplyList};
+    return {writeReply: writeReply, setReplySendEvent: setReplySendEvent, getReplyList: getReplyList};
 })();
-
 
 //=============================================================
 // Events
 //=============================================================
-const $answerTextarea = $("article.answer-write-box");
+const $answerArea = $("article.answer-write-box");
+const $answerTextarea = $('textarea.answer-area');
 const $answerContainer = $('div#answer-container-main');
 
 const $loading = $('.loading-items');
 const $noneItems = $('.none-items');
 
 let page = 0;
+let isListRemains = false;
 
-$answerTextarea.hide();
+$answerArea.hide();
+
+$(window).scroll(function(){
+    if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.scrollHeight && isListRemains) {
+        let type = $('.active').text().trim();
+        answerService.getAnswerList(answers => showList(answers, appendTypes.AFTER));
+    }
+});
 
 $('div.answer-btn').on('click', function() {
     $('div.fake-submit-btn').each((_, e) => $(e).hide());
-    $answerTextarea.show();
+    $answerArea.show();
 });
 
-$('textarea.answer-area').on('keyup', function() {
+$answerTextarea.on('keyup', function() {
     let length = $(this).val().length;
     $('div.answer-char-size span').text(length);
     if(length >= 500) $('.answer-char-size').css('color', '#ee6767');
@@ -92,15 +113,21 @@ $('textarea.answer-area').on('keyup', function() {
 $('p.department-type').text(`${getDepartment(question.doctorDepartmentType).kor}`);
 
 $(document).ready(() => {
-    showList(answers);
+    showList(answers, appendTypes.INIT);
     showReplies(replies);
 });
 
-$('.write-answer').on('click', function (e) {
+$('button.write-answer').on('click', function (e) {
     e.preventDefault();
-    if($answerTextarea.text() === '') {showWarnModal("내용을 작성해주세요."); return}
-
-    answerService.writeAnswer($answerTextarea.text()/*, (answers) => showList(answers, appendTypes.BEFORE)*/);
+    if($answerTextarea.val() === '') {
+        showWarnModal("내용을 작성해주세요.");
+        return;
+    }
+    answerService.writeAnswer($answerTextarea.val(), (answer) => {
+        showList([answer], appendTypes.BEFORE);
+        $('div.fake-submit-btn').each((_, e) => $(e).show());
+        $answerArea.hide();
+    });
 });
 
 function showList(answers, appendType) {
@@ -116,8 +143,12 @@ function showList(answers, appendType) {
     $loading.hide();
 
     answers.forEach((answer, i) => {
-        if(i > 9) $loading.show();
+        if(i > 9) {
+            isListRemains = true;
+            $loading.show();
+        }
         else {
+            isListRemains = false;
             $loading.hide();
             text += `
                  <article class="c-application c-box c-box--has-border mb-24 answer-wrap" style="border-color: rgb(234, 236, 238); padding: 0;">
@@ -170,12 +201,11 @@ function showList(answers, appendType) {
                                      </div>
                                      <div class="other-wrapper" style="margin-top: 4px;">
                                          <div class="c-application c-typography c-caption1" type="full" style="color: rgb(173, 179, 184);">
-                                             ${answer.doctorDepartmentType}
+                                             ${getDepartment(answer.doctorDepartmentType).kor}
                                               ∙ 채택률 ${answer.adoptedAnswerPercent}%
                                          </div>
                                      </div>
                                  </div>
-                                 
                              </div>
                              <div>
                                 <div class="c-application c-dropdown">
@@ -251,7 +281,7 @@ function showList(answers, appendType) {
                             </div>
                             <p class="c-application c-typography c-application c-content c-body2 c-content--caption"
                                style="color: rgb(207, 212, 215);">
-                                ${elapsedTime(answer.answerRegisterDateTime.substring(0, 10))}
+                                ${elapsedTime(answer.answerRegisterDateTime)}
                             </p>
                         </div>
                     </div>
@@ -265,7 +295,7 @@ function showList(answers, appendType) {
                                         <textarea class="reply-write-${answer.answerId}" placeholder="답변에 대한 의견이 있으신가요?" style="max-height: 256px; min-height: 38px; overflow-y: auto;"></textarea>
                                     </label>
                                     <button type="button" disabled="disabled"
-                                            class="c-application c-icon-button c-textarea--reply-icon medium">
+                                            class="c-application c-icon-button c-textarea--reply-icon medium reply-send-${answer.answerId}">
                                         <svg width="24" height="24"
                                                 viewBox="0 0 24 24" fill="black"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -293,26 +323,22 @@ function showList(answers, appendType) {
         }
     });
 
-    console.log(appendType);
-    console.log(text);
-
-    if(appendType) {
-        switch (appendType) {
-            case appendTypes.BEFORE:
-                $answerContainer.prepend(text);
-                //if($answerContainer.length % 10 && $answerContainer.length > 0) return;
-                //$answerContainer.lastChild.remove();
-                break;
-            case appendTypes.AFTER:
-                $answerContainer.append(text);
-                break;
-            case appendTypes.INIT:
-                $answerContainer.html(text);
-                break;
-        }
-        return;
+    switch (appendType) {
+        case appendTypes.BEFORE:
+            $answerContainer.prepend(text);
+            console.log($answerContainer.length);
+            console.log($answerContainer);
+            $answerContainer.filter(i => i >= 9).each((i, answer) => $(answer).remove());
+            break;
+        case appendTypes.AFTER:
+            $answerContainer.append(text);
+            break;
+        case appendTypes.INIT:
+            $answerContainer.html(text);
+            break;
     }
-    $answerContainer.append(text);
+
+    answers.map(answer => answer.answerId).forEach(replyService.setReplySendEvent);
 }
 
 function showReplies(replies) {
@@ -373,7 +399,7 @@ function showReplies(replies) {
                                 <div class="other-wrapper">
                                     <div class="c-application c-typography c-caption1"
                                         type="normal" style="color: rgb(173, 179, 184);">
-                                        ${elapsedTime(reply.replyRegisterDateTime.substring(0, 10))}
+                                        ${elapsedTime(reply.replyRegisterDateTime)}
                                     </div>
                                 </div>
                             </div>
