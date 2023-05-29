@@ -2,10 +2,12 @@ package com.heydoctor.app.service.mainpage;
 
 import com.heydoctor.app.dao.MainDAO;
 import com.heydoctor.app.domain.dto.MainDTO;
+import com.heydoctor.app.domain.vo.UserVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -35,6 +37,11 @@ public class MainPageServiceImpl implements MainPageService {
     @Override
     public List<MainDTO> selectVisitCount() {
         return mainDAO.findVisitCount();
+    }
+
+    @Override
+    public Optional<UserVO> selectUserId(Long userId) {
+        return mainDAO.getUserId();
     }
 
 }

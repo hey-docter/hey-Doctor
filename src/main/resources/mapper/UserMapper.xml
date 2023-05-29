@@ -21,12 +21,19 @@
     <update id="kakaoUpdate" parameterType="userVO">
         UPDATE TBL_USER
         SET USER_EMAIL = #{userEmail}, USER_NAME = #{userName}, USER_PASSWORD = #{userPassword}
-        WHERE USER_EMAIL = #{userEmail}
+        WHERE USER_ID = #{userId}
     </update>
 
     <update id="naverUpdate" parameterType="userVO">
         UPDATE TBL_USER
         SET USER_EMAIL = #{userEmail}, USER_NAME = #{userName}, USER_PASSWORD = #{userPassword}
-        WHERE USER_EMAIL = #{userEmail}
+        WHERE USER_ID = #{userId}
     </update>
+
+    <update id="profileUpdate">
+        UPDATE TBL_USER
+        SET USER_PROFILE_PATH = #{userProfilePath}, USER_PROFILE_NAME = #{userProfileName}, USER_PROFILE_SIZE = #{userProfileSize}, USER_PROFILE_TYPE = #{userProfileType}, USER_PROFILE_UUID = #{userProfileUuid}
+        WHERE USER_ID = #{userId}
+    </update>
+
 </mapper>

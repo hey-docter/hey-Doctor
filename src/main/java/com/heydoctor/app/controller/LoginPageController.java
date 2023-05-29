@@ -75,6 +75,7 @@ public class LoginPageController {
     @GetMapping("logout")
     public RedirectView logout(HttpSession session){
         session.invalidate();
+        log.info("삭제 ^^");
         return new RedirectView("/login/login-start");
     }
 

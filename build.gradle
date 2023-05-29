@@ -37,6 +37,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.1'
 //카카오
     implementation'com.google.code.gson:gson:2.8.7'
+
+    implementation('commons-io:commons-io:2.11.0')
 //네이버
 
 }
