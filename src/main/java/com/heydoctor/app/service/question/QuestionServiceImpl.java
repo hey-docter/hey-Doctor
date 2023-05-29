@@ -1,6 +1,6 @@
 package com.heydoctor.app.service.question;
 
-import com.heydoctor.app.dao.BookmarkDAO;
+import com.heydoctor.app.dao.QuestionBookmarkDAO;
 import com.heydoctor.app.dao.QuestionDAO;
 import com.heydoctor.app.domain.dto.QuestionDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
@@ -19,7 +19,7 @@ import java.util.Optional;
 @Qualifier("question") @Primary
 public class QuestionServiceImpl implements QuestionService {
     private final QuestionDAO questionDAO;
-    private final BookmarkDAO bookmarkDAO;
+    private final QuestionBookmarkDAO bookmarkDAO;
     private final QuestionVO questionVO;
 
     @Override

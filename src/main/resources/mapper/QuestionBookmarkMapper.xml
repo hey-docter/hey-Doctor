@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.heydoctor.app.mapper.BookmarkMapper">
+<mapper namespace="com.heydoctor.app.mapper.QuestionBookmarkMapper">
     <insert id="insert">
         INSERT INTO TBL_QUESTION_BOOKMARK (QUESTION_BOOKMARK_ID, USER_ID, QUESTION_ID)
-        VALUES (#{questionBookmarkId}, #{userId}, #{questionId})
+        VALUES (SEQ_QUESTION_BOOKMARK.NEXTVAL, #{userId}, #{questionId})
     </insert>
 
     <select id="count" resultType="integer">
         SELECT COUNT(QUESTION_BOOKMARK_ID) FROM TBL_QUESTION_BOOKMARK
         WHERE QUESTION_ID = #{questionId}
         GROUP BY QUESTION_ID
+    </select>
+
+    <select id="check" resultType="boolean">
+        SELECT NVL2(QUESTION_BOOKMARK_ID, true, false) FROM TBL_QUESTION_BOOKMARK
+        WHERE QUESTION_ID = #{questionId} AND USER_ID = #{userId}
     </select>
 </mapper>
 
