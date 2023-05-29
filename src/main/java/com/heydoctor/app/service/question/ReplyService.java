@@ -6,7 +6,11 @@ import com.heydoctor.app.domain.vo.ReplyVO;
 import java.util.List;
 
 public interface ReplyService {
-    public void insert(ReplyVO replyVO);
+    public ReplyDTO write(ReplyVO replyVO);
+
+    public Integer getCount(Long answerId);
+
+    public ReplyDTO getReplyDTO(Long answerId);
     public List<ReplyDTO> getAllReplyDTO(Long... answerIds);
     public List<ReplyDTO> getAllReplyDTO(List<Long> answerIds);
 
