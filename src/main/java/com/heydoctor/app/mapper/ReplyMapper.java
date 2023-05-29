@@ -10,6 +10,10 @@ import java.util.List;
 public interface ReplyMapper {
     public void insert(ReplyVO replyVO);
 
+    public Integer count(Long answerId);
+
+    public ReplyDTO select(Long replyId);
+
     public List<ReplyDTO> selectAllReplyDTO(List<Long> answerIds);
     //    댓글 삭제
     public void delete(Long replyId);

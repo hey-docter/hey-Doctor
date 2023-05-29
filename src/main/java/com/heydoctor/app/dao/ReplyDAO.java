@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -15,6 +16,14 @@ public class ReplyDAO {
 
     public void insert(ReplyVO replyVO) {
         replyMapper.insert(replyVO);
+    }
+
+    public Integer getCount(Long answerId) {
+        return replyMapper.count(answerId);
+    }
+
+    public Optional<ReplyDTO> select(Long replyId) {
+        return Optional.ofNullable(replyMapper.select(replyId));
     }
 
     public List<ReplyDTO> selectAllReplyDTO(List<Long> answerIds) {

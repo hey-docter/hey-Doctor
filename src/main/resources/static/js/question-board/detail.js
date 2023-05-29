@@ -56,14 +56,16 @@ let replyService = (() => {
 
     function setReplySendEvent(answerId) {
         $(`.reply-send-${answerId}`).on('click', function () {
-            let replyContent = $(`.reply-write-${answerId}`).val();
-
-            if(replyContent === '') {
+            let $replyContent = $(`.reply-write-${answerId}`);
+            if($replyContent.val() === '') {
                 showWarnModal("내용을 입력해 주세요.");
                 return;
             }
-            replyService.writeReply(answerId, replyContent, reply => {
-                showReplies([reply]);
+            replyService.writeReply(answerId, $replyContent.val(), reply => {
+                showReplies([reply], appendTypes.BEFORE);
+                $replyContent.val("");
+                $replyContent.blur();
+
             });
         });
     }
@@ -302,7 +304,7 @@ function showList(answers, appendType) {
                                     <label class="text-wrap">
                                         <textarea class="reply-write-${answer.answerId}" placeholder="답변에 대한 의견이 있으신가요?" style="max-height: 256px; min-height: 38px; overflow-y: auto;"></textarea>
                                     </label>
-                                    <button type="button" disabled="disabled"
+                                    <button type="button"
                                             class="c-application c-icon-button c-textarea--reply-icon medium reply-send-${answer.answerId}">
                                         <svg width="24" height="24"
                                                 viewBox="0 0 24 24" fill="black"
@@ -346,17 +348,28 @@ function showList(answers, appendType) {
             break;
     }
 
-    answers.map(answer => answer.answerId).forEach(replyService.setReplySendEvent);
+    answers.map(answer => answer.answerId).forEach(answerId => {
+        $(`.reply-write-${answerId}`).on('keyup', function () {
+            let $button = $(`.reply-send-${answerId}`);
+            if($(this).val() !== "") $button.css('fill', '#2a7de1');
+            else $button.css('fill', "white");
+        });
+
+        replyService.setReplySendEvent(answerId);
+    });
 }
 
-function showReplies(replies) {
+function showReplies(replies, type) {
     let texts = [];
+    console.log(repliesMap);
+
     replies.forEach(reply => {
         //check if init reply group
+        console.log(repliesMap[reply.answerId]);
         if(!repliesMap[reply.answerId]) {
             texts[reply.answerId] = `
                 <hr class="slight-divider">
-                <div class="c-application c-box"
+                <div class="c-application c-box reply-title-${reply.answerId}"
                     style="background-color: rgb(255, 255, 255); padding: 20px 16px 0px;">
                     <div class="c-application c-typography c-body2" style="color: rgb(89, 95, 99);">
                         댓글
@@ -369,13 +382,13 @@ function showReplies(replies) {
             `;
 
             repliesMap[reply.answerId] = {
-                replies: [reply,],
+                replies: [],
                 page: 0
             };
         }
 
-        texts[reply.answerId] += `
-            <div class="answer-comment">
+        texts[reply.answerId] +=
+            `<div class="answer-comment">
                 <div class="c-application c-box" style="background-color: rgb(255, 255, 255); padding: 16px 20px;">
                     <div class="flex justify-between">
                         <div class="c-application c-user-information normal">
@@ -431,7 +444,17 @@ function showReplies(replies) {
         repliesMap[reply.answerId].replies.push(reply);
     });
 
-    replies.map(reply => reply.answerId).forEach(id => $(`.reply-container.${id}`).html(texts[id]));
+    let distinctList = [];
+
+    replies.map(reply => reply.answerId).filter(id => {
+        let has = distinctList.includes(id);
+        if(!has) distinctList.push(id);
+        return !has;
+    }).forEach(id => {
+        let $container = $(`.reply-container.${id}`);
+        if(type === appendTypes.BEFORE) $(`.reply-title-${id}`).after(texts[id]);
+        else $container.append(texts[id]);
+    });
 }
 
 

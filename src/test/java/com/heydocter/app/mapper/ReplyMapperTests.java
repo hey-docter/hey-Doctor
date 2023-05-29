@@ -1,6 +1,7 @@
 package com.heydocter.app.mapper;
 
 import com.heydoctor.app.HeydocterApplication;
+import com.heydoctor.app.domain.dto.ReplyDTO;
 import com.heydoctor.app.domain.vo.ReplyVO;
 import com.heydoctor.app.mapper.ReplyMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,12 @@ public class ReplyMapperTests {
             replyMapper.insert(replyVO);
         });
 
+    }
+
+    @Test
+    public void selectTest() {
+        ReplyDTO replyDTO = replyMapper.select(21L);
+        log.info(replyDTO.toString());
     }
 
     @Test
