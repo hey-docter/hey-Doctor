@@ -261,7 +261,7 @@ function showList(answers, appendType) {
                                             </path>
                                         </svg>
                                         <div class="c-application c-typography c-body2"
-                                             style="color: rgb(148, 155, 160);">${answer.answerLikeCount}
+                                             style="color: rgb(148, 155, 160);"><!--${answer.answerLikeCount}--> 0
                                         </div>
                                     </button>
                                 </div>
@@ -305,7 +305,7 @@ function showList(answers, appendType) {
                                         <textarea class="reply-write-${answer.answerId}" placeholder="답변에 대한 의견이 있으신가요?" style="max-height: 256px; min-height: 38px; overflow-y: auto;"></textarea>
                                     </label>
                                     <button type="button"
-                                            class="c-application c-icon-button c-textarea--reply-icon medium reply-send-${answer.answerId}">
+                                            class="c-application c-icon-button c-textarea--reply-icon medium reply-btn reply-send-${answer.answerId}">
                                         <svg width="24" height="24"
                                                 viewBox="0 0 24 24" fill="black"
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -322,7 +322,7 @@ function showList(answers, appendType) {
                             </div>
                         </div>
                     </div>
-                     <div class="reply-container ${answer.answerId}">
+                     <div class="reply-container-${answer.answerId}">
                          <!---->
                          <!---->
                          <!---->
@@ -350,9 +350,9 @@ function showList(answers, appendType) {
 
     answers.map(answer => answer.answerId).forEach(answerId => {
         $(`.reply-write-${answerId}`).on('keyup', function () {
-            let $button = $(`.reply-send-${answerId}`);
-            if($(this).val() !== "") $button.css('fill', '#2a7de1');
-            else $button.css('fill', "white");
+            let $buttonIcon = $(`.reply-send-${answerId} svg`);
+            if($(this).val() !== "") $buttonIcon.css('fill', '#2a7de1');
+            else $buttonIcon.css('fill', "white");
         });
 
         replyService.setReplySendEvent(answerId);
@@ -365,7 +365,8 @@ function showReplies(replies, type) {
 
     replies.forEach(reply => {
         //check if init reply group
-        console.log(repliesMap[reply.answerId]);
+        //console.log(repliesMap[reply.answerId]);
+
         if(!repliesMap[reply.answerId]) {
             texts[reply.answerId] = `
                 <hr class="slight-divider">
@@ -373,7 +374,7 @@ function showReplies(replies, type) {
                     style="background-color: rgb(255, 255, 255); padding: 20px 16px 0px;">
                     <div class="c-application c-typography c-body2" style="color: rgb(89, 95, 99);">
                         댓글
-                        <span class="c-application c-typography"
+                        <span class="c-application c-typography reply-size-${reply.answerId}"
                             style="color: inherit; font-weight: 500;">
                             ${replies.filter(r => r.answerId === reply.answerId).length}
                         </span>
@@ -386,6 +387,8 @@ function showReplies(replies, type) {
                 page: 0
             };
         }
+
+        if(!texts[reply.answerId]) texts[reply.answerId] = "";
 
         texts[reply.answerId] +=
             `<div class="answer-comment">
@@ -445,13 +448,12 @@ function showReplies(replies, type) {
     });
 
     let distinctList = [];
+    Object.keys(repliesMap).forEach(id => {
+        console.log(texts[id]);
+        let $count = $(`span.reply-size-${id}`);
+        $count.text(parseInt($count.text())+1);
 
-    replies.map(reply => reply.answerId).filter(id => {
-        let has = distinctList.includes(id);
-        if(!has) distinctList.push(id);
-        return !has;
-    }).forEach(id => {
-        let $container = $(`.reply-container.${id}`);
+        let $container = $(`.reply-container-${id}`);
         if(type === appendTypes.BEFORE) $(`.reply-title-${id}`).after(texts[id]);
         else $container.append(texts[id]);
     });

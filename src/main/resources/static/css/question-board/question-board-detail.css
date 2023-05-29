@@ -9,6 +9,11 @@ h2 {
     font-weight: bold;
 }
 
+button.reply-btn {
+    fill: #2A7DE1;
+}
+
+
 #main-grid {
     padding-top: 0!important;
 }
