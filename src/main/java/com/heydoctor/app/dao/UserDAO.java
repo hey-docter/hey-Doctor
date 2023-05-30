@@ -40,11 +40,4 @@ public class UserDAO {
     public void saveKakao(UserVO userVO) {
         userMapper.insert(userVO);
     }
-
-    // 프로필이미지 변경
-//    public void changeProfile(UserVO userVO){ userMapper.profileUpdate(userVO); }
-
-    @Transactional
-    public void updateProfile(UserVO userVO) { userMapper.profileUpdate(userVO); }
-
 }

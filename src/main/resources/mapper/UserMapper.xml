@@ -30,10 +30,4 @@
         WHERE USER_ID = #{userId}
     </update>
 
-    <update id="profileUpdate">
-        UPDATE TBL_USER
-        SET USER_PROFILE_PATH = #{userProfilePath}, USER_PROFILE_NAME = #{userProfileName}, USER_PROFILE_SIZE = #{userProfileSize}, USER_PROFILE_TYPE = #{userProfileType}, USER_PROFILE_UUID = #{userProfileUuid}
-        WHERE USER_ID = #{userId}
-    </update>
-
 </mapper>
