@@ -1,9 +1,11 @@
 package com.heydoctor.app.controller;
 
 
+import com.heydoctor.app.domain.dto.Pagination;
 import com.heydoctor.app.domain.dto.QuestionDTO;
 import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.dto.Search;
+import com.heydoctor.app.domain.vo.BookReqeustVO;
 import com.heydoctor.app.service.searchpage.SearchPageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +22,7 @@ import java.util.List;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-@RequestMapping("/login/*")
+@RequestMapping("/search/*")
 public class SearchController {
     private final SearchPageService searchPageService;
 
@@ -32,16 +34,46 @@ public class SearchController {
 //    }
 
     @GetMapping("search-list")
-    public String list() {
-        return "login/search-list";
+    public void list(Pagination pagination, Search search, Model model) {
+        pagination.setTotal(searchPageService.getTotal(search));
+        model.addAttribute("questions", searchPageService.getTotal(search));
     }
 
     @GetMapping("question-list")
     @ResponseBody
-    public List<QuestionDTO> QuestionList() {
-        System.out.println(" controller");
-        System.out.println(searchPageService.getQuestion());
-        return searchPageService.getQuestion();
+    public List<QuestionDTO> getQuestionList(String keyword) {
+        Search search = new Search();
+        search.setKeyword(keyword);
+//        System.out.println(" controller");
+//        System.out.println(searchPageService.getQuestion());
+        return searchPageService.getList(search);
+    }
+
+    //전체 조회
+    @GetMapping("question-total")
+    @ResponseBody
+    public void questionTotal(Pagination pagination, Search search, Model model) {
+//        pagination.setTotal(searchPageService.getTotal());
+        model.addAttribute("questions", searchPageService.getTotal(search));
+    }
+
+
+    @GetMapping("reservation-list")
+    @ResponseBody
+    public List<BookReqeustVO> getReservationList(String keyword) {
+        Search search = new Search();
+        search.setKeyword(keyword);
+//        System.out.println(" controller");
+//        System.out.println(searchPageService.getQuestion());
+        return searchPageService.getBookList(search);
+    }
+
+    //전체 조회
+    @GetMapping("reservation-total")
+    @ResponseBody
+    public void ReservationTotal(Pagination pagination, Search search, Model model) {
+//        pagination.setTotal(searchPageService.getTotal());
+        model.addAttribute("reservations", searchPageService.getTotal(search));
     }
 
 //    @PostMapping("search-list")

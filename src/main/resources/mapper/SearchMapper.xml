@@ -4,25 +4,47 @@
 
 
     <select id="selectAll" resultType="questionDTO">
-        select QUESTION_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT, m.USER_ID, m.USER_NAME, m.USER_PROFILE_NAME
+        select QUESTION_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE, READ_COUNT, m.USER_ID, m.USER_NAME, m.USER_PROFILE_NAME
         FROM TBL_QUESTION q join TBL_USER m
         on q.user_id = m.user_id
         <if test="keyword != ''.toString()">
             AND (q.QUESTION_TITLE like ('%' || #{keyword} || '%') OR m.USER_NAME like ('%' || #{keyword} || '%'))
         </if>
+        <![CDATA[
+                WHERE ROWNUM <= 3
+            ]]>
         order by QUESTION_TITLE desc
     </select>
 
     <select id="selectOne" resultType="questionDTO">
-        select QUESTION_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT, m.USER_ID, m.USER_NAME, m.USER_PROFILE_NAME
+        select QUESTION_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, DOCTOR_DEPARTMENT_TYPE, READ_COUNT, m.USER_ID, m.USER_NAME, m.USER_PROFILE_NAME
         FROM TBL_QUESTION q join TBL_USER m
         on q.user_id = m.user_id
         order by QUESTION_TITLE desc
     </select>
+
 
     <insert id="insert">
         INSERT INTO HR.TBL_QUESTION
         (QUESTION_ID, USER_ID, QUESTION_TITLE, QUESTION_CONTENT, QUESTION_REGISTER_DATETIME, QUESTION_IS_PUBLIC, QUESTION_LIKE_COUNT, DOCTOR_DEPARTMENT_TYPE, READ_COUNT)
         VALUES(#{questionId}, #{userId}, #{questionTitle}, #{questionContent}, #{questionRegisterDatetime}, #{questionIsPublic}, #{questionLikeCount}, #{doctorDepartmentType}, #{readCount});
     </insert>
+
+    <select id="selectCount" resultType="_int">
+        SELECT COUNT(q.QUESTION_TITLE)
+        FROM TBL_QUESTION q join TBL_USER m
+        on q.user_id = m.user_id
+    </select>
+
+
+    <select id="selectAllBook" resultType="BookReqeustVO">
+        SELECT BOOK_REQUEST_ID, USER_ID, IS_ACCEPTED, REQUEST_DATETIME, REQUEST_CONTENT, USER_NAME, USER_PHONENUMBER, USER_EMAIL, USER_ADDRESS, USER_DETAIL_ADDRESS, DOCTOR_DEPARTMENT_TYPE, m.USER_ID, m.USER_NAME, m.USER_PROFILE_NAME
+        FROM TBL_BOOK_REQUEST b join TBL_USER m;
+        on b.user_id = m.user_id
+
+        <if test="keyword != ''.toString()">
+            AND (b.REQUEST_CONTENT like ('%' || #{keyword} || '%') OR m.USER_NAME like ('%' || #{keyword} || '%'))
+        </if>
+        order by REQUEST_CONTENT desc
+    </select>
 </mapper>
