@@ -30,3 +30,38 @@ $arrows.eq(1).on('click', function() {
     $(this).css('transform',deg === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)');
     $inquiriesList.slideToggle(300);
 })
+
+$(".delete-btn").on("click", function(e){
+    e.preventDefault();
+    let qnaId =[];
+    $('input:checked').not('.all').parents("tr").each(function() {
+        qnaId.push($(this).find(".noticeId").html());
+    });
+    $.ajax({
+        url: `/qna/delete?qnaId=${qnaId}`,
+        type: "GET",
+        success: function() {
+            console.log("성공적으로 삭제되었습니다.");
+        }, error: function(){
+            console.log("삭제 실패하였습니다.");
+            Location.reload();
+        }
+    });
+    // location.href = `/admin/delete?questionId=${deleteList}`;
+    location.reload(true);
+});
+
+// checkbox
+$("#select-all").click(function() {
+    if($("#select-all").is(":checked")) $("input[name=qnaId]").prop("checked", true);
+    else $("input[name=qnaId]").prop("checked", false);
+});
+
+$("input.box").click(function() {
+    console.log("ibn");
+    var total = $("input[name=qnaId]").length;
+    var checked = $("input[name=qnaId]:checked").length;
+
+    if(total != checked) $("#select-all").prop("checked", false);
+    else $("#select-all").prop("checked", true);
+});

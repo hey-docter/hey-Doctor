@@ -202,3 +202,172 @@ h5#content {
     letter-spacing: -0.4px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
+
+/*updated*/
+
+
+#content{
+    width: 100%;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+td{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+#content-wrap{
+    height: 80%;
+}
+
+.info{
+    display: block;
+    font-size: 1em;
+    margin-block-start: 2.33em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+
+#content{
+    width: 100%;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+td{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+#content-wrap{
+    height: 80%;
+}
+
+
+.inquiries-list li:first-child {
+    color: white;
+    font-weight: bolder;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+#paging-wrap{
+    text-align: center;
+    margin-top: 80px;
+}
+
+
+/*updated*/
+
+
+#content{
+    width: 100%;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+td{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+#content-wrap{
+    height: 80%;
+}
+
+.info{
+    display: block;
+    font-size: 1em;
+    margin-block-start: 2.33em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+
+#content{
+    width: 100%;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+td{
+    background-color: white;
+    /*border-bottom-style: solid;*/
+    border-bottom: 1pt solid #35528E;
+}
+
+#content-wrap{
+    height: 80%;
+}
+
+
+.inquiries-list li:first-child {
+    color: white;
+    font-weight: bolder;
+}
+
+a {
+    color: inherit !important;
+    text-decoration: none !important;
+    text-align: center;
+}
+
+#paging-wrap{
+    text-align: center;
+    margin-top: 80px;
+}

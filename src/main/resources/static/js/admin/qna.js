@@ -1,8 +1,11 @@
+let check = 0;
+const btn = document.querySelector('#btn');
+
 function titleBoxInput() {
 	var titleBox = document.getElementById("titleBox").value.trim();
 	var message = document.getElementById("message");
 	var input = document.getElementById("titleBox");
-	let check = 0;
+
 
 	if (titleBox == "") {
 		message.innerHTML = "제목을 입력해주세요.";
@@ -72,7 +75,6 @@ var emailBoxboxInput = document.getElementById("emailBox");
 emailBoxboxInput.addEventListener("blur", emailBoxInput);
 
 const checkbox = document.querySelector('#checkbox');
-const btn = document.querySelector('#btn');
 const errorMessage = document.querySelector('#error-message');
 
 function checkCondition(){
@@ -108,7 +110,12 @@ $("button.ok-button").on("click", function(){
     //     `
 	// });
 	// $(writeForm).append(text);
-	$('form.write-form').submit();
+	if(errorMessage.style.display == 'none' && !$(this).hasClass("btn-disabled")){
+		console.log(!$(this).hasClass("btn-disabled"));
+		$('form.write-form').submit();
+		alert("성공적으로 문의를 접수했습니다. 최대한 빠른 시일 내에 연락드리겠습니다.");
+	}
+
 });
 
 

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleag.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/question-board/question-board-detail.css">
+</head>
+<link rel="stylesheet" href="/css/question-board/question-board-detail.css"/>
+<link rel="stylesheet" type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
+<link rel="stylesheet" href="/css/main-page/header.css">
+<link rel="stylesheet" href="/css/main-page/footer.css">
+<link rel="stylesheet" href="/css/modal/modal.css">
+<link rel="stylesheet" href="/css/admin-page/menu.css">
+
+<body>
+<div id="layout">
+    <header class="nav-bar">
+        <div class="logo">
+            <a href="" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160"
+                     height="50" viewBox="0 0 499 200">
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="Layer_1-2" data-name="Layer 1">
+                            <image width="499" height="200"
+                                   xlink:href="data:image/png;base64,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"></image>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        </div>
+        <h3 style="text-align: center">관리자님, 환영합니다.</h3>
+        <div class="nav-container">
+            <section class="nav-box">
+                <div class="flex-line">
+                    <div class="nav-title">커뮤니티 관리</div>
+                    <div class="arrow" style="transform: rotate(180deg);"></div>
+                </div>
+                <ul class="board-list list">
+                    <li style="display: none;"><a href="/admin/admin-board-list">글 목록</a></li>
+                </ul>
+            </section>
+            <section class="nav-box">
+                <div class="flex-line">
+                    <div class="nav-title">문의 관리</div>
+                    <div class="arrow"></div>
+                </div>
+                <ul class="inquiries-list list">
+                    <li><a href="/qna/admin">전체 문의 목록</a></li>
+                </ul>
+            </section>
+        </div>
+    </header>
+    <!--    헤더 끝-->
+    <div id="main">
+        <div class="main-title-box">
+            <h3>전체 문의목록 페이지</h3>
+        </div>
+        <div class="c-application c-new-grid container main-container" style="background-color: rgb(255, 255, 255);">
+            <div class="c-application c-new-row">
+                <div class="c-application c-new-col new-col-lg-8 new-offset-lg-2">
+                    <article class="c-application c-box"
+                             style="background-color: rgb(255, 255, 255); padding: 62px 16px 20px;">
+                        <div class="flex justify-between">
+                            <div class="c-application c-user-information case-detail-question-user-info simple mb-8">
+                                <div class="avatar-wrapper">
+                                    <div>
+                                        <div class="c-application c-avatar--container xsmall">
+                                            <i class="c-avatar nickname xsmall"
+                                               style="background: rgb(180, 210, 169);"></i>
+                                            <div class="c-avatar--item">
+                                                <!-- profile image -->
+                                                <div class="c-application c-typography c-caption2 f-semi-bold"
+                                                     style="color: rgb(255, 255, 255);">
+                                                    <th:block
+                                                            th:text="${#strings.substring(qna.userName,0,1)}"></th:block>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="information-wrapper">
+                                    <div class="name-company-wrapper">
+                                        <div class="name-icon-wrapper">
+                                            <div class="name-wrapper">
+                                                <div class="c-application c-typography user-information-name ellipsis c-caption1"
+                                                     style="color: inherit; font-weight: 600;">
+                                                    <th:block th:text="${qna.userName}"></th:block>
+                                                </div>
+                                            </div>
+                                            <div class="user-info-wrapper">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="other-wrapper"></div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <div id="c-dropdown-20" class="c-application c-dropdown">
+                                    <div class="c-dropdown--item-group" style="max-width: 200px;">
+                                        <div>
+                                            <button type="button" class="c-application c-icon-button medium">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="black"
+                                                     xmlns="http://www.w3.org/2000/svg" class="c-application c-icon"
+                                                     style="fill: rgb(148, 155, 160);">
+                                                    <circle cx="12" cy="5.5" r="1.5">
+                                                    </circle>
+                                                    <circle cx="12" cy="12" r="1.5">
+                                                    </circle>
+                                                    <circle cx="12" cy="18.5" r="1.5">
+                                                    </circle>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="c-application c-typography c-application c-content c-caption1 c-content--overline department-type"
+                           style="color: rgb(173, 179, 184);">정신건강의학과</p>
+                        <h2 class="c-application c-typography c-application c-content c-headline7 c-content--title"
+                            style="color: rgb(4, 5, 5);">
+                            <span class="c-application c-typography" style="color: rgb(42, 125, 225);">Q.</span>
+                            <span class="c-application c-typography c-headline7 f-medium"
+                                  style="color: inherit;" th:text="${qna.qnaTitle}">
+                                        </span>
+                        </h2>
+                        <p class="c-application c-typography c-application c-content c-body1 c-content--body"
+                           style="color: rgb(32, 35, 37);" th:text="${qna.qnaContent}">
+                        </p>
+                        <div class="card-footer-container">
+                            <div class="card-action-container">
+<!--                                <div class="card-action-wrapper">-->
+<!--                                    <button class="c-application c-rating-button case-detail-like-button info"-->
+<!--                                            icon-name="IconLikeSmallLine" color="info">-->
+<!--                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="black"-->
+<!--                                             xmlns="http://www.w3.org/2000/svg" class="mr-4 c-application c-icon"-->
+<!--                                             style="fill: rgb(148, 155, 160);">-->
+<!--                                            <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                  d="M8 5.79179L7.16516 4.5257C6.75467 3.90318 6.05854 3.5 5.27273 3.5C4.02534 3.5 3 4.5219 3 5.8C3 6.46253 3.27323 7.21871 3.78425 8.03207C4.28965 8.8365 4.98019 9.62153 5.6981 10.3215C6.41239 11.0179 7.13067 11.6079 7.67232 12.0246C7.79109 12.116 7.90097 12.1988 8 12.2722C8.09904 12.1988 8.20892 12.116 8.32768 12.0246C8.86934 11.6079 9.58761 11.0179 10.3019 10.3215C11.0198 9.62153 11.7103 8.8365 12.2157 8.03207C12.7268 7.21871 13 6.46253 13 5.8C13 4.5219 11.9747 3.5 10.7273 3.5C9.94146 3.5 9.24533 3.90318 8.83485 4.5257L8 5.79179ZM8 13.5C8 13.5 2 9.5 2 5.8C2 3.97746 3.46525 2.5 5.27273 2.5C6.0432 2.5 6.75149 2.76846 7.31061 3.21768C7.57757 3.43217 7.81052 3.68786 8 3.97522C8.18948 3.68786 8.42244 3.43217 8.6894 3.21768C9.24851 2.76846 9.9568 2.5 10.7273 2.5C12.5348 2.5 14 3.97746 14 5.8C14 9.5 8 13.5 8 13.5Z">-->
+<!--                                            </path>-->
+<!--                                        </svg>-->
+<!--                                        <div class="c-application c-typography c-body2"-->
+<!--                                             style="color: rgb(148, 155, 160);">-->
+<!--                                            0-->
+<!--                                        </div>-->
+<!--                                        <hr class="c-application c-divider mx-12 line vertical #EAECEE"-->
+<!--                                            style="border-color: rgb(234, 236, 238); height: 12px;">-->
+<!--                                        <div class="answer-footer-action-wrapper">-->
+<!--                                        </div>-->
+<!--                                    </button>-->
+<!--                                    <button class="c-application c-rating-button case-detail-bookmark-button info"-->
+<!--                                            icon-name="IconBookmarkSmallLine" color="info">-->
+<!--                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="black"-->
+<!--                                             xmlns="http://www.w3.org/2000/svg" class="mr-4 c-application c-icon"-->
+<!--                                             style="fill: rgb(148, 155, 160);">-->
+<!--                                            <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                                  d="M12 3H4V12.5504L6.88646 10.6157C7.56015 10.1642 8.43985 10.1642 9.11354 10.6157L12 12.5504V3ZM4 2C3.44772 2 3 2.44772 3 3V13.4875C3 13.8874 3.44619 14.1255 3.77839 13.9028L7.44323 11.4464C7.78008 11.2206 8.21992 11.2206 8.55677 11.4464L12.2216 13.9028C12.5538 14.1255 13 13.8874 13 13.4875V3C13 2.44772 12.5523 2 12 2H4Z">-->
+<!--                                            </path>-->
+<!--                                        </svg>-->
+<!--&lt;!&ndash;                                        <div class="c-application c-typography c-body2"&ndash;&gt;-->
+<!--&lt;!&ndash;                                             style="color: rgb(148, 155, 160);">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            0&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </div>&ndash;&gt;-->
+<!--                                    </button>-->
+<!--                                </div>-->
+                            </div>
+                            <p class="c-application c-typography c-application c-content c-body2 c-content--caption"
+                               style="color: rgb(207, 212, 215);"
+                               th:text="${#strings.substring(qna.qnaRegisterDateTime, 0, 10)}">
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script th:inline="javascript">
+    let question = [[${question}]];
+    let answers = [[${answers}]];
+    let user = [[${user}]];
+    let replies = [[${replies}]];
+</script>
+<script src="/js/question-board/util.js"></script>
+<script src="/js/modal/modal.js"></script>
+<script src="/js/admin-page/menu.js"></script>
+<!--<script src="/js/department.js"></script>-->
+<!--<script src="/js/admin/detail.js"></script>-->
+</html>

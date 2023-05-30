@@ -166,11 +166,11 @@ input[type=checkbox] {
     width: 100%;
 }
 
-.btn-disabled{
+.btn-disabled.ok-button{
     border: 1px solid #e1e4e7;
     background-color: #f4f5f7;
     color: #adb5bd;
-
+    pointer-events: none;
     height: 40px;
     line-height: 38px;
     border-radius: 3px;
@@ -178,4 +178,17 @@ input[type=checkbox] {
     text-align: center;
     width: 150px;
     cursor: not-allowed;
+}
+
+.ok-button{
+    color: white;
+    border: 1px solid #e1e4e7;
+    background-color: #355184;
+    /*pointer-events: none;*/
+    height: 40px;
+    line-height: 38px;
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    width: 150px;
 }

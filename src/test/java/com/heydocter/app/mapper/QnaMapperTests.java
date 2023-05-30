@@ -57,7 +57,7 @@ public class QnaMapperTests {
 
     @Test
     public void deleteTest() {
-        qnaMapper.delete(13L);
+        qnaMapper.delete(43L);
 //        assertThat(qnaMapper.selectList(0)).hasSize(2);
     }
 }

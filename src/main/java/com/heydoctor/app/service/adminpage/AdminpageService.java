@@ -7,6 +7,7 @@ import com.heydoctor.app.domain.dto.Search;
 import com.heydoctor.app.domain.vo.QuestionVO;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 

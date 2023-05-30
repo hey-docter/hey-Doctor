@@ -10,3 +10,4 @@ $("a.change-page").on("click", function(e){
 //     // e.preventDefault();
 //     location.href = `/qna/admin`;
 // });
+

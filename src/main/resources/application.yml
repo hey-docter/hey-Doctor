@@ -3,6 +3,8 @@ server:
   servlet:
     session:
       tracking-modes: cookie
+#  tomcat:
+#    relaxed-path-chars
 
 spring:
   datasource:
@@ -21,3 +23,6 @@ spring:
   multipart:
 #    location: /Users/gimjin/Desktop/upload
     enabled: true
+
+
+

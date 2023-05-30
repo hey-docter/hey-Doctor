@@ -34,23 +34,51 @@ $arrows.eq(1).on('click', function() {
     $inquiriesList.slideToggle(300);
 })
 
-$(".delete-btn").on("click", function(){
-    // e.preventDefault();
 
-});
 
 function deleteRow() {
     document.querySelectorAll('input[name=check]:checked').forEach(e => {
         e.parentNode.parentNode.remove()
     });
 }
-// $deleteBtn.click(function() {
-//
-//     $("tr").each(function() {
-//         if($("input[name=check]").is(":checked")){
-//             deleteQna($(this).find("td.noticeId").val());
-//         }
-//     });
-// });
 
+//삭제
 
+$(".delete-btn").on("click", function(e){
+    // e.preventDefault();
+    let questionId =[];
+    $('input:checked').not('.all').parents("tr").each(function() {
+        questionId.push($(this).find(".noticeId").html());
+    });
+    $.ajax({
+        url: `/admin/delete?questionId=${questionId}`,
+        type: "GET",
+        success: function() {
+            console.log("성공적으로 삭제되었습니다.");
+        }, error: function(){
+            console.log("삭제 실패하였습니다.");
+            Location.reload();
+        }
+    });
+    // history.go(0);
+    // location.href = `/admin/delete?questionId=${deleteList}`;
+    location.reload(true);
+});
+
+// checkbox
+
+$("#select-all").click(function() {
+    if($("#select-all").is(":checked")) $("input[name=check]").prop("checked", true);
+    else $("input[name=check]").prop("checked", false);
+});
+
+$("input.box").click(function() {
+    console.log("ibn");
+    var total = $("input[name=check]").length;
+    var checked = $("input[name=check]:checked").length;
+
+    if(total != checked) $("#select-all").prop("checked", false);
+    else $("#select-all").prop("checked", true);
+});
+
+const pageButton = $(".page-button");

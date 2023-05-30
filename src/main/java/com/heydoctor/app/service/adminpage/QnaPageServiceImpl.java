@@ -5,6 +5,7 @@ import com.heydoctor.app.dao.QnaDAO;
 import com.heydoctor.app.dao.ReplyDAO;
 import com.heydoctor.app.domain.dto.Pagination;
 import com.heydoctor.app.domain.dto.QnaDTO;
+import com.heydoctor.app.domain.dto.QuestionListDTO;
 import com.heydoctor.app.domain.dto.Search;
 import com.heydoctor.app.domain.vo.QnaVO;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +32,12 @@ public class QnaPageServiceImpl implements QnaPageService{
     @Override
     @Transactional(rollbackFor = Exception.class)
     public List<QnaDTO> getList(Pagination pagination, Search search) {
-        return qnaDAO.getAll(pagination, search);
+        //        게시글 전체 목록
+        pagination.getPage();
+        final List<QnaDTO> qnas = qnaDAO.getAll(pagination, search);
+//        게시글 하나씩 첨부파일 목록 담기
+//        qnas.forEach(qna -> qna.setFiles(qnaDAO.getAll(qna.getQnaId())));
+        return qnas;
     }
 
     @Override
@@ -45,8 +51,8 @@ public class QnaPageServiceImpl implements QnaPageService{
     @Transactional(rollbackFor = Exception.class)
     public void deleteQna(List<Long> qnaId) {
         qnaId.forEach(qna -> {
-            fileDAO.deleteAll(qna);
-            replyDAO.deleteAll(qna);
+//            fileDAO.deleteAll(qna);
+//            replyDAO.deleteAll(qna);
             qnaDAO.deleteQna(qna);
         });
     }
