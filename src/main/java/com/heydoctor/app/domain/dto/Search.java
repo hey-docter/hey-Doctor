@@ -15,10 +15,4 @@ public class Search {
         this.keyword = keyword;
     }
 
-    String type;
-    String order;
-    public String[] getTypes() {
-        return type.split("");
-    }
-
 }

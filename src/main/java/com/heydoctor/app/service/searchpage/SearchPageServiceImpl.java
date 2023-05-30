@@ -3,6 +3,7 @@ package com.heydoctor.app.service.searchpage;
 import com.heydoctor.app.dao.SearchDAO;
 import com.heydoctor.app.domain.dto.QuestionDTO;
 import com.heydoctor.app.domain.dto.Search;
+import com.heydoctor.app.domain.vo.BookReqeustVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,15 @@ public class SearchPageServiceImpl implements SearchPageService {
     @Override
     public List<QuestionDTO> getQuestion() {
         return searchDAO.findQuestion();
+    }
+
+    @Override
+    public List<BookReqeustVO> getBookList(Search search) {
+        return searchDAO.findBook(search);
+    }
+
+    @Override
+    public int getTotal(Search search) {
+        return searchDAO.findCount(search);
     }
 }
