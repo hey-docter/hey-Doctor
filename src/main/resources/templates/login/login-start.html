@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="/css/login-page/login-start.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="/css/main-page/header.css">
-    <title>로그인 메뉴</title>
+    <title>헤이닥터 로그인</title>
+    <style>
+        a > div > button {
+            border: 0px white;
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
 <header th:replace="~{/main-page/header :: #post-header}"></header>
@@ -49,6 +55,8 @@
                                         </a>
                                     </div>
                                 </form>
+                                <!-- //네이버 로그인 버튼 노출 영역 -->
+                                <div id="naver_id_login" class="show2"></div>
 
                                 <!-- 네이버 로그인 버튼 노출 영역 -->
                                 <div class="register-button c-pointer full naver show1" onclick="location.href='https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=0QEJy5lMTxel75jSVhqm&redirect_uri=http%3A%2F%2Flocalhost%3A10000%2Flogin%2Fnaver&state=84966d20-cb02-4435-abb3-68945bedc582'">
@@ -60,8 +68,6 @@
                                     </div>
                                 </div>
 
-                                <!-- //네이버 로그인 버튼 노출 영역 -->
-                                <div id="naver_id_login" class="show2"></div>
 
                             </div>
                             <div>
@@ -89,20 +95,7 @@
         </div>
     </div>
 
-<div id="naver_id_login" class="show2"></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-    var naver_id_login = new naver_id_login("0QEJy5lMTxel75jSVhqm", "http://localhost:10000/login/naver");
-    var state = naver_id_login.getUniqState();
-    naver_id_login.setButton("white", 3,48);
-    naver_id_login.setDomain("http://localhost:10000/");
-    naver_id_login.setState(state);
-    naver_id_login.init_naver_id_login();
-
-    $(document).ready(function() {
-        $('.show2').hide(); //페이지를 로드할 때 숨길 요소
-    });
-</script>
+<script src="/js/login/naver.js"></script>
 </html>

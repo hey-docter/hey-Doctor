@@ -1,31 +1,31 @@
 
 $(document).ready(function(){
     const $ul = $("#content-wrap tbody");
-    $("#content-wrap tbody").html("hello");
+    // $("#content-wrap tbody").html("hello");
     let text = "";
     questions.forEach(question => {
         console.log(question.userName);
         text += `
-                    <a href="javascript:void(0)">
-                    
+                    <a href="/question-board/detail?questionId=${question.questionId}">
                         <tr>
-                            <td class="checkbox-line"><input type="checkbox" name="check"></td>
+                            <td class="checkbox-line"><input type="checkbox" name="check" class="box"></td>
                             <td class="noticeId">${question.questionId}</td>
-                            <td>
-                                <a href="">${question.questionTitle}</a>
-                            </td>
+                            <td><a href="/question-board/detail?questionId=${question.questionId}">${question.questionTitle}</a></td>
                             <td>${question.userName}</td>
                             <td>${question.questionRegisterDatetime}</td>
                          </tr>
+                    </a>
         `
+
         // questions.files.forEach(file => {
         //     if(file.fileType == "REPRESENTATIVE"){
         //         text += `<img src="/files/display?fileName=${file.filePath}/t_${file.fileUuid}_${file.fileName}" class="preview">`;
         //     }
         // })
 
+
         text += `
-                    </a>
+                    
             
         `
     });
@@ -41,3 +41,9 @@ $(document).ready(function(){
 //
 //     </tr>
 
+//
+// function view(){
+//     $('#content-wrap tr').click(function() {
+//         window.location = 'http://location/here';
+//     });
+// }

@@ -13,7 +13,13 @@
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <title>회원가입</title>
+    <title>헤이닥터 회원가입</title>
+    <style>
+        a > div > button {
+            border: 0px white;
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
 <header th:replace="~{/main-page/header :: #post-header}"></header>
@@ -52,6 +58,8 @@
                                     </a>
                                 </div>
                             </form>
+                            <!-- 카카오 로그아웃 -->
+<!--                            <a href="https://kauth.kakao.com/oauth/logout?client_id=76a60ca6aa2dea1ac80cdec7ec6060b5&logout_redirect_uri=http://localhost:10000/logout/kakao">카카오 로그아웃</a>-->
                             <!-- 네이버 로그인 버튼 노출 영역 -->
                             <div class="register-button c-pointer full naver show1" onclick="location.href='https://nid.naver.com/oauth2.0/authorize?response_type=token&client_id=0QEJy5lMTxel75jSVhqm&redirect_uri=http%3A%2F%2Flocalhost%3A10000%2Flogin%2Fnaver&state=84966d20-cb02-4435-abb3-68945bedc582'">
                                 <div class="register-button-icon">
@@ -64,8 +72,7 @@
                                 <!-- //네이버 로그인 버튼 노출 영역 -->
                             <div id="naver_id_login" class="show2"></div>
                         </div>
-                        <a href="https://kauth.kakao.com/oauth/logout?client_id=76a60ca6aa2dea1ac80cdec7ec6060b5&logout_redirect_uri=http://localhost:10000/logout/kakao">카카오 로그아웃</a>
-                        <a th:href="@{/logout/naver}">네이버 로그아웃</a>
+
 
                         <div>
                             <p class="c-application c-typography agreement-wrapper mb-8 c-caption1" style="color: rgb(173, 179, 184); text-align: center;">
@@ -242,19 +249,7 @@
 <script src="/js/login/disabled.js"></script>
 <script src="/js/login/validation.js"></script>
 <script src="/js/login/enter.js"></script>
-
-<script type="text/javascript">
-    var naver_id_login = new naver_id_login("0QEJy5lMTxel75jSVhqm", "http://localhost:10000/login/naver");
-    var state = naver_id_login.getUniqState();
-    naver_id_login.setButton("white", 3,48);
-    naver_id_login.setDomain("http://localhost:10000/");
-    naver_id_login.setState(state);
-    naver_id_login.init_naver_id_login();
-
-    $(document).ready(function() {
-        $('.show2').hide(); //페이지를 로드할 때 숨길 요소
-        });
-</script>
+<script src="/js/login/naver.js"></script>
 
 
 </html>

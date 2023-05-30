@@ -1,10 +1,18 @@
 let page = 0;
+let isListRemains = false;
 
 const $buttons = $('div.type-wrapper .c-tabs--menu-button');
 const $listContainer = $('.case-list-card-section');
 const $loading = $('.loading-items');
 const $noneItems = $('.none-items');
 const $qButtons = $('.q-button');
+
+$(window).scroll(function(){
+    if (Math.ceil(window.innerHeight + window.scrollY) >= document.body.scrollHeight && isListRemains) {
+        let type = $('.active').text().trim();
+        getList(type, ++page, showList, false);
+    }
+});
 
 $qButtons.each((_, btn) => $(btn).on('click', function (e) {
     e.preventDefault();
@@ -28,20 +36,19 @@ $buttons.each((i, button) => {
 
 $(document).ready(() => getList(ALL.eng, page, showList));
 
-$loading.on('click', function () {
-    let type = $('div.c-tabs--menu-button.active').text().trim();
-    console.log(type);
-    getList(type, ++page, showList, false);
-});
+// $loading.on('click', function () {
+//     let type = $('div.c-tabs--menu-button.active').text().trim();
+//     console.log(type);
+//     getList(type, ++page, showList, false);
+// });
 
-function getList(type, page, onGet, doInit) {
-    let department = getDepartment(type);
+function getList(departmentType, page, onGet, doInit) {
+    let department = getDepartment(departmentType);
     $.ajax({
         url: `/question-board/question/list/${page}/${department.eng}`,
         type: "post",
         success: function(newQuestions) {
             if(onGet) {
-                console.log(newQuestions);
                 onGet(newQuestions, doInit);
             }
         }
@@ -63,8 +70,11 @@ function showList(showQuestions, doInit) {
 
     // 2. listing
     showQuestions.forEach((question, i) => {
-        if(i > 9) $loading.show();
-        else {
+        if(i > 9) {
+            isListRemains = true;
+            $loading.show();
+        } else {
+            isListRemains = false;
             $loading.hide();
             text += `
                 <a href="/question-board/detail?questionId=${question.questionId}">
@@ -144,7 +154,7 @@ function showList(showQuestions, doInit) {
                                     </div>
                                     <p class="c-application c-typography c-application c-content c-body2 c-content--caption float-right-date"
                                         style="color: rgb(207, 212, 215);">
-                                        ${elapsedTime(question.questionRegisterDatetime.substring(0, 10))}
+                                        ${elapsedTime(question.questionRegisterDatetime)}
                                     </p>
                                 </div>
                             </div>

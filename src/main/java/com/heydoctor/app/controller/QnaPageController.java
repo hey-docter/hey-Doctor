@@ -1,11 +1,11 @@
 package com.heydoctor.app.controller;
 
-import com.heydoctor.app.domain.dto.Pagination;
-import com.heydoctor.app.domain.dto.QnaDTO;
-import com.heydoctor.app.domain.dto.Search;
+import com.heydoctor.app.domain.dto.*;
 import com.heydoctor.app.domain.vo.QnaVO;
 import com.heydoctor.app.domain.vo.QuestionVO;
+import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.mapper.QnaMapper;
+import com.heydoctor.app.mapper.UserMapper;
 import com.heydoctor.app.service.adminpage.QnaPageService;
 import com.heydoctor.app.service.loginpage.LoginPageService;
 import lombok.RequiredArgsConstructor;
@@ -16,11 +16,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -30,7 +32,7 @@ import java.util.Optional;
 public class QnaPageController {
     private final QnaPageService qnaService;
     private final LoginPageService loginPageService;
-
+    private final UserMapper userMapper;
     //문의글 전체 목록
     @GetMapping("admin")
     public String list(Pagination pagination, HttpSession session, Search search, Model model){
@@ -68,13 +70,33 @@ public class QnaPageController {
 //    }
 //
 //    상세보기
-    @GetMapping("read")
-    public void read(Long id, Model model){
-        model.addAttribute("qnaId", qnaService.read(id));
+//    public String read(@RequestParam Long qnaId, Model model){
+////        model.addAttribute("qnaId", qnaService.read(id));
+//        model.addAttribute("qnaId", qnaService.read(id).get());
+//        return "/question-board/detail";
+//    }
+    @GetMapping("qna-detail")
+    public String read(@RequestParam Long qnaId, Model model){
+//        Optional.ofNullable(questionId).flatMap(adminpageService::read).ifPresent(questionDTO -> {
+//            model.addAttribute("question", questionDTO);
+////            model.addAttribute("bookmarkedCount", bookmarkedCount);
+//        });
+        Long userId = 1L;
+        Optional.ofNullable(qnaId).flatMap(qnaService::read).ifPresent(qnaDTO -> {
+//            List<AnswerDTO> answers = answerService.getAllAnswer(questionId);
+//            List<ReplyDTO> replies = replyService.getAllReplyDTO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
+            UserVO userVO = /*WIP*/userMapper.selectById(userId).get()/*session.getAttribute("user")*/ ;
+            model.addAttribute("qna", qnaService.read(qnaId).get());
+            model.addAttribute("qnaId", qnaDTO);
+            model.addAttribute("user", userVO);
+//            model.addAttribute("answers", answers);
+//            model.addAttribute("replies", replies);
+        });
+        return "/admin-page/qna-detail";
     }
 
-    @PostMapping("delete")
-    public RedirectView delete(List<Long> qnaId){
+    @GetMapping("delete")
+    public RedirectView delete(@RequestParam List<Long> qnaId){
         qnaService.deleteQna(qnaId);
         return new RedirectView("/admin-page/admin");
     }

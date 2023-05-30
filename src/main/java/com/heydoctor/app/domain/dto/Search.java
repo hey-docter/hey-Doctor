@@ -14,4 +14,5 @@ public class Search {
     public Search(String keyword) {
         this.keyword = keyword;
     }
+
 }

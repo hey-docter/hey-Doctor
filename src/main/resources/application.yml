@@ -3,6 +3,8 @@ server:
   servlet:
     session:
       tracking-modes: cookie
+#  tomcat:
+#    relaxed-path-chars
 
 spring:
   datasource:
@@ -15,3 +17,12 @@ spring:
   servlet:
     multipart:
       enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  multipart:
+#    location: /Users/gimjin/Desktop/upload
+    enabled: true
+
+
+

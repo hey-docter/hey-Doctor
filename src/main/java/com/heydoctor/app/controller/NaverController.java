@@ -42,7 +42,7 @@ public class NaverController {
                 Optional<UserVO> newid = loginPageService.checkEmail(email);
                 session.setAttribute("id", newid.get().getUserId());
                 log.info("로그인되면서 업데이트됨");
-                log.info("세션: {}", newid.get().getUserId());
+                log.info("세션1: {}", newid.get().getUserId());
                 return "/main-page/main-page";
             }
         }
@@ -52,9 +52,10 @@ public class NaverController {
         userVO.setUserPassword(id);
         userVO.setUserName(name);
         loginPageService.join(userVO);
-        Optional<UserVO> newid2 = loginPageService.checkEmail(email);
-        session.setAttribute("id",newid2.get().getUserId());
+        Optional<UserVO> newid = loginPageService.checkEmail(email);
+        session.setAttribute("id", newid.get().getUserId());
         log.info("회원가입됨");
+        log.info("세션1: {}", newid.get().getUserId());
         return "/main-page/main-page";
     }
 

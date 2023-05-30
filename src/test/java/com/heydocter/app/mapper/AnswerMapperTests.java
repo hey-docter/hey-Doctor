@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -34,7 +35,7 @@ public class AnswerMapperTests {
         answerVO.setAnswerIsPublic(true);
         answerVO.setQuestionId(6L);
         answerVO.setAnswerTitle("test title1");
-        answerVO.setAnswerLikeCount(3);
+//        answerVO.setAnswerLikeCount(3);
         answerVO.setDoctorDepartmentType(DepartmentType.ENT_CLINIC.name());
         answerVO.setHospitalName("test hospital1");
         answerVO.setDoctorName("test doctor");
@@ -47,7 +48,7 @@ public class AnswerMapperTests {
         answerVO.setAnswerIsPublic(true);
         answerVO.setQuestionId(8L);
         answerVO.setAnswerTitle("test title1");
-        answerVO.setAnswerLikeCount(3);
+//        answerVO.setAnswerLikeCount(3);
         answerVO.setDoctorDepartmentType(DepartmentType.ENT_CLINIC.name());
         answerVO.setHospitalName("test hospital1");
         answerVO.setUserId(1L);
@@ -59,7 +60,7 @@ public class AnswerMapperTests {
         answerVO.setAnswerIsPublic(true);
         answerVO.setQuestionId(9L);
         answerVO.setAnswerTitle("test title1");
-        answerVO.setAnswerLikeCount(3);
+//        answerVO.setAnswerLikeCount(3);
         answerVO.setDoctorDepartmentType(DepartmentType.ENT_CLINIC.name());
         answerVO.setHospitalName("test hospital1");
         answerVO.setUserId(1L);
@@ -69,8 +70,13 @@ public class AnswerMapperTests {
     }
 
     @Test
+    public void selectTest() {
+        log.info(answerMapper.select(66L).toString());
+    }
+
+    @Test
     public void selectByQuestionIdsTest() {
-        assertThat(answerMapper.selectByQuestionId(6L).size()).isEqualTo(2);
+        assertThat(answerMapper.selectByQuestionId(1, 6L).size()).isEqualTo(2);
     }
 
     @Test

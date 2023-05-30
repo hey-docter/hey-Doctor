@@ -51,8 +51,23 @@
             </div>
             <form class="main-container">
                 <section class="top-line">
-<!--                    <a th:href="@{/qna/delete(qnaId=*{qnaId})}" class="delete">-->
-                        <button type="button" class="delete-btn">삭제</button>
+<!--                    th:href="@{/admin/delete(questionId=*{questionId})}"-->
+
+<!--                    <script th:inline="javascript">-->
+<!--                        let $list = $(.test);-->
+<!--                        let deleteList =[];-->
+<!--                        $('input:checked').not('.all').parents("tr").each(function() {-->
+<!--                            deleteList.push($(this).find(".noticeId").html());-->
+<!--                        });-->
+<!--                        $list.html(deleteList);-->
+<!--                    </script>-->
+                    <div class="test">
+                        <input type="hidden" name="${_csrf.questionId}" value="${_csrf.token}" />
+
+                    </div>
+<!--                    <h6 class="info">delete test<br><th:block th:text="${questionId}"></th:block></h6>-->
+<!--                    <a th:href="@{/admin/delete(questionId=*{questionId})}" class="delete">-->
+                        <a class="delete-btn">삭제</a>
 <!--                    </a>-->
                 </section>
                 <article id="info-container">
@@ -64,7 +79,6 @@
                 </article>
                 <div id="content">
                     <table id="content-wrap">
-                        <ul></ul>
                         <thead>
                             <th><input type="checkbox" class="check-top" id="select-all"></th>
                             <th>IDX</th>

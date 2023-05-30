@@ -28,4 +28,5 @@ public interface UserMapper {
 
     // 네이버 값 변경
     public void naverUpdate(UserVO userVO);
+
 }

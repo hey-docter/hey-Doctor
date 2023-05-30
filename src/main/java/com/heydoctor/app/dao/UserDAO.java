@@ -3,14 +3,18 @@ package com.heydoctor.app.dao;
 import com.heydoctor.app.domain.vo.UserVO;
 import com.heydoctor.app.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
 public class UserDAO {
+
     private final UserMapper userMapper;
+    private final SqlSession sqlSession;
 
     //    아이디 중복검사
     public Optional<UserVO> findByUserEmail(String userEmail){
@@ -36,5 +40,4 @@ public class UserDAO {
     public void saveKakao(UserVO userVO) {
         userMapper.insert(userVO);
     }
-
 }
