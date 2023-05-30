@@ -50,16 +50,19 @@
             </div>
             <form class="main-container">
                 <section class="top-line">
-                    <button type="button" class="delete-btn">삭제</button>
+                    <a class="delete-btn">삭제</a>
                 </section>
+                <article id="info-container">
+                    <h6 class="info">게시글 목록<br><th:block th:text="${pagination.total} + '개'"></th:block></h6>
+                </article>
                 <div id="content">
-                    <table border="1" id="content-wrap">
+                    <table id="content-wrap">
                         <thead>
                             <th><input type="checkbox" class="check-top"></th>
                             <th>IDX</th>
                             <th>제목</th>
-                            <th>작성일</th>
                             <th>작성자</th>
+                            <th>작성일</th>
                             <th>답변여부</th>
                         </thead>
                         <tbody></tbody>
@@ -84,6 +87,7 @@
 <script src="/js/admin/paging.js"></script>
 <script th:inline="javascript">
     let qnas = [[${qnas}]];
+    let nowPage = [[${pagination}]];
     console.log(qnas);
 </script>
 </html>

@@ -51,8 +51,8 @@ public class QnaPageServiceImpl implements QnaPageService{
     @Transactional(rollbackFor = Exception.class)
     public void deleteQna(List<Long> qnaId) {
         qnaId.forEach(qna -> {
-            fileDAO.deleteAll(qna);
-            replyDAO.deleteAll(qna);
+//            fileDAO.deleteAll(qna);
+//            replyDAO.deleteAll(qna);
             qnaDAO.deleteQna(qna);
         });
     }

@@ -8,16 +8,16 @@ $(document).ready(function(){
     qnas.forEach(qna => {
         console.log(qna);
         text += `
-                    <a href="javascript:void(0)">
+                    <a href="/qna/qna-detail?qnaId=${qna.qnaId}">
                         <tr class="row">
                             <td class="checkbox-line"><input type="checkbox" name="qnaId"></td>
                             <td class="noticeId">${qna.qnaId}</td>
                             <td>
-                                <a href="">${qna.qnaTitle}</a>
+                                <a href="/qna/qna-detail?qnaId=${qna.qnaId}">${qna.qnaTitle}</a>
                             </td>
                             <td>${qna.userName}</td>
                             <td>${qna.qnaRegisterDateTime}</td>
-                            <td class="answerCheck">미답</td>
+                            <td class="answerCheck">미답변</td>
                          </tr>
         `
         // questions.files.forEach(file => {

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -49,7 +50,7 @@ public class AdminpageServiceImpl implements AdminpageService {
     @Transactional(rollbackFor = Exception.class)
     public void delete(List<Long> questionId) {
         questionId.forEach(question -> {
-            fileDAO.deleteAll(question);
+//            fileDAO.deleteAll(question);
             replyDAO.deleteAll(question);
             adminDAO.delete(question);
         });

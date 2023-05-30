@@ -1,9 +1,12 @@
 package com.heydoctor.app.controller;
 
-import com.heydoctor.app.domain.dto.Pagination;
-import com.heydoctor.app.domain.dto.QuestionListDTO;
-import com.heydoctor.app.domain.dto.Search;
+import com.heydoctor.app.domain.dto.*;
+import com.heydoctor.app.domain.vo.UserVO;
+import com.heydoctor.app.mapper.UserMapper;
 import com.heydoctor.app.service.adminpage.AdminpageService;
+import com.heydoctor.app.service.question.AnswerService;
+import com.heydoctor.app.service.question.QuestionService;
+import com.heydoctor.app.service.question.ReplyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,6 +21,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -26,12 +30,29 @@ import java.util.Optional;
 @RequestMapping("/admin/*")
 public class AdminpageController {
     private final AdminpageService adminpageService;
+    private final QuestionService questionService;
+    private final AnswerService answerService;
+    private final ReplyService replyService;
+    private final UserMapper userMapper;
 
     @GetMapping("board-detail")
     public void read(@RequestParam Long questionId, Model model){
-        Optional.ofNullable(questionId).flatMap(adminpageService::read).ifPresent(questionDTO -> {
+//        Optional.ofNullable(questionId).flatMap(adminpageService::read).ifPresent(questionDTO -> {
+//            model.addAttribute("question", questionDTO);
+////            model.addAttribute("bookmarkedCount", bookmarkedCount);
+//        });
+        Long userId = 1L;
+        Optional.ofNullable(questionId).flatMap(questionService::read).ifPresent(questionDTO -> {
+            List<AnswerDTO> answers = answerService.getAllAnswer(0, questionId);
+            List<ReplyDTO> replies = replyService.getAllReplyDTO(answers.stream().map(AnswerDTO::getAnswerId).collect(Collectors.toList()));
+            UserVO userVO = /*WIP*/userMapper.selectById(userId).get()/*session.getAttribute("user")*/ ;
+            Integer answerCount = answerService.getCount(questionId);
+
             model.addAttribute("question", questionDTO);
-//            model.addAttribute("bookmarkedCount", bookmarkedCount);
+            model.addAttribute("user", userVO);
+            model.addAttribute("answers", answers);
+            model.addAttribute("replies", replies);
+            model.addAttribute("answerCount", answerCount);
         });
     }
 
@@ -52,8 +73,8 @@ public class AdminpageController {
     }
 
 //
-    @PostMapping("delete")
-    public RedirectView delete(List<Long> questionId, Model model){
+    @GetMapping("delete")
+    public RedirectView delete(@RequestParam List<Long> questionId, Model model){
         adminpageService.delete(questionId);
         return new RedirectView("/admin-page/admin-board-list");
     }
