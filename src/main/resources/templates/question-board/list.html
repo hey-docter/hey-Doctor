@@ -2,14 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleag.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"/>
     <link rel="stylesheet" href="/css/question-board/question-board-view.css">
     <link rel="stylesheet" href="/css/main-page/header.css">
     <link rel="stylesheet" href="/css/main-page/footer.css">
-    <title>Title</title>
+    <title>헤이닥터</title>
 </head>
-
 <body>
     <div id="__nuxt">
         <div id="__layout">
@@ -102,8 +100,14 @@
                     </div>
                 </div>
             </div>
+            <div class="modal">
+                <div class="warn-modal">
+                    <div id="content-wrap"></div>
+                </div>
+            </div>
             <div id="main-grid" class="c-application c-new-grid main-grid-component fluid"
                 style="min-height: calc(100vh - 324px);">
+
                 <div class="c-application c-new-row">
                     <div class="c-application c-new-col new-col-sm-12 new-col-lg-12 no-gutters">
                         <div class="c-application c-new-grid community-list-nuxt-container container" style="background-color: inherit; margin-top: 80px;">
@@ -232,45 +236,6 @@
                                                 질문하기
                                                 <div class="c-button--icon"></div>
                                             </button>
-                                            <div class="action-button-container">
-                                                <a href="https://comento.kr/request/essay" target="_self"
-                                                    style="flex: 1 1 118px;">
-                                                    <div class="c-application c-box action-button c-box--has-border"
-                                                        style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
-                                                        <div class="c-application c-typography c-caption1"
-                                                            style="color: rgb(89, 95, 99);">
-                                                            자기소개서 첨삭
-                                                        </div>
-                                                    </div>
-                                                </a><a href="https://comento.kr/request/interview" target="_self"
-                                                    style="flex: 1 1 118px;">
-                                                    <div class="c-application c-box action-button c-box--has-border"
-                                                        style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
-                                                        <div class="c-application c-typography c-caption1"
-                                                            style="color: rgb(89, 95, 99);">
-                                                            면접 준비
-                                                        </div>
-                                                    </div>
-                                                </a><a href="https://comento.kr/analytics" target="_self"
-                                                    style="flex: 1 1 118px;">
-                                                    <div class="c-application c-box action-button c-box--has-border"
-                                                        style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
-                                                        <div class="c-application c-typography c-caption1"
-                                                            style="color: rgb(89, 95, 99);">
-                                                            AI 자소서 분석기
-                                                        </div>
-                                                    </div>
-                                                </a><a href="https://comento.kr/essay/tutorial" target="_self"
-                                                    style="flex: 1 1 118px;">
-                                                    <div class="c-application c-box action-button c-box--has-border"
-                                                        style="background-color: rgb(252, 252, 252); border-color: rgb(243, 244, 245); padding: 12px 0px;">
-                                                        <div class="c-application c-typography c-caption1"
-                                                            style="color: rgb(89, 95, 99);">
-                                                            자소서 튜토리얼
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
                                         </div>
                                         <div class="pt-seoul-woman-up-banner mt-24"><img
                                                 src="https://cdn.comento.kr/images/banner/banner-ybm.png"
@@ -301,4 +266,10 @@
 <script src="/js/department.js"></script>
 <script src="/js/question-board/util.js"></script>
 <script src="/js/question-board/question-board-view.js"></script>
+<script>
+    $("a.service-block").on('click', function (e) {
+        e.preventDefault();
+        showWarnModal("서비스 준비 중 입니다.");
+    })
+</script>
 </html>

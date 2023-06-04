@@ -173,6 +173,8 @@ hr {
     display: -webkit-box!important;
     display: -ms-flexbox!important;
     display: flex!important;
+
+    height: 60px;
 }
 
 h1{
